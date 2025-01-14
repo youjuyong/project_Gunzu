@@ -1,13 +1,30 @@
-import react         from "react";
-import {Link}        from "react-router-dom";
-import {headerNavInfo} from "../utils/ContextList";
+import react from "react";
+import { Link             } from "react-router-dom";
+import { headerNavInfo    } from "../utils/ContextList";
+import { useEffect        } from "react";
 
 const Header = () => {
 
-            
+    useEffect(() => {
+        const mainMenu = document.querySelector('.header__inner__section'),
+              subMenu  = document.querySelector('.sub-menu-wrap');
+        
+        mainMenu && mainMenu.addEventListener('mouseover', () => {
+            subMenu.classList.add('sub-menu-hover');
+        });
+
+        mainMenu && mainMenu.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                subMenu.classList.remove('sub-menu-hover');
+            });
+        });
+        
+
+    },[]);
+
     return (
          <>
-            <header id="header" role="banner">
+            <header id="header" role="banner" className='headerMain'>
                 <div className="header__inner__section">
                     <div className="header__logo">
                         <h1>
@@ -15,17 +32,40 @@ const Header = () => {
                         </h1>
                     </div>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
-                        <ul>
+                        <ul className="header__nav_menu">
                             {
                                 headerNavInfo.map(( info, index ) => {
                                     const { url, title } = info;
                                     return (
-                                        <li key={index}><Link to={url} className="tab gmarket">{title}</Link></li>
+                                        <li key={ index }><Link to={ url } className="tab snans">{ title }</Link></li>
                                     )
                                 })
                             }
                         </ul>
                     </nav>
+                    <div className="sub-menu-wrap">
+                        <div className="sub-menu">
+                            {
+                                headerNavInfo.map(( info, index ) => {
+                                    const { subMenu } = info;
+                                    return (
+                                      <div key= {'div' + index }>
+                                          <ul key= {'ul' + index }>
+                                             {
+                                               subMenu && subMenu.map(( subInfo, subIndex ) => {
+                                                   const { subTitle, subUrl } = subInfo;
+                                                   return ( 
+                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } className="tab subheader snans">{ subTitle }</Link></li> 
+                                                    )
+                                                })
+                                             }
+                                          </ul>
+                                      </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
                 </div>
             </header>
         </>

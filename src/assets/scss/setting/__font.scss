@@ -1,10 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://websfont.github.io/nanumSquareNeo/nanumSquareNeo.css");
-@import url("https://websfont.github.io/gmarket/gmarket.cs");
+@font-face {
+    font-family   : 'Noto Sans KR';
+    font-style    : normal;
+    font-weight   : 300;
+    src           : url(../../font/NotoSansKR-Light.woff2) format('woff2')
+                  , url(../../font/NotoSansKR-Light.woff) format('woff')
+                  , url(../../font/NotoSansKR-Light.otf) format('opentype');
+}
 
+@font-face {
+    font-family   : 'Noto Sans KR';
+    font-style    : normal;
+    font-weight   : 400;
+    src           : url(../../font/NotoSansKR-Regular.woff2) format('woff2')
+                  , url(../../font/NotoSansKR-Regular.woff) format('woff')
+                  , url(../../font/NotoSansKR-Regular.otf) format('opentype');
+}
+    
+@font-face {
+    font-family   : 'Noto Sans KR';
+    font-style    : normal;
+    font-weight   : 700;
+    src           : url(../../font/NotoSansKR-Bold.woff2) format('woff2')
+                  , url(../../font/NotoSansKR-Bold.woff) format('woff')
+                  , url(../../font/NotoSansKR-Bold.otf) format('opentype');
+    }
+    
 .mont {
     font-family: "Montserrat";
 }
-.gmarket {
-    font-family: 'nanumSquareNeo';
+.nanum {
+    font-family: "nanumSquareNeo";
+}
+.snans {
+    font-family: 'Noto Sans KR', sans-serif,'돋움';
 }
