@@ -70,9 +70,18 @@ article {
     display: block;
 }
 
+section {
+    width : 100%;
+}
+
 .bodyArticle {
     position: absolute;
     width: 100%;
     top:104px;
     bottom:0;
+}
+
+main {
+    display : block;
+    unicode-bidi: isolate;
 }
