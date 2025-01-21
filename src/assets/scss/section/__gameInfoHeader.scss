@@ -4,24 +4,23 @@
     justify-content : center;
 
     .gameInfoButton {
-        margin-left: 10px;
-        margin-right : 10px;
-        font-weight: 800;
+        margin-left     : 10px;
+        margin-right    : 10px;
+        font-weight     : 800;
     }
 
     a {
-        overflow: hidden;
+        overflow        : hidden;
         position        : relative;
         text-decoration : 0;
         display         : block;
         width           : 240px;
-        line-height     : 80px;
+        line-height     : 64px;
         text-align      : center;
         color           : #fff;
-        background-color: #121212;
-        border          : .15em solid var(--black);
+        background-color: var(--black200);
         border-color    : #fff;
-        border-radius   : 3px;
+        border-radius   : 5px;
     }
 
     .click {

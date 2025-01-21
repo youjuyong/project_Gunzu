@@ -1,5 +1,9 @@
 #footer {
-    background   : #3f4144;
+    background   : var(--footerBg-Color);
     position     : relative;
-    padding: 45px 0;
+    padding      : 45px 0;
+    color        : var(--footer-Color);
+    font-size    : 15px;
+    text-align   : center;
+    line-height  : 30px;
 }

@@ -1,0 +1,1 @@
+export const API_IP_INFO = "http://127.0.0.1:28080";

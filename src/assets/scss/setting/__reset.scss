@@ -4,6 +4,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin :0;
+    padding : 0;
 }
 
 // 공백 초기화
@@ -37,6 +39,13 @@ figcaption {
     padding: 0;
 }
 
+html,
+body, 
+div, 
+input, 
+select, p, dl, dt, dd, ul, li, ol, h1, h2, h3, h4, h5, h6, button, a, span, table, thead, tbody, td, th,textarea, img, label, section, article, header, footer{box-sizing: border-box;}
+
+
 h1,
 h2,
 h3,
@@ -48,7 +57,8 @@ h6{
 
 em,
 address {
-    font-weight: normal;
+    font-weight : normal;
+    font-style  : normal;
 }
 
 // 링크 초기화
@@ -81,4 +91,83 @@ main {
 
 footer {
     width        : 100%;
+}
+
+select {
+    width         : 100px;
+    padding       : 5px;
+    border        : 1px solid #999;
+    font-family   : 'NanumGothic';
+    border-radius : 3px;
+}
+
+table {
+    border-collapse : collapse;
+    width       : 100%;
+    font-size   : 12px;
+}
+
+caption {
+    display       : none;
+}
+
+.table tbody tr {
+    border-bottom : 1px solid #ebebeb;
+}
+
+table td {
+    text-align  : left;
+}
+
+table thead {
+    border-bottom : 1px solid;
+}
+
+input[type=text] {
+    text-align     : center;
+    vertical-align : middle;
+    height         : 28px;
+    padding        : 0 5px;
+    font-weight    : bold;
+    transition     : border-color ease-in-out .3s, box-shadow ease-in-out .3s;
+}
+
+.in100 {
+    width : 100px;
+}
+
+.in150 {
+    width : 150px;
+}
+
+.in200 {
+    width : 200px;
+}
+
+button {
+    vertical-align : middle;
+    cursor: pointer;
+
+}
+.search {
+    background-image : url(../../image/main_btn_search_h.png),url(../../image/btn_search_b_nml.png);
+    background-position: 10px, center;
+    background-repeat : no-repeat;
+    border : none;
+    padding-right:  10px;
+    margin-left: 5px;
+    color: var(--white);
+}
+
+.contenbox .search {
+   width : 71px;
+   height : 30px;
+   padding-left: 20px;
+}     
+
+.contenbox .search:hover{ background-image: url(../../image/main_btn_search.png),url(../../image/btn_search_hover.png); background-position:10px,center; background-repeat: no-repeat;}
+
+.contenbox button {
+    font-size: 12px;
+    border-radius: 2px;
 }

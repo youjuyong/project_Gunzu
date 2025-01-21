@@ -27,11 +27,11 @@ export const HorseHouseHeaderCompo = () => {
                 { 
                     horseHousePageheader.map(( headerInfo : type, index : number ) => {
                         return (
-                            <div>  
-                                <Link key={ index } to={ headerInfo.url } className= "gameInfoButton nanum" state={{ url : headerInfo.url }} onClick={ gameInfoHeaderHandle }> 
-                                    <span className="text">{ headerInfo.title }</span>
-                                    <span className="masker" style={{ height : state?.url === headerInfo?.url ? '100%' : '' }}>
-                                        <span>{ headerInfo.title }</span>
+                            <div key={ 'horseDiv' + index } >  
+                                <Link key={ 'horseLink' + index } to={ headerInfo.url } className= "gameInfoButton nanum" state={{ url : headerInfo.url }} onClick={ gameInfoHeaderHandle }> 
+                                    <span key={ 'gaim' + index } className="text">{ headerInfo.title }</span>
+                                    <span key={ 'gaime' + index } className="masker" style={{ height : state?.url === headerInfo?.url ? '100%' : '' }}>
+                                        <span key={ 'gamid' + index }>{ headerInfo.title }</span>
                                     </span> 
                                 </Link>
                             </div>
