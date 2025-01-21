@@ -3,6 +3,8 @@ import { Link             } from "react-router-dom";
 import { headerNavInfo    } from "../utils/ContextList";
 import { useEffect        } from "react";
 
+
+
 const Header = () => {
 
     useEffect(() => {
@@ -53,10 +55,10 @@ const Header = () => {
                                       <div key= {'div' + index }>
                                           <ul key= {'ul' + index }>
                                              {
-                                               subMenu && subMenu.map(( subInfo, subIndex : number ) => {
-                                                   const { subTitle, subUrl } = subInfo;
+                                               subMenu && subMenu.map(( subInfo : any, subIndex : number ) => {
+                                                   const { subTitle, subUrl, url } = subInfo;
                                                    return ( 
-                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } className="tab subheader snans">{ subTitle }</Link></li> 
+                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url }} className="tab subheader snans">{ subTitle }</Link></li> 
                                                     )
                                                 })
                                              }

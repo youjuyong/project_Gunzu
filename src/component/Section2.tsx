@@ -1,20 +1,34 @@
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation }     from "react-router-dom";
 
-import Pratice2 from "../views/Pratice2"; 
-import Pratice3 from "../views/Pratice3"; 
-import Pratice4 from "../views/Pratice4"; 
-import Pratice5 from "../views/Pratice5";
+/* Section2 */
+import GameInfoHeroChangeCompo from "section2Component/gameInfoComponent/gameInfoHeroChange";  // 영웅강림
+import GameInfoHorseHouseCompo from "section2Component/gameInfoComponent/gameInfoHorseHouse";  // 마굿간
+import GameInfoQuestCompo      from "section2Component/gameInfoComponent/gameInfoQuest";       // 퀘스트
+
+/* 게임정보(마굿간) */
+import HorsHouseExplainCompo    from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorsHouseExplainCompo";    // 마굿간 이란?
+import HorseHouseWideMehodCompo from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorseHouseWideMehodCompo"; // 마굿간 확장 방법
+import HorsListCompo            from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorsListCompo";            // 마굿간 탈것 리스트               // 탈것 목록
 
 const Section2 = () => {
  
     return (
-            <Routes>
-                    <Route path="headerNavGameInfo" element={<Pratice2/>}/>
-                    <Route path="headerNavEvent"    element={<Pratice3/>}/>
-                    <Route path="headerNavBoard"    element={<Pratice4/>}/>
-                    <Route path="Pratice5"          element={<Pratice5/>}/>
-            </Routes>
+        <section id="section2">
+            <div className="section2Div">
+                <div className="section2DivInner">
+                        <Routes>
+                                <Route path="horseHouseInfo"    element={<GameInfoHorseHouseCompo/>}>
+                                        <Route path="horseHouseWordInfo"      element={<HorsHouseExplainCompo/>}/>
+                                        <Route path="horseHouseWideMehodInfo" element={<HorseHouseWideMehodCompo/>}/>
+                                        <Route path="horseListInfo"           element={<HorsListCompo/>}/>
+                                </Route>
+                                <Route path="heroChangeInfo"    element={<GameInfoHeroChangeCompo/>}/>
+                                <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
+                        </Routes>
+                </div>
+            </div>
+        </section>
     );
 }
 

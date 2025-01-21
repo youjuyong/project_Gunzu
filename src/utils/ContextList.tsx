@@ -4,13 +4,16 @@ export const headerNavInfo = [
         url     : "headerNavGameInfo",
         subMenu : [{
             subTitle  : "마굿간",
-            subUrl    : "horseHouseInfo"
+            subUrl    : "horseHouseInfo/horseHouseWordInfo",
+            url       : "horseHouseWordInfo"   
         }, {
             subTitle  : "퀘스트",
-            subUrl    : "questInfo"
+            subUrl    : "questInfo",
+            url       : ""   
         }, {
-            subTitle  : "탈것",
-            subUrl    : "rideInfo"   
+            subTitle  : "영웅강림",
+            subUrl    : "heroChangeInfo",
+            url       : ""   
         }]
     },
     {
@@ -45,4 +48,17 @@ export const SwiperImgList = [
     }
 ]
 
-
+export const horseHousePageheader = [
+    {
+        url   : "horseHouseWordInfo",
+        title : "마굿간 이란?"
+    },
+    {
+        url   : "horseHouseWideMehodInfo",
+        title : "마굿간 확장 방법"
+    },
+    {
+        url   : "horseListInfo",
+        title : "탈것 목록"
+    }
+]

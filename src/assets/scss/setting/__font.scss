@@ -24,12 +24,18 @@
                   , url(../../font/NotoSansKR-Bold.woff) format('woff')
                   , url(../../font/NotoSansKR-Bold.otf) format('opentype');
     }
-    
+
+@font-face { 
+    font-family : 'NanumBarunGothic';
+    src         : url(../../font/NanumBarunGothic.eot);
+    src         : url(../../font/NanumBarunGothic.eot)  format('embedded-opentype')
+                 ,url(../../font/NanumBarunGothic.woff) format('woff');
+    }
 .mont {
     font-family: "Montserrat";
 }
 .nanum {
-    font-family: "nanumSquareNeo";
+    font-family: 'NanumGothic', 'serif';
 }
 .snans {
     font-family: 'Noto Sans KR', sans-serif,'돋움';

@@ -1,0 +1,59 @@
+.gameInfoFirstDiv {
+
+    display         : flex;
+    justify-content : center;
+
+    .gameInfoButton {
+        margin-left: 10px;
+        margin-right : 10px;
+        font-weight: 800;
+    }
+
+    a {
+        overflow: hidden;
+        position        : relative;
+        text-decoration : 0;
+        display         : block;
+        width           : 240px;
+        line-height     : 80px;
+        text-align      : center;
+        color           : #fff;
+        background-color: #121212;
+        border          : .15em solid var(--black);
+        border-color    : #fff;
+        border-radius   : 3px;
+    }
+
+    .click {
+        background-color : #81D2C7;
+    }
+    
+
+    span {
+        display: block;
+    }
+
+    .masker {
+        position         : absolute;
+        bottom           : 0;
+        left             : 0;
+        right            : 0;
+        height           : 0;
+        background-color : #fff;
+        color            : #000;
+        overflow         : hidden;
+        transition       : .3s;
+    }
+
+    .masker span {
+        position    : absolute;
+        right       : 0;
+        left        : 0;
+        bottom      : 0;
+        color       : #000;
+    }
+
+    a:hover .masker {
+        height: 100%;
+    }
+}

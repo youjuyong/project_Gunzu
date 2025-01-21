@@ -59,29 +59,26 @@ a {
 
 a:hover,
 a:focus {
-    outline:none;
+    outline      : none;
 }
 
 ul {
-    list-style: none;
+    list-style   : none;
 }
 
 article {
-    display: block;
+    display      : block;
 }
 
 section {
-    width : 100%;
-}
-
-.bodyArticle {
-    position: absolute;
-    width: 100%;
-    top:104px;
-    bottom:0;
+    width        : 100%;
 }
 
 main {
-    display : block;
-    unicode-bidi: isolate;
+    display      : block;
+    unicode-bidi : isolate;
+}
+
+footer {
+    width        : 100%;
 }
