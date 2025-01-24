@@ -4,7 +4,6 @@ import { headerNavInfo    } from "../utils/ContextList";
 import { useEffect        } from "react";
 
 
-
 const Header = () => {
 
     useEffect(() => {
@@ -31,7 +30,8 @@ const Header = () => {
                 <div className="header__inner__section">
                     <div className="header__logo">
                         <h1>
-                            <a href="/">portfolio<em>vite</em></a>
+                        <img  src={require("../assets/image/gurideak.png")} alt="구리댁"></img>
+                            <a href="/">GURIDAEK.COM<em>구리댁닷컴</em></a>
                         </h1>
                     </div>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">

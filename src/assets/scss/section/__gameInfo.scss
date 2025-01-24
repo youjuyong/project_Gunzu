@@ -9,15 +9,12 @@
                 height : 35px;
                padding : 0 5px 0 8px;
             }
-    
-            th:nth-of-type(4) {
-                width : 150px;
-            }
-            
-            th:nth-of-type(5) {
-                width : 120px;
-            }
-    
+            th:nth-of-type(1) { width : 70px; }
+            th:nth-of-type(2) { width : 70px; }
+            th:nth-of-type(3) { width : 50px; }
+            th:nth-of-type(4) { width : 120px; }
+            th:nth-of-type(5) { width : 140px; }
+            td:nth-of-type(6) { padding-left : 150px; }
             tr {
                 border-bottom: 1px solid var(--black);
             } 
@@ -31,32 +28,46 @@
         .rideListArea {
             width  : 100%;
             height : 100%;
+            border-radius : 10px;
+            overflow: hidden;
 
             .rideListTable {
                 font-size: 15px;
                 
+                thead {
+                    background-color: #e3d5ca;
+                }
+
                 th {
                     height     : 43px;
                     text-align : center;
                 }
 
                 td {
-                    height      : 120px;
+                    height      : 160px;
                     text-align  : center;
                 }
 
-                th:nth-child(1), td:nth-child(1) { width: 14%;};
-                th:nth-child(2), td:nth-child(2) { width: 9%;};
-                th:nth-child(3), td:nth-child(3) { width: 11%;};
-                th:nth-child(4), td:nth-child(4) { width: 8%;};
-                th:nth-child(5), td:nth-child(5) { width: 8%;};
-                th:nth-child(6), td:nth-child(6) { width: 16%;};
-                th:nth-child(7), td:nth-child(7) { width: 16%;};
-                th:nth-child(8), td:nth-child(8) { width: 8%;};
-                th:nth-child(9), td:nth-child(9) { width: 8%;};
+                th:nth-child(1), td:nth-child(1) { width: 14%; };
+                th:nth-child(2), td:nth-child(2) { width: 9%;  };
+                th:nth-child(3), td:nth-child(3) { width: 11%; };
+                th:nth-child(4), td:nth-child(4) { width: 11%;  };
+                th:nth-child(5), td:nth-child(5) { width: 8%;  };
+                th:nth-child(6), td:nth-child(6) { width: 16%; };
+                th:nth-child(7), td:nth-child(7) { width: 15%; };
+                th:nth-child(8), td:nth-child(8) { width: 7%;  };
+                th:nth-child(9), td:nth-child(9) { width: 7%;  };
 
                 tbody tr {
                     border-bottom : 1px solid #ebebeb;
+                }
+
+                .sword_attack {
+                    background  : url(../../image/sword_attack.png)left  no-repeat;
+                }
+
+                .magic_attack {
+                    background  : url(../../image/magic_attack.png) left no-repeat;
                 }
             }
 
@@ -152,6 +163,12 @@
                         cursor: pointer;
                         font-size: 13px;
                         color: var(--black);
+                    }
+
+                    .pagenumber li.click {
+                        background-color: var(--black400);
+                        font-weight: bold;
+                        font-size: 14px;
                     }
                 }
                 

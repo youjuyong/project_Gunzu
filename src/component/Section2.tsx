@@ -9,7 +9,7 @@ import GameInfoQuestCompo      from "section2Component/gameInfoComponent/gameInf
 /* 게임정보(마굿간) */
 import HorsHouseExplainCompo    from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorsHouseExplainCompo";    // 마굿간 이란?
 import HorseHouseWideMehodCompo from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorseHouseWideMehodCompo"; // 마굿간 확장 방법
-import HorsListCompo            from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorsListCompo";            // 마굿간 탈것 리스트               // 탈것 목록
+import HorsListCompo            from "section2Component/gameInfoComponent/gamInfoInnerComponent/HorsListCompo";            // 마굿간 탈것 리스트
 
 const Section2 = () => {
  
