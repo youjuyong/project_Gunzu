@@ -1,5 +1,36 @@
+import { useState, useEffect }       from "react";
+import { axiosCall, useQuerySingle } from "utils/common/common";
+import { API_IP_INFO }               from "utils/apiUrl";
+
+interface HouseHeaderType {
+    rideLimitType         : string,  // 탈것 조건
+    horseHouseBurpType    : string,  // 마굿간 버프 타입
+    horseBurpType         : string,  // 탈것 버프 종류
+    horseLifeType         : string,  // 탈것 수명
+    horseHouseBurpPercent : string,  // 마굿간 버프 비율
+}
+
 /* 탈것 리스트 */
 const HorsListCompo = () => {
+    const { data } = useQuerySingle("get-bit-type", null, `${API_IP_INFO}/horse/stall-table-header`, 60000 * 5, 60000 * 10, false, true, false);
+    const [searchValue, setSearchValue] = useState<HouseHeaderType>({
+        rideLimitType         : '',
+        horseHouseBurpType    : '',
+        horseBurpType         : '',
+        horseLifeType         : '',
+        horseHouseBurpPercent : '',
+    });
+    
+    const onChangeCondition = (e: any) => {
+        const {name, value} = e.target;
+
+        setSearchValue({...searchValue, [name]: value});
+    }
+
+    useEffect(() => {
+
+    },[]);
+ 
     return (
         <>  
              <div className='contenbox'>
@@ -11,46 +42,68 @@ const HorsListCompo = () => {
                                         <tr>
                                             <th>사용조건 : </th>
                                             <td>
-                                                <select name="" id="">
+                                                <select defaultValue={""} name="rideLimitType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
-                                                    <option value="">전직캐전용</option>
-                                                    <option value="">레벨20이상</option>
-                                                </select>
+                                                    {
+                                                        data?.rideLimitType.map((x: any, idx: number) => {
+                                                            return (
+                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                 </select>
                                             </td>
                                             <th>버프종류 : </th>
                                             <td>
-                                                <select name="" id="">
+                                                 <select defaultValue={""} name="horseBurpType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
-                                                    <option value="">물리공격력</option>
-                                                    <option value="">마법공격력</option>
-                                                </select>
+                                                    {
+                                                        data?.horseBurpType.map((x: any, idx: number) => {
+                                                            return (
+                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                 </select>
                                             </td>
                                             <th>수명 : </th>
                                             <td>
-                                                <select name="" id="">
+                                                <select defaultValue={""} name="horseLifeType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
-                                                    <option value="">1달</option>
-                                                    <option value="">2달</option>
-                                                </select>
+                                                    {
+                                                        data?.horseLifeType.map((x: any, idx: number) => {
+                                                            return (
+                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                 </select>
                                             </td>
                                             <th>마굿간 버프 타입 : </th>
                                             <td>
-                                                <select name="" id="">
+                                                 <select defaultValue={""} name="horseHouseBurpType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
-                                                    <option value="">물리공격력</option>
-                                                    <option value="">마법공격력</option>
-                                                    <option value="">방어력</option>
-                                                </select>
+                                                    {
+                                                        data?.horseHouseBurpType.map((x: any, idx: number) => {
+                                                            return (
+                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                 </select>
                                             </td>
                                             <th>마굿간 버프 비율(%) : </th>
                                             <td>
-                                                <select name="" id="">
+                                                 <select defaultValue={""} name="horseHouseBurpPercent" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
-                                                    <option value="">4%</option>
-                                                    <option value="">6%</option>
-                                                    <option value="">8%</option>
-                                                    <option value="">10%</option>
-                                                </select>
+                                                    {
+                                                        data?.horseHouseBurpPercent.map((x: any, idx: number) => {
+                                                            return (
+                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                            )
+                                                        })
+                                                    }
+                                                 </select>
                                             </td>
                                             <th></th>
                                             <td>
