@@ -75,3 +75,27 @@ export const horseHousePageheader = [
         className : "horseList"
     }
 ]
+
+/* 말 이미지 리스트 */
+export const horseImgInfo = [
+    {
+        horseId : "HOS1",
+        imgUrl  : require("../assets/image/horseFolder/normal_horse.gif")
+    },
+    {
+        horseId : "HOS2",
+        imgUrl  : require("../assets/image/horseFolder/black_horse.gif")
+    },
+    {
+        horseId : "HOS3",
+        imgUrl  : require("../assets/image/horseFolder/white_horse.gif")
+    },
+    {
+        horseId : "HOS4",
+        imgUrl  : require("../assets/image/horseFolder/red_to_horse.gif")
+    },
+    {
+        horseId : "HOS5",
+        imgUrl  : require("../assets/image/horseFolder/zibri_horse.gif")
+    }
+]

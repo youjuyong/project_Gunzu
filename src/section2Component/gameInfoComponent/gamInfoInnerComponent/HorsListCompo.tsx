@@ -1,6 +1,7 @@
-import { useState, useEffect }       from "react";
+import { useState, useEffect       } from "react";
 import { axiosCall, useQuerySingle } from "utils/common/common";
-import { API_IP_INFO }               from "utils/apiUrl";
+import { API_IP_INFO               } from "utils/apiUrl";
+import { TableComponent            } from "../../../commComponent/TableCompo";
 
 interface HouseHeaderType {
     rideLimitType         : string,  // 탈것 조건
@@ -12,7 +13,8 @@ interface HouseHeaderType {
 
 /* 탈것 리스트 */
 const HorsListCompo = () => {
-    const { data } = useQuerySingle("get-bit-type", null, `${API_IP_INFO}/horse/stall-table-header`, 60000 * 5, 60000 * 10, false, true, false);
+    const { data      } = useQuerySingle("get-header-type", null, `${API_IP_INFO}/horse/stall-table-header`, 60000 * 5, 60000 * 10, false, true, false);
+    
     const [searchValue, setSearchValue] = useState<HouseHeaderType>({
         rideLimitType         : '',
         horseHouseBurpType    : '',
@@ -20,17 +22,13 @@ const HorsListCompo = () => {
         horseLifeType         : '',
         horseHouseBurpPercent : '',
     });
-    
+
+    // 헤더 셀렉트 박스 변경시
     const onChangeCondition = (e: any) => {
         const {name, value} = e.target;
-
         setSearchValue({...searchValue, [name]: value});
     }
 
-    useEffect(() => {
-
-    },[]);
- 
     return (
         <>  
              <div className='contenbox'>
@@ -47,7 +45,7 @@ const HorsListCompo = () => {
                                                     {
                                                         data?.rideLimitType.map((x: any, idx: number) => {
                                                             return (
-                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                                <option value={x.COMM_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
                                                             )
                                                         })
                                                     }
@@ -60,7 +58,7 @@ const HorsListCompo = () => {
                                                     {
                                                         data?.horseBurpType.map((x: any, idx: number) => {
                                                             return (
-                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                                <option value={x.COMM_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
                                                             )
                                                         })
                                                     }
@@ -73,7 +71,7 @@ const HorsListCompo = () => {
                                                     {
                                                         data?.horseLifeType.map((x: any, idx: number) => {
                                                             return (
-                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                                <option value={x.COMM_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
                                                             )
                                                         })
                                                     }
@@ -86,7 +84,7 @@ const HorsListCompo = () => {
                                                     {
                                                         data?.horseHouseBurpType.map((x: any, idx: number) => {
                                                             return (
-                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                                <option value={x.COMM_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
                                                             )
                                                         })
                                                     }
@@ -99,7 +97,7 @@ const HorsListCompo = () => {
                                                     {
                                                         data?.horseHouseBurpPercent.map((x: any, idx: number) => {
                                                             return (
-                                                                <option value={x.COMM_CLSF_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
+                                                                <option value={x.COMM_CD} key={idx}>{x.COMM_CD_KOR_NAME}</option>
                                                             )
                                                         })
                                                     }
@@ -116,86 +114,11 @@ const HorsListCompo = () => {
                             </div>
                     </section>
                     <section className="horseRideSection2" >
-                        <div className="rideListArea">
-                          <div className="tableConbin">
-                            <table className="table rideListTable snans">
-                                <caption>탈것 리스트</caption>
-                                <thead>
-                                    <tr>
-                                        <th>이미지</th>
-                                        <th>이름</th>
-                                        <th>사용조건</th>
-                                        <th>버프종류</th>
-                                        <th>수명</th>
-                                        <th>최대능력치</th>
-                                        <th>효과</th>
-                                        <th>마굿간 버프</th>
-                                        <th>대상전 가격</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>이미지</td>
-                                        <td>천리매</td>
-                                        <td>전직퀘</td>
-                                        <td className="sword_attack">물리공격력</td>
-                                        <td>1999일(2달)</td>
-                                        <td>최대능력치</td>
-                                        <td>효과</td>
-                                        <td>물공 8%</td>
-                                        <td>200억</td>
-                                    </tr>
-                                    <tr>
-                                        <td>이미지</td>
-                                        <td>이름</td>
-                                        <td>사용조건</td>
-                                        <td className="sword_attack">물리공격력</td>
-                                        <td>수명</td>
-                                        <td>최대능력치</td>
-                                        <td>효과</td>
-                                        <td>마굿간 버프</td>
-                                        <td>대상전 가격</td>
-                                    </tr>
-                                    <tr>
-                                        <td>이미지</td>
-                                        <td>이름</td>
-                                        <td>사용조건</td>
-                                        <td className="magic_attack">마법공격력</td>
-                                        <td>수명</td>
-                                        <td>최대능력치</td>
-                                        <td>효과</td>
-                                        <td>마굿간 버프</td>
-                                        <td>대상전 가격</td>
-                                    </tr>
-                                    <tr>
-                                        <td>이미지</td>
-                                        <td>이름</td>
-                                        <td>사용조건</td>
-                                        <td className="attackType">마법공격력</td>
-                                        <td>수명</td>
-                                        <td>최대능력치</td>
-                                        <td>효과</td>
-                                        <td>마굿간 버프</td>
-                                        <td>대상전 가격</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                            <div className="board_bottom centerlistboxbottom">
-                                <div className="pagebtnbox">
-                                    <button className="btn_pageleftmax"></button>
-                                    <button className="btn_pageleft"></button>
-                                    <button className="btn_pageright"></button>
-                                    <button className="btn_pagerightmax"></button>
-                                    <ul className="pagenumber">
-                                        <li className="click">1</li>
-                                        <li>2</li>
-                                        <li>3</li>
-                                        <li>4</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                         {/* 테이블 컴포넌트 */}
+                        <TableComponent queryKeyValue = "get-horse-list"
+                                        apiUrl        = "/horse/list"
+                                        selectTType   = {searchValue}
+                        ></TableComponent>
                     </section>
                 </div>
             </div>
