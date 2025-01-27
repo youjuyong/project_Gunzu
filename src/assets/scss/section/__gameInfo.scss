@@ -77,14 +77,17 @@
 
                 .sword_attack {
                     background  : url(../../image/sword_attack.png)left  no-repeat;
+                    background-size:30px 30px;
                 }
 
                 .magic_attack {
                     background  : url(../../image/magic_attack.png) left no-repeat;
+                    background-size:30px 30px;
                 }
 
                 .sheild_burf {
                     background  : url(../../image/sheild_burf.png) left no-repeat;
+                    background-size:30px 30px;
                 }
 
             }
@@ -184,9 +187,10 @@
                     }
 
                     .pagenumber li.click {
-                        background-color: var(--black400);
-                        font-weight: bold;
-                        font-size: 14px;
+                        background-color : var(--black400);
+                        font-weight      : bold;
+                        font-size        : 14px;
+                        border-radius    : 10px;
                     }
                 }
                 

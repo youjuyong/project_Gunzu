@@ -8,42 +8,77 @@
 
 .section2Div {
 
-    &:before {
-        position         : absolute;
-        content          : " ";
-        z-index          : -1;
-        background-image : url("../../image/bg.jpg");
-        height           : 100%;
-        width            : 100%;
-        opacity          : 0.05;
-        display          : block;
-        background-size:cover;
-        background-repeat: no-repeat;
-        left: 0;
-        top: 0;
-        background-attachment: fixed;
+    background-color: #fff;
+
+    .location {
+        width         : 100%;
+        position      : absolute;
+        top           : 0px;
+        height        : 53px;
+        text-align    : left;
+        border-top    : 1px solid #ebebeb;
+        border-bottom : 1px solid #c1c1c1;
+
+        ul {
+            width : 1500px;
+            margin : 15px auto;
+            display : block;
+
+            li {
+                float      : left;
+                padding    : 0 12px 0 10px;
+                color      : #3f4040;
+                font-size  : 14px;
+                background : url(../../image/dot2.png)right center no-repeat;
+               
+                a {
+                    color : #3f4040;
+                }
+            }
+        }
     }
-
     .section2DivInner {
-        padding: 8rem 0 6rem 0;
-        margin: 0 auto;
-        width: 95rem;
-        height: 100rem;
-
+        padding    : 8rem 0 6rem 0;
+        margin     : 0 auto;
+        width      : 95rem;
+        height     : 100rem;
+        text-align : center;
+    
         .section2Header {
-            text-align    : center;
             margin-bottom : 2rem;
         }
 
         .section2HighLight {
-            background-color: var(--white);
-            border-radius: 50px;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color : var(--white);
+            border-radius    : 10px;
+            box-shadow       : rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
 
-        // 마굿간 inner Div
+        // 마구간 설명 
+        .intro_title {
+            padding          : 50px 0;
+            background-color : #f2f2f2;
+          
+            h3 {
+                font-size   : 40px;
+                line-height : 64px;
+                height      : 64px;
+                font-weight : 700;
+                background  : url(../../image/st2.png)center top no-repeat
+          
+            }
+
+            p {
+                font-size      : 16px;
+                line-height    : 23px;
+                margin-top     : 50px;
+                margin-bottom  : 50px;
+                font-weight    : 700;
+            }
+        }
+        // 마구간 inner Div
         .horseInnerDiv {
-            height: 75rem;
+            height  : 75rem;
             padding : 55px;
         }
 
@@ -61,4 +96,64 @@
 
     }
     
+
+    // 메인페이지 서비스 바로가기
+    .service {
+        border-bottom: 1px solid #e4e4e4;
+
+        h2 {
+            font-size     : 25px;
+            font-weight   : bold;
+            display       : block;
+            float         : left;
+            padding-right : 10px;
+            height        : 30px;
+            background    : url(../../image/h2.png)right top no-repeat
+        }
+
+        ul {
+            float : right;
+            width : 1250px;
+
+            li {
+                float : left;
+                width : 178px;
+                height : 98px;
+
+                a {
+                    display      : block;
+                    width        : 100%;
+                    height       : 100%;
+                    text-align   : center;
+                    padding-top  : 60px;
+                    font-size    : 17px;
+                    line-height  : 25px;
+                    color        : var(--black);
+                    font-weight  : bold;
+                   
+                    span {
+                        font-size       : 15px;
+                        line-height     : 17px;
+                        color           : #575757;
+                        letter-spacing  : -1px;
+                        display         : block;
+                        font-weight     : normal;
+                    }
+                }
+
+                .service2 {
+                    background : url(../../image/honggil.png)center -10px no-repeat
+                }
+            }
+        }
+    }
+
+    article {
+        width     : 1500px;
+        position  : relative;
+        padding   : 70px 0;
+        margin    : 0 auto;
+        overflow  : hidden;
+        clear     : both;
+    }
 }

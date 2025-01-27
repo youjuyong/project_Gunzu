@@ -5,9 +5,10 @@ export const headerNavInfo = [
         title   : "게임정보",
         url     : "headerNavGameInfo",
         subMenu : [{
-            subTitle  : "마굿간",
-            subUrl    : "horseHouseInfo/horseHouseWordInfo",
-            url       : "horseHouseWordInfo"   
+            subTitle  : "마구간",
+            subUrl    : "gameInfo/horseHouseInfo/horseHouseWordInfo",
+            url       : "horseHouseWordInfo",   
+            menuName  : "마구간이란?"
         }, {
             subTitle  : "퀘스트",
             subUrl    : "questInfo",
@@ -51,24 +52,27 @@ export const SwiperImgList = [
     }
 ]
 
-/* 게임정보(마굿간) */
+/* 게임정보(마구간) */
 export const horseHousePageheader = [
     {
         url       : "horseHouseWordInfo",
-        title     : "마굿간 이란?",
+        mainMenu  : "마구간",
+        title     : "마구간이란?",
         imgUrl    : require("../assets/image/book.png"),
-        imgAlt    : "마굿간 이란",
+        imgAlt    : "마구간이란",
         className : "horseHouseInfo"
     },
     {
         url       : "horseHouseWideMehodInfo",
-        title     : "마굿간 확장 방법",
+        mainMenu  : "마구간",
+        title     : "마구간 확장 방법",
         imgUrl    : require("../assets/image/horseWide.png"),
-        imgAlt    : "마굿간 확장 방법",
+        imgAlt    : "마구간 확장 방법",
         className : "horseWideInfo"
     },
     {
         url       : "horseListInfo",
+        mainMenu  : "마구간",
         title     : "탈것 목록",
         imgUrl    : require("../assets/image/horse.png"),
         imgAlt    : "탈것 목록",
@@ -97,5 +101,53 @@ export const horseImgInfo = [
     {
         horseId : "HOS5",
         imgUrl  : require("../assets/image/horseFolder/zibri_horse.gif")
+    },
+    {
+        horseId : "HOS6",
+        imgUrl  : require("../assets/image/horseFolder/HOS6.gif")
+    },
+    {
+        horseId : "HOS7",
+        imgUrl  : require("../assets/image/horseFolder/HOS7.gif")
+    },
+    {
+        horseId : "HOS8",
+        imgUrl  : require("../assets/image/horseFolder/HOS8.gif")
+    },
+    {
+        horseId : "HOS9",
+        imgUrl  : require("../assets/image/horseFolder/HOS9.gif")
+    },
+    {
+        horseId : "HOS10",
+        imgUrl  : require("../assets/image/horseFolder/HOS10.gif")
+    },
+    {
+        horseId : "HOS11",
+        imgUrl  : require("../assets/image/horseFolder/HOS11.gif")
+    },
+    {
+        horseId : "HOS12",
+        imgUrl  : require("../assets/image/horseFolder/HOS12.gif")
+    },
+    {
+        horseId : "HOS13",
+        imgUrl  : require("../assets/image/horseFolder/HOS13.gif")
+    },
+    {
+        horseId : "HOS14",
+        imgUrl  : require("../assets/image/horseFolder/HOS14.gif")
+    },
+    {
+        horseId : "HOS15",
+        imgUrl  : require("../assets/image/horseFolder/HOS15.gif")
+    },
+    {
+        horseId : "HOS16",
+        imgUrl  : require("../assets/image/horseFolder/HOS16.gif")
+    },
+    {
+        horseId : "HOS17",
+        imgUrl  : require("../assets/image/horseFolder/HOS17.gif")
     }
 ]

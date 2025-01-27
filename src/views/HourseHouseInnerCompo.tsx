@@ -2,7 +2,7 @@
 const HourseHouseInnerCompo = () => {
     return (
         <div className="horseInnerDiv">
-            <p>마굿간 테스트입니다.</p>
+            <p>마구간 테스트입니다.</p>
         </div>
     )
 }

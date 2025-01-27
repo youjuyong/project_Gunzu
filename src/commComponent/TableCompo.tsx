@@ -17,7 +17,7 @@ interface horseListType {
     HORSER_LIMIT_CON            : string, // 탈것 탑승 조건
     HORSE_BURF_TYPE             : string, // 탈것 버프 타입
     HORSE_LIFE                  : string, // 탈것 수명
-    HORSE_HOUSE_BURF_TYPE       : string, // 탈것 마굿간 버프타입
+    HORSE_HOUSE_BURF_TYPE       : string, // 탈것 마구간 버프타입
     HORSE_BURF_PER_TYPE         : string, // 탈것 버프 퍼센트
     MAX_SPED                    : number, // 최대 속도
     MAX_AGIL                    : number, // 최대 순발력
@@ -25,12 +25,12 @@ interface horseListType {
     MAX_MAGIC_FORCE             : number, // 최대 도력
     BIG_SHOP_PRICE              : string, // 대상전 가격
     HORSE_BURF_TYPE_CODE        : string, // 탈것 버프 타입 코드
-    HORSE_HOUSE_BURF_TYPE_CDOE  : string, // 탈것 마굿간 버프 타입 코드
+    HORSE_HOUSE_BURF_TYPE_CDOE  : string, // 탈것 마구간 버프 타입 코드
 }
 
 const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
 const initCurrentPage = 1;  // 초기 페이지 쪽수
-const viewPageCnt     = 10; // 하단 페이지 목록 표출 갯수 
+const viewPageCnt     = 3; // 하단 페이지 목록 표출 갯수 
 
 const TableCompo = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
@@ -38,9 +38,7 @@ const TableCompo = ( props:tableCompoType ) => {
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList);
 
     useEffect(() => {
-        console.log(props);
         axiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
-            console.log(data);
             setHorseList(data);
         });
     },[props.selectTType]);
@@ -56,10 +54,10 @@ const TableCompo = ( props:tableCompoType ) => {
                                             <th>이미지</th>
                                             <th>이름</th>
                                             <th>사용조건</th>
-                                            <th>버프종류</th>
+                                            <th>특수 버프 종류</th>
                                             <th>수명</th>
                                             <th>최대능력치</th>
-                                            <th>마굿간 버프</th>
+                                            <th>마구간 버프 타입</th>
                                             <th>버프 퍼센트</th>
                                             <th>대상전 가격</th>
                                         </tr>
@@ -94,7 +92,7 @@ export const CreateTable = ( props : any ) => {
                             <td>{v?.HORSER_LIMIT_CON}</td>
                             <td className={v.HORSE_BURF_TYPE_CODE === 'ATKT0' ? '' 
                                          : v.HORSE_BURF_TYPE_CODE === 'ATKT1' ? 'sword_attack'
-                                         : v.HORSE_BURF_TYPE_CODE === 'ATKT1' ? 'magic_attack'
+                                         : v.HORSE_BURF_TYPE_CODE === 'ATKT2' ? 'magic_attack'
                                          : ''
                             }>{v?.HORSE_BURF_TYPE}</td>
                             <td>{v?.HORSE_LIFE}</td>
@@ -146,15 +144,15 @@ const useListPage = ( data : any ) => {
 export const Pagination = ({setCurrentPage,currentPage, totalPage, firstPage, lastPage} : any ) => {
 
     const {pageNumbers, prev, next, first, last, paginate} = usePagination(setCurrentPage, totalPage, firstPage, lastPage);
-    console.log(firstPage, lastPage, totalPage);
+    
     return (
         <>
             <div className="board_bottom centerlistboxbottom">
                                 <div className="pagebtnbox">
-                                    { firstPage === 1 ? null : <button className="btn_pageleftmax" onClick={first}></button>}{/* <!--앞페이지로, 뒤페이지로 작업해주세요--> */}
-                                    { firstPage === 1 ? null : <button className="btn_pageleft" onClick={prev}></button>}{/* <!--앞페이지로, 뒤페이지로 작업해주세요--> */}
-                                    { lastPage === totalPage ? null : <button className="btn_pageright" onClick={next}></button>}
-                                    { lastPage === totalPage ? null : <button className="btn_pagerightmax" onClick={last}></button>}
+                                    { firstPage === 1 ? null        : <button className="btn_pageleftmax"  onClick={first}title="맨 처음 페이지" ></button>}{/* <!--앞페이지로, 뒤페이지로 작업해주세요--> */}
+                                    { firstPage === 1 ? null        : <button className="btn_pageleft"     onClick={prev} title="이전 페이지"></button>}{/* <!--앞페이지로, 뒤페이지로 작업해주세요--> */}
+                                    { lastPage === totalPage ? null : <button className="btn_pageright"    onClick={next} title="다음 페이지"></button>}
+                                    { lastPage === totalPage ? null : <button className="btn_pagerightmax" onClick={last} title="맨 마지막 페이지"></button>}
                                     <ul className="pagenumber">
                                         {
                                             pageNumbers && pageNumbers.map((num, i : number) => {

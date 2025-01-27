@@ -6,12 +6,12 @@ import HorseHouseHeaderCompo from "../gameInfoComponent/gameInfoHeaderComponent/
 const GameInfoHorseHouseCompo = () => {
     return (
         <>
-            <header className="section2Header snans" role="section2-header">
-                     <HorseHouseHeaderCompo/>
-            </header>
-            <div className="section2HighLight">
-                    <Outlet/>
-            </div>
+                <header className="section2Header snans" role="section2-header">
+                        <HorseHouseHeaderCompo/>
+                </header>
+                <div className="section2HighLight">
+                        <Outlet/>
+                </div>
         </>
     )
 }

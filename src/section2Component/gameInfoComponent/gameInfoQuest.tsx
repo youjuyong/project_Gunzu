@@ -2,7 +2,6 @@
 const GameInfoQuestCompo = () => {
     return (
         <>
-        
         </>
     )
 }

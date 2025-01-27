@@ -2,7 +2,6 @@
 const GameInfoHorseHouseCompo = () => {
     return (
         <>
-        
         </>
     )
 }

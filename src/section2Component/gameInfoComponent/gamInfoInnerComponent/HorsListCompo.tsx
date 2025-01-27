@@ -5,10 +5,10 @@ import { TableComponent            } from "../../../commComponent/TableCompo";
 
 interface HouseHeaderType {
     rideLimitType         : string,  // 탈것 조건
-    horseHouseBurpType    : string,  // 마굿간 버프 타입
+    horseHouseBurpType    : string,  // 마구간 버프 타입
     horseBurpType         : string,  // 탈것 버프 종류
     horseLifeType         : string,  // 탈것 수명
-    horseHouseBurpPercent : string,  // 마굿간 버프 비율
+    horseHouseBurpPercent : string,  // 마구간 버프 비율
 }
 
 /* 탈것 리스트 */
@@ -77,7 +77,7 @@ const HorsListCompo = () => {
                                                     }
                                                  </select>
                                             </td>
-                                            <th>마굿간 버프 타입 : </th>
+                                            <th>마구간 버프 타입 : </th>
                                             <td>
                                                  <select defaultValue={""} name="horseHouseBurpType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
@@ -90,7 +90,7 @@ const HorsListCompo = () => {
                                                     }
                                                  </select>
                                             </td>
-                                            <th>마굿간 버프 비율(%) : </th>
+                                            <th>마구간 버프 비율(%) : </th>
                                             <td>
                                                  <select defaultValue={""} name="horseHouseBurpPercent" onChange={onChangeCondition}>
                                                     <option value="">전체</option>
