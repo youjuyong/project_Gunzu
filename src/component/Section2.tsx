@@ -18,7 +18,7 @@ const Section2 = () => {
 
     const location = useLocation();
     const {pathname, state} = location;
-    
+   
     return (
         <section id="section2">
             <div className="section2Div">

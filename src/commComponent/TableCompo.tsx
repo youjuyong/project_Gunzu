@@ -30,7 +30,7 @@ interface horseListType {
 
 const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
 const initCurrentPage = 1;  // 초기 페이지 쪽수
-const viewPageCnt     = 3; // 하단 페이지 목록 표출 갯수 
+const viewPageCnt     = 5; // 하단 페이지 목록 표출 갯수 
 
 const TableCompo = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
@@ -58,7 +58,7 @@ const TableCompo = ( props:tableCompoType ) => {
                                             <th>수명</th>
                                             <th>최대능력치</th>
                                             <th>마구간 버프 타입</th>
-                                            <th>버프 퍼센트</th>
+                                            <th>마구간 버프 퍼센트</th>
                                             <th>대상전 가격</th>
                                         </tr>
                                     </thead>

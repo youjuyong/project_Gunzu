@@ -18,6 +18,7 @@
         text-align    : left;
         border-top    : 1px solid #ebebeb;
         border-bottom : 1px solid #c1c1c1;
+        font-weight   : bold;
 
         ul {
             width : 1500px;
@@ -41,11 +42,11 @@
         padding    : 8rem 0 6rem 0;
         margin     : 0 auto;
         width      : 95rem;
-        height     : 100rem;
+        height     : 111rem;
         text-align : center;
     
         .section2Header {
-            margin-bottom : 2rem;
+            margin-bottom : 4rem;
         }
 
         .section2HighLight {
@@ -75,6 +76,19 @@
                 margin-bottom  : 50px;
                 font-weight    : 700;
             }
+
+            // 마굿간이란 이미지
+            .introduce_magugan {
+                height : 880px;
+                width : 700px;
+                margin : 0 auto;
+                display: flex;
+                flex-direction: column;
+                
+                img:nth-child(2) { margin-top: 40px };
+            }
+
+         
         }
         // 마구간 inner Div
         .horseInnerDiv {
@@ -125,7 +139,7 @@
                     width        : 100%;
                     height       : 100%;
                     text-align   : center;
-                    padding-top  : 60px;
+                    padding-top  : 74px;
                     font-size    : 17px;
                     line-height  : 25px;
                     color        : var(--black);
@@ -142,7 +156,31 @@
                 }
 
                 .service2 {
-                    background : url(../../image/honggil.png)center -10px no-repeat
+                    background : url(../../image/honggil.png)center 0px no-repeat;
+                }
+
+                .service3 {
+                    background : url(../../image/magutgan.png)center 0px no-repeat;
+                }
+                
+                .service4 {
+                    background : url(../../image/hero.png)center 0px no-repeat;
+                }
+
+                .service5 {
+                    background : url(../../image/heroChange.png)center 0px no-repeat;
+                }
+                
+                .service6 {
+                    background : url(../../image/horseIntroduce.PNG)center 0px no-repeat;
+                }
+                
+                .service7 {
+                    background : url(../../image/swordIntroduce.PNG)center 0px no-repeat;
+                }
+                
+                .service8 {
+                    background : url(../../image/jonrryong.png)center 0px no-repeat;
                 }
             }
         }

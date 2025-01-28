@@ -149,5 +149,65 @@ export const horseImgInfo = [
     {
         horseId : "HOS17",
         imgUrl  : require("../assets/image/horseFolder/HOS17.gif")
+    },
+    {
+        horseId : "HOS18",
+        imgUrl  : require("../assets/image/horseFolder/HOS18.gif")
+    },
+    {
+        horseId : "HOS19",
+        imgUrl  : require("../assets/image/horseFolder/HOS19.gif")
+    },
+    {
+        horseId : "HOS20",
+        imgUrl  : require("../assets/image/horseFolder/HOS20.gif")
+    },
+    {
+        horseId : "HOS21",
+        imgUrl  : require("../assets/image/horseFolder/HOS21.gif")
+    },
+    {
+        horseId : "HOS22",
+        imgUrl  : require("../assets/image/horseFolder/HOS22.gif")
+    },
+    {
+        horseId : "HOS23",
+        imgUrl  : require("../assets/image/horseFolder/HOS23.gif")
+    },
+    {
+        horseId : "HOS24",
+        imgUrl  : require("../assets/image/horseFolder/HOS24.gif")
+    },
+    {
+        horseId : "HOS25",
+        imgUrl  : require("../assets/image/horseFolder/HOS25.gif")
+    },
+    {
+        horseId : "HOS26",
+        imgUrl  : require("../assets/image/horseFolder/HOS26.gif")
+    },
+    {
+        horseId : "HOS27",
+        imgUrl  : require("../assets/image/horseFolder/HOS27.gif")
+    },
+    {
+        horseId : "HOS28",
+        imgUrl  : require("../assets/image/horseFolder/HOS28.gif")
+    },
+    {
+        horseId : "HOS29",
+        imgUrl  : require("../assets/image/horseFolder/HOS29.gif")
+    },
+    {
+        horseId : "HOS30",
+        imgUrl  : require("../assets/image/horseFolder/HOS30.gif")
+    },
+    {
+        horseId : "HOS31",
+        imgUrl  : require("../assets/image/horseFolder/HOS31.gif")
+    },
+    {
+        horseId : "HOS32",
+        imgUrl  : require("../assets/image/horseFolder/HOS32.gif")
     }
 ]

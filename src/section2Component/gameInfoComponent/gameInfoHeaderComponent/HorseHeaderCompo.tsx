@@ -19,7 +19,6 @@ export const HorseHouseHeaderCompo = () => {
     },[location]);
 
     function gameInfoHeaderHandle ( e : any ) {
-        
         const { parentElement } = e?.target?.parentElement;
     } 
 
