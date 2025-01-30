@@ -42,7 +42,6 @@
         padding    : 8rem 0 6rem 0;
         margin     : 0 auto;
         width      : 95rem;
-        height     : 111rem;
         text-align : center;
     
         .section2Header {
@@ -53,21 +52,52 @@
             background-color : var(--white);
             border-radius    : 10px;
             box-shadow       : rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            letter-spacing   : -1px;
         }
 
         // 마구간 설명 
         .intro_title {
             padding          : 50px 0;
             background-color : #f2f2f2;
-          
-            h3 {
+
+            .magutganiran_h3 {
                 font-size   : 40px;
                 line-height : 64px;
                 height      : 64px;
                 font-weight : 700;
                 background  : url(../../image/st2.png)center top no-repeat
-          
             }
+
+            .magutganAlert_h3 {
+                font-size   : 40px;
+                line-height : 64px;
+                height      : 64px;
+                font-weight : 700;
+                background  : url(../../image/st2.png)center top no-repeat;
+                background-size : 503px 64px;
+            }
+
+            .magutgan_alert_title_span {
+                font-size : 25px;
+                color     : blue
+            }
+
+            .alert_pTag {
+                margin-bottom : 30px;
+                line-height   :  13px;
+            }
+            
+            .intro_a {
+                text-decoration  : underline;
+                background-color : aqua;
+                color :blue
+            }
+
+            span {
+                text-decoration : underline;
+                font-size       : 18px;
+            }
+
 
             p {
                 font-size      : 16px;
@@ -77,17 +107,77 @@
                 font-weight    : 700;
             }
 
-            // 마굿간이란 이미지
-            .introduce_magugan {
-                height : 880px;
-                width : 700px;
-                margin : 0 auto;
-                display: flex;
-                flex-direction: column;
-                
-                img:nth-child(2) { margin-top: 40px };
+            button {
+                border-radius      : 3px;
+                height             : 43px;
+                width              : 169px;
+                letter-spacing     : -1px;
+                border             : none;
+                font-size          : 18px;
+                color              : #fff;
+                -webkit-box-shadow : 0px 1px 3px #a0a0a0;
+                background  : url(../../image/button_img.png) repeat;
+                background-size: 100%;
             }
 
+            // 마굿간이란 이미지
+            .introduce_magugan {
+                height         : 880px;
+                width          : 700px;
+                margin         : 0 auto;
+                display        : flex;
+                flex-direction : column;
+                
+                img:nth-child(2) { margin-top: 40px };
+
+            }
+
+            // 마굿간 유의 사항 이미지
+            .alert_magugan {
+                height         : 930px;
+                width          : 550px;
+                margin         : 0 auto;
+                display        : flex;
+                flex-direction : column;
+                
+                img:nth-child(2) { margin-top: 40px };
+
+                p {
+                    margin-top : 20px;
+
+                }
+
+                .magutgan_alert_span {
+                    background: url(../../image/txtbg.jpg) bottom repeat-x;
+                }
+            }
+
+            .alert_magugan2 {
+                height         : 630px;
+
+                .magutgan_alert_span {
+                    background: url(../../image/txtbg.jpg) bottom repeat-x;
+                }
+            }
+
+            .introduce_magugan2 {
+                height         : 800px;
+                width          : 430px;
+                margin         : 0 auto;
+                display        : flex;
+                flex-direction : column;
+            }
+
+            .horseHouseAlert {
+                display         : flex;
+                justify-content : center;
+                align-items     : anchor-center;
+
+                img {
+                    padding-right : 10px;
+                }
+
+            }
          
         }
         // 마구간 inner Div

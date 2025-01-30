@@ -55,6 +55,7 @@ export const SwiperImgList = [
 /* 게임정보(마구간) */
 export const horseHousePageheader = [
     {
+        mainUrl   : "/gameInfo/horseHouseInfo/horseHouseWordInfo",
         url       : "horseHouseWordInfo",
         mainMenu  : "마구간",
         title     : "마구간이란?",
@@ -63,14 +64,16 @@ export const horseHousePageheader = [
         className : "horseHouseInfo"
     },
     {
+        mainUrl   : "/gameInfo/horseHouseInfo/horseHouseWideMehodInfo",
         url       : "horseHouseWideMehodInfo",
         mainMenu  : "마구간",
-        title     : "마구간 확장 방법",
+        title     : "마구간 유의 사항",
         imgUrl    : require("../assets/image/horseWide.png"),
-        imgAlt    : "마구간 확장 방법",
+        imgAlt    : "마구간 유의 사항",
         className : "horseWideInfo"
     },
     {
+        mainUrl   : "/gameInfo/horseHouseInfo/horseListInfo",
         url       : "horseListInfo",
         mainMenu  : "마구간",
         title     : "탈것 목록",
