@@ -18,6 +18,7 @@ const Main = () => {
                       {/* 게임 정보 */}
                      <Route path="gameInfo/*"         element={<Section2/>}/>
                 </Routes>
+                {/* 미활성 컨텐츠 */}
             </main>
         </>
     )
