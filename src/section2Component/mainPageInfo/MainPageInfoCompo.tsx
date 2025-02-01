@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom"
 import { horseHousePageheader } from "../../utils/ContextList";
+import { useState             } from "react"
+import { useQuerySingle       } from "../../utils/common/common";
+import { API_IP_INFO          } from "../../utils/apiUrl";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+    dots            : false,
+    infinite        : true,
+    speed           : 1000,
+    autoplaySpeed   : 2000,
+    slidesToShow    : 8,
+    slidesToScroll  : 1,
+    autoplay        : true,
+    vertical        : true,
+    verticalSwiping : true,
+};
 
 const MainPageInfoCompo = () => {
+
+     const yangi_data  = useQuerySingle("get-yangi-data", null, `${API_IP_INFO}/stat/yang-rank`, 60000 * 5, 60000 * 10, false, true, false);
+
+     console.log(yangi_data.data);
     return(
         <section id="section2">
             <div className="section2Div">
@@ -40,24 +63,60 @@ const MainPageInfoCompo = () => {
                         </section>
 
                         <section className="main_section2">
-                            <h3> 양이전쟁 순위 <span>4건</span></h3>
-                            <ul className="yangiUl">
-                                <li className="btndown">
-                                    <button title="이전"></button>
-                                </li>
-                                <li className="btnplay">
-                                    <button title="재생"></button>
-                                </li>
-                                <li className="btnup">
-                                    <button title="정지"></button>
-                                </li>
-                            </ul>
+                            <h3> 양이전쟁 순위  <span className="yang_rank_span1"> { yangi_data?.data &&  yangi_data?.data[0]["STAT_DAY"] }전공 총합 입니다.</span></h3>
                             <div className="yangi_list">
-                                    <ul>
-                                        <div>
-                                        <li></li>
-                                        </div>
-                                    </ul>
+                                <ul className="yangi_ul">
+                                    <Slider {...settings}>
+                                        {
+                                            yangi_data?.data && yangi_data.data.map (( statInfo : any, index : number ) => {
+                                                const { BYES_KILL
+                                                      , BYES_RANK
+                                                      , DIFF_NUM
+                                                      , DIFF_TYPE
+                                                      , VILLAGE_ID
+                                                      , VILLAGE_NAME
+                                                      , YES_KILL
+                                                      , YES_RANK
+                                                    } = statInfo;
+
+                                                    let villageName = '';
+
+                                                    if   (   YES_RANK === 1 
+                                                          || YES_RANK === 2 
+                                                          || YES_RANK === 3  
+                                                        ) villageName = '[' + VILLAGE_NAME + ']';
+                                                    else  villageName = YES_RANK + '위 ' + '[' + VILLAGE_NAME + ']';
+
+                                                return (
+                                                    <>
+                                                         <li>
+                                                         { 
+                                                            YES_RANK === 1 ? <img src={require("../../assets/image/gold.png")}></img>   :
+                                                            YES_RANK === 2 ? <img src={require("../../assets/image/silver.png")}></img> :
+                                                            YES_RANK === 3 ? <img src={require("../../assets/image/dong.png")}></img> :
+                                                            ''
+                                                         }
+                                                             <p className= {YES_RANK === 1 || YES_RANK === 2 || YES_RANK === 3 ? "top_yangi_village_title" : "yangi_village_title" }>
+                                                                 <span>{villageName}<strong>{YES_KILL}</strong></span>
+                                                             </p>
+                                                         { 
+                                                            DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}></img>     :
+                                                            DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}></img>   :
+                                                            DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")}></img> :
+                                                            ''
+                                                         }
+                                                         <p className={ DIFF_TYPE === 'UP'       ? 'up_p'     :
+                                                                        DIFF_TYPE === 'DOWN'     ? 'down_p'   :
+                                                                        DIFF_TYPE === 'NORMAL'   ? 'normal_p' : 
+                                                                        ''
+                                                                      }>{DIFF_NUM}</p>
+                                                     </li>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </Slider>
+                                </ul>
                             </div>
                         </section>
 

@@ -311,6 +311,10 @@
 
         .realMainInfo_right {
               float : right;
+              
+              .yang_rank_span1 {
+                font-size: 12px;
+             }
 
               h3 {
                 font-size : 17px;
@@ -342,25 +346,27 @@
                 li {
 
                     button {
-                        width : 100%;
-                        height : 100%;
-                        text-indent: -9999px;
+                        width       : 100%;
+                        height      : 100%;
+                        text-indent : -9999px;
                     }
                 }
             }
 
             .main_section2 {
-                    
+                
+              
+
                 .yangiUl {
                     position : absolute;
                     top      : 30px;
-                    right : 25px;
-                    height : 25px;
+                    right    : 25px;
+                    height   : 25px;
 
                     li {
-                        float : left;
-                        width : 25px;
-                        height : 25px;
+                        float        : left;
+                        width        : 25px;
+                        height       : 25px;
                         margin-right : 5px;
                     }
 
@@ -389,14 +395,83 @@
                     }
                 }
 
-                // .yangi_list {
-                //     overflow: hidden;
-                //     height : 344px;
-                // }
+                .yangi_list {
+                     overflow   : hidden;
+                     height     : 344px;
+                     position   : relative;
+                     margin-top : 23px;
+
+                    .yangi_ul {
+
+                        li {
+                            width           : 100%;
+                            border-bottom   : 1px solid #eee;
+                            padding         : 10px 0;
+                            overflow        : hidden;
+                            clear           : both;
+                            display         : flex !important;
+                            justify-content : left;
+                            align-items     : center;
+                            font-size       : 14px;
+                            line-height     : 16px;
+                            height          : 43px;
+
+                            span {
+                                font-weight : bold;
+                                width       : 100%;
+                                overflow    : hidden;
+                                display     : -webkit-box;
+                                -webkit-line-clamp : 2;
+                                -webkit-box-orient : vertical;
+                                word-wrap          : break-word;
+
+                                strong {
+                                    color    : #ba00ff;
+                                    position : absolute;
+                                    left     : 130px;
+                                }
+                            }
+
+                            .top_yangi_village_title {
+                                width       : 235px;
+                                margin-left : 5px;
+                            }
+
+                            .yangi_village_title {
+                                width       : 255px;
+                                margin-left : 3px;
+                            }
+
+                            .down_p {
+                                margin-left : 5px;
+                                color       : blue;
+                            }
+
+                            .up_p {
+                                margin-left : 5px;
+                                color       : red;
+                            }
+
+                            .normal_p {
+                                margin-left : 15px;
+                                color       : #666;
+                            }
+
+                            .up_down_p_img {
+                                margin-top : 3px;
+                            }
+                        }
+                        
+                     }
+                }
             }
 
             .main_section3 {
-                background: #3b3b3b;
+                background : #3b3b3b;
+
+                h3 {
+                    color: var(--white);
+                }
             }
         }
     }
