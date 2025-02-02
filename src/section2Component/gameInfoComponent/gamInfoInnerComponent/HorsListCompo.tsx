@@ -51,7 +51,7 @@ const HorsListCompo = () => {
                                                     }
                                                  </select>
                                             </td>
-                                            <th>버프종류 : </th>
+                                            <th>특수버프종류 : </th>
                                             <td>
                                                  <select defaultValue={""} name="horseBurpType" onChange={onChangeCondition}>
                                                     <option value="">전체</option>

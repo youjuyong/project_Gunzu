@@ -26,6 +26,7 @@ interface horseListType {
     BIG_SHOP_PRICE              : string, // 대상전 가격
     HORSE_BURF_TYPE_CODE        : string, // 탈것 버프 타입 코드
     HORSE_HOUSE_BURF_TYPE_CDOE  : string, // 탈것 마구간 버프 타입 코드
+    SPECIAL_BURF_NUM            : number  // 탈것 특수버프 수치
 }
 
 const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
@@ -55,6 +56,7 @@ const TableCompo = ( props:tableCompoType ) => {
                                             <th>이름</th>
                                             <th>사용조건</th>
                                             <th>특수 버프 종류</th>
+                                            <th>특수 버프 수치</th>
                                             <th>수명</th>
                                             <th>최대능력치</th>
                                             <th>마구간 버프 타입</th>
@@ -87,14 +89,16 @@ export const CreateTable = ( props : any ) => {
                     const img = horseImgInfo.filter((horse : any) => horse.horseId === v.HORSE_ID)[0];
                     return(
                         <tr key={ i }>
-                            <td> <img src={img.imgUrl} className="" alt=""/></td>
+                            <td> <img src={img?.imgUrl} className="" alt=""/></td>
                             <td>{v?.HORSE_NAME}</td>
                             <td>{v?.HORSER_LIMIT_CON}</td>
                             <td className={v.HORSE_BURF_TYPE_CODE === 'ATKT0' ? '' 
                                          : v.HORSE_BURF_TYPE_CODE === 'ATKT1' ? 'sword_attack'
                                          : v.HORSE_BURF_TYPE_CODE === 'ATKT2' ? 'magic_attack'
+                                         : v.HORSE_BURF_TYPE_CODE === 'ATKT3' ? 'sheild_burf'
                                          : ''
                             }>{v?.HORSE_BURF_TYPE}</td>
+                            <td>{v?.SPECIAL_BURF_NUM}</td>
                             <td>{v?.HORSE_LIFE}</td>
                             <td>
                                     <p>속도   : {v?.MAX_SPED}</p>

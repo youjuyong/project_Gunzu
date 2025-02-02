@@ -212,5 +212,101 @@ export const horseImgInfo = [
     {
         horseId : "HOS32",
         imgUrl  : require("../assets/image/horseFolder/HOS32.gif")
+    },
+    {
+        horseId : "HOS33",
+        imgUrl  : require("../assets/image/horseFolder/HOS33.gif")
+    },
+    {
+        horseId : "HOS34",
+        imgUrl  : require("../assets/image/horseFolder/HOS34.gif")
+    },
+    {
+        horseId : "HOS35",
+        imgUrl  : require("../assets/image/horseFolder/HOS35.gif")
+    },
+    {
+        horseId : "HOS36",
+        imgUrl  : require("../assets/image/horseFolder/HOS36.gif")
+    },
+    {
+        horseId : "HOS37",
+        imgUrl  : require("../assets/image/horseFolder/HOS37.gif")
+    },
+    {
+        horseId : "HOS38",
+        imgUrl  : require("../assets/image/horseFolder/HOS38.gif")
+    },
+    {
+        horseId : "HOS39",
+        imgUrl  : require("../assets/image/horseFolder/HOS39.gif")
+    },
+    {
+        horseId : "HOS40",
+        imgUrl  : require("../assets/image/horseFolder/HOS40.gif")
+    },
+    {
+        horseId : "HOS41",
+        imgUrl  : require("../assets/image/horseFolder/HOS41.gif")
+    },
+    {
+        horseId : "HOS42",
+        imgUrl  : require("../assets/image/horseFolder/HOS42.gif")
+    },
+    {
+        horseId : "HOS43",
+        imgUrl  : require("../assets/image/horseFolder/HOS43.gif")
+    },
+    {
+        horseId : "HOS44",
+        imgUrl  : require("../assets/image/horseFolder/HOS44.gif")
+    },
+    {
+        horseId : "HOS45",
+        imgUrl  : require("../assets/image/horseFolder/HOS45.gif")
+    },
+    {
+        horseId : "HOS46",
+        imgUrl  : require("../assets/image/horseFolder/HOS46.gif")
+    },
+    {
+        horseId : "HOS47",
+        imgUrl  : require("../assets/image/horseFolder/HOS47.gif")
+    },
+    {
+        horseId : "HOS48",
+        imgUrl  : require("../assets/image/horseFolder/HOS48.gif")
+    },
+    {
+        horseId : "HOS49",
+        imgUrl  : require("../assets/image/horseFolder/HOS49.gif")
+    },
+    {
+        horseId : "HOS50",
+        imgUrl  : require("../assets/image/horseFolder/HOS50.gif")
+    },
+    {
+        horseId : "HOS51",
+        imgUrl  : require("../assets/image/horseFolder/HOS51.gif")
+    },
+    {
+        horseId : "HOS52",
+        imgUrl  : require("../assets/image/horseFolder/HOS52.gif")
+    },
+    {
+        horseId : "HOS53",
+        imgUrl  : require("../assets/image/horseFolder/HOS53.gif")
+    },
+    {
+        horseId : "HOS54",
+        imgUrl  : require("../assets/image/horseFolder/HOS54.gif")
+    },
+    {
+        horseId : "HOS55",
+        imgUrl  : require("../assets/image/horseFolder/HOS55.gif")
+    },
+    {
+        horseId : "HOS56",
+        imgUrl  : require("../assets/image/horseFolder/HOS56.gif")
     }
 ]

@@ -24,7 +24,6 @@ const MainPageInfoCompo = () => {
 
      const yangi_data  = useQuerySingle("get-yangi-data", null, `${API_IP_INFO}/stat/yang-rank`, 60000 * 5, 60000 * 10, false, true, false);
 
-     console.log(yangi_data.data);
     return(
         <section id="section2">
             <div className="section2Div">
@@ -63,9 +62,9 @@ const MainPageInfoCompo = () => {
                         </section>
 
                         <section className="main_section2">
-                            <h3> 양이전쟁 순위  <span className="yang_rank_span1"> { yangi_data?.data &&  yangi_data?.data[0]["STAT_DAY"] }전공 총합 입니다.</span></h3>
+                            <h3> 양이전쟁 순위  <span className="yang_rank_span1"> { yangi_data?.data &&  yangi_data?.data[0]["STAT_DAY"] } 합계</span></h3>
                             <div className="yangi_list">
-                                <ul className="yangi_ul">
+                                <ul className="yangi_ul" key='ultag'>
                                     <Slider {...settings}>
                                         {
                                             yangi_data?.data && yangi_data.data.map (( statInfo : any, index : number ) => {
@@ -88,30 +87,30 @@ const MainPageInfoCompo = () => {
                                                     else  villageName = YES_RANK + '위 ' + '[' + VILLAGE_NAME + ']';
 
                                                 return (
-                                                    <>
-                                                         <li>
+                                                     <div key={'yang_div' + index}>
+                                                         <li key={ 'li' + index }>
                                                          { 
-                                                            YES_RANK === 1 ? <img src={require("../../assets/image/gold.png")}></img>   :
-                                                            YES_RANK === 2 ? <img src={require("../../assets/image/silver.png")}></img> :
-                                                            YES_RANK === 3 ? <img src={require("../../assets/image/dong.png")}></img> :
+                                                            YES_RANK === 1 ? <img src={require("../../assets/image/gold.png")}   key={ 'img1' + index }></img>   :
+                                                            YES_RANK === 2 ? <img src={require("../../assets/image/silver.png")} key={ 'img1' + index }></img>   :
+                                                            YES_RANK === 3 ? <img src={require("../../assets/image/dong.png")}   key={ 'img1' + index }></img>   :
                                                             ''
                                                          }
-                                                             <p className= {YES_RANK === 1 || YES_RANK === 2 || YES_RANK === 3 ? "top_yangi_village_title" : "yangi_village_title" }>
-                                                                 <span>{villageName}<strong>{YES_KILL}</strong></span>
+                                                             <p key={'ptag' + index} className = {YES_RANK === 1 || YES_RANK === 2 || YES_RANK === 3 ? "top_yangi_village_title" : "yangi_village_title" }>
+                                                                 <span key={'spantag' + index}>{villageName}<strong>{YES_KILL}</strong></span>
                                                              </p>
                                                          { 
-                                                            DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}></img>     :
-                                                            DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}></img>   :
-                                                            DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")}></img> :
+                                                            DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     key={ 'img2' + index }></img>   :
+                                                            DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   key={ 'img2' + index }></img>   :
+                                                            DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} key={ 'img2' + index }></img>   :
                                                             ''
                                                          }
                                                          <p className={ DIFF_TYPE === 'UP'       ? 'up_p'     :
                                                                         DIFF_TYPE === 'DOWN'     ? 'down_p'   :
                                                                         DIFF_TYPE === 'NORMAL'   ? 'normal_p' : 
                                                                         ''
-                                                                      }>{DIFF_NUM}</p>
-                                                     </li>
-                                                    </>
+                                                                      } key={'ptag2' + index}>{DIFF_NUM}</p>
+                                                        </li>
+                                                     </div>
                                                 )
                                             })
                                         }
