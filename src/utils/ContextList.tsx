@@ -2,6 +2,16 @@
 /* 헤더  */
 export const headerNavInfo = [
     {
+        title   : "통계",
+        url     : "headerNavGameData",
+        subMenu : [{
+                 subTitle : "주민수",
+            }, {
+                 subTitle : "양이전쟁"
+            }
+        ]
+    },
+    {
         title   : "게임정보",
         url     : "headerNavGameInfo",
         subMenu : [{
@@ -14,10 +24,19 @@ export const headerNavInfo = [
             subUrl    : "questInfo",
             url       : ""   
         }, {
+            subTitle  : "소환영웅",
+            subUrl    : "gameInfo/recallHeroInfo/recallHeroWordInfo",
+            url       : "recallHeroWordInfo",
+            menuName  : "소환영웅이란?"
+        }, {
             subTitle  : "영웅강림",
             subUrl    : "heroChangeInfo",
             url       : ""   
         }]
+    },
+    {
+        title   : "홈페이지소개",
+        url     : "headerNavHpIntroduce"
     },
     {
         title    : "이벤트",
@@ -80,6 +99,55 @@ export const horseHousePageheader = [
         imgUrl    : require("../assets/image/horse.png"),
         imgAlt    : "탈것 목록",
         className : "horseList"
+    }
+]
+
+/* 게임정보(소환영웅) */
+export const recallHeroPageheader = [
+    {
+        mainUrl   : "/gameInfo/recallHeroInfo/recallHeroWordInfo",
+        url       : "recallHeroWordInfo",
+        mainMenu  : "소환영웅",
+        title     : "소환영웅이란?",
+        imgUrl    : require("../assets/image/book.png"),
+        imgAlt    : "소환영웅이란?",
+        className : "recallHeroWord"
+    },
+    {
+        mainUrl   : "/gameInfo/recallHeroInfo/recallHeroRecommand",
+        url       : "recallHeroRecommand",
+        mainMenu  : "소환영웅",
+        title     : "소환영웅 추천",
+        imgUrl    : require("../assets/image/recommand.png"),
+        imgAlt    : "소환영웅 추천",
+        className : "recallHeroRecommand"
+    },
+    {
+        mainUrl   : "/gameInfo/recallHeroInfo/recallHeroAmulet",
+        url       : "recallHeroAmulet",
+        mainMenu  : "소환영웅",
+        title     : "소환영웅 부적",
+        imgUrl    : require("../assets/image/amulet.png"),
+        imgAlt    : "소환영웅이란?",
+        className : "recallHeroAmulet"
+    },
+    {
+        mainUrl   : "/gameInfo/recallHeroInfo/recallHeroExpiration",
+        url       : "recallHeroExpiration",
+        mainMenu  : "소환영웅",
+        title     : "소환영웅 기간만료",
+        imgUrl    : require("../assets/image/clock.png"),
+        imgAlt    : "소환영웅 기간만료?",
+        className : "recallHeroExpiration"
+    },
+    {
+        mainUrl   : "/gameInfo/recallHeroInfo/recallHeroList",
+        url       : "recallHeroList",
+        mainMenu  : "소환영웅",
+        title     : "소환영웅 목록",
+        imgUrl    : require("../assets/image/recallHero.png"),
+        imgAlt    : "소환영웅 목록",
+        className : "recallHeroList"
     }
 ]
 

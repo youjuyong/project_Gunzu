@@ -43,7 +43,7 @@ const TableCompo = ( props:tableCompoType ) => {
             setHorseList(data);
         });
     },[props.selectTType]);
-    
+
     return (
         <>
             <div className="rideListArea">

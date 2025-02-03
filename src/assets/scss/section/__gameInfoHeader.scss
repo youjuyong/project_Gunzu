@@ -7,24 +7,63 @@
         margin-left     : 10px;
         margin-right    : 10px;
         font-weight     : 800;
-
+        
+        // 탈것 목록
         .horseList {
             position : relative;
-            left     : 0px;
+            left     : -8px;
             top      : 10px;
         }
 
+        // 탈것 유의 사항
         .horseWideInfo {
             position : relative;
-            left     : 0px;
+            left     : -8px;
             top      : 10px;
         }
 
+        // 탈것 이란?
         .horseHouseInfo {
             position : relative;
-            left     : -5px;
+            left     : -8px;
             top      : 10px;
         }
+
+        // 소환영웅 이란?
+        .recallHeroWord {
+            position : relative;
+            left     : -8px;
+            top      : 12px;
+        }
+
+        // 소환영웅 추천
+        .recallHeroRecommand {
+            position : relative;
+            left     : -8px;
+            top      : 8px;
+        }
+
+        // 소환영웅 부적 
+        .recallHeroAmulet {
+            position : relative;
+            left     : -8px;
+            top      : 12px;
+        }
+
+        // 소환영웅 기간만료
+        .recallHeroExpiration {
+            position : relative;
+            left     : -8px;
+            top      : 12px;
+        }
+
+        // 소환영웅 목록 {
+        .recallHeroList {
+            position : relative;
+            left     : -8px;
+            top      : 12px;
+        }
+        
     }
 
     a {

@@ -1,7 +1,7 @@
 import { useState, useEffect       } from "react";
 import { axiosCall, useQuerySingle } from "utils/common/common";
 import { API_IP_INFO               } from "utils/apiUrl";
-import { TableComponent            } from "../../../commComponent/TableCompo";
+import { TableComponent            } from "../../../../commComponent/TableCompo";
 
 interface HouseHeaderType {
     rideLimitType         : string,  // 탈것 조건
@@ -9,11 +9,15 @@ interface HouseHeaderType {
     horseBurpType         : string,  // 탈것 버프 종류
     horseLifeType         : string,  // 탈것 수명
     horseHouseBurpPercent : string,  // 마구간 버프 비율
+    keyword               : string   // 키보드 입력
 }
 
 /* 탈것 리스트 */
 const HorsListCompo = () => {
-    const { data      } = useQuerySingle("get-header-type", null, `${API_IP_INFO}/horse/stall-table-header`, 60000 * 5, 60000 * 10, false, true, false);
+    const [ form, setForm ] = useState({inputValue: ''});
+    const { inputValue    } = form;
+
+    const { data          } = useQuerySingle("get-header-type", null, `${API_IP_INFO}/horse/stall-table-header`, 60000 * 5, 60000 * 10, false, true, false);
     
     const [searchValue, setSearchValue] = useState<HouseHeaderType>({
         rideLimitType         : '',
@@ -21,12 +25,24 @@ const HorsListCompo = () => {
         horseBurpType         : '',
         horseLifeType         : '',
         horseHouseBurpPercent : '',
+        keyword               : ''
     });
 
     // 헤더 셀렉트 박스 변경시
     const onChangeCondition = (e: any) => {
         const {name, value} = e.target;
         setSearchValue({...searchValue, [name]: value});
+    }
+
+    // 검색창 변경시
+    const changeKeyWordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target;
+        setForm({...form, [name]: value});
+    }
+
+    // 검색 버튼 클릭
+    const searchkeyWord = () => {
+        setSearchValue({...searchValue, ['keyword'] :inputValue });
     }
 
     return (
@@ -105,8 +121,8 @@ const HorsListCompo = () => {
                                             </td>
                                             <th></th>
                                             <td>
-                                                <input id="input_keword" type="text" className='in150' placeholder="이름을 입력해주세요." ></input>
-                                                <button id="btn_search" className="search">조회</button>
+                                                <input  id="input_keword" type="text" className='in150' placeholder="이름을 입력해주세요." name='inputValue' value={inputValue} onChange={changeKeyWordValue} ></input>
+                                                <button id="btn_search" className="search" onClick={searchkeyWord}>조회</button>
                                             </td>
                                         </tr>
                                     </thead>
@@ -117,7 +133,7 @@ const HorsListCompo = () => {
                          {/* 테이블 컴포넌트 */}
                         <TableComponent queryKeyValue = "get-horse-list"
                                         apiUrl        = "/horse/list"
-                                        selectTType   = {searchValue}
+                                        selectTType   = { searchValue }
                         ></TableComponent>
                     </section>
                 </div>
