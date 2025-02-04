@@ -1,7 +1,7 @@
 import  React from "react";
 import { memo, useEffect, useState, useCallback } from "react";
-import { axiosCall, useQuerySingle } from "utils/common/common";
-import { API_IP_INFO  }               from "utils/apiUrl";
+import { axiosCall, useQuerySingle } from "../utils/common/common";
+import { API_IP_INFO  }               from "../utils/apiUrl";
 import { horseImgInfo }    from "../utils/ContextList";
 
 interface tableCompoType {

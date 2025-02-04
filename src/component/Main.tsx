@@ -4,7 +4,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 
-import MainPageInfoCompo from "section2Component/mainPageInfo/MainPageInfoCompo";
+import MainPageInfoCompo from "../section2Component/mainPageInfo/MainPageInfoCompo";
 
 const Main = () => {
 

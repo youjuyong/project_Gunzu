@@ -60,7 +60,6 @@
             letter-spacing   : -1px;
         }
 
-        // 마구간 설명 
         .intro_title {
             padding          : 50px 0;
             background-color : #f2f2f2;
@@ -125,7 +124,6 @@
                 background-size: 100%;
             }
 
-            // 마구간이란 이미지
             .introduce_magugan {
                 height         : 880px;
                 width          : 700px;
@@ -137,7 +135,6 @@
 
             }
 
-            // 마구간 유의 사항 이미지
             .alert_magugan {
                 height         : 930px;
                 width          : 580px;
@@ -185,28 +182,24 @@
             }
          
         }
-        // 마구간 inner Div
+
         .horseInnerDiv {
             height  : 75rem;
             padding : 55px;
         }
 
-        // 영웅강림 inner Div
         .horseInnerDiv {
             height: 75rem;
             padding : 55px;
         }
 
-        // 퀘스트 inner Div
         .horseInnerDiv {
             height: 75rem;
             padding : 55px;
         }
 
     }
-    
 
-    // 메인페이지 서비스 바로가기
     .service {
         border-bottom: 1px solid #e4e4e4;
 
@@ -281,7 +274,6 @@
         }
     }
 
-    // 메인페이지 다양한 통계 정보 
     .realTimeMainInfo {
         
         h2 {

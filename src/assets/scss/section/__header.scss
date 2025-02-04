@@ -1,11 +1,16 @@
 #header {
-    @include position-fixed;
     z-index            : 10000;
     border-bottom      : 1px solid rgba(36, 36, 41, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width : 100%;
 }
 
 .header__inner__section {
-    @include flex-between;
+    display            : flex;
+    align-items        : center;
+    justify-content    : space-between;
     background-color   : var(--headBg-Color);
     backdrop-filter    : blur(30px);
     color              : var(--white);
@@ -17,7 +22,8 @@
         text-align     : center;
         text-transform : uppercase;
         line-height    : 1;
-        width: 330px;
+        width          : 330px;
+
         em {
             font-size  : 10px;
             display    : block;

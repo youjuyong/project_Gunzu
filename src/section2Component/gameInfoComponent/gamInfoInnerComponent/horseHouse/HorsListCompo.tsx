@@ -1,6 +1,6 @@
 import { useState, useEffect       } from "react";
-import { axiosCall, useQuerySingle } from "utils/common/common";
-import { API_IP_INFO               } from "utils/apiUrl";
+import { axiosCall, useQuerySingle } from "../../../../utils/common/common";
+import { API_IP_INFO               } from "../../../../utils/apiUrl";
 import { TableComponent            } from "../../../../commComponent/TableCompo";
 
 interface HouseHeaderType {

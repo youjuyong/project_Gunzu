@@ -1,5 +1,5 @@
 
-/* 소환영웅이란? */
+/* 소환영웅이란 */
 const RecallHeroWordInfoCompo = () => {
     return (
         <> 

@@ -58,15 +58,15 @@ export const headerNavInfo = [
 /* Section1 슬라이드 */
 export const SwiperImgList = [
     {
-        url : "SliderImg1",
+        url : "SliderImg2",
         alt : "슬라이드1"
     },
     {
-        url : "SliderImg2",
+        url : "main_test",
         alt : "슬라이드2"
     },
     {
-        url : "SliderImg3",
+        url : "main_test2",
         alt : "슬라이드3"
     }
 ]
@@ -135,9 +135,9 @@ export const recallHeroPageheader = [
         mainUrl   : "/gameInfo/recallHeroInfo/recallHeroExpiration",
         url       : "recallHeroExpiration",
         mainMenu  : "소환영웅",
-        title     : "소환영웅 기간만료",
+        title     : "소환영웅 만료",
         imgUrl    : require("../assets/image/clock.png"),
-        imgAlt    : "소환영웅 기간만료?",
+        imgAlt    : "소환영웅 만료?",
         className : "recallHeroExpiration"
     },
     {
