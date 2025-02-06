@@ -11,7 +11,7 @@
 fieldset, img, table, button {
     border : 0;
 }
-// 공백 초기화
+
 body,
 button,
 dd,
@@ -67,7 +67,7 @@ address {
     font-style  : normal;
 }
 
-// 링크 초기화
+
 a {
     color:inherit;
     text-decoration: none;

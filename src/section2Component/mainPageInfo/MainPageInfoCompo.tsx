@@ -23,7 +23,7 @@ const settings = {
 const MainPageInfoCompo = () => {
 
      const yangi_data  = useQuerySingle("get-yangi-data", null, `${API_IP_INFO}/stat/yang-rank`, 60000 * 5, 60000 * 10, false, true, false);
-
+    console.log(yangi_data);
     return(
         <section id="section2">
             <div className="section2Div">

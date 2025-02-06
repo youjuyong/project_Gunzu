@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import {SwiperImgList} from "../utils/ContextList";
 import "swiper/css";
-import "../assets/scss/comm/__swiper.min.scss";
+import "../assets/scss/comm/__swiper.min.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 

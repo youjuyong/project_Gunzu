@@ -35,10 +35,9 @@ module.exports = (env, argv) => {
                     use: ["babel-loader", "ts-loader"],
                 },
                 {
-                    test: /\.(sass|css|scss)$/,
-                    use: ["css-loader", { 
-                        loader: "postcss-loader", options: { postcssOptions : { plugins: postCSSPlugins} } }]
-                 },
+                    test: /\.css$/i,
+                    use: ['style-loader', 'css-loader']
+                },
                 {
                     test: /\.(png|jpg|gif|PNG)$/,
                     type: 'asset/resource',
