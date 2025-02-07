@@ -6,7 +6,7 @@ const HorseHouseWideMehodCompo = () => {
             <div className='intro_title'>
                 <h3 className="magutganAlert_h3">마구간 유의 사항</h3>
                 <p className="alert_pTag">"다음은 마구간 유의 사항입니다." <br/><br/><br/>
-                    <span className="magutgan_alert_title_span">1. 한 캐릭당 최대 15개의 말 버프를 중첩 시킬수 있습니다.<br/> </span><br/><br/>
+                    <span className="magutgan_alert_title_span">1. 한 캐릭당 최대 15개의 말 버프를 중첩 시킬 수 있습니다.<br/> </span><br/><br/>
                 </p>
                 <div className="alert_magugan">
                     <img src={require("../../../../assets/image/magutgan_alert1.png")}></img>

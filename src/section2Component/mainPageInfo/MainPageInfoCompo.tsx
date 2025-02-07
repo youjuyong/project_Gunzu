@@ -22,8 +22,12 @@ const settings = {
 
 const MainPageInfoCompo = () => {
 
-     const yangi_data  = useQuerySingle("get-yangi-data", null, `${API_IP_INFO}/stat/yang-rank`, 60000 * 5, 60000 * 10, false, true, false);
-    console.log(yangi_data);
+    // 양이 전쟁 리스트
+    const yangi_data  = useQuerySingle("get-yangi-data", null, `${API_IP_INFO}/stat/yang-rank`, 60000 * 5, 60000 * 10, false, true, false);
+
+    // 주민수 리스트
+    const human_cnt_data  = useQuerySingle("get-human-data", null, `${API_IP_INFO}/stat/village-human-cnt`, 60000 * 5, 60000 * 10, false, true, false);
+   
     return(
         <section id="section2">
             <div className="section2Div">
@@ -48,21 +52,56 @@ const MainPageInfoCompo = () => {
                     </div>
                     <div className="realMainInfo_right">
                         <section className="main_section1">
-                            <h3> 차 공성 순위 <span>4건</span></h3>
-                            <ul>
-                                <li className="btndown">
-                                    <button></button>
-                                </li>
-                                <li></li>
-                                <li></li>
-                            </ul>
+                            <h3> 주민수 순위 <span>{ human_cnt_data?.data && human_cnt_data?.data.length }건 {human_cnt_data?.data && human_cnt_data?.data[0]?.YES_DATE}</span></h3>
+                            <div className="yangi_list">
+                                <ul className="yangi_ul" key='ultag'>
+                                    <Slider {...settings}>
+                                        {
+                                            human_cnt_data?.data && human_cnt_data.data.map (( humanStatInfo : any, index : number ) => {
+                                                const {
+                                                       YES_HUMAN_CNT
+                                                      , VILLAGE_NAME
+                                                      , YES_RANK
+                                                      , DIFF_TYPE
+                                                      , DIFF_NUM
+                                                      , YES_DATE
+                                                    } = humanStatInfo;
+                                                    
+                                                    let villageName = YES_RANK + '. ' + VILLAGE_NAME;
+                                                    return (
+                                                        <div key={ 'humandivhu' + index }>
+                                                             <li key={ 'humanlihu' + index }>
+                                                                <p key={'pHumantag' + index} className="yangi_village_title">
+                                                                    <span key={'spanHumantag' + index}>
+                                                                        {villageName}<strong>{YES_HUMAN_CNT} 명 </strong>
+                                                                    </span>
+                                                                </p>
+                                                                { 
+                                                                    DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     key={ 'img2' + index }></img>   :
+                                                                    DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   key={ 'img2' + index }></img>   :
+                                                                    DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} key={ 'img2' + index }></img>   :
+                                                                     ''
+                                                                }
+                                                                <p className={ DIFF_TYPE === 'UP'       ? 'up_p'     :
+                                                                               DIFF_TYPE === 'DOWN'     ? 'down_p'   :
+                                                                               DIFF_TYPE === 'NORMAL'   ? 'normal_p' : 
+                                                                               ''
+                                                                } key={'ptag2' + index}>{DIFF_NUM}</p> 
+                                                             </li>
+                                                        </div>
+                                                    )
+                                            })
+                                        }
+                                    </Slider>
+                                </ul>
+                            </div>
                             {/* <Link to="">
                                 <img src="" title=""></img>
                             </Link> */}
                         </section>
 
                         <section className="main_section2">
-                            <h3> 양이전쟁 순위  <span className="yang_rank_span1"> { yangi_data?.data &&  yangi_data?.data[0]["STAT_DAY"] } 합계</span></h3>
+                            <h3> 양이전쟁 순위  <span> { yangi_data?.data &&  yangi_data?.data[0]["STAT_DAY"] } 합계</span></h3>
                             <div className="yangi_list">
                                 <ul className="yangi_ul" key='ultag'>
                                     <Slider {...settings}>
