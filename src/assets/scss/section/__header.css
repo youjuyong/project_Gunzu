@@ -81,7 +81,7 @@
 
         li {
             display : inline;
-            padding : 19px;
+            padding : 26px;
 
             a  {  
                 text-transform : uppercase;
@@ -146,7 +146,7 @@
             -webkit-justify-content : flex-end;
             
             div {
-                width : 130px;
+                width : 139px;
 
                 a {
                     height      : 40px;
@@ -159,19 +159,29 @@
                         content    : "" ;
                      }
                 }
+
+              
             }
 
         }
 
-        .sub-menu div:first-of-type a{
-            margin-left : 45px;
-        }
         
+        .sub-menu div:nth-of-type(3) a{
+            margin-right : 35px;
+
+         
+        }
+
         .sub-menu div:nth-of-type(4) a{
-            margin-left : 20px;
+            margin-left : -60px;
+        }
+
+        .sub-menu div:nth-of-type(4) ul{
+            padding-left : 10px;
         }
         
         .sub-menu   {
+             
             a:after { 
                 position   : absolute;
                 width      :  80px;
@@ -186,6 +196,9 @@
                 -moz-transform     : translate(-60px, 40px);
                 transform          : translate(-60px, 40px);
             }
+            
+       
+
             a:hover, a:focus {
                 outline: none;
             }

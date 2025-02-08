@@ -81,6 +81,15 @@
                 background-size : 503px 64px;
             }
 
+            .magutganAlert_h5 {
+                font-size   : 40px;
+                line-height : 64px;
+                height      : 64px;
+                font-weight : 700;
+                background  : url(../../image/st2.png)center top no-repeat;
+                background-size : 503px 64px;
+            }
+
             .magutgan_alert_title_span {
                 font-size : 25px;
                 color     : blue
@@ -180,7 +189,7 @@
                 }
 
             }
-         
+
         }
 
         .horseInnerDiv {
@@ -198,6 +207,160 @@
             padding : 55px;
         }
 
+    }
+
+    .intro_title_raw {
+
+        .intro_div2 {
+            background      : url(../../image/systemKingTitle.png)center no-repeat;
+            background-size : cover;
+            width           : 100%;
+            border-radius   : 10px;
+            height          : 360px;
+            color           : --var(white);
+            text-align      : center;
+
+            .king_title_h3 {
+                    width         : auto;
+                    display       : inline-block;
+                    font-size     : 52px;
+                    line-height   : 64px;
+                    height        : 125px;
+                    font-weight   : 700;
+                    color         : var(--white);
+                    border-bottom : 1px solid var(--white);
+                    padding-top   : 54px;
+                    margin-bottom : 20px;
+            }
+
+            .king_title_pTag {
+                font-size   : 17px;
+                line-height : 25px;
+                color       : var(--white);
+                font-weight   : bold;
+            }
+
+        }
+
+        .king_body_div {
+            width    : 100%;
+            overflow : hiddden;
+            position : relative;
+
+            .king_body_h3 {
+                font-size   : 40px;
+                line-height : 64px;
+                height      : 64px;
+                font-weight : 700;
+                background  : url(../../image/st2.png)center top no-repeat
+            }
+
+            .content1 {
+                width   : 100%;
+                padding : 44px 0;
+                margin  : 44px 0 20px 0;
+                
+                .content1_div {
+                    width : 100%;
+                    margin-top : 80px;
+                    clear : both;
+                    overflow: hidden;
+
+                    .dl1 {
+                        width          : 1400px;
+                        border-radius  : 10px;
+                        border         : 1px solid #a0a0a0;
+                        text-align     :center;
+                        position       : relative;
+                        height         : 600px;
+                        padding-top    : 65px;
+                        margin-left    : 65px;
+
+                        .dl1Span {
+                            background: url(../../image/txtbg.jpg)bottom repeat-x;
+                        }
+                        
+                        dt  {
+                            font-size       : 23px;
+                            font-weight     : 700;
+                            height          : 36px;
+                            line-height     : 36px;
+                            margin-top      : 315px;
+                            border-bottom   : 1px solid #575757;
+                            display         : inline-block;
+
+                            img {
+                                position    : absolute;
+                                top         : 50px;
+                                margin-left : -135px;
+                            }
+                        }
+
+                        dd {
+                            font-size   : 14px;
+                            line-height : 20px;
+                            margin-left : -225px;
+
+                            .img1 {
+                                position : absolute;
+                                left     : 510px;
+                            }
+
+                            .img2 {
+                                position : absolute;
+                                left     : 510px;
+                            }
+
+                            .img3 { position : absolute; left     : 510px }
+                            .img4 { position : absolute; left     : 510px }
+                            .img5 { position : absolute; left     : 510px }
+                            .img6 { position : absolute; left     : 510px }
+
+                            h3 {
+                                font-size: 18px;
+                            }
+
+                            .h22 { margin-left: -44px;}
+                            .h33 { margin-left: 265px;}
+                            .h44 { margin-left: 189px;}
+                            .h55 { margin-left: 245px;}
+                        }
+                    }
+                }
+
+                .content2_div { 
+                    width          : 1400px;
+                    overflow      : hidden;
+                    margin-left   : 65px;
+                    height        : 300px;
+                    border-radius : 10px 0 0 10px;
+                    border        : 1px solid #a0a0a0;
+
+                    .dl2 {
+                        float        : left;
+                        width        : 16.66%;
+                        border-right : 1px solid #a0a0a0;
+                        position     : relative;
+                        padding      : 33px 10px;
+                        text-align   : center;
+                        font-size    : 15px;
+                        height       : 300px;
+
+                       dt {
+                           text-align :center;
+
+                          .dl2_sp {
+                                background  : url(../../image/txtbg.jpg)bottom repeat-x;
+                                font-size   : 18px;
+                                font-weight : bold;
+                                line-height : 18px;
+                                display     : inline-block;
+                          }
+                       }
+                    }
+                }
+            }
+        }
     }
 
     .service {

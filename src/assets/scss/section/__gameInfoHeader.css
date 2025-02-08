@@ -57,6 +57,29 @@
             top      : 12px;
         }
         
+        .systemOfKingWordInfo {
+            position : relative;
+            left     : -8px;
+            top      : 10px;
+        }
+
+        .systemOfKingLawInfo {
+            position : relative;
+            left     : -8px;
+            top      : 10px;
+        }
+
+        .systemOfKingMacroPatrol {
+            position : relative;
+            left     : -8px;
+            top      : 10px;
+        }
+
+        .systemOfKingMacoThinking {
+            position : relative;
+            left     : -8px;
+            top      : 10px;
+        }
     }
 
     a {

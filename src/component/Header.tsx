@@ -37,10 +37,10 @@ const Header = () => {
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
                         <ul className="header__nav_menu">
                             {
-                                headerNavInfo.map(( info, index : number ) => {
-                                    const { url, title } = info;
+                                headerNavInfo.map(( info : any, index : number ) => {
+                                    const { url, title, menuName, subTitle, subUrl } = info;
                                     return (
-                                        <li key={ index }><Link to={ url } className="tab snans">{ title }</Link></li>
+                                        <li key={ index }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className="tab snans">{ title }</Link></li>
                                     )
                                 })
                             }

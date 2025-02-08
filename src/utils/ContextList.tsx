@@ -1,6 +1,14 @@
 
 /* 헤더  */
 export const headerNavInfo = [
+    
+    {
+        title    : "왕실시스템",
+        url      : "systemOfKingWordInfo",
+        subUrl    : "gameInfo/systemOfKing/systemOfKingWordInfo",
+        subTitle : "왕실시스템",
+        menuName : "왕실이란?"
+    },
     {
         title   : "통계",
         url     : "headerNavGameData",
@@ -13,7 +21,7 @@ export const headerNavInfo = [
     },
     {
         title   : "게임정보",
-        url     : "headerNavGameInfo",
+        url     : "gameInfo/horseHouseInfo/horseHouseWordInfo",
         subMenu : [{
             subTitle  : "마구간",
             subUrl    : "gameInfo/horseHouseInfo/horseHouseWordInfo",
@@ -35,10 +43,6 @@ export const headerNavInfo = [
         }]
     },
     {
-        title   : "홈페이지소개",
-        url     : "headerNavHpIntroduce"
-    },
-    {
         title    : "이벤트",
         url      : "headerNavEvent",
         subMenu : [{
@@ -52,7 +56,11 @@ export const headerNavInfo = [
     {
         title   : "게시판",
         url     : "headerNavBoard"
-    }
+    },
+    {
+        title   : "홈페이지소개",
+        url     : "headerNavHpIntroduce"
+    },
 ];
 
 /* Section1 슬라이드 */
@@ -99,6 +107,46 @@ export const horseHousePageheader = [
         imgUrl    : require("../assets/image/horse.png"),
         imgAlt    : "탈것 목록",
         className : "horseList"
+    }
+]
+
+/* 왕실 시스템 */
+export const systemOfKingPageHeader = [
+    {
+        mainUrl   : "/gameInfo/systemOfKing/systemOfKingWordInfo",
+        url       : "systemOfKingWordInfo",
+        mainMenu  : "왕실시스템",
+        title     : "왕실이란?",
+        imgUrl    : require("../assets/image/book.png"),
+        imgAlt    : "왕실이란?",
+        className : "systemOfKingWordInfo"
+    },
+    {
+        mainUrl   : "/gameInfo/systemOfKing/systemOfKingLawInfo",
+        url       : "systemOfKingLawInfo",
+        mainMenu  : "왕실시스템",
+        title     : "왕실 법안",
+        imgUrl    : require("../assets/image/rawSystem.png"),
+        imgAlt    : "왕실 법안",
+        className : "systemOfKingLawInfo"
+    },
+    {
+        mainUrl   : "/gameInfo/systemOfKing/systemOfKingMacroPatrol",
+        url       : "systemOfKingMacroPatrol",
+        mainMenu  : "왕실시스템",
+        title     : "매크로 순찰",
+        imgUrl    : require("../assets/image/macro.png"),
+        imgAlt    : "매크로 순찰",
+        className : "systemOfKingMacroPatrol"
+    },
+    {
+        mainUrl   : "/gameInfo/systemOfKing/systemOfKingMacoThinking",
+        url       : "systemOfKingMacoThinking",
+        mainMenu  : "왕실시스템",
+        title     : "매크로 판별창",
+        imgUrl    : require("../assets/image/searchRaw.png"),
+        imgAlt    : "매크로 판별창",
+        className : "systemOfKingMacoThinking"
     }
 ]
 

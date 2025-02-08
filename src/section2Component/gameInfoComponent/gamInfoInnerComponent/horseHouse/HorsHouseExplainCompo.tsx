@@ -17,7 +17,7 @@ const HorsHouseExplainCompo = () => {
                 ① : 시전에 입장 하는 버튼 입니다. <br/> 
                 ② : 마구간에 입장 하는 버튼입니다. <br/> 
                 ③ : 마구간을 확장 하는 버튼으로 '시전개조이용권'으로 마구간을 늘릴 수 있습니다. <br/> 
-                ④ : 말의 수명을 보여줍니다. 버프는 말의 수명이 다하면 사라집니다. <br/> 
+                ④ : 말의 수명을 보여줍니다. 버프는 말의 수명이 다하면 버프가 사라집니다. <br/> 
                 ⑤ : 마구간에 넣은 말에 따라 버프를 얻을 수 있습니다.  
                 <Link  to = { horseHousePageheader[2].mainUrl } 
                     state = {{         url : horseHousePageheader[2].url
