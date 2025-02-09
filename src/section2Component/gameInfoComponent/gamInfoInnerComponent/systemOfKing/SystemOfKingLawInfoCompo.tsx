@@ -2,12 +2,8 @@ import { memo , useState } from "react";
 import { FlippingPages }   from 'flipping-pages';
 import React    from "react";
 import 'flipping-pages/dist/style.css';
-const width = 300;
-const height = 424;
-
 
 const SystemOfKingLawInfo = ( ) => {
-    const [pageCnt, setPageCnt] = useState(1);
 
     const [selected, setSelected] = useState(0);
 
@@ -18,7 +14,7 @@ const SystemOfKingLawInfo = ( ) => {
     const next = () => {
         setSelected(selected => selected + 1);
     };
-    console.log(selected);
+
     return (
         <>
         <div className='intro_title'>
@@ -26,7 +22,6 @@ const SystemOfKingLawInfo = ( ) => {
             <div className="raw_Div">
                 <div className="pages">
                     <label className="book_label">
-                       
                         <FlippingPages
                             direction="right-to-left"
                             onSwipeEnd={setSelected}
