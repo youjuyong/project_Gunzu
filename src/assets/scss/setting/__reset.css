@@ -150,6 +150,10 @@ input[type=text] {
     width : 200px;
 }
 
+.select110 {
+    width : 110px;
+}
+
 button {
     vertical-align : middle;
     cursor: pointer;

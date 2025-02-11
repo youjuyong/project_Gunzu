@@ -10,6 +10,16 @@ export const headerNavInfo = [
         menuName : "왕실이란?"
     },
     {
+        title    : "제조/장인",
+        url      : "gameInfo/craftsManInfo/craftsManListInfo",
+        subMenu  : [{
+            subTitle  : "장인목록",
+            subUrl    : "gameInfo/craftsManInfo/craftsManListInfo",
+            url       : "craftsManListInfo",   
+            menuName  : "장인목록"
+        }]
+    },
+    {
         title   : "통계",
         url     : "headerNavGameData",
         subMenu : [{
@@ -28,10 +38,6 @@ export const headerNavInfo = [
             url       : "horseHouseWordInfo",   
             menuName  : "마구간이란?"
         }, {
-            subTitle  : "퀘스트",
-            subUrl    : "questInfo",
-            url       : ""   
-        }, {
             subTitle  : "소환영웅",
             subUrl    : "gameInfo/recallHeroInfo/recallHeroWordInfo",
             url       : "recallHeroWordInfo",
@@ -45,13 +51,14 @@ export const headerNavInfo = [
     {
         title    : "이벤트",
         url      : "headerNavEvent",
-        subMenu : [{
-            subTitle  : "경품",
-            subUrl    : "eventRequest"
-        }, {
-            subTitle  : "일정",
-            subUrl    : "eventCalen"
-        }]
+        // subMenu : [{
+        //     subTitle  : "경품",
+        //     subUrl    : "eventRequest"
+        // }, {
+        //     subTitle  : "일정",
+        //     subUrl    : "eventCalen"
+        // }]
+        subMenu:[]
     },
     {
         title   : "게시판",
@@ -109,6 +116,19 @@ export const horseHousePageheader = [
         className : "horseList"
     }
 ]
+
+/* 장인 목록 */
+export const craftsManHeader = [
+    {
+        mainUrl   : "/gameInfo/craftsManInfo/craftsManListInfo",
+        url       : "craftsManListInfo",
+        mainMenu  : "장인목록",
+        title     : "장인리스트",
+        imgUrl    : require("../assets/image/craftsMan.png"),
+        imgAlt    : "장인리스트?",
+        className : "craftsManListInfo"
+    }
+];
 
 /* 왕실 시스템 */
 export const systemOfKingPageHeader = [

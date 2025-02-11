@@ -7,6 +7,7 @@ import GameInfoHorseHouseCompo    from "../section2Component/gameInfoComponent/g
 import GameInfoQuestCompo         from "../section2Component/gameInfoComponent/gameInfoQuest";       // 퀘스트
 import GameInfoRecallHeroCompo    from "../section2Component/gameInfoComponent/gameInfoRecallHero";  // 소환영웅
 import GameInfoSystemOfKingCompo  from "../section2Component/gameInfoComponent/gameInfoSystemOfKing";// 왕실시스템
+import GameInfoCraftsManCompo     from "../section2Component/gameInfoComponent/gameInfoCraftsMan";   // 장인목록
 
 /* 게임정보(마구간) */
 import HorsHouseExplainCompo    from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
@@ -25,6 +26,9 @@ import { SystemOfKingWordInfoCompo        }  from "../section2Component/gameInfo
 import { SystemOfKingLawInfoCompo         }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingLawInfoCompo";           // 왕실 법안 
 import { SystemOfKingMacroPatrolInfoCompo }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingMacroPatrolInfoCompo";   //  매크로 순찰
 import { SystemOfKingMacroThinkInfoCompo  }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingMacroThinkInfoCompo";    // 매크로 판별창
+
+/* 장인 목록 */
+import { CraftsManListInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/craftsMan/CraftsManListInfoCompo"; // 장인 모곩
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
@@ -58,6 +62,9 @@ const Section2 = () => {
                                         <Route path="systemOfKingLawInfo"      element={<SystemOfKingLawInfoCompo/>}/>
                                         <Route path="systemOfKingMacroPatrol"  element={<SystemOfKingMacroPatrolInfoCompo/>}/>
                                         <Route path="systemOfKingMacoThinking" element={<SystemOfKingMacroThinkInfoCompo/>}/>
+                                </Route>
+                                <Route path="craftsManInfo" element={<GameInfoCraftsManCompo/>}>
+                                         <Route path="craftsManListInfo"     element={<CraftsManListInfoCompo/>}/>
                                 </Route>
                                 <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                         </Routes>

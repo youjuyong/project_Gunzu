@@ -9,7 +9,7 @@ const postCSSPlugins = [require("postcss-import"), require("postcss-mixins"), re
 
 module.exports = (env, argv) => {
     const prod = argv.mode === "production";
-    console.log(prod);
+    
     return {
         mode: prod ? "production" : "development",
         devtool: prod ? "hidden-source-map" : "eval",

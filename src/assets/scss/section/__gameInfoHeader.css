@@ -80,6 +80,12 @@
             left     : -8px;
             top      : 10px;
         }
+
+        .craftsManListInfo {
+            position : relative;
+            left     : -8px;
+            top      : 10px;
+        }
     }
 
     a {
