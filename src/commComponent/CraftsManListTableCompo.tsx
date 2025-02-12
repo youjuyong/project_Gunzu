@@ -14,6 +14,7 @@ interface craftsListType {
     CRAFT_MAN_NAME              : string, // 장인 이름
     CRAFT_TYPE                  : string, // 장인 종류
     CRAFT_HAND_SKILL            : number, // 손재주
+    CRAFT_TYPE_CODE             : string, // 장인 타입 코드
     VILLAGE_NAME                : string, // 마을 명
     CRAFT_LEVEL                 : number, // 장인 레벨
     UPD_DT                      : string, // 마지막 수정 일시
@@ -25,7 +26,7 @@ const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수
 
 const CraftsManListTable = ( props : tableCompoType ) => {
  
-    const [ craftList, setCraftList ] = useState();
+    const [ craftList, setCraftList ] = useState([]);
     
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(craftList);
 
@@ -38,6 +39,7 @@ const CraftsManListTable = ( props : tableCompoType ) => {
     return (
         <>
               <div className="rideListArea">
+                    <div className="count">총 : { craftList?.length && craftList.length }명</div>
                                       <div className="tableConbin">
                                             <table className="table rideListTable snans">
                                                 <caption>탈것 리스트</caption>
@@ -74,11 +76,57 @@ export const CreateTable = ( props : any ) => {
         <>  
             {
                 props?.data && props.data.map((v : craftsListType, i : number) => {
+                    
+                    let className = '';
+
+                    switch (v.CRAFT_TYPE_CODE) {
+                        case 'CMLC1' : className = 'magin_stick';
+                                       break;
+                        case 'CMLC2' : className = 'spear';
+                                       break;
+                        case 'CMLC3' : className = 'gun';
+                                        break;
+                        case 'CMLC4' : className = 'sword';
+                                        break;
+                        case 'CMLC5' : className = 'ax';
+                                       break;
+                        case 'CMLC6' : className = 'bow';
+                                       break;
+                        case 'CMLC7' : className = 'armor';
+                                       break;
+                        case 'CMLC8' : className = 'canon';
+                                       break;
+                        case 'CMLC9' : className = 'dogu';
+                                       break;
+                        case 'CMLC10': className = 'mangto';
+                                       break;
+                        case 'CMLC11': className = 'hat';
+                                       break;
+                        case 'CMLC12': className = 'neckclass';
+                                       break;
+                        case 'CMLC13': className = 'ring';
+                                       break; 
+                        case 'CMLC14': className = 'amulet';
+                                       break;  
+                        case 'CMLC15': className = 'shoose';
+                                       break; 
+                        case 'CMLC16': className = 'belt';
+                                       break;    
+                        case 'CMLC17': className = 'cloth';
+                                       break;  
+                        case 'CMLC18': className = 'helmet';
+                                       break;   
+                        case 'CMLC19': className = 'drug';
+                                       break;      
+                        case 'CMLC20': className = 'food';
+                                       break;               
+                    }
+
                     return(
                         <tr key={ i }>
                             <td>{v?.CRAFT_MAN_NAME}</td>
                             <td className="">{v?.VILLAGE_NAME}</td>
-                            <td>{v?.CRAFT_TYPE}</td>
+                            <td className={className}>{v?.CRAFT_TYPE}</td>
                             <td>{v?.CRAFT_LEVEL}</td>
                             <td>{v?.CRAFT_HAND_SKILL}</td>
                             <td>{v?.UPD_DT}</td>

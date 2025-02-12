@@ -232,7 +232,6 @@
                     position      : relative;
                     border        : 1px solid #c5c5c5;
                     border-radius : 10px;
-                    overflow      : hidden;
 
                     .craftSearchBox {
                         width         : 100%;
@@ -300,6 +299,15 @@
 
                         .rideListArea {
                             
+                            .count {
+                                position    : absolute;
+                                top         : -80px;
+                                right       : 10px;
+                                font-size   : 15px;
+                                color       : red;
+                                font-weight : 700;
+                            }
+
                             .tableConbin {
                                 
                                 table {
@@ -326,6 +334,28 @@
                                         height : 110px;
                                         text-align: center;
                                     }
+                                    
+                                    .armor { background  : url(../../image/craftTypeImg/armor.png) left no-repeat; background-size:30px 30px; }
+                                    .ax    { background  : url(../../image/craftTypeImg/ax.png) left no-repeat; background-size:30px 30px; }
+                                    .bow   { background  : url(../../image/craftTypeImg/bow.png) left no-repeat; background-size:30px 30px; }
+                                    .canon { background  : url(../../image/craftTypeImg/canon.png) left no-repeat; background-size:30px 30px; }
+                                    .dogu  { background  : url(../../image/craftTypeImg/dogu.png) left no-repeat; background-size:30px 30px; }
+                                    .gun   { background  : url(../../image/craftTypeImg/gun.png) left no-repeat; background-size:30px 30px; }
+                                    .magin_stick { background  : url(../../image/craftTypeImg/magin_stick.png) left no-repeat; background-size:30px 30px; }
+                                    .mangto { background  : url(../../image/craftTypeImg/mangto.png) left no-repeat; background-size:30px 30px; }
+                                    .spear  { background  : url(../../image/craftTypeImg/spear.png) left no-repeat; background-size:30px 30px; }
+                                    .sword  { background  : url(../../image/craftTypeImg/sword.png) left no-repeat; background-size:30px 30px; }
+                                    .hat    { background  : url(../../image/craftTypeImg/hat.png) left no-repeat; background-size:30px 30px; }
+                                    .neckclass  { background  : url(../../image/craftTypeImg/neckclass.png) left no-repeat; background-size:30px 30px; }
+                                    .ring   { background  : url(../../image/craftTypeImg/ring.png) left no-repeat; background-size:30px 30px; }
+                                    .amulet { background  : url(../../image/craftTypeImg/amulet.png) left no-repeat; background-size:30px 30px; }
+                                    .shoose { background  : url(../../image/craftTypeImg/shoose.png) left no-repeat; background-size:30px 30px; }
+                                    .drug   { background  : url(../../image/craftTypeImg/drug.png) left no-repeat; background-size:30px 30px; }
+                                    .belt   { background  : url(../../image/craftTypeImg/belt.png) left no-repeat; background-size:30px 30px; }
+                                    .cloth	{ background  : url(../../image/craftTypeImg/cloth.png) left no-repeat; background-size:30px 30px; }
+                                    .helmet { background  : url(../../image/craftTypeImg/helmet.png) left no-repeat; background-size:30px 30px; }
+                                    .food   { background  : url(../../image/craftTypeImg/food.png) left no-repeat; background-size:30px 30px; }
+                                    
 
                                     .craft_Village_img {
                                         background  : url(../../image/city_mark.png) left no-repeat;
@@ -353,10 +383,11 @@
                                 width      : 100%;
                                 overflow   : hidden;
                                 text-align : center;
-                               height: 70px;
+                                height: 70px;
+                                
                                 .pagebtnbox {
                                     
-                                    height   : 34px;
+                                    height   : 53px;
                                     display  : inline-block;
                                     padding  : 0 50px;
                                     position : relative;

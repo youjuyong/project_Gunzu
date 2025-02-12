@@ -27,7 +27,7 @@ const MainPageInfoCompo = () => {
 
     // 주민수 리스트
     const human_cnt_data  = useQuerySingle("get-human-data", null, `${API_IP_INFO}/stat/village-human-cnt`, 60000 * 5, 60000 * 10, false, true, false);
-   
+   console.log(human_cnt_data);
     return(
         <section id="section2">
             <div className="section2Div">

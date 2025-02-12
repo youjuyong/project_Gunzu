@@ -49,8 +49,8 @@ const CraftsManListInfo = () => {
             <div className='contenbox'>
                 <div className='section2InnerDiv'>
                     <div className="contentstitle">
-                        <h3>※ 장인 목록은 매주 일요일에 갱신되고 한달에 한번씩 전체 삭제가 됩니다.</h3>
-                        <p>게임정보를 바탕으로 갱신을 하기 때문에 자신의 캐릭명이 없는 유저는 기술 목록에 없기 때문입니다.</p>
+                        <h3>※ 장인 목록은 미접속 장인들을 위해 매달 수정 or 초기화가 됩니다.</h3>
+                        <p>게임정보를 바탕으로 갱신을 하기 때문에 자신의 캐릭명이 없는 유저는 기술 목록을 확인해주세요.</p>
                     </div>
                     <div className="craftContentDiv">
                         <div className="craftTable1">
