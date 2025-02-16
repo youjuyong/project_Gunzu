@@ -1,0 +1,216 @@
+.modal-dialog input, .modal-dialog select {
+    width: 100%
+}
+
+.modal-dialog.popup_bitplus input, .modal-dialog.popup_bitplus select {
+    width: 130px;
+}
+
+.modal-dialog .absolutetable .abtable tbody tr {
+    border-bottom: 1px solid #434448;
+}
+
+.modal-dialog .com {
+    padding-right: 12px;
+}
+
+.modal-dialog .poptable th {
+    padding: 0 12px 0 5px
+}
+
+.modal-content {
+    position: relative;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(29,29,32,0.9);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+  }
+
+.modal-header {position: relative; background:rgba(40,40,40); padding: 0 10px; text-align: left; min-height: 16.42857143px; height: 30px; line-height: 30px; border-bottom: 1px solid #575c62;}
+.modal-header h2{color: #fff; font-size: 14px; height: 30px; line-height: 28px; font-weight: 400}
+
+.modal-header .close {position: absolute; right: 0; top: 0; width: 30px; height: 30px; text-indent:-99999px; background: url(../../image/pop_close.png)center no-repeat; box-shadow: none;}
+.modal-header .close:hover{background: url(../../image/pop_close_hover.png)center no-repeat;}
+
+.popcontent{width: 100%; height:100%;min-height: 50px; background:#ddd; padding:6px 10px 58px 10px; position: relative;}
+
+/*BIT추가*/
+.popup_bitplus {
+    width: 500px;
+}
+
+.popup_bitplus .popcontent {
+    height: 552px;
+    padding: 0 10px 58px 10px;
+}
+
+.buttonset {
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 32px;
+    text-align: center;
+
+    button {
+        height: 100%;
+        font-size: 13px;
+        color: #fff;
+        padding: 0 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        background : #4f5158;
+        border-radius : 5px;
+        margin : 0 2px 0 1px;
+    }
+
+   
+    button:hover {
+        background: #5473c3;
+    }
+
+    button:active {
+        background: #32426c;
+    }
+}
+
+.poplinepaddingbox {
+    width: 100%;
+    padding: 5px 0 10px 0;
+    background: #3a3b3e;
+    border: 1px solid #2e2f30;
+}
+
+.poptable {
+    width: 100%;
+}
+
+.poptable th {
+    color: #7dc3ff;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: right;
+    line-height: 15px;
+    padding: 0 0 0 5px
+}
+
+.popup_bitplus .poptable th {
+    width: 142px;
+}
+
+.popup_bitplus .poptable.poptable_bitplus th {
+    width: auto;
+}
+
+.poptable button {
+    margin-left: 3px
+}
+
+.poptable td {
+    text-align: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 5px;
+    position: relative;
+}
+
+.modal-dialog.popup_bitplus input, .modal-dialog.popup_bitplus select {
+    width: 130px;
+}
+
+.popup_bitplus {
+    input {
+        color: #fff;
+        appearance: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid var(--black);
+        background: none;
+        height : 26px;
+        line-height: 26px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    input[type=checkbox] {
+        background:url(../../image/checkbox_2.png)center no-repeat;
+        border: none;
+    }
+    input[type=checkbox]:checked {
+        background:url(../../image/checkbox_2_check.png)center no-repeat;
+        border: none;
+    }
+
+
+    .onajiIdCheck {
+        height: 100%;
+        font-size: 13px;
+        color: #fff;
+        padding: 0 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        background : #4f5158;
+        border-radius : 5px;
+        margin : 0 1px 0 7px;
+        position: absolute;
+        height : 26px;
+    }
+
+    .onajiIdCheck:hover {
+        background: #5473c3;
+    }
+
+    .onajiIdCheck:active {
+        background: #32426c;
+    }
+
+    .checkPersonTd {
+        top :2px;
+        span {
+            font-size: 14px;
+            position: absolute;
+            top: 11px;
+            
+        }
+        input {
+            width:80px !important;
+        }
+
+        .checkPerson1 {
+
+        }
+
+        .checkPerson2 {
+           
+            left     : -160px;
+            position : absolute;
+            top      : 5px;
+        }
+
+        .checkPersonSpan1 {
+            top : 9px;
+        }
+
+        .checkPersonSpan2 {
+            left : -185px;
+            top  : 9px;
+        }
+    }
+}
+.popcontent h2 {
+    width: 100%;
+    background: url(../../image/h2arrow.png) 2px 18px no-repeat;
+    color: #fff;
+    height: 39px;
+    font-size: 15px;
+    padding: 3px 0 0 14px;
+    line-height: 37px;
+    font-weight: normal;
+}
+
+.popup_bitplus .poptable2 input, .popup_bitplus .poptable2 select {
+    width: 165px;
+}

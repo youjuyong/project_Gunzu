@@ -181,3 +181,41 @@ button {
     font-size: 12px;
     border-radius: 2px;
 }
+
+.contentbox input, .contentbox textarea, .contentbox select,
+.modal-dialog input, .modal-dialog textarea, .modal-dialog select {
+    border-bottom: 1px solid #4478a5;
+}
+
+.modal-dialog input:disabled {
+    border-bottom: 1px solid #595c5e !important;
+}
+
+.modal-dialog select {
+    background: url(../../image/select_arrow_sb.png) right 50% #3a3b3e no-repeat;
+}
+
+.modal-dialog select:disabled {
+    background: url(../../image/select_arrow.png) right 50% #3a3b3e no-repeat !important;
+    border-bottom: 1px solid #595c5e !important;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+  }
+  .modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+.com {
+    background: url(../../image/table_com.png) right center no-repeat;
+}

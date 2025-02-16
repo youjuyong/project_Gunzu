@@ -39,7 +39,7 @@ const CraftsManListTable = ( props : tableCompoType ) => {
     return (
         <>
               <div className="rideListArea">
-                    <div className="count">총 : { craftList?.length && craftList.length }명</div>
+                    <div className="count">총 : { craftList?.length && craftList.length }건</div>
                                       <div className="tableConbin">
                                             <table className="table rideListTable snans">
                                                 <caption>탈것 리스트</caption>

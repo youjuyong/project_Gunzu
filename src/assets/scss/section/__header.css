@@ -166,19 +166,15 @@
         }
 
         .sub-menu div:nth-of-type(2) a{
-            margin-right : -20px;
-
-         
+            margin-right : -45px;
         }
 
         .sub-menu div:nth-of-type(3) a{
-            margin-right : 0px;
-
-         
+            margin-right : -25px;
         }
 
         .sub-menu div:nth-of-type(4) a{
-            margin-left : -32px;
+            margin-left : 0px;
         }
 
         .sub-menu div:nth-of-type(5) a{

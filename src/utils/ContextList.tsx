@@ -68,6 +68,13 @@ export const headerNavInfo = [
         title   : "홈페이지소개",
         url     : "headerNavHpIntroduce"
     },
+    {
+        title     : "로그인",
+        url       : "loginInfo",
+        subUrl    : "loginInfo",
+        subTitle  : "로그인",
+        menuName  : "로그인"
+    }
 ];
 
 /* Section1 슬라이드 */
