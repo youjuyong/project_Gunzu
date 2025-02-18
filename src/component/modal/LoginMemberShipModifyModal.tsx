@@ -1,46 +1,37 @@
-import { loginMemberShipModalCss } from "../../utils/common/modalCss";
+import { loginMemberShipModifyModalCss } from "../../utils/common/modalCss";
 import Modal from "react-modal";
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import UseEnterBtnClick from "../../utils/common/useEnterBtnClick";
-import { InputTagIdValidate } from "../../utils/common/dataValidateCheck";
+import { InputTagIdValidate, InputTagLengthValidate } from "../../utils/common/dataValidateCheck";
 import { axiosCall          } from "../../utils/common/common";
 import { API_IP_INFO        } from "../../utils/apiUrl";
 
 interface memberShipType {
-    modalBoolean : boolean,
-    setModalIsOpen : () => void
+    modalBoolean   : boolean,
+    setModalIsOpen : (data:any) => void,
+    id             : string | null,
+    name           : string | null,
+    cityYn         : string | null,
+    cityUserName   : string | null
 }
 
 interface basicObjectType {
-    USER_ID        : string | undefined | null,
-    USER_PW        : string | undefined ,
-    USER_NAME      : string | undefined,
+    USER_NAME      : string | undefined | null,
     CITY_USER_NAME : string
 }
 
-
-
-const LoginMemberShipMd = ( props : any ) => {
-    const navigate = useNavigate();
+const LoginMemberShipModifyMd = ( props : memberShipType ) => {
+    const movePage      = useNavigate();
     const buttonElement = UseEnterBtnClick();
-    const [cityPerson,   setCityPerson] = useState<any>({yesCheck : false, noCheck : true});
-    const [inputValue,   setInputValue] = useState<basicObjectType>({USER_ID : '', USER_PW : '', USER_NAME : '', CITY_USER_NAME : ''});
+    const [cityPerson, setCityPerson] = useState<any>({yesCheck : false, noCheck : true});
+    const [inputValue, setInputValue] = useState<basicObjectType>({USER_NAME : '', CITY_USER_NAME : ''});
     const [middleCheck, setMiddleCheck] = useState(false);
 
     // 저장 버튼 클릭시
     function saveBitInfo() {
         
-        if ( !middleCheck ) {
-            alert("ID 중복체크를 해주세요.");
-            return;
-        } else if ( !inputValue.USER_PW ) {
-            alert("비밀번호를 입력해 주세요.");
-            return;
-        }  else if ( !InputTagIdValidate(inputValue.USER_PW) ) {
-            alert("비밀번호는 영숫자 조합, 4~16자리를 입력해주세요."); 
-            return;
-        }  else if ( !inputValue.USER_NAME ) {
+        if ( !inputValue.USER_NAME ) {
             alert("닉네임을 입력해주세요."); 
             return;
         }  else if ( inputValue.USER_NAME.length > 15 ) {
@@ -55,20 +46,24 @@ const LoginMemberShipMd = ( props : any ) => {
         } 
 
         const param = {
-            userId   : inputValue.USER_ID,
+            userId   : props.id,
             userName : inputValue.USER_NAME,
-            userPwd  : inputValue.USER_PW,
             cityName : inputValue.CITY_USER_NAME,
             cityYn   : cityPerson.noCheck === true ? 'N' : 'Y'
         }
-        axiosCall("put", API_IP_INFO + '/user/new-info', param, (data) => {
-            
-            if ( data === 1 ) {
-                alert("회원가입 완료!!");
-                props.setModalIsOpen(false);
-            }
-          
-         });
+        if ( window.confirm("수정 하시겠습니까?"))  {
+            axiosCall("patch", API_IP_INFO + '/user/modify-info', param, (data) => {
+                    if ( data === 1 ) {
+                        alert("수정 완료 되었습니다. 다시 로그인 해주세요.");
+                        movePage("/");
+                        localStorage.clear();
+                        window.location.reload();
+                    }
+            });
+        } else {
+            return;
+        }
+        
     }
 
     // 의정부 주민 여부 체크박스
@@ -82,39 +77,19 @@ const LoginMemberShipMd = ( props : any ) => {
     function inputValChangeHandle(e: any) {
         const {name, value} = e.target;
         setInputValue({...inputValue, [name]: value});
-        if ( name === 'USER_ID' ) { setMiddleCheck(false); };
     }
 
-    function checkUserId () {
-      
-        if ( !inputValue.USER_ID ) 
-        {
-            alert("ID를 입력해주세요.");
-            return;
-        } 
-        else if ( !InputTagIdValidate(inputValue.USER_ID)  ) 
-        {
-            alert("ID는 영숫자 조합, 4~16자리를 입력해주세요."); 
-            return;
-        }
-     
-        axiosCall("get", API_IP_INFO + '/user/middle-check', {userId : inputValue.USER_ID}, (data) => {
-            if ( data.length > 0 ) {
-                alert("이미 존재 하는 ID입니다.")
-                return;
-            } else {
-                alert("사용 가능한 ID입니다.");
-                setMiddleCheck(true);
-            }
-         });
+    useEffect(() => {
+        setInputValue({...inputValue, USER_NAME : props?.name !== undefined ? props.name : '',  CITY_USER_NAME : props?.cityUserName ? props.cityUserName : ''})
+        setCityPerson({...cityPerson, yesCheck : props.cityYn === 'Y' ? true : false, noCheck : props.cityYn === 'N' ? true : false});
+    },[props.modalBoolean]);
 
-    }
 
     return ( 
         <div>
             <Modal
                 isOpen={props.modalBoolean}
-                style={loginMemberShipModalCss}
+                style={loginMemberShipModifyModalCss}
                 onRequestClose={() => props.setModalIsOpen(false)}
                 ariaHideApp={false}
                 contentLabel="Pop up Message"
@@ -124,7 +99,7 @@ const LoginMemberShipMd = ( props : any ) => {
                     <div className="modal-content">
                         {/* <!-- 해더 영역 --> */}
                         <div className="modal-header">
-                            <h2>회원가입</h2>
+                            <h2>회원 정보 수정</h2>
                             <button type="button" className="close" data-dismiss="modal" onClick={() => {
                                 props.setModalIsOpen(false)
                             }}>닫기
@@ -141,13 +116,7 @@ const LoginMemberShipMd = ( props : any ) => {
                                     <tbody>
                                         <tr>
                                             <th className="com">아이디</th>
-                                            <td><input type="text" name="USER_ID" onChange={inputValChangeHandle} value={inputValue?.USER_ID ?? ''}/>
-                                            <button  className="onajiIdCheck" onClick={checkUserId}>중복확인
-                                            </button></td>
-                                        </tr>
-                                        <tr>
-                                            <th className="com">비밀번호</th>
-                                            <td><input type="password" name="USER_PW" onChange={inputValChangeHandle} value={inputValue?.USER_PW ?? ''}/></td>
+                                            <td><input type="text" name="USER_ID" value={props?.id ?? ''} disabled/></td>
                                         </tr>
                                         <tr>
                                             <th className="com">닉네임</th>
@@ -182,4 +151,5 @@ const LoginMemberShipMd = ( props : any ) => {
     )
 }
 
-export const LoginMemberShipModal = React.memo(LoginMemberShipMd);
+const LoginMemberShipModifyModal = React.memo(LoginMemberShipModifyMd);
+export default LoginMemberShipModifyModal;

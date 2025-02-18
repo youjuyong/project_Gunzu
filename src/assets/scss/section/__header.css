@@ -137,7 +137,7 @@
 
         .sub-menu { 
             height                  : 200px;
-            background-color: rgba(54, 54, 54, 0.5);
+            background-color        : rgba(54, 54, 54, 0.5);
             display                 : flex;
             position                : inherit;
             margin                  : 0;
@@ -154,7 +154,7 @@
                     display     : block;
                     text-align  : center;
                     font-weight : 100;
-
+                    width : 100%;
                     &::before{
                         content    : "" ;
                      }
@@ -166,15 +166,15 @@
         }
 
         .sub-menu div:nth-of-type(2) a{
-            margin-right : -45px;
+            margin-left : -115px;
         }
 
         .sub-menu div:nth-of-type(3) a{
-            margin-right : -25px;
+            margin-left : -125px;
         }
 
         .sub-menu div:nth-of-type(4) a{
-            margin-left : 0px;
+            margin-left : -140px;
         }
 
         .sub-menu div:nth-of-type(5) a{

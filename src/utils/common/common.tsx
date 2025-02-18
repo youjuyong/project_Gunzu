@@ -31,6 +31,54 @@ export async function axiosCall(requsetType: string, url: string, data: any, _ca
 }
 
 
+export function errorHandler(response: any) {
+    switch (response?.data?.errorCode) {
+        case "E001":
+            alert("[ERROR] Server Side Error");
+            return;
+        case "P001":
+            alert("요청하신 데이터가 없습니다.");
+            break
+        case "P002":
+            alert("[ERROR] 트랜잭션 서버 에러");
+            break;
+        case "F001":
+            alert("[ERROR] 파일 업로드 에러");
+            break;
+        case "E004":
+            alert("[Error] 아이디와 비밀번호를 확인하세요!");
+            break;
+        case "E005":
+        case "E002":
+            alert(response.data.suggestion);
+            break;
+        case "E006":
+            alert(response.data.suggestion);
+            break;
+        case "F002":
+            alert("[Error] 잘못된 파일 양식입니다. 파일 양식을 확인하세요.\n" + response.data.suggestion);
+            break;
+        case "F003":
+            alert("[Error] 출발 시간은 4자리 ( ex : 18시 30분 -> 1830 ) 형식으로 작성해주세요.");
+            break;
+        case "F004":
+            alert("[Error] 노선 명칭에 해당하는 노선이 없습니다.");
+            break;
+        case "F005":
+            alert("[Error] 구분을 기입해 주시기 바랍니다.");
+            break;
+        case "F006":
+            alert("[Error] '시간'은 0시 이상 24시 이하로 입력해주세요.");
+            break;
+        case "F007":
+            alert("[Error] '분'은 0분 이상 59분 이하로 입력해주세요.");
+            break;
+        default:
+            alert("에러가 발생했습니다");
+    }
+}
+
+
 /*
     ※ 단일 reactQuery 생성 ※
     1. keyId : query Id

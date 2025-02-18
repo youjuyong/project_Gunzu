@@ -24,3 +24,30 @@ export const loginMemberShipModalCss: ReactModal.Styles = {
         border: ""
     },
 };
+
+export const loginMemberShipModifyModalCss: ReactModal.Styles = {
+    overlay: {
+        width: "100%",
+        zIndex: "99999",
+        background: "",
+        top: "0",
+        left: "0",
+    },
+    content: {
+        opacity : 100,
+        width: "500px",
+        height: "584px",
+        zIndex: "999990",
+        position: "absolute",
+        top: "55%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        borderRadius: "10px",
+        boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.25)",
+        justifyContent: "center",
+        overflow: "auto",
+        padding: "0px",
+        border: "",
+    },
+};
+

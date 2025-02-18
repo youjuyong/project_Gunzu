@@ -5,13 +5,16 @@ export const headerNavInfo = [
     {
         title    : "왕실시스템",
         url      : "systemOfKingWordInfo",
-        subUrl    : "gameInfo/systemOfKing/systemOfKingWordInfo",
+        subUrl   : "gameInfo/systemOfKing/systemOfKingWordInfo",
         subTitle : "왕실시스템",
         menuName : "왕실이란?"
     },
     {
         title    : "제조/장인",
-        url      : "gameInfo/craftsManInfo/craftsManListInfo",
+        url      : "systemOfKingWordInfo",
+        subUrl   : "gameInfo/craftsManInfo/craftsManListInfo",
+        subTitle : "제조/장인",
+        menuName : "장인목록",
         subMenu  : [{
             subTitle  : "장인목록",
             subUrl    : "gameInfo/craftsManInfo/craftsManListInfo",
@@ -30,8 +33,11 @@ export const headerNavInfo = [
         ]
     },
     {
-        title   : "게임정보",
-        url     : "gameInfo/horseHouseInfo/horseHouseWordInfo",
+        title    : "게임정보",
+        url      : "horseHouseWordInfoo",
+        subUrl   : "gameInfo/horseHouseInfo/horseHouseWordInfo",
+        subTitle : "마구간",
+        menuName : "마구간이란?",
         subMenu : [{
             subTitle  : "마구간",
             subUrl    : "gameInfo/horseHouseInfo/horseHouseWordInfo",
@@ -67,15 +73,25 @@ export const headerNavInfo = [
     {
         title   : "홈페이지소개",
         url     : "headerNavHpIntroduce"
-    },
+    }
+];
+
+export const loginHeaderNav = [
     {
         title     : "로그인",
         url       : "loginInfo",
         subUrl    : "loginInfo",
         subTitle  : "로그인",
         menuName  : "로그인"
+    },
+    {
+        title     : "내정보",
+        url       : "/",
+        subUrl    : "/",
+        subTitle  : "내정보",
+        menuName  : "내정보"
     }
-];
+]
 
 /* Section1 슬라이드 */
 export const SwiperImgList = [
