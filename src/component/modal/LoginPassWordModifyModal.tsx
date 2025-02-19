@@ -111,11 +111,11 @@ const LoginPassWordModifyMd = ( props : memberShipType ) => {
                                         </tr>
                                         <tr>
                                             <th className="com">비밀번호</th>
-                                            <td><input type="password" name="USER_PW" onChange={inputValChangeHandle} value={inputValue?.USER_PW ?? ''}/></td>
+                                            <td><input type="password" name="USER_PW" placeholder="비밀번호를 입력해주세요." onChange={inputValChangeHandle} value={inputValue?.USER_PW ?? ''}/></td>
                                         </tr>
                                         <tr>
                                             <th className="com">비밀번호 확인</th>
-                                            <td><input type="password" name="USER_PW_RE" onChange={inputValChangeHandle} value={inputValue?.USER_PW_RE ?? ''}/></td>
+                                            <td><input type="password" name="USER_PW_RE" placeholder="비밀번호 확인을 입력해주세요." onChange={inputValChangeHandle} value={inputValue?.USER_PW_RE ?? ''}/></td>
                                         </tr>
                                     </tbody>
                                 </table>

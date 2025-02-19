@@ -120,7 +120,7 @@ const LoginMemberShipModifyMd = ( props : memberShipType ) => {
                                         </tr>
                                         <tr>
                                             <th className="com">닉네임</th>
-                                            <td><input type="text" name="USER_NAME" onChange={inputValChangeHandle} value={inputValue?.USER_NAME ?? ''}/></td>
+                                            <td><input type="text" name="USER_NAME" placeholder="닉네임을 입력해주세요." onChange={inputValChangeHandle} value={inputValue?.USER_NAME ?? ''}/></td>
                                         </tr>
                                         <tr>
                                             <th>의정부 주민 여부</th>
@@ -129,7 +129,7 @@ const LoginMemberShipModifyMd = ( props : memberShipType ) => {
                                         </tr>
                                         <tr style={cityPerson.noCheck === true ? {display: 'none'} : {display: ''}}>
                                             <th className="com">주민명</th>
-                                            <td><input id="alarmbox" type="text" name="CITY_USER_NAME" onChange={inputValChangeHandle} value={inputValue?.CITY_USER_NAME ?? ''}/></td>
+                                            <td><input id="alarmbox" type="text" placeholder="주민명을 입력해주세요." name="CITY_USER_NAME" onChange={inputValChangeHandle} value={inputValue?.CITY_USER_NAME ?? ''}/></td>
                                         </tr>
                                     </tbody>
                                 </table>
