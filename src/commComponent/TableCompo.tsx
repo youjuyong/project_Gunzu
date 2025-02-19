@@ -3,7 +3,6 @@ import { memo, useEffect, useState, useCallback } from "react";
 import { axiosCall, useQuerySingle } from "../utils/common/common";
 import { API_IP_INFO  }               from "../utils/apiUrl";
 import { horseImgInfo }    from "../utils/ContextList";
-
 interface tableCompoType {
     queryKeyValue : string, // 리액트 쿼리 키값
     apiUrl        : string, // apiUrl
@@ -26,16 +25,18 @@ interface horseListType {
     BIG_SHOP_PRICE              : string, // 대상전 가격
     HORSE_BURF_TYPE_CODE        : string, // 탈것 버프 타입 코드
     HORSE_HOUSE_BURF_TYPE_CDOE  : string, // 탈것 마구간 버프 타입 코드
-    SPECIAL_BURF_NUM            : number  // 탈것 특수버프 수치
+    SPECIAL_BURF_NUM            : number, // 탈것 특수버프 수치
+    SCORE                       : number  // 탈것 평점
 }
 
 const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
 const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5; // 하단 페이지 목록 표출 갯수 
 
+const array = Array.from({ length : 5}, (v,i) =>  i);
+
 const TableCompo = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
-
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList);
 
     useEffect(() => {
@@ -43,7 +44,7 @@ const TableCompo = ( props:tableCompoType ) => {
             setHorseList(data);
         });
     },[props.selectTType]);
-
+    
     return (
         <>
             <div className="rideListArea">
@@ -61,7 +62,7 @@ const TableCompo = ( props:tableCompoType ) => {
                                             <th>최대능력치</th>
                                             <th>마구간 버프 타입</th>
                                             <th>마구간 버프 퍼센트</th>
-                                            <th>대상전 가격</th>
+                                            <th>리뷰 평점</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -82,11 +83,15 @@ const TableCompo = ( props:tableCompoType ) => {
 }
 
 export const CreateTable = ( props : any ) => {
+    console.log(props);
     return (
         <>  
             {
                 props?.data && props.data.map((v : horseListType, i : number) => {
-                    const img = horseImgInfo.filter((horse : any) => horse.horseId === v.HORSE_ID)[0];
+
+                    const img = horseImgInfo.filter((horse : any) => horse.horseId === v.HORSE_ID)[0],
+                        score = Math.floor(Number(v.SCORE));
+
                     return(
                         <tr key={ i }>
                             <td> <img src={img?.imgUrl} className="" alt=""/></td>
@@ -113,7 +118,17 @@ export const CreateTable = ( props : any ) => {
                                          : ''
                             }>{v?.HORSE_HOUSE_BURF_TYPE}</td>
                             <td>{v?.HORSE_BURF_PER_TYPE}</td>
-                            <td>{v?.BIG_SHOP_PRICE}</td>
+                            <td>{array.map(( value : any, indexValue : number ) => {
+                                 
+                                 return(      
+                                        <img
+                                            key={v.HORSE_ID +'imgStar' + String(indexValue) + '/' + i}
+                                            src={value < score ? require("../assets/image/star.png") : require("../assets/image/blackstar.png")} 
+                                            alt="starIcon"
+                                        />
+                                )})}
+                                  <p className="starScoreP">평점 : {v.SCORE} / 5</p>
+                            </td>
                         </tr>
                     )
                 })

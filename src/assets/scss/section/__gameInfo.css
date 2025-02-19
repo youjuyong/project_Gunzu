@@ -46,6 +46,14 @@
                 td {
                     height      : 160px;
                     text-align  : center;
+
+                    .starScoreP {
+                        align-items: center;
+                        color: #26282B;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 400;
+                    }
                 }
 
                 .info_nvl {

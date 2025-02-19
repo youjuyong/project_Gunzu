@@ -5,6 +5,13 @@
     overflow         : hidden;
 }
 
+
+@media  (min-height:2500px){
+    #main           { 
+        
+        height : 100vh;
+    }
+}
 .loginDivBg {
     opacity : 0.5;
     transition : all .3s cubic-bezier(.23,1,.32,1);
