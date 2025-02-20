@@ -1,8 +1,9 @@
 import  React from "react";
-import { memo, useEffect, useState, useCallback } from "react";
-import { axiosCall, useQuerySingle } from "../utils/common/common";
-import { API_IP_INFO  }               from "../utils/apiUrl";
-import { horseImgInfo }    from "../utils/ContextList";
+import { useEffect, useState, useCallback } from "react";
+import { axiosCall        } from "../utils/common/common";
+import { API_IP_INFO      } from "../utils/apiUrl";
+import { horseImgInfo     } from "../utils/ContextList";
+import { HorseReviewModal } from "../../src/component/modal/horseReviewModal/HorseReviewModal"
 interface tableCompoType {
     queryKeyValue : string, // 리액트 쿼리 키값
     apiUrl        : string, // apiUrl
@@ -37,6 +38,8 @@ const array = Array.from({ length : 5}, (v,i) =>  i);
 
 const TableCompo = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
+    // 탈것 리뷰 모달 open 여부
+    const [addMdValue, setAddmdOpen] = useState({openBoolean : false, horseData : {}});
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList);
 
     useEffect(() => {
@@ -44,9 +47,15 @@ const TableCompo = ( props:tableCompoType ) => {
             setHorseList(data);
         });
     },[props.selectTType]);
+
+    // 탈것 리뷰 모달 open 여부
+    const setBitaddOpenValue = useCallback((openBoolean: boolean, horseData : horseListType ) => {
+        setAddmdOpen({openBoolean : true, horseData : horseData});
+    }, [addMdValue]);
     
     return (
         <>
+            <HorseReviewModal modalBoolean={addMdValue.openBoolean} horsData={addMdValue.horseData} setModalIsOpen={setAddmdOpen}></HorseReviewModal>
             <div className="rideListArea">
                           <div className="tableConbin">
                                 <table className="table rideListTable snans">
@@ -66,7 +75,7 @@ const TableCompo = ( props:tableCompoType ) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         { slicedList.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList}></CreateTable>}
+                                         { slicedList.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList} setBitaddOpenValue={setBitaddOpenValue}></CreateTable>}
                                     </tbody>
                                 </table>
                             </div>
@@ -83,7 +92,6 @@ const TableCompo = ( props:tableCompoType ) => {
 }
 
 export const CreateTable = ( props : any ) => {
-    console.log(props);
     return (
         <>  
             {
@@ -95,7 +103,7 @@ export const CreateTable = ( props : any ) => {
                     return(
                         <tr key={ i }>
                             <td> <img src={img?.imgUrl} className="" alt=""/></td>
-                            <td>{v?.HORSE_NAME}</td>
+                            <td><span className='horseNameSpan' onClick={() => { props.setBitaddOpenValue(true, v) }}>{v?.HORSE_NAME}</span></td>
                             <td>{v?.HORSER_LIMIT_CON}</td>
                             <td className={v.HORSE_BURF_TYPE_CODE === 'ATKT0' ? '' 
                                          : v.HORSE_BURF_TYPE_CODE === 'ATKT1' ? 'sword_attack'

@@ -1,5 +1,5 @@
-import { useState, useEffect       } from "react";
-import { axiosCall, useQuerySingle } from "../../../../utils/common/common";
+import { useState                  } from "react";
+import { useQuerySingle            } from "../../../../utils/common/common";
 import { API_IP_INFO               } from "../../../../utils/apiUrl";
 import { TableComponent            } from "../../../../commComponent/TableCompo";
 

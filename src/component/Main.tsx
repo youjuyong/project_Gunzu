@@ -1,5 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 /*Component*/
 import Section2          from "./Section2";

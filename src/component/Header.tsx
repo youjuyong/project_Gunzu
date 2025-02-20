@@ -1,14 +1,11 @@
-import react from "react";
 import { Link, useLocation       } from "react-router-dom";
 import { headerNavInfo           } from "../utils/ContextList";
 import { loginHeaderNav          } from "../utils/ContextList";
 import { useEffect               } from "react";
-import { axiosCall, errorHandler } from "../utils/common/common";
-import { API_IP_INFO             } from "../utils/apiUrl";
 
 
 const Header = () => {
-    const { pathname, state} = useLocation();
+    const { state } = useLocation();
     const id = localStorage.getItem("id");
 
     useEffect(() => {

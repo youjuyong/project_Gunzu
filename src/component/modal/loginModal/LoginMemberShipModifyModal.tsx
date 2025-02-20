@@ -1,11 +1,10 @@
-import { loginMemberShipModifyModalCss } from "../../utils/common/modalCss";
+import { loginMemberShipModifyModalCss } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
-import React, {useCallback, useEffect, useRef, useState} from "react";
-import { useNavigate } from "react-router-dom";
-import UseEnterBtnClick from "../../utils/common/useEnterBtnClick";
-import { InputTagIdValidate, InputTagLengthValidate } from "../../utils/common/dataValidateCheck";
-import { axiosCall          } from "../../utils/common/common";
-import { API_IP_INFO        } from "../../utils/apiUrl";
+import React, { useEffect, useState} from "react";
+import { useNavigate        } from "react-router-dom";
+import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
+import { axiosCall          } from "../../../utils/common/common";
+import { API_IP_INFO        } from "../../../utils/apiUrl";
 
 interface memberShipType {
     modalBoolean   : boolean,
@@ -15,7 +14,6 @@ interface memberShipType {
     cityYn         : string | null,
     cityUserName   : string | null
 }
-
 interface basicObjectType {
     USER_NAME      : string | undefined | null,
     CITY_USER_NAME : string
@@ -26,7 +24,6 @@ const LoginMemberShipModifyMd = ( props : memberShipType ) => {
     const buttonElement = UseEnterBtnClick();
     const [cityPerson, setCityPerson] = useState<any>({yesCheck : false, noCheck : true});
     const [inputValue, setInputValue] = useState<basicObjectType>({USER_NAME : '', CITY_USER_NAME : ''});
-    const [middleCheck, setMiddleCheck] = useState(false);
 
     // 저장 버튼 클릭시
     function saveBitInfo() {

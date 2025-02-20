@@ -1,7 +1,7 @@
 import { useNavigate    } from "react-router-dom";
 import { memo, useState } from "react";
-import LoginMemberShipModifyModal from "./modal/LoginMemberShipModifyModal";
-import LoginPassWordModifyModal from "./modal/LoginPassWordModifyModal";
+import LoginMemberShipModifyModal from "./modal/loginModal/LoginMemberShipModifyModal";
+import LoginPassWordModifyModal   from "./modal/loginModal/LoginPassWordModifyModal";
 import React    from "react";
 
 const MembershipNavCompo = ( props : any ) => {

@@ -5,7 +5,7 @@ import moment                from 'moment';
 import 'moment/locale/ko';
 
 import { useNavigate             } from "react-router-dom";
-import { LoginMemberShipModal    } from "../component/modal/LoginMemberShipModal"
+import { LoginMemberShipModal    } from "../component/modal/loginModal/LoginMemberShipModal"
 import { API_IP_INFO             } from "../../src/utils/apiUrl";
 import { axiosCall, errorHandler } from "../../src/utils/common/common"; 
 

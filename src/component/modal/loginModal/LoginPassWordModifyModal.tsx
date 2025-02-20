@@ -1,11 +1,11 @@
-import { loginMemberShipModifyModalCss } from "../../utils/common/modalCss";
+import { loginMemberShipModifyModalCss } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate        } from "react-router-dom";
-import { InputTagIdValidate } from "../../utils/common/dataValidateCheck";
-import UseEnterBtnClick       from "../../utils/common/useEnterBtnClick";
-import { axiosCall          } from "../../utils/common/common";
-import { API_IP_INFO        } from "../../utils/apiUrl";
+import { InputTagIdValidate } from "../../../utils/common/dataValidateCheck";
+import { axiosCall          } from "../../../utils/common/common";
+import { API_IP_INFO        } from "../../../utils/apiUrl";
+import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
 
 interface memberShipType {
     modalBoolean   : boolean,
