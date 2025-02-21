@@ -56,15 +56,10 @@ export const headerNavInfo = [
     },
     {
         title    : "이벤트",
-        url      : "headerNavEvent",
-        // subMenu : [{
-        //     subTitle  : "경품",
-        //     subUrl    : "eventRequest"
-        // }, {
-        //     subTitle  : "일정",
-        //     subUrl    : "eventCalen"
-        // }]
-        subMenu:[]
+        url      : "eventInfo",
+        subUrl   : "eventInfo",
+        subTitle : "이벤트",
+        menuName : "이벤트"
     },
     {
         title   : "게시판",
@@ -246,227 +241,227 @@ export const recallHeroPageheader = [
 export const horseImgInfo = [
     {
         horseId : "HOS1",
-        imgUrl  : require("assets/image/horseFolder/normal_horse.gif")
+        imgUrl  : require("../assets/image/horseFolder/normal_horse.gif")
     },
     {
         horseId : "HOS2",
-        imgUrl  : require("assets/image/horseFolder/black_horse.gif")
+        imgUrl  : require("../assets/image/horseFolder/black_horse.gif")
     },
     {
         horseId : "HOS3",
-        imgUrl  : require("assets/image/horseFolder/white_horse.gif")
+        imgUrl  : require("../assets/image/horseFolder/white_horse.gif")
     },
     {
         horseId : "HOS4",
-        imgUrl  : require("assets/image/horseFolder/red_to_horse.gif")
+        imgUrl  : require("../assets/image/horseFolder/red_to_horse.gif")
     },
     {
         horseId : "HOS5",
-        imgUrl  : require("assets/image/horseFolder/zibri_horse.gif")
+        imgUrl  : require("../assets/image/horseFolder/zibri_horse.gif")
     },
     {
         horseId : "HOS6",
-        imgUrl  : require("assets/image/horseFolder/HOS6.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS6.gif")
     },
     {
         horseId : "HOS7",
-        imgUrl  : require("assets/image/horseFolder/HOS7.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS7.gif")
     },
     {
         horseId : "HOS8",
-        imgUrl  : require("assets/image/horseFolder/HOS8.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS8.gif")
     },
     {
         horseId : "HOS9",
-        imgUrl  : require("assets/image/horseFolder/HOS9.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS9.gif")
     },
     {
         horseId : "HOS10",
-        imgUrl  : require("assets/image/horseFolder/HOS10.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS10.gif")
     },
     {
         horseId : "HOS11",
-        imgUrl  : require("assets/image/horseFolder/HOS11.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS11.gif")
     },
     {
         horseId : "HOS12",
-        imgUrl  : require("assets/image/horseFolder/HOS12.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS12.gif")
     },
     {
         horseId : "HOS13",
-        imgUrl  : require("assets/image/horseFolder/HOS13.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS13.gif")
     },
     {
         horseId : "HOS14",
-        imgUrl  : require("assets/image/horseFolder/HOS14.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS14.gif")
     },
     {
         horseId : "HOS15",
-        imgUrl  : require("assets/image/horseFolder/HOS15.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS15.gif")
     },
     {
         horseId : "HOS16",
-        imgUrl  : require("assets/image/horseFolder/HOS16.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS16.gif")
     },
     {
         horseId : "HOS17",
-        imgUrl  : require("assets/image/horseFolder/HOS17.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS17.gif")
     },
     {
         horseId : "HOS18",
-        imgUrl  : require("assets/image/horseFolder/HOS18.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS18.gif")
     },
     {
         horseId : "HOS19",
-        imgUrl  : require("assets/image/horseFolder/HOS19.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS19.gif")
     },
     {
         horseId : "HOS20",
-        imgUrl  : require("assets/image/horseFolder/HOS20.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS20.gif")
     },
     {
         horseId : "HOS21",
-        imgUrl  : require("assets/image/horseFolder/HOS21.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS21.gif")
     },
     {
         horseId : "HOS22",
-        imgUrl  : require("assets/image/horseFolder/HOS22.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS22.gif")
     },
     {
         horseId : "HOS23",
-        imgUrl  : require("assets/image/horseFolder/HOS23.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS23.gif")
     },
     {
         horseId : "HOS24",
-        imgUrl  : require("assets/image/horseFolder/HOS24.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS24.gif")
     },
     {
         horseId : "HOS25",
-        imgUrl  : require("assets/image/horseFolder/HOS25.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS25.gif")
     },
     {
         horseId : "HOS26",
-        imgUrl  : require("assets/image/horseFolder/HOS26.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS26.gif")
     },
     {
         horseId : "HOS27",
-        imgUrl  : require("assets/image/horseFolder/HOS27.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS27.gif")
     },
     {
         horseId : "HOS28",
-        imgUrl  : require("assets/image/horseFolder/HOS28.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS28.gif")
     },
     {
         horseId : "HOS29",
-        imgUrl  : require("assets/image/horseFolder/HOS29.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS29.gif")
     },
     {
         horseId : "HOS30",
-        imgUrl  : require("assets/image/horseFolder/HOS30.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS30.gif")
     },
     {
         horseId : "HOS31",
-        imgUrl  : require("assets/image/horseFolder/HOS31.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS31.gif")
     },
     {
         horseId : "HOS32",
-        imgUrl  : require("assets/image/horseFolder/HOS32.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS32.gif")
     },
     {
         horseId : "HOS33",
-        imgUrl  : require("assets/image/horseFolder/HOS33.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS33.gif")
     },
     {
         horseId : "HOS34",
-        imgUrl  : require("assets/image/horseFolder/HOS34.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS34.gif")
     },
     {
         horseId : "HOS35",
-        imgUrl  : require("assets/image/horseFolder/HOS35.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS35.gif")
     },
     {
         horseId : "HOS36",
-        imgUrl  : require("assets/image/horseFolder/HOS36.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS36.gif")
     },
     {
         horseId : "HOS37",
-        imgUrl  : require("assets/image/horseFolder/HOS37.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS37.gif")
     },
     {
         horseId : "HOS38",
-        imgUrl  : require("assets/image/horseFolder/HOS38.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS38.gif")
     },
     {
         horseId : "HOS39",
-        imgUrl  : require("assets/image/horseFolder/HOS39.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS39.gif")
     },
     {
         horseId : "HOS40",
-        imgUrl  : require("assets/image/horseFolder/HOS40.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS40.gif")
     },
     {
         horseId : "HOS41",
-        imgUrl  : require("assets/image/horseFolder/HOS41.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS41.gif")
     },
     {
         horseId : "HOS42",
-        imgUrl  : require("assets/image/horseFolder/HOS42.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS42.gif")
     },
     {
         horseId : "HOS43",
-        imgUrl  : require("assets/image/horseFolder/HOS43.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS43.gif")
     },
     {
         horseId : "HOS44",
-        imgUrl  : require("assets/image/horseFolder/HOS44.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS44.gif")
     },
     {
         horseId : "HOS45",
-        imgUrl  : require("assets/image/horseFolder/HOS45.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS45.gif")
     },
     {
         horseId : "HOS46",
-        imgUrl  : require("assets/image/horseFolder/HOS46.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS46.gif")
     },
     {
         horseId : "HOS47",
-        imgUrl  : require("assets/image/horseFolder/HOS47.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS47.gif")
     },
     {
         horseId : "HOS48",
-        imgUrl  : require("assets/image/horseFolder/HOS48.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS48.gif")
     },
     {
         horseId : "HOS49",
-        imgUrl  : require("assets/image/horseFolder/HOS49.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS49.gif")
     },
     {
         horseId : "HOS50",
-        imgUrl  : require("assets/image/horseFolder/HOS50.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS50.gif")
     },
     {
         horseId : "HOS51",
-        imgUrl  : require("assets/image/horseFolder/HOS51.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS51.gif")
     },
     {
         horseId : "HOS52",
-        imgUrl  : require("assets/image/horseFolder/HOS52.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS52.gif")
     },
     {
         horseId : "HOS53",
-        imgUrl  : require("assets/image/horseFolder/HOS53.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS53.gif")
     },
     {
         horseId : "HOS54",
-        imgUrl  : require("assets/image/horseFolder/HOS54.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS54.gif")
     },
     {
         horseId : "HOS55",
-        imgUrl  : require("assets/image/horseFolder/HOS55.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS55.gif")
     },
     {
         horseId : "HOS56",
-        imgUrl  : require("assets/image/horseFolder/HOS56.gif")
+        imgUrl  : require("../assets/image/horseFolder/HOS56.gif")
     }
 ]
 

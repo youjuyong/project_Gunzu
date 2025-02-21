@@ -44,6 +44,7 @@ const Login = () => {
                 localStorage.setItem("nickName",data.member.userName);
                 localStorage.setItem("cityYn",data.member.cityYn);
                 localStorage.setItem("cityUserName",data.member.cityUserName);
+                localStorage.setItem("masterYn",data.member.masterYn);
                 localStorage.setItem("regDt",data.member.registeredDate);
                 // if (isRemember) {
                 //     setCookie("userId", form.userId, {maxAge: 60 * 60 * 24})

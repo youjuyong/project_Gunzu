@@ -1,8 +1,8 @@
 import React    from "react";
-import UseEnterBtnClick from "utils/common/useEnterBtnClick";
+import UseEnterBtnClick from "../utils/common/useEnterBtnClick";
 import { useEffect, useState} from "react";
-import { axiosCall     } from "utils/common/common";
-import { API_IP_INFO   } from "utils/apiUrl";
+import { axiosCall     } from "../utils/common/common";
+import { API_IP_INFO   } from "../utils/apiUrl";
 
 const array = Array.from({ length : 5}, (v,i) =>  i);
 
@@ -145,7 +145,7 @@ const ReViewCp = ( props : reviewType ) => {
                                                 <li key={v +'revietarLi' + String(index)}>
                                                 <div key={v +'revietarDiv1' + String(index)}>
                                                     <div className="reviewText" key={v +'revietarDiv2' + String(index)}>
-                                                        <span><img src={require("assets/image/user.png")}></img>
+                                                        <span><img src={require("../assets/image/user.png")}></img>
                                                             <p className="nickNameSpan snans" key={v +'revietarPtag' + String(index)}>{v.USER_NAME}</p>
                                                             <div className="startReviewImgDiv">
                                                             {
@@ -184,7 +184,7 @@ const ReViewCp = ( props : reviewType ) => {
                                                             <img
                                                             key={index}
                                                             onClick={() => starScore(index)}
-                                                            src={clicked[index] ? require("assets/image/star.png") : require("assets/image/blackstar.png")} 
+                                                            src={clicked[index] ? require("../assets/image/star.png") : require("../assets/image/blackstar.png")} 
                                                             alt = "starIcon"
                                                 />))}
                                                 <span className="content_star_span snans">{ clickedStarNum }/5</span>

@@ -1,7 +1,7 @@
 import { useState                  } from "react";
 import { useQuerySingle            } from "../../../../utils/common/common";
 import { API_IP_INFO               } from "../../../../utils/apiUrl";
-import { TableComponent            } from "../../../../commComponent/TableCompo";
+import { HorseListTableCompo       } from "../../../../component/table/HorseListTableCompo";
 
 interface HouseHeaderType {
     rideLimitType         : string,  // 탈것 조건
@@ -131,10 +131,10 @@ const HorsListCompo = () => {
                     </section>
                     <section className="horseRideSection2" >
                          {/* 테이블 컴포넌트 */}
-                        <TableComponent queryKeyValue = "get-horse-list"
-                                        apiUrl        = "/horse/list"
-                                        selectTType   = { searchValue }
-                        ></TableComponent>
+                        <HorseListTableCompo queryKeyValue = "get-horse-list"
+                                             apiUrl        = "/horse/list"
+                                             selectTType   = { searchValue }
+                        ></HorseListTableCompo>
                     </section>
                 </div>
             </div>

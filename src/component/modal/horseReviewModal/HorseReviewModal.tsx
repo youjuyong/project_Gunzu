@@ -1,9 +1,9 @@
 import { horseScoreReViewModal } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
 import React from "react";
-import { horseImgInfo                               } from "utils/ContextList";
-import { ReViewCompo                                } from "commComponent/ReViewCompo";
-import { horseBurf, horseSpecialSkill, horsePassive } from "utils/ContextList";
+import { horseImgInfo                               } from "../../../utils/ContextList";
+import { ReViewCompo                                } from "../../../commComponent/ReViewCompo";
+import { horseBurf, horseSpecialSkill, horsePassive } from "../../../utils/ContextList";
 
 interface horseListType {
     HORSE_ID                    : string, // 탈것 ID

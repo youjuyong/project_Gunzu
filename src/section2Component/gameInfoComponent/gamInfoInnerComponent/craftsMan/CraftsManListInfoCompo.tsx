@@ -1,7 +1,7 @@
 import { memo, useState, useEffect, useCallback } from "react";
 import { axiosCall, useQuerySingle              } from "../../../../utils/common/common";
 import { API_IP_INFO                            } from "../../../../utils/apiUrl";
-import { CraftsManListTableCompo                } from "../../../../commComponent/CraftsManListTableCompo";
+import { CraftsManListTableCompo                } from "../../../../component/table/CraftsManListTableCompo";
 import React from "react";
 
 interface craftChooseType {
