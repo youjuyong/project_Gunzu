@@ -1,11 +1,9 @@
 import { horseScoreReViewModal } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
-import React, {useCallback, useEffect, useRef, useState} from "react";
-import { useNavigate } from "react-router-dom";
-import UseEnterBtnClick from "../../../utils/common/useEnterBtnClick";
-import { InputTagIdValidate } from "../../../utils/common/dataValidateCheck";
-import { axiosCall          } from "../../../utils/common/common";
-import { API_IP_INFO        } from "../../../utils/apiUrl";
+import React from "react";
+import { horseImgInfo                               } from "utils/ContextList";
+import { ReViewCompo                                } from "commComponent/ReViewCompo";
+import { horseBurf, horseSpecialSkill, horsePassive } from "utils/ContextList";
 
 interface horseListType {
     HORSE_ID                    : string, // 탈것 ID
@@ -30,20 +28,24 @@ interface horseListType {
 interface horseReviewType {
     modalBoolean   : boolean,
     setModalIsOpen : (e : any) => void,
-    horsData       : any
+    horsData       : horseListType | any
 }
 
 const HorseReviewMd = ( props : horseReviewType ) => {
 
-    const buttonElement = UseEnterBtnClick();
-   
-    console.log(props);
+    const imgUrl = horseImgInfo.filter((imgInfo : any) => imgInfo.horseId === props.horsData.HORSE_ID).map((m : any) => m.imgUrl)[0];
+    
+    const userId = localStorage.getItem("id");
+    const burfHtml    = horseBurf.filter(        (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
+    const passiveHtml = horsePassive.filter(     (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
+    const skillHtml   = horseSpecialSkill?.filter((v : any) => props.horsData.HORSE_ID === v.horseId)?.[0];
+
     return ( 
         <div>
             <Modal
                 isOpen={props.modalBoolean}
                 style={horseScoreReViewModal}
-                onRequestClose={() => props.setModalIsOpen(false)}
+                onRequestClose={() => props.setModalIsOpen({openBoolean : false, horseData : {}})}
                 ariaHideApp={false}
                 contentLabel="Pop up Message"
                 shouldCloseOnOverlayClick={false}
@@ -54,7 +56,7 @@ const HorseReviewMd = ( props : horseReviewType ) => {
                         <div className="modal-header">
                             <h2>{props.horsData.HORSE_NAME} 상세정보</h2>
                             <button type="button" className="close" data-dismiss="modal" onClick={() => {
-                                props.setModalIsOpen(false)
+                                props.setModalIsOpen({openBoolean : false, horseData : {}})
                             }}>닫기
                             </button>
                         </div>
@@ -62,36 +64,75 @@ const HorseReviewMd = ( props : horseReviewType ) => {
 
                         {/* <!-- 컨텐츠 영역 --> */}
                         <div className="horse_popcontent">
-                            <h2>기본사항</h2>
-                            <div className="poplinepaddingbox">
-                                <table className="poptable poptable_horseScoreplus">
+                            <div className="popchild reviewImgDiv">
+                                <img src={imgUrl}></img>
+                            </div>
+                            <div className="popchild reviewDetailDiv">
+                                <table>
                                     <thead></thead>
                                     <tbody>
                                         <tr>
-                                            <th className="com">아이디</th>
-                                            <td><input type="text" name="USER_ID" />
-                                            <button  className="onajiIdCheck" >중복확인
-                                            </button></td>
+                                            <th>품명</th>
+                                            <td>{props.horsData.HORSE_NAME}</td>
                                         </tr>
                                         <tr>
-                                            <th className="com">비밀번호</th>
+                                            <th>탑승조건</th>
+                                            <td>{props.horsData.HORSER_LIMIT_CON}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>수명</th>
+                                            <td>{props.horsData.HORSE_LIFE}</td>
                                         </tr>
                                         <tr>
-                                            <th className="com">닉네임</th>
+                                            <th>마구간 버프타입</th>
+                                            <td>{props.horsData.HORSE_HOUSE_BURF_TYPE}</td>
                                         </tr>
                                         <tr>
-                                            <th>의정부 주민 여부</th>
-                                            <td className="checkPersonTd"><span className="checkPersonSpan1" >예</span><input id="alarmbox" className="checkPerson1" type="checkbox" name="yesCheck" readOnly/></td>
-                                            <td className="checkPersonTd"><span className="checkPersonSpan2">아니요</span><input id="alarmbox" className="checkPerson2"  type="checkbox" name="noCheck"  readOnly/></td>
+                                            <th>마구간 버프 퍼센트</th>
+                                            <td>{props.horsData.HORSE_BURF_PER_TYPE}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>최대 속도</th>
+                                            <td>{props.horsData.MAX_SPED}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>최대 순발력</th>
+                                            <td>{props.horsData.MAX_AGIL}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>최대 도력</th>
+                                            <td>{props.horsData.MAX_MAGIC_FORCE }</td>
+                                        </tr>
+                                        <tr>
+                                            <th>최대 근력</th>
+                                            <td>{props.horsData.MAX_FORCE}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className="horseBurf">●특수버프</th>
+                                            <td>
+                                                {burfHtml?.Burf === null        || burfHtml?.Burf       === undefined?  '정보없음' : burfHtml.Burf()      }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="horsePassive">◆패시브</th>
+                                            <td>
+                                                {passiveHtml?.Passive === null  || passiveHtml?.Passive === undefined?  '정보없음' : passiveHtml.Passive() }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="horseSkill ">■특수스킬</th>
+                                            <td>
+                                                {skillHtml?.Skill     === null  || skillHtml?.Skill     === undefined?  '정보없음' : skillHtml.Skill()    }
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            <ReViewCompo userId={userId} objectId={props.horsData.HORSE_ID} objectType={'horse'}></ReViewCompo>
                             <div className="horseRevie_buttonset">
-                                <button ref={buttonElement} >저장
-                                </button> 
                                 <button data-dismiss="modal" onClick={() => {
-                                    props.setModalIsOpen(false)
+                                    props.setModalIsOpen({openBoolean : false, horseData : {}})
                                 }}>취소
                                 </button>
                             </div>

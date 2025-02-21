@@ -28,6 +28,9 @@ interface horseListType {
     HORSE_HOUSE_BURF_TYPE_CDOE  : string, // 탈것 마구간 버프 타입 코드
     SPECIAL_BURF_NUM            : number, // 탈것 특수버프 수치
     SCORE                       : number  // 탈것 평점
+    SPECIAL_BURF                : string, // 스페셜 버프
+    HORSE_PASSIVE               : string, // 말 패시브
+    SPECIAL_SKILL               : string  // 스페셜 스킬
 }
 
 const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
@@ -103,7 +106,8 @@ export const CreateTable = ( props : any ) => {
                     return(
                         <tr key={ i }>
                             <td> <img src={img?.imgUrl} className="" alt=""/></td>
-                            <td><span className='horseNameSpan' onClick={() => { props.setBitaddOpenValue(true, v) }}>{v?.HORSE_NAME}</span></td>
+                            <td><span className='horseNameSpan' onClick={() => { props.setBitaddOpenValue(true, v) }}>{v?.HORSE_NAME}</span>
+                            </td>
                             <td>{v?.HORSER_LIMIT_CON}</td>
                             <td className={v.HORSE_BURF_TYPE_CODE === 'ATKT0' ? '' 
                                          : v.HORSE_BURF_TYPE_CODE === 'ATKT1' ? 'sword_attack'
