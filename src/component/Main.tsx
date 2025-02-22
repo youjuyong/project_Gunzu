@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
 /*Component*/
-import Section2          from "./Section2";
-import Login             from "./Login";
-import MainPageInfoCompo from "../section2Component/mainPageInfo/MainPageInfoCompo";
-import LoginOutlet       from "./LogOut";
-import MemberShipNav     from "./MemberShipNav";
+import Section2             from "./Section2";
+import Login                from "./Login";
+import EvemtBoardCompo      from "../component/board/event/EvemtBoardCompo";
+import MainPageInfoCompo    from "../section2Component/mainPageInfo/MainPageInfoCompo";
+import LoginOutlet          from "./LogOut";
+import MemberShipNav        from "./MemberShipNav";
 
 const Main = ( props : any ) => {
     return (
@@ -16,10 +17,12 @@ const Main = ( props : any ) => {
                     {/* 로그인 */}
                     <Route element={<LoginOutlet/>}>
                         {/* 메인 페이지 */}
-                        <Route path="/"             element={<MainPageInfoCompo/>}/>
+                        <Route path="/"                       element={<MainPageInfoCompo/>}/>
                         {/* 게임 정보 */}
-                        <Route path="gameInfo/*"    element={<Section2/>}/>
-                        <Route path="loginInfo"     element={<Login/>}/>
+                        <Route path="gameInfo/*"              element={<Section2/>}/>
+                        <Route path="eventInfo"               element={<EvemtBoardCompo/>}/>
+                        <Route path="eventInfo/eventTextInfo" element={<EvemtBoardCompo/>}/>
+                        <Route path="loginInfo"               element={<Login/>}/>
                      </Route>
                 </Routes>
                 {/* 미활성 컨텐츠 */}

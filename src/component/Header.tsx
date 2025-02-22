@@ -1,7 +1,7 @@
 import { Link, useLocation       } from "react-router-dom";
 import { headerNavInfo           } from "../utils/ContextList";
 import { loginHeaderNav          } from "../utils/ContextList";
-import { useEffect               } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 
 const Header = () => {
@@ -9,8 +9,7 @@ const Header = () => {
     const       id = localStorage.getItem("id");
     const masterYn = localStorage.getItem("masterYn");
 
-    console.log(masterYn);
-    useEffect(() => {
+    useLayoutEffect(() => {
         const mainMenu = document.querySelector('.header__inner__section'),
               subMenu  = document.querySelector('.sub-menu-wrap');
 
@@ -45,7 +44,7 @@ const Header = () => {
     const EventetValidate = (event : any) => {
 
         const { innerHTML } = event.target;
-        if ( masterYn==='N' && innerHTML==='이벤트' ) {
+        if ( ( masterYn === 'N' || masterYn === null ) && innerHTML==='이벤트' ) {
             alert("의정부 주민만 이용 가능 합니다. 회원가입 후 반드시 관리자 에게 문의 바랍니다.");
             event.preventDefault();
             return;

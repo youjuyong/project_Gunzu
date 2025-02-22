@@ -1,11 +1,9 @@
 import  React from "react";
 import { useEffect, useState, useCallback } from "react";
 
-const viewPageDataCnt = 5;  // 한페이지에 보여줄 데이터 갯수
-const initCurrentPage = 1;  // 초기 페이지 쪽수
-const viewPageCnt     = 5; // 하단 페이지 목록 표출 갯수 
 
-export const Pagination = ({setCurrentPage,currentPage, totalPage, firstPage, lastPage, useListPage} : any ) => {
+
+export const Pagination = ({setCurrentPage,currentPage, totalPage, firstPage, lastPage} : any ) => {
 
     const {pageNumbers, prev, next, first, last, paginate} = usePagination(setCurrentPage, totalPage, firstPage, lastPage);
     
@@ -32,7 +30,7 @@ export const Pagination = ({setCurrentPage,currentPage, totalPage, firstPage, la
     );
 }
 
-export const useListPage = ( data : any ) => {
+export const useListPage = ( data : any, viewPageDataCnt : number, initCurrentPage : number , viewPageCnt : number) => {
     const [renderList,   setRenderList] = useState([]);
     const [currentPage, setCurrentPage] = useState(initCurrentPage);
     const [viewData,       setViewData] = useState(viewPageDataCnt);

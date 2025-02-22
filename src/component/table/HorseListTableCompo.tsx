@@ -46,7 +46,7 @@ const HorseListTableCp = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
     // 탈것 리뷰 모달 open 여부
     const [addMdValue, setAddmdOpen] = useState({openBoolean : false, horseData : {}});
-    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList);
+    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList, viewPageDataCnt, initCurrentPage, viewPageCnt);
 
     useEffect(() => {
         axiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {

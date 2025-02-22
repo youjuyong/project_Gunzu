@@ -29,7 +29,7 @@ const CraftsManListTable = ( props : tableCompoType ) => {
  
     const [ craftList, setCraftList ] = useState([]);
     
-    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(craftList);
+    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(craftList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
 
     useEffect(() => {
              axiosCall("get", API_IP_INFO + '/crafts/list', props.selectTType, (data) => {

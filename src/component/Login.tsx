@@ -16,7 +16,6 @@ const Login = () => {
     const idInput = useRef<HTMLInputElement>(null);
     // 회원 가입 모달 open 여부
     const [addMdOpenValue, setAddmdOpen] = useState(false);
-    const location = useLocation();
        
 
     const setBitaddOpenValue = useCallback((data: boolean) => {
