@@ -115,7 +115,7 @@ const EventBoardTextCompo = ( props : any ) => {
                     </ul>
                 </div>
                 <div className="contentInput">
-                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {props.userId=== null ? true: false } placeholder={props.userId=== null ? "로그인이 필요합니다." : "리뷰를 작성해주세요." }></textarea>
+                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {props.userId=== null ? true: false } placeholder={props.userId=== null ? "로그인이 필요합니다." : "댓글을 작성해주세요." }></textarea>
                                     <button ref={buttonElement} onClick={saveHandler}>저장</button>
                 </div>
              </div>

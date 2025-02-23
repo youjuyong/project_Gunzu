@@ -7,8 +7,10 @@ export async function axiosCall(requsetType: string, url: string, data: any, _ca
         url: url,
         method: requsetType,
         params: data,
+        withCredentials: true,
         headers: {
             Authorization: localStorage.getItem("token")
+            ,  "Content-Type": "application/json; charset=utf-8",
         },
         paramsSerializer: (params: any) => {
             return qs.stringify(params, {arrayFormat: "comma"});

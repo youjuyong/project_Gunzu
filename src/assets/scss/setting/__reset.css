@@ -222,7 +222,7 @@ button {
 
 .listBtn{margin: 40px auto; display: block; width: 200px; height: 50px; line-height:50px; text-align: center; color: #fff; background: #667a00; border-radius: 10px; font-size: 15px;}
 .listBtn:hover {
-    background-color:#85db93;
+    background-color:#24682f;
 }
 
 .boardReview {
@@ -383,16 +383,44 @@ margin-top: 5px;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
                 background : #4f5158;
                 border-radius : 5px;
-                margin-left : 310px
+                margin-left : 5px;
+                margin-top : 5px;
             }
 
             button:hover {
                 background: #5473c3;
             }
-        
             button:active {
                 background: #32426c;
             }
         }
-    
+}
+
+.location {
+    width         : 100%;
+    position      : absolute;
+    top           : 0px;
+    height        : 53px;
+    text-align    : left;
+    border-top    : 1px solid #ebebeb;
+    border-bottom : 1px solid #c1c1c1;
+    font-weight   : bold;
+
+    ul {
+        width : 1500px;
+        margin : 15px auto;
+        display : block;
+
+        li {
+            float      : left;
+            padding    : 0 12px 0 10px;
+            color      : #3f4040;
+            font-size  : 14px;
+            background : url(../../image/dot2.png)right center no-repeat;
+           
+            a {
+                color : #3f4040;
+            }
+        }
+    }
 }

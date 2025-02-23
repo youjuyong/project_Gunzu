@@ -167,12 +167,16 @@ const EventBoardTextMainCompo = ( props : any ) => {
                                     </div>
 
                                     <div className="eventSumitDiv"><button className="eventDate snans" onClick={dateSumitHandler}>신청하기</button><button className="eventDate snans" onClick={resultView}>결과보기</button></div>
+                                   { charVisible && 
                                     <section className = "graphEvent" ref={chartRef}>
-                                         { charVisible && <HighChartBar xCategory={chartData.dateXcategory} title="이벤트 날짜 투표" series={{name : '이벤트 날짜', data :chartData.dateSerize }} ref={chartRef} options = {options}/> }
+                                        <HighChartBar xCategory={chartData.dateXcategory} title="이벤트 날짜 투표" series={{name : '이벤트 날짜', data :chartData.dateSerize }} ref={chartRef} options = {options}/> 
                                     </section>
+                                   }
+                                   { charVisible && 
                                     <section className = "graphEvent2" ref={chartRef}>
-                                         { charVisible && <HighChartBar xCategory={chartData.timeXcategory} title="이벤트 날짜 투표" series={{name : '이벤트 날짜', data :chartData.timeSerize }} ref={chartRef} options = {options}/> }
+                                       <HighChartBar xCategory={chartData.timeXcategory} title="이벤트 날짜 투표" series={{name : '이벤트 날짜', data :chartData.timeSerize }} ref={chartRef} options = {options}/> 
                                     </section>
+                                   }
                                 </td>
                             </tr>
                     </tbody>

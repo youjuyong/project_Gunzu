@@ -59,7 +59,7 @@ export const headerNavInfo = [
         url      : "eventInfo",
         subUrl   : "eventInfo",
         subTitle : "이벤트",
-        menuName : "이벤트"
+        menuName : "이벤트공지"
     },
     {
         title   : "게시판",

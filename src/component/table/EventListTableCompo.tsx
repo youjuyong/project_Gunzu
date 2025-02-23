@@ -1,10 +1,9 @@
 import react from "react";
-import { useState, useEffect          } from "react";
+import { useState, useLayoutEffect    } from "react";
 import { axiosCall                    } from "../../utils/common/common";
 import { API_IP_INFO                  } from "../../utils/apiUrl";
 import { Link                         } from "react-router-dom";
-import { Pagination, useListPage } from "../../../src/commComponent/TablePageFooterCompo";
-
+import { Pagination, useListPage      } from "../../../src/commComponent/TablePageFooterCompo";
 interface eventBoardListType {
     TEXT_ID                     : string, // 공지 ID
     RTRV_CNT                    : number, // 조회수
@@ -21,12 +20,11 @@ const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수 
 
 const Event = () => {
-
     const [ eventBoardList, setEventBoardList ] = useState([]);
 
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(eventBoardList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
     
-     useEffect(() => {
+    useLayoutEffect(() => {
                  axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
                     setEventBoardList(data);
                 });

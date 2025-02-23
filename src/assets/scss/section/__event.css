@@ -12,9 +12,12 @@
         width    : 1400px; 
         margin   : 0 auto; 
         position : relative; 
-        top      : 48px; 
-        padding  : 0px 0 170px 0;
+        padding  : 90px 0 170px 0;
 
+        .location {
+            top : 10px !important;
+            border-bottom: 1px solid #fff;
+        }
         .contentstitle {
             text-align : center;
             width      : 100%;
@@ -67,7 +70,7 @@
                         top: 0; 
                         bottom: 0; 
                         width: 62px; 
-                        background:url(../../image/board_btnsearch.png)#2d90ae center no-repeat; border: 2px solid #2d90ae;}
+                        background:url(../../image/board_btnsearch.png)#1c14ad center no-repeat; border: 2px solid #1c14ad;}
            
             }
 
@@ -186,6 +189,7 @@
                 }
 
                 .eventSumitDiv {
+                    margin-bottom  : 20px;
                     .eventDate  {
                         width : 150px;
                         margin : 10px;
