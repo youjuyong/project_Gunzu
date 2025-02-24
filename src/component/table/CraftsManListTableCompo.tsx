@@ -3,7 +3,7 @@ import React from "react";
 import { axiosCall   } from "../../utils/common/common";
 import { API_IP_INFO } from "../../utils/apiUrl";
 import { Pagination, useListPage } from "../../../src/commComponent/TablePageFooterCompo";
-
+import { Loading                 } from "../../commComponent/Loading";
 interface tableCompoType {
     queryKeyValue : string, // 리액트 쿼리 키값
     apiUrl        : string, // apiUrl
@@ -28,12 +28,14 @@ const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수
 const CraftsManListTable = ( props : tableCompoType ) => {
  
     const [ craftList, setCraftList ] = useState([]);
-    
+    const [isLoading,    setLoading ] = useState(false);
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(craftList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
 
     useEffect(() => {
+        setLoading(true);
              axiosCall("get", API_IP_INFO + '/crafts/list', props.selectTType, (data) => {
                 setCraftList(data);
+                setLoading(false);
             });
      },[props.selectTType]);
 
@@ -41,6 +43,7 @@ const CraftsManListTable = ( props : tableCompoType ) => {
         <>
               <div className="rideListArea">
                     <div className="count">총 : { craftList?.length && craftList.length }건</div>
+                    { isLoading ? <Loading/> : <>
                                       <div className="tableConbin">
                                             <table className="table rideListTable snans">
                                                 <caption>탈것 리스트</caption>
@@ -55,8 +58,12 @@ const CraftsManListTable = ( props : tableCompoType ) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                               
+                                                <>
                                                      { slicedList?.length ==   0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList}></CreateTable>}
-                                                </tbody>
+                                                 </>
+                                                  
+                                                   </tbody>
                                             </table>
                                         </div>
                                         <Pagination
@@ -66,7 +73,9 @@ const CraftsManListTable = ( props : tableCompoType ) => {
                                                 firstPage={firstPage}
                                                 lastPage={lastPage}
                                         />
-                            </div>
+                                        </>
+                                    }
+               </div>
         </>
     )
 }

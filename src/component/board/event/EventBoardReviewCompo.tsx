@@ -1,9 +1,7 @@
-import { useLocation, Link } from "react-router-dom";
-import { useState, useLayoutEffect,useRef, useEffect } from "react";
-import UseEnterBtnClick from "../../../utils/common/useEnterBtnClick";
-import { axiosCall       } from "../../../utils/common/common";
-import { HighChartBar    } from "../../../utils/common/chart";
-import { API_IP_INFO     } from "../../../utils/apiUrl";
+import { useState, useEffect } from "react";
+import UseEnterBtnClick        from "../../../utils/common/useEnterBtnClick";
+import { axiosCall           } from "../../../utils/common/common";
+import { API_IP_INFO         } from "../../../utils/apiUrl";
 
 const EventBoardTextCompo = ( props : any ) => {
     const buttonElement = UseEnterBtnClick();

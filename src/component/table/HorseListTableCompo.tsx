@@ -1,10 +1,11 @@
-import  React from "react";
+import  React, { useLayoutEffect } from "react";
 import { useEffect, useState, useCallback } from "react";
 import { axiosCall        } from "../../utils/common/common";
 import { API_IP_INFO      } from "../../utils/apiUrl";
 import { horseImgInfo     } from "../../utils/ContextList";
 import { HorseReviewModal } from "../modal/horseReviewModal/HorseReviewModal"
 import { Pagination, useListPage } from "../../../src/commComponent/TablePageFooterCompo";
+import { Loading          } from "../../commComponent/Loading";
 
 interface tableCompoType {
     queryKeyValue : string, // 리액트 쿼리 키값
@@ -46,11 +47,15 @@ const HorseListTableCp = ( props:tableCompoType ) => {
     const [horseList, setHorseList] = useState([]);
     // 탈것 리뷰 모달 open 여부
     const [addMdValue, setAddmdOpen] = useState({openBoolean : false, horseData : {}});
-    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList, viewPageDataCnt, initCurrentPage, viewPageCnt);
+    const [isLoading,    setLoading] = useState(false);
 
-    useEffect(() => {
+    const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(horseList, viewPageDataCnt, initCurrentPage, viewPageCnt);
+    
+    useLayoutEffect(() => {
+        setLoading(true);
         axiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
             setHorseList(data);
+            setLoading(false);
         });
     },[props.selectTType]);
 
@@ -58,9 +63,10 @@ const HorseListTableCp = ( props:tableCompoType ) => {
     const setBitaddOpenValue = useCallback((openBoolean: boolean, horseData : horseListType ) => {
         setAddmdOpen({openBoolean : true, horseData : horseData});
     }, [addMdValue]);
-    
+
     return (
-        <>
+        <>  
+            { isLoading ? <Loading/> : <>
             <HorseReviewModal modalBoolean={addMdValue.openBoolean} horsData={addMdValue.horseData} setModalIsOpen={setAddmdOpen}></HorseReviewModal>
             <div className="rideListArea">
                           <div className="tableConbin">
@@ -93,6 +99,8 @@ const HorseListTableCp = ( props:tableCompoType ) => {
                                     lastPage={lastPage}
                             />
                 </div>
+                </>
+            }
         </>
     )
 }

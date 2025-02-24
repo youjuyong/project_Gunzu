@@ -219,12 +219,14 @@
                         min-height: 200px;
                         padding : 30px;
                         text-align: left;
-
-                     
-                        
                     
                     }
-
+                    
+                    .dateDisv {
+                        font-weight: 700;
+                        color : blue;
+                        font-size: 18px;
+                    }
                     .dateSelect {
                         border:1px solid black;
                         border-radius:10%;
