@@ -15,7 +15,10 @@ interface eventBoardListType {
     IMPT_YN                     : string, // 공지 중요도
     EVENT_TERM                  : number, // 이벤트 차수
     FILE_YN                     : string, // 파일 유무
-    FILE_NUM                    : number  // 파일번호
+    FILE_NUM                    : number, // 파일번호
+    FILE_NAME                   : string, // 파일이름
+    PRIZE_YN                    : string, // 경품 이벤트 표출여부(ON/OFF)
+    PRIZE_BORD_YN               : string, // 경품 이벤트 여부
 }
 
 const viewPageDataCnt = 7;  // 한페이지에 보여줄 데이터 갯수
@@ -34,6 +37,12 @@ const Event = () => {
                     setLoading(false);
                 });
     },[]);
+
+    const fileDownLoad = (fileNum : number, textId : string) => {
+        axiosCall("post", API_IP_INFO + '/board/event-board-file-download', {textId : textId, fileNumber : fileNum}, (data) => {
+            console.log("event file down load!!");
+        });
+    }
 
     return (
         <>
@@ -57,13 +66,13 @@ const Event = () => {
                                             <th>번호</th>
                                             <th>제목</th>
                                             <th>작성자</th>
-                                            <th>작성일</th>
                                             <th>첨부 파일</th>
+                                            <th>작성일</th>
                                             <th>조회수</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                            { slicedList?.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList}></CreateTable> }
+                                            { slicedList?.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList} fileDownLoad={fileDownLoad}></CreateTable> }
                                     </tbody>
                                 </table>
                             </>
@@ -84,14 +93,13 @@ export const CreateTable = ( props : any ) => {
         <>  
             {
                 props?.data && props.data.map((v : eventBoardListType, i : number) => {
-
                     return(
                         <tr key={ i } className = {v.IMPT_YN === 'Y' ? 'impt' : ''}>
                             <td>{v?.TEXT_ID}</td>
-                            <td>{v.IMPT_YN === 'Y' ? <span className='alert'>중요</span> : ''}<Link to="eventTextInfo" state= {{text_id : v.TEXT_ID, url : 'eventTextInfo',event_term : v.EVENT_TERM,  text_tpe: v.BORD_TYPE, text_title : v.TEXT_TITL, reg_dt : v.REG_DT}}>{v?.TEXT_TITL}</Link></td>
+                            <td>{v.IMPT_YN === 'Y' ? <span className='alert'>중요</span> : ''}<Link to="eventTextInfo" state= {{text_id : v.TEXT_ID, url : 'eventTextInfo',event_term : v.EVENT_TERM,  text_type: v.BORD_TYPE, text_title : v.TEXT_TITL, reg_dt : v.REG_DT, prize_bord_yn : v.PRIZE_BORD_YN, prize_yn : v.PRIZE_YN}}>{v?.TEXT_TITL}</Link></td>
                             <td>{v?.USER_NAME}</td>
+                            <td>{v?.FILE_YN === 'Y' ? <a onClick={() => props.fileDownLoad(v.FILE_NUM, v.TEXT_ID)}className="file" title={v?.FILE_NAME}></a> : ''}</td>
                             <td>{v?.REG_DT}</td>
-                            <td>{v?.FILE_YN === 'Y' ? <a className="file"></a> : ''}</td>
                             <td>{v?.RTRV_CNT}</td>
                         </tr>
                     )

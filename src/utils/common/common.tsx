@@ -9,10 +9,14 @@ export async function axiosCall(requsetType: string, url: string, data: any, _ca
         params: data,
         headers: {
             Authorization: localStorage.getItem("token")
+            ,  "Content-Type": "application/json; charset=utf-8",
         },
         paramsSerializer: (params: any) => {
             return qs.stringify(params, {arrayFormat: "comma"});
         },
+        error : (data:any) => {
+            console.log(data);
+        }
     }
 
     await axios(options).then(response => {
@@ -27,7 +31,7 @@ export async function axiosCall(requsetType: string, url: string, data: any, _ca
             if (_errorCallback != null) _errorCallback(error);
         }
 
-    })
+    });
 }
 
 
@@ -72,6 +76,15 @@ export function errorHandler(response: any) {
             break;
         case "F007":
             alert("[Error] '분'은 0분 이상 59분 이하로 입력해주세요.");
+            break;
+        case "F008":
+            alert("이미 경품 신청을 하셨습니다.");
+            break;
+        case "F009":
+            alert("신청이 완료되었습니다.당첨자는 이벤트 후 공개됩니다.")
+            break;
+        case "F010":
+            alert("경품 목록이 모두 소진되었습니다. 다음 이벤트를 노려 주세요 ^^.")
             break;
         default:
             alert("에러가 발생했습니다");

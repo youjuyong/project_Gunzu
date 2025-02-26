@@ -431,3 +431,23 @@ margin-top: 5px;
     left : 0;
     top: 0;
 }
+
+.eventSumitDiv {
+    margin-bottom  : 30px;
+    text-align: center;
+    .eventDate  {
+        width : 150px;
+        margin : 10px;
+        height : 50px;
+        border : 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 400;
+        background-color:#c9ddee ;
+        color: #000
+    }
+
+    .eventDate:hover {
+        background-color:#ecfbfd
+    }
+}

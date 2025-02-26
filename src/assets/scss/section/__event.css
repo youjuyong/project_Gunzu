@@ -14,9 +14,14 @@
         position : relative; 
         padding  : 90px 0 170px 0;
 
+        .eventReviewSpan  {
+            width : 1300px !important;
+        }
         .location {
             top : 10px !important;
             border-bottom: 1px solid #fff;
+            margin-top : 30px !important;
+            border-top:1px solid #fff !important;
         }
         .contentstitle {
             text-align : center;
@@ -30,6 +35,50 @@
                 font-weight: bold;
             }
         
+        }
+        .prizeH2 {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .prizePtag {
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 40px;
+            color : red;
+            text-decoration: underline;
+        }
+
+        .eventPrizeTable {
+            width : 800px;
+            border: 1px #000 solid;
+            margin : 0 auto;
+            font-size: 18px;
+            margin-bottom: 40px;
+            
+            td {
+                text-align: center!important;    
+                height: 40px;
+               
+            }
+            thead {
+                th {
+                    border-bottom: 1px solid #000;
+                    width : 120px
+                }
+            }
+            tbody {
+                tr {
+                    border-top: 1px solid #ddd;
+                }
+
+                .winning {
+                    background:url(../../image/rainbow.jpg) no-repeat;
+                    background-size: 100% ;
+                }
+             }
         }
 
         .contenbox {
@@ -124,7 +173,19 @@
                         font-size   : 13px;
                         font-weight : 700;
                   }
+                  
+                  .file{
+                    background:url(../../image/fille.png)center no-repeat;
+                    margin-top : 4px;
+                    cursor : pointer;
+                    width : 40px;
+                    height : 40px;
+                    margin-left: 30%;
+                  }
 
+                  .file:hover{
+                    background:url(../../image/fille_hover.png)center no-repeat;
+                  }
                 a { text-align: left; 
                       padding-left: 20px; 
                       color: #000;
@@ -160,7 +221,11 @@
                 width : 100%;
                 border-top : 1px solid #000;
                 font-size : 16px;
-            
+                margin-bottom: 40px;
+                img {
+                    margin-top : 20px;
+                    margin-bottom:  30px;
+                }
                 th {
                     width : 15%;
                     font-weight: normal;
@@ -188,24 +253,6 @@
                     margin-top: 100px;
                 }
 
-                .eventSumitDiv {
-                    margin-bottom  : 20px;
-                    .eventDate  {
-                        width : 150px;
-                        margin : 10px;
-                        height : 50px;
-                        border : 1px solid #ddd;
-                        border-radius: 10px;
-                        font-size: 15px;
-                        font-weight: 400;
-                        background-color:#c9ddee ;
-                        color: #000
-                    }
-
-                    .eventDate:hover {
-                        background-color:#ecfbfd
-                    }
-                }
                 td {
                     width: 35%;
 

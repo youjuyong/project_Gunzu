@@ -97,7 +97,7 @@ const EventBoardTextCompo = ( props : any ) => {
                                                         <span><img src={require("../../../assets/image/user.png")}></img>
                                                             <p className="nickNameSpan snans" key={v +'revietarPtag' + String(index)}>{v.USER_NAME}</p>
                                                         </span>
-                                                        <span className="reViewSpan snans">{v.COMMENT}</span>
+                                                        <span className="reViewSpan eventReviewSpan snans">{v.COMMENT}</span>
                                                         <div className="reviewDateDiv">
                                                             <span className="reViewSpan snans dateSpan">{v.REG_DT}</span>
                                                             {
