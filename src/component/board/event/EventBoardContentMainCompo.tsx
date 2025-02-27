@@ -8,15 +8,17 @@ import 'moment/locale/ko';
 
 const EventBoardContentMainCp = ( props : any ) => {
     const { text_id, text_title, reg_dt} = props.state;
-    const [ loading, setLoading ] = useState(false);
+    const [ loading, setLoading ] = useState(true);
     const ref = useRef<any>(null);
+    const [ html, setHtml ] = useState<any>();
 
     useLayoutEffect(() => {
         const param = {
             text_id : text_id
         }
-        axiosCall("get", API_IP_INFO + "/board/event-board-content-list", param, (data) => {
         
+        axiosCall("get", API_IP_INFO + "/board/event-board-content-list", param, (data) => {
+            
             const { contentList, imgList } = data;
             
             let html = '';
@@ -31,13 +33,20 @@ const EventBoardContentMainCp = ( props : any ) => {
                 });
                
             }
-            ref.current.innerHTML = html;
+
+            setHtml(html);
+            setLoading(false);
          });
+         return(setLoading(true));
     },[]);
 
+    useLayoutEffect(() => {
+        if ( !ref?.current ) return;
+        ref.current.innerHTML = html;
+    },[loading]);
 
     return (
-       <>
+       <>   { loading === true ? <Loading/> : <>
             <table className="event_table eventboard_content">
                <caption>공지사항 리스트</caption>
                     <tbody>
@@ -56,6 +65,8 @@ const EventBoardContentMainCp = ( props : any ) => {
                             </tr>
                     </tbody>
              </table>
+             </>
+             }
        </>
     )
 }

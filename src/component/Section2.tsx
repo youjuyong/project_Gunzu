@@ -2,12 +2,13 @@
 import { Route, Routes, useLocation, Link, useParams, useSearchParams }     from "react-router-dom";
 
 /* Section2 */
-import GameInfoHeroChangeCompo    from "../section2Component/gameInfoComponent/gameInfoHeroChange";  // 영웅강림
-import GameInfoHorseHouseCompo    from "../section2Component/gameInfoComponent/gameInfoHorseHouse";  // 마구간
-import GameInfoQuestCompo         from "../section2Component/gameInfoComponent/gameInfoQuest";       // 퀘스트
-import GameInfoRecallHeroCompo    from "../section2Component/gameInfoComponent/gameInfoRecallHero";  // 소환영웅
-import GameInfoSystemOfKingCompo  from "../section2Component/gameInfoComponent/gameInfoSystemOfKing";// 왕실시스템
-import GameInfoCraftsManCompo     from "../section2Component/gameInfoComponent/gameInfoCraftsMan";   // 장인목록
+import GameInfoHeroChangeCompo     from "../section2Component/gameInfoComponent/gameInfoHeroChange";     // 영웅강림
+import GameInfoHorseHouseCompo     from "../section2Component/gameInfoComponent/gameInfoHorseHouse";     // 마구간
+import GameInfoQuestCompo          from "../section2Component/gameInfoComponent/gameInfoQuest";          // 퀘스트
+import GameInfoRecallHeroCompo     from "../section2Component/gameInfoComponent/gameInfoRecallHero";     // 소환영웅
+import GameInfoSystemOfKingCompo   from "../section2Component/gameInfoComponent/gameInfoSystemOfKing";   // 왕실시스템
+import GameInfoCraftsManCompo      from "../section2Component/gameInfoComponent/gameInfoCraftsMan";      // 장인목록
+import GameInfoVillageStaticsCompo from "../section2Component/gameInfoComponent/gameInfoVillageStatics"; // 주민수
 
 /* 게임정보(마구간) */
 import HorsHouseExplainCompo    from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
@@ -29,6 +30,9 @@ import { SystemOfKingMacroThinkInfoCompo  }  from "../section2Component/gameInfo
 
 /* 장인 목록 */
 import { CraftsManListInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/craftsMan/CraftsManListInfoCompo"; // 장인 모곩
+
+/* 주민수 통계 */
+import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo"; // 장인 모곩
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
@@ -68,6 +72,9 @@ const Section2 = () => {
                                         </Route>
                                         <Route path="craftsManInfo" element={<GameInfoCraftsManCompo/>}>
                                                 <Route path="craftsManListInfo"     element={<CraftsManListInfoCompo/>}/>
+                                        </Route>
+                                        <Route path="staticsInfo" element={<GameInfoVillageStaticsCompo/>}>
+                                                <Route path="villageStaticsInfo"     element={<VillageStaticsInfoCompo/>}/>
                                         </Route>
                                         <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                                 </Routes>

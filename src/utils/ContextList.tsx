@@ -26,7 +26,10 @@ export const headerNavInfo = [
         title   : "통계",
         url     : "headerNavGameData",
         subMenu : [{
-                 subTitle : "주민수",
+                subTitle  : "주민수",
+                subUrl    : "gameInfo/staticsInfo/villageStaticsInfo",
+                url       : "villageStaticsInfo",   
+                menuName  : "마을별 주민수 통계"
             }, {
                  subTitle : "양이전쟁"
             }
@@ -132,6 +135,19 @@ export const horseHousePageheader = [
         imgUrl    : require("../assets/image/horse.png"),
         imgAlt    : "탈것 목록",
         className : "horseList"
+    }
+]
+
+/* 게임정보(주민수) */
+export const villageStaticsheader = [
+    {
+        mainUrl   : "/gameInfo/staticsInfo/villageStaticsInfo",
+        url       : "villageStaticsInfo",
+        mainMenu  : "주민수",
+        title     : "마을별 주민수 통계",
+        imgUrl    : null,
+        imgAlt    : "마을별 주민수 통계",
+        className : null
     }
 ]
 

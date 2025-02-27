@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 /* Inner Header  */
 import SystemOfKinkHeaderCompo from "../gameInfoComponent/gameInfoHeaderComponent/SystemOfKingHeaderCompo";         // 왕실 시스템
