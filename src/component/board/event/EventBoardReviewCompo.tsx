@@ -7,7 +7,7 @@ const EventBoardTextCompo = ( props : any ) => {
     const buttonElement = UseEnterBtnClick();
     const [ reviewList, setReviewList ] = useState([]);
     const [ textValue,    setTxtValue ] = useState();
-    const user_id     = localStorage.getItem("id");
+    const user_id     = sessionStorage.getItem("id");
     const { text_id } = props.state;
 
       const deleteHandler = () => {

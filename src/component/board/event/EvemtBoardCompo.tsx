@@ -1,11 +1,13 @@
 
-import EventBoardTextCompo from "./EventBoardTextCompo";
-import EventListTableCompo from "../../table/EventListTableCompo"
-import LocationCompo       from "../../../commComponent/LocationCompo";
-import { useLocation }     from "react-router-dom";
+import EventBoardTextCompo       from "./EventBoardTextCompo";
+import EventListTableCompo       from "../../table/EventListTableCompo"
+import LocationCompo             from "../../../commComponent/LocationCompo";
+import { useLocation }           from "react-router-dom";
+import React, { useEffect,memo } from "react";
 
-const EvemtBoardCompo = () => {
+const EvemtBoardCp = () => {
     const { state } = useLocation();
+    
     return (
         <div id="event_wrap">
                     <article className="articlewrap">
@@ -22,4 +24,5 @@ const EvemtBoardCompo = () => {
     )
 }
 
+const EvemtBoardCompo = React.memo(EvemtBoardCp);
 export default EvemtBoardCompo;

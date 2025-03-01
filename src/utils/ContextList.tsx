@@ -16,20 +16,22 @@ export const headerNavInfo = [
         subTitle : "제조/장인",
         menuName : "장인목록",
         subMenu  : [{
-            subTitle  : "장인목록",
-            subUrl    : "gameInfo/craftsManInfo/craftsManListInfo",
-            url       : "craftsManListInfo",   
-            menuName  : "장인목록"
+            subTitle     : "장인목록",
+            subUrl       : "gameInfo/craftsManInfo/craftsManListInfo",
+            url          : "craftsManListInfo",   
+            menuName     : "장인목록",
+            subClassCnt  : 4
         }]
     },
     {
         title   : "통계",
         url     : "headerNavGameData",
         subMenu : [{
-                subTitle  : "주민수",
-                subUrl    : "gameInfo/staticsInfo/villageStaticsInfo",
-                url       : "villageStaticsInfo",   
-                menuName  : "마을별 주민수 통계"
+                subTitle    : "주민수",
+                subUrl      : "gameInfo/staticsInfo/villageStaticsInfo",
+                url         : "villageStaticsInfo",   
+                menuName    : "마을별 주민수 통계",
+                subClassCnt : 3
             }, {
                  subTitle : "양이전쟁"
             }
@@ -42,19 +44,22 @@ export const headerNavInfo = [
         subTitle : "마구간",
         menuName : "마구간이란?",
         subMenu : [{
-            subTitle  : "마구간",
-            subUrl    : "gameInfo/horseHouseInfo/horseHouseWordInfo",
-            url       : "horseHouseWordInfo",   
-            menuName  : "마구간이란?"
+            subTitle    : "마구간",
+            subUrl      : "gameInfo/horseHouseInfo/horseHouseWordInfo",
+            url         : "horseHouseWordInfo",   
+            menuName    : "마구간이란?",
+            subClassCnt : 3
         }, {
-            subTitle  : "소환영웅",
-            subUrl    : "gameInfo/recallHeroInfo/recallHeroWordInfo",
-            url       : "recallHeroWordInfo",
-            menuName  : "소환영웅이란?"
+            subTitle    : "소환영웅",
+            subUrl      : "gameInfo/recallHeroInfo/recallHeroWordInfo",
+            url         : "recallHeroWordInfo",
+            menuName    : "소환영웅이란?",
+            subClassCnt : 4
         }, {
             subTitle  : "영웅강림",
             subUrl    : "heroChangeInfo",
-            url       : ""   
+            url       : ""   ,
+            subClassCnt : 4
         }]
     },
     {

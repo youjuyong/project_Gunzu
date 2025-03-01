@@ -1,0 +1,176 @@
+
+
+.staticContentDiv {
+    padding-left : 254px;
+    width        : 100%;
+    clear        : both;
+    position     : relative;
+    margin-top   : 50px;
+    
+    .feildBox {
+        position : absolute;
+        left : 0;
+        top : 0;
+        width : 234px;
+        border : 1px solid #c5c5c5;
+        border-radius: 10px;
+        overflow: hidden;
+
+       table  {
+            width : 100%;
+
+            caption {
+                display       : table-caption !important;
+                height        : 53px;
+                position      : static;
+                opacity       : 1;
+                text-indent   : 1px;
+                line-height   : 53px;
+                width         : 100%;
+                font-size     : 13px;
+                color         : #494949;
+                border-bottom : 1px solid #e7e7e7;
+            }
+            
+            tr {
+                border-bottom : 1px solid #e7e7e7;
+
+                th {
+                    height : 30px;
+                    width: 120px;
+                    border-right : 1px solid #e7e7e7;
+                    text-align: left;
+                    padding-left: 20px;
+                }
+
+                td {
+                    width:100px;
+                    text-align: center;
+                }
+            }
+           
+        }
+    }
+
+    .staticsBox {
+        width    : 100%;
+        position : relative;
+        border   : 1px solid #c5c5c5;
+        border-radius : 10px;
+        overflow: hidden;
+
+        .statics_searchbox {
+            width : 100%;
+            height : 54px;
+            border-bottom : 1px solid #ddd;
+            position: relative;
+
+            .btnsearch {
+                right : -208px !important;
+                background-color: var(--main600);
+            } 
+
+            .select_date {
+                position: absolute;
+                top    : 0;
+                bottom : 0;
+                right  : 208px;
+                left   : 0;
+            }
+
+            select {
+                height : 100%;
+                border : none;
+                border-right : 1px solid #ddd;
+                font-size    : 14px;
+                color        : --var(black);
+                padding-left : 10px;
+                display      : block;
+                float        : left;
+            }
+
+            input {
+                height: 100%; 
+                border:none; 
+                border-right: 1px solid #ddd; 
+                font-size: 14px; 
+                color: #000; 
+                padding-left: 10px; 
+                display: block; 
+                float: left;
+            }
+        }
+
+        .staticsBox2 {
+            position : relative;
+            width    : 100%;
+
+            .statics_title {
+                width : 100%;
+                height : 60px;
+                line-height: 60px;
+                color : var(--red500);
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .statics_table {
+                width : 100%;
+            }
+
+            .table2 {
+                width : 100%;
+                font-size: 13px;
+
+                thead {
+                    border-bottom : 1px solid #cecece;
+                    border-top: 1px solid #cecece;
+                }
+                th {
+                    background : #f6f6f6;
+                    height : 33px;
+                    text-align: center;
+                    border-right : 1px solid #e6e6e6;
+                }
+
+                tr { 
+                    border-bottom: 1px solid #e6e6e6;
+                }
+
+                td { 
+                    height : 40px;
+                    text-align: center;
+                    border-right: 1px solid #e6e6e6;
+                }
+            }
+        }
+
+        .statics_grapDiv1 {
+            border-top: 3px solid var(--main600);
+
+            .graph {
+                padding : 10px;
+                text-align: center;
+                height : 326px;
+                width : 100%;
+            }
+
+            .graph1 {
+                border-bottom: 1px solid var(--gray200);
+                background :  url(../../image/graph1.png) center no-repeat;
+            }
+            .graph2 {
+                background :  url(../../image/graph2.png) center no-repeat;
+            }
+            h4 {
+                width : 100%;
+                background: #f6f6f6;
+                text-align: left;
+                padding-left: 10px;
+                line-height: 35px;
+                border-bottom: 1px solid #e2e2e2;   
+                height :35px;
+            }
+        }
+    }
+
+}

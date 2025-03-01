@@ -6,7 +6,8 @@ import { API_IP_INFO       } from "../../../utils/apiUrl";
 const EventBoardPrizeCp = (props : any) => {
     const { text_id, prize_yn } = props.state;
     const ref = useRef<any>(null);
-    const id  = localStorage.getItem("id");
+    const id       = sessionStorage.getItem("id");
+
      useLayoutEffect(() => {
             const param = {
                 text_id : text_id
@@ -17,7 +18,7 @@ const EventBoardPrizeCp = (props : any) => {
 
                  let html = '';
                  data.map(( v : { PRIZE_NUM : number, TEXT_ID : string, PRIZE_NAME : string, USER_ID : string, USER_NAME : string } ) => {
-                    const className= v?.USER_ID === id ? 'winning' : '';
+                    const className= ( v?.USER_ID === id  && prize_yn === 'Y' )? 'winning' : '';
                     html += `<tr class=${className}>`;
                     html +=     `<td>${v.PRIZE_NUM}</td>`;
                     html +=     `<td>${v.PRIZE_NAME}</td>`;

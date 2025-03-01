@@ -35,7 +35,7 @@ const HorseReviewMd = ( props : horseReviewType ) => {
 
     const imgUrl = horseImgInfo.filter((imgInfo : any) => imgInfo.horseId === props.horsData.HORSE_ID).map((m : any) => m.imgUrl)[0];
     
-    const userId = localStorage.getItem("id");
+    const userId = sessionStorage.getItem("id");
     const burfHtml    = horseBurf.filter(        (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const passiveHtml = horsePassive.filter(     (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const skillHtml   = horseSpecialSkill?.filter((v : any) => props.horsData.HORSE_ID === v.horseId)?.[0];

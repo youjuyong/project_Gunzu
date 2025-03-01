@@ -173,7 +173,7 @@
         }
 
         .sub-menu div:nth-of-type(4) a{
-            margin-left : -140px;
+            margin-left : -145px;
         }
 
         .sub-menu div:nth-of-type(5) a{
@@ -184,6 +184,9 @@
         
         .sub-menu   {
              
+            .headerThClass:after {
+                transform          : translate(-60px, 40px) !important;
+            }
             a:after { 
                 position   : absolute;
                 width      :  80px;
@@ -196,7 +199,7 @@
                 transition         : height 0.3s, opacity 0.3s, -moz-transform 0.3s;
                 -webkit-transform  : translate(-60px, 40px);
                 -moz-transform     : translate(-60px, 40px);
-                transform          : translate(-60px, 40px);
+                transform          : translateY(40px) translateX(-67px);
             }
             
        
@@ -205,17 +208,18 @@
                 outline: none;
             }
 
+            .headerThClass:hover:after {
+                transform          : translate(-60px, 40px) impot !important;
+            }
             a:hover:after {
                 height            : 2px;
                 opacity           : 1;
                 -webkit-transform : translate(-60px, 40px);
                 -moz-transform    : translate(-60px, 40px);
-                transform         : translate(-60px, 40px);
+                transform         : translateY(40px) translateX(-67px);
             }
             
         }
-        
-            
     }
 
     .sub-menu-hover { 

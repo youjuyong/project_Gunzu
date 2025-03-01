@@ -1,13 +1,13 @@
 import { Link, useLocation       } from "react-router-dom";
 import { headerNavInfo           } from "../utils/ContextList";
 import { loginHeaderNav          } from "../utils/ContextList";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect         } from "react";
 
 
 const Header = () => {
     const { state } = useLocation();
-    const       id = localStorage.getItem("id");
-    const masterYn = localStorage.getItem("masterYn");
+    const       id = sessionStorage.getItem("id");
+    const masterYn = sessionStorage.getItem("masterYn");
 
     useLayoutEffect(() => {
         const mainMenu = document.querySelector('.header__inner__section'),
@@ -41,15 +41,6 @@ const Header = () => {
         }
     }
 
-    const EventetValidate = (event : any) => {
-
-        const { innerHTML } = event.target;
-        if ( ( masterYn === 'N' || masterYn === null ) && innerHTML==='이벤트' ) {
-            alert("의정부 주민만 이용 가능 합니다. 회원가입 후 반드시 관리자 에게 문의 바랍니다.");
-            event.preventDefault();
-            return;
-        }
-    }
 
     return (
          <>
@@ -67,7 +58,7 @@ const Header = () => {
                                 headerNavInfo.map(( info : any, index : number ) => {
                                     const { url, title, menuName, subTitle, subUrl } = info;
                                     return (
-                                        <li key={ index }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} onClick={EventetValidate} className="tab snans">{ title }</Link></li>
+                                        <li key={ index }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className="tab snans">{ title }</Link></li>
                                     )
                                 })
                             }
@@ -87,9 +78,9 @@ const Header = () => {
                                           <ul key= {'ul' + index }>
                                              {
                                                subMenu && subMenu.map(( subInfo : any, subIndex : number ) => {
-                                                   const { subTitle, subUrl, url, menuName } = subInfo;
+                                                   const { subTitle, subUrl, url, menuName, subClassCnt } = subInfo;
                                                    return ( 
-                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className="tab subheader snans">{ subTitle }</Link></li> 
+                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className={ subClassCnt === 3?  'tab subheader snans headerThClass' : 'tab subheader snans'} >{ subTitle }</Link></li> 
                                                     )
                                                 })
                                              }

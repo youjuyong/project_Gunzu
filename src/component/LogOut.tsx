@@ -1,6 +1,5 @@
 import React from "react"; // eslint-disable-line no-unused-vars
-import {Navigate, Outlet, useLocation} from "react-router-dom";
-import {loginHeaderNav} from "../utils/ContextList";
+import {Navigate, Outlet} from "react-router-dom";
 import { useNavigate             } from "react-router-dom";
 
 const LoginOutlet = () => {
@@ -8,12 +7,12 @@ const LoginOutlet = () => {
     const movePage = useNavigate();
 
     const isAuthenticate = () => {
-        const token = localStorage.getItem("token");
-        const expireIn = Number(localStorage.getItem("expireIn"));
+        const token = sessionStorage.getItem("token");
+        const expireIn = Number(sessionStorage.getItem("expireIn"));
       
         if ( token !== null &&  expireIn < new Date().getTime()) {
             alert("토큰이 만료되었습니다. 다시 로그인 해주세요.(2시간)");
-            localStorage.clear();
+            sessionStorage.clear();
             return false;
         }
 

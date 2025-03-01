@@ -7,13 +7,13 @@ import React    from "react";
 const MembershipNavCompo = ( props : any ) => {
 
     const movePage = useNavigate();
-    const id            = localStorage.getItem("id");
-    const name          = localStorage.getItem("nickName");
-    const startDt       = localStorage.getItem("conn_dt");
-    const startHH       = localStorage.getItem("conn_tm");
-    const cityYn        = localStorage.getItem("cityYn");
-    const cityUserName  = localStorage.getItem("cityUserName");
-    const regDt         = localStorage.getItem("regDt");
+    const id            = sessionStorage.getItem("id");
+    const name          = sessionStorage.getItem("nickName");
+    const startDt       = sessionStorage.getItem("conn_dt");
+    const startHH       = sessionStorage.getItem("conn_tm");
+    const cityYn        = sessionStorage.getItem("cityYn");
+    const cityUserName  = sessionStorage.getItem("cityUserName");
+    const regDt         = sessionStorage.getItem("regDt");
 
     // 회원 정보 수정 모달 open 여부
     const [addMdOpenValue, setAddmdOpen] = useState(false);
@@ -38,7 +38,7 @@ const MembershipNavCompo = ( props : any ) => {
     // 로그아웃 버튼 클릭시
     function logOutClickHandler () {
         movePage("/");
-        localStorage.clear();
+        sessionStorage.clear();
         window.location.reload();
     }
 

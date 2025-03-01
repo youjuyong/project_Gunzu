@@ -12,7 +12,7 @@ const EventBoardTextMainCompo = ( props : any ) => {
     const [ dateCheck, setDateCheck ]:any = useState ({ date1 : false, date2 : false, date3 : false, date4 : false });
     const [ timeCheck, setTimeCheck ]:any = useState ({ time1 : false, time2 : false, time3 : false, time4 : false, time5 : false, time6 : false, time7 : false });
     const { text_id, text_title, reg_dt, event_term} = props.state;
-    const user_id = localStorage.getItem("id");
+    const user_id = sessionStorage.getItem("id");
 
     const dateCheckCnt = Object.values(dateCheck).filter((v : any) => v === true ).length;
     const timeCheckCnt = Object.values(timeCheck).filter((v : any) => v === true ).length;

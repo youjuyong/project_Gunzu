@@ -146,13 +146,17 @@ input[type=text] {
     width : 150px;
 }
 
-.in200 {
-    width : 200px;
-}
+.in200 { width : 200px; }
 
-.select110 {
-    width : 110px;
-}
+.select110 {width: 110px;}
+.select120 {width: 120px;}
+.select138 {width: 138px;}
+.select170 {width: 170px;}
+.select220 {width: 220px;}
+.select236 {width: 236px;}
+.select270 {width: 270px;}
+.select276 {width: 276px;}
+.select308 {width: 308px;}
 
 button {
     vertical-align : middle;
@@ -303,7 +307,7 @@ margin-top: 5px;
             }
 
             .reViewSpan {
-                font-size: 13px;
+                font-size: 15px;
                 margin-top : 10px;
                 width : 300px;
                 margin-left: 5px;
@@ -325,7 +329,7 @@ margin-top: 5px;
                 }
 
                 .dateSpan {
-                    width : 130px !important;
+                    width : 150px !important;
                 }
             }
 
@@ -450,4 +454,20 @@ margin-top: 5px;
     .eventDate:hover {
         background-color:#ecfbfd
     }
+}
+
+.btnsearch {
+    position   : absolute;
+    right      : 0;
+    top        : 0;
+    bottom     : 0;
+    width      : 208px;
+    background : #667a00;
+    color      : #fff;
+    font-size  : 15px;
+    cursor: pointer;
+}
+
+.btnsearch:hover {
+    text-decoration: underline;
 }

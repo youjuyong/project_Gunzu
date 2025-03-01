@@ -53,7 +53,7 @@ const LoginMemberShipModifyMd = ( props : memberShipType ) => {
                     if ( data === 1 ) {
                         alert("수정 완료 되었습니다. 다시 로그인 해주세요.");
                         movePage("/");
-                        localStorage.clear();
+                        sessionStorage.clear();
                         window.location.reload();
                     }
             });

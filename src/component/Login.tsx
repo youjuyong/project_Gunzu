@@ -35,16 +35,16 @@ const Login = () => {
                 userId: form.userId,
                 userPwd: form.userPassWord
             }, function (data) {
-                localStorage.setItem("token", `Bearer ${data.accessToken}`);
-                localStorage.setItem("id", data.userId);
-                localStorage.setItem("conn_dt", moment().format('YYYY-MM-DD'));
-                localStorage.setItem("conn_tm", moment().format('HH:mm:ss'));
-                localStorage.setItem("expireIn", data.tokenExpiresIn);
-                localStorage.setItem("nickName",data.member.userName);
-                localStorage.setItem("cityYn",data.member.cityYn);
-                localStorage.setItem("cityUserName",data.member.cityUserName);
-                localStorage.setItem("masterYn",data.member.masterYn);
-                localStorage.setItem("regDt",data.member.registeredDate);
+                sessionStorage.setItem("token", `Bearer ${data.accessToken}`);
+                sessionStorage.setItem("id", data.userId);
+                sessionStorage.setItem("conn_dt", moment().format('YYYY-MM-DD'));
+                sessionStorage.setItem("conn_tm", moment().format('HH:mm:ss'));
+                sessionStorage.setItem("expireIn", data.tokenExpiresIn);
+                sessionStorage.setItem("nickName",data.member.userName);
+                sessionStorage.setItem("cityYn",data.member.cityYn);
+                sessionStorage.setItem("cityUserName",data.member.cityUserName);
+                sessionStorage.setItem("masterYn",data.member.masterYn);
+                sessionStorage.setItem("regDt",data.member.registeredDate);
                 // if (isRemember) {
                 //     setCookie("userId", form.userId, {maxAge: 60 * 60 * 24})
                 // } else {

@@ -1,10 +1,10 @@
-import react from "react";
-import { useState, useLayoutEffect    } from "react";
-import { axiosCall                    } from "../../utils/common/common";
-import { API_IP_INFO                  } from "../../utils/apiUrl";
-import { Link                         } from "react-router-dom";
-import { Pagination, useListPage      } from "../../../src/commComponent/TablePageFooterCompo";
-import { Loading                      } from "../../commComponent/Loading";
+import React from "react";
+import { useState, useLayoutEffect, memo    } from "react";
+import { axiosCall                          } from "../../utils/common/common";
+import { API_IP_INFO                        } from "../../utils/apiUrl";
+import { Link                               } from "react-router-dom";
+import { Pagination, useListPage            } from "../../../src/commComponent/TablePageFooterCompo";
+import { Loading                            } from "../../commComponent/Loading";
 interface eventBoardListType {
     TEXT_ID                     : string, // 공지 ID
     RTRV_CNT                    : number, // 조회수
@@ -25,17 +25,18 @@ const viewPageDataCnt = 7;  // 한페이지에 보여줄 데이터 갯수
 const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수 
 
-const Event = () => {
+const EventCp = () => {
     const [ eventBoardList, setEventBoardList ] = useState([]);
     const [isLoading,              setLoading ] = useState(false);
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(eventBoardList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
-    
+    const masterYn = sessionStorage.getItem("masterYn");
+
     useLayoutEffect(() => {
-        setLoading(true);
-                 axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
-                    setEventBoardList(data);
-                    setLoading(false);
-                });
+                 // setLoading(true);
+                  axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
+                     setEventBoardList(data);
+                    // setLoading(false);
+         });
     },[]);
 
     const fileDownLoad = (fileNum : number, textId : string) => {
@@ -72,7 +73,7 @@ const Event = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                            { slicedList?.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList} fileDownLoad={fileDownLoad}></CreateTable> }
+                                            { slicedList?.length === 0 ? <tr><th className="info_nvl">조건에 맞는 정보가 없습니다.</th></tr> :  <CreateTable data={slicedList} fileDownLoad={fileDownLoad} masterYn={masterYn}></CreateTable> }
                                     </tbody>
                                 </table>
                             </>
@@ -88,6 +89,15 @@ const Event = () => {
     )
 }
 
+const EventetValidate = (masterYn : string, event : any) => {
+
+     if ( ( masterYn === 'N' || masterYn === null )) {
+         alert("의정부 주민만 이용 가능 합니다. 회원가입 후 반드시 관리자 에게 문의 바랍니다.");
+         event.preventDefault();
+         return;
+     }
+}
+
 export const CreateTable = ( props : any ) => {
     return (
         <>  
@@ -96,7 +106,7 @@ export const CreateTable = ( props : any ) => {
                     return(
                         <tr key={ i } className = {v.IMPT_YN === 'Y' ? 'impt' : ''}>
                             <td>{v?.TEXT_ID}</td>
-                            <td>{v.IMPT_YN === 'Y' ? <span className='alert'>중요</span> : ''}<Link to="eventTextInfo" state= {{text_id : v.TEXT_ID, url : 'eventTextInfo',event_term : v.EVENT_TERM,  text_type: v.BORD_TYPE, text_title : v.TEXT_TITL, reg_dt : v.REG_DT, prize_bord_yn : v.PRIZE_BORD_YN, prize_yn : v.PRIZE_YN}}>{v?.TEXT_TITL}</Link></td>
+                            <td>{v.IMPT_YN === 'Y' ? <span className='alert'>중요</span> : ''}<Link to="eventTextInfo" state= {{text_id : v.TEXT_ID, url : 'eventTextInfo',event_term : v.EVENT_TERM,  text_type: v.BORD_TYPE, text_title : v.TEXT_TITL, reg_dt : v.REG_DT, prize_bord_yn : v.PRIZE_BORD_YN, prize_yn : v.PRIZE_YN}} onClick={(event : any) => EventetValidate(props.masterYn, event)}>{v?.TEXT_TITL}</Link></td>
                             <td>{v?.USER_NAME}</td>
                             <td>{v?.FILE_YN === 'Y' ? <a onClick={() => props.fileDownLoad(v.FILE_NUM, v.TEXT_ID)}className="file" title={v?.FILE_NAME}></a> : ''}</td>
                             <td>{v?.REG_DT}</td>
@@ -109,5 +119,5 @@ export const CreateTable = ( props : any ) => {
     )
 };
 
-
-export default Event;
+const Event = React.memo(EventCp);
+export default Event ;

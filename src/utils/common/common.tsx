@@ -8,7 +8,7 @@ export async function axiosCall(requsetType: string, url: string, data: any, _ca
         method: requsetType,
         params: data,
         headers: {
-            Authorization: localStorage.getItem("token")
+            Authorization: sessionStorage.getItem("token")
             ,  "Content-Type": "application/json; charset=utf-8",
         },
         paramsSerializer: (params: any) => {
@@ -126,7 +126,7 @@ export function useQuerySingle(
     const result = useQuery(
         [keyName, keyId],
         async () => {
-            const response = await fetch(url, {headers: {Authorization: localStorage.getItem("token")!}});
+            const response = await fetch(url, {headers: {Authorization: sessionStorage.getItem("token")!}});
             if (response.status === 401) {
                 alert("로그인 토큰이 만료되어 로그인 페이지로 이동합니다.");
                 window.location.href = "/"
