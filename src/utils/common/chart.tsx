@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import HighCharts from 'highcharts/highstock';
+import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official';
 import HC_exporting from 'highcharts/modules/exporting';
-
 
 interface barChartType {
     xCategory : any,
@@ -10,8 +9,13 @@ interface barChartType {
     title     ?: string | null,
     options   : any
 }
+require("highcharts/modules/variwide")(Highcharts);
+require('highcharts/modules/data')(Highcharts);
+require('highcharts/modules/exporting')(Highcharts);
+require('highcharts/modules/windbarb')(Highcharts);
+require('highcharts/highcharts-more')(Highcharts);
 
-HC_exporting(HighCharts);
+HC_exporting(Highcharts);
 const HighChartBarCp = React.forwardRef( ( props : barChartType, ref : any ) => {
     const chartRef = useRef<any>(null);  
 
@@ -65,7 +69,119 @@ const HighChartBarCp = React.forwardRef( ( props : barChartType, ref : any ) => 
         <>  
             <div>
                 <HighchartsReact
-                    highcharts = {HighCharts}
+                    highcharts = {Highcharts}
+                    options={options}
+                    ref={chartRef}
+                >
+                </HighchartsReact>
+            </div>
+        </>
+    )
+})
+
+const HighChartVerticalCp = React.forwardRef( ( props : barChartType, ref : any ) => {
+    const chartRef = useRef<any>(null);  
+
+    const options = {
+        chart: {
+            type: 'spline',
+            height: ref.current && ref.current.offsetHeight + 'px',
+            ...theme.chart
+        },
+        title: {
+            text: props.title || '' ,
+            align: 'center'
+        },
+        xAxis: {
+            categories: props.xCategory,
+            crosshair: true,
+            accessibility: {
+                description: 'Countries'
+            },
+            title: {
+                ...theme.xAxis.title,
+                text: props.options.xAxis.title.text,
+            },
+            labels: { ...theme.xAxis.label },
+        },
+        plot : {...theme.plot},
+        yAxis: {
+            min: 0,
+            title: {
+                ...theme.yAxis.title,
+                text: props.options.yAxis.title.text
+            },
+            labels: {
+                ...theme.yAxis.label
+            },
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0,
+            }
+        },
+        series : props.series,        
+        legend: { ...theme.legend },
+    }
+
+    return (
+        <>  
+            <div>
+                <HighchartsReact
+                    highcharts = {Highcharts}
+                    options={options}
+                    ref={chartRef}
+                >
+                </HighchartsReact>
+            </div>
+        </>
+    )
+})
+
+const HighChartPolaCp = React.forwardRef( ( props : barChartType, ref : any ) => {
+    const chartRef = useRef<any>(null);  
+    console.log(props.xCategory);
+    const options = {
+        credits:{
+			enabled: false
+		},
+        chart: {
+            polar: true,
+        },
+        legend: {
+				layout        : 'horizontal',
+				align         : 'center',
+				verticalAlign : 'bottom',
+				borderWidth   : 0
+		},
+        title: {
+            text:  props.title
+        },
+    
+        xAxis: {
+            categories: props.xCategory
+        },
+    
+        yAxis: {
+            min: 0
+        },
+    
+        tooltip: {
+			valueSuffix: ''
+		},
+    
+        series : props.series
+    }
+
+    return (
+        <>  
+            <div>
+                <HighchartsReact
+                    highcharts = {Highcharts}
                     options={options}
                     ref={chartRef}
                 >
@@ -149,3 +265,5 @@ const theme = {
 };
 
 export const HighChartBar  = React.memo(HighChartBarCp);
+export const HighChartVertical  = React.memo(HighChartVerticalCp);
+export const HighChartPola  = React.memo(HighChartPolaCp);

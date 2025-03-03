@@ -1,15 +1,63 @@
-import React, { useCallback, useState }    from "react";
-import { CalendarMonthInit } from "../../../../utils/common/datePicker";
+import React, { useCallback, useState, useRef, useEffect }    from "react";
+import { CalendarMonthInit            } from "../../../../utils/common/datePicker";
+import { axiosCall, useQuerySingle    } from "../../../../utils/common/common";
+import { API_IP_INFO                  } from "../../../../utils/apiUrl";
+import { Loading                      } from "../../../../commComponent/Loading";
+import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
+
+const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length === 1 ? '0' + String(i+1) : String(i+1));
+const chartdateArr = Array.from({length : 31}, (v,i ) =>  String(i+1) + '일');
 
 const VillageStaticsInfoCp = ( ) => {
-    const [calendarTime, setCalendarTime] = useState();
-
+    const villageList  = useQuerySingle("get-village-list", null, `${API_IP_INFO}/stat/village-list`, 60000 * 5, 60000 * 10, false, true, false);
+    const [   paramInfo, setParamInfo ] = useState({village_id : '', month : '' });
+    const [ reulstList, setResultList ] = useState<any>({ dateList : [], loading : false, searchInfo : [] });
+    const [     charList, setCharList ] = useState<any>({ current : [], pre : []});
+    const chartRef = useRef<HTMLDivElement>(null);
+    const chartRef2 = useRef<HTMLDivElement>(null);
+    const day    = paramInfo.month.substr(0,4) + '-' + paramInfo.month.substr(4,2);
+    const preday = reulstList?.dateList.length !== 0 ? reulstList.dateList[0]["DT_CC"].substr(0,4) + '-' + reulstList.dateList[0]["DT_CC"].substr(4,2) : '';
+  
     // 시간 변경시 콜백 함수
     const timeCallback = useCallback(( data:any ) => {
-            setCalendarTime(data);
-     }, [calendarTime]);
+            setParamInfo({...paramInfo, month: data.st_mm});
+     }, [paramInfo]);
 
-     console.log(calendarTime);
+     const clickVillageHuman = () => {
+        if ( paramInfo.village_id === '' ) {
+            alert('조회 하고자하는 마을명을 선택해주세요.');
+            return;
+        }
+
+        const param = {
+            strt_dt   : paramInfo.month,
+            villageId : paramInfo.village_id
+        }
+        setResultList({...reulstList, loading : true });
+        axiosCall("get", API_IP_INFO + "/stat/village-human-statics", param, (data) => {
+            if ( data["preCnt"] === undefined || data["preCnt"].length === 0 ) {
+                alert("데이터가 없습니다.");
+                return;
+            }
+            setResultList({...reulstList, dateList : data["preCnt"] , loading : false, searchInfo : data["curCnt"] });
+        });
+     };
+
+     const onChangeVillageName = ( e : any ) => {
+        const { name, value} = e.target;
+        setParamInfo({...paramInfo, [name] : value});
+     };
+
+     useEffect(() => {
+        setCharList({ current : reulstList.dateList.map((v : { CURRENT_CNT : number} ) => v.CURRENT_CNT ), 
+                          pre : reulstList.dateList.map((v : {     PRE_CNT : number} ) => v.PRE_CNT     )
+         });
+     },[reulstList.dateList]);
+
+     const options = {
+        xAxis : { title : { text : '일자'} } ,
+        yAxis : { title : { text : '주민수'} }
+    }
 
     return (
         <>
@@ -24,120 +72,120 @@ const VillageStaticsInfoCp = ( ) => {
                                     <tbody>
                                         <tr>
                                             <th>저번달</th>
-                                            <td>10%</td>
+                                            <td>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]?.ASC_PER + '%' : ''} { reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'UP'     ? <img className="tdImg" src={require("../../../../assets/image/up.png")}     ></img> :
+                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'DOWN'   ? <img className="tdImg" src={require("../../../../assets/image/down.png")}   ></img> :
+                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'NORMAL' ? <img className="tdImg" style = {{ margin : '3px'}} src={require("../../../../assets/image/normal.png")} ></img> : ''}</td>
                                         </tr>
-                                        <tr>
+                                        {/* <tr>
                                             <th>어제</th>
                                             <td>1명</td>
-                                        </tr>
+                                        </tr> */}
                                     </tbody>
                                 </table>
                         </div>
                         <div className="staticsBox ">
                             <div className="statics_searchbox snans">
                                 <div className="select_date">
-                                    <select className="select276" title="마을선택"></select>
+                                    <select className="select276" title="마을선택" name="village_id" onChange={onChangeVillageName}>
+                                         <option value='' key=''>마을명</option>
+                                        {
+                                            villageList.data && villageList.data.map((v :{ VILLAGE_NAME:string, VILLAGE_ID : string}) => {
+                                        
+                                                return (
+                                                    <option value={v.VILLAGE_ID} key={v.VILLAGE_ID || 'option'}>{v.VILLAGE_NAME}</option>
+                                                )
+                                            })
+                                        }
+                                    </select>
                                     {/* <input className="select276" type="text" title="날짜"></input> */}
                                     <CalendarMonthInit  _callbackFunction = { timeCallback }/>
-                                    <button title="조회" className="btnsearch" >조회</button>
+                                    <button title="조회" className="btnsearch" onClick={clickVillageHuman}>조회</button>
                                 </div>
                             </div>
                             <div className="staticsBox2">
-                                <p className="statics_title"><span>TEST</span></p>
+                                <p className="statics_title"><span>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]["DT"] + ' ' +  reulstList.searchInfo[0]["VILLAGE_NAME"] + '마을 평균 주민수는 ' + reulstList.searchInfo[0]["HUMAN_CNT"] + ' 입니다.': '' }</span></p>
                                 <div className="statics_table">
-                                    <table className="table2">
-                                        <caption>마을별 주민수 통계</caption>
-                                        <thead>
-                                            <tr>
-                                                <th>마을명</th>
-                                                <th>구분</th>
-                                                <th>01</th>
-                                                <th>02</th>
-                                                <th>03</th>
-                                                <th>04</th>
-                                                <th>05</th>
-                                                <th>06</th>
-                                                <th>07</th>
-                                                <th>08</th>
-                                                <th>09</th>
-                                                <th>10</th>
-                                                <th>11</th>
-                                                <th>12</th>
-                                                <th>13</th>
-                                                <th>14</th>
-                                                <th>15</th>
-                                                <th>16</th>
-                                                <th>17</th>
-                                                <th>18</th>
-                                                <th>19</th>
-                                                <th>20</th>
-                                                <th>21</th>
-                                                <th>22</th>
-                                                <th>23</th>
-                                                <th>24</th>
-                                                <th>25</th>
-                                                <th>26</th>
-                                                <th>27</th>
-                                                <th>28</th>
-                                                <th>29</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th rowSpan={2}>한양</th>
-                                            <th >평균5주</th>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                            <td>10</td>
-                                            <td>11</td>
-                                            <td>12</td>
-                                            <td>13</td>
-                                            <td>14</td>
-                                            <td>15</td>
-                                            <td>16</td>
-                                            <td>17</td>
-                                            <td>15</td>
-                                            <td>15</td>
-                                            <td>15</td>
-                                          </tr>
-                                          <tr>
-                                            <th>어제</th>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td>4</td>
-                                            <td>5</td>
-                                            <td>6</td>
-                                            <td>7</td>
-                                            <td>8</td>
-                                            <td>9</td>
-                                            <td>10</td>
-                                            <td>11</td>
-                                            <td>12</td>
-                                            <td>13</td>
-                                            <td>14</td>
-                                            <td>15</td>
-                                            <td>16</td>
-                                            <td>17</td>
-                                            <td>15</td>
-                                            <td>15</td>
-                                            <td>15</td>
-                                          </tr>
-                                        </tbody>
-                                    </table>
+                                    <fieldset className="mark1">
+                                        <ul className="markscon">
+                                            <li><span className="green"></span>200 ~ </li>
+                                            <li><span className="yellow"></span>100 ~ 200</li>
+                                            <li><span className="red"></span>50  ~ 100</li>
+                                            <li><span className="gray"></span>0</li>
+                                        </ul>
+                                    </fieldset>
+                                    { reulstList?.loading === true ? <Loading/> :  
+                                        <>
+                                            <table className="table2">
+                                                <caption>마을별 주민수 통계</caption>
+                                                <thead>
+                                                    <tr>
+                                                        <th>마을명</th>
+                                                        <th>구분</th>
+                                                        {
+                                                            dateArr.map((v : string, index : number) => {
+                                                            const key = index + 'dsafdfffaa' + reulstList.loading;
+                                                                return (
+                                                                    <th key={key}>{v}</th>
+                                                                )
+                                                            })
+                                                        } 
+                                                    </tr>
+                                                </thead>
+                                                <tbody key='tbody'>
+                                                <tr className="statics_table_tr">
+                                                    <th rowSpan={2}>{(reulstList?.dateList.length === 0 || reulstList?.dateList === undefined )  ? '' : reulstList?.dateList[0]["VILLAGE_NAME"] }</th>
+                                                    <th >저번달<span className="monthSpan">{ preday }</span></th>
+                                                      {
+                                                          reulstList?.dateList && reulstList.dateList.map( (v : { PRE_CNT : number, DT_BB : string }, index : number) => {
+                                                            const cnt = v?.PRE_CNT ===undefined ? 0 : v?.PRE_CNT ;
+                                                            let color = ''; 
+
+                                                            if      ( v?.PRE_CNT >= 200                      ) { color = 'green';  } 
+                                                            else if ( v?.PRE_CNT > 100   && v?.PRE_CNT < 200 ) { color = 'yellow'; }
+                                                            else if ( v?.PRE_CNT > 50    && v?.PRE_CNT < 100 ) { color = 'pink';   }  
+                                                            else    { color = 'gray'; }
+
+                                                            return  <th className={color} key={  v + 'sadsa' + index }>{cnt}</th>
+
+                                                        })
+                                                     } 
+                                                </tr>
+                                                <tr className="statics_table_tr" key='statics_table_tr'>
+                                                    <th key='statics_table_th'>이번달<span className="monthSpan">{reulstList.dateList.length === 0 ? '' : (day)}</span></th>
+                                                    {
+                                                            reulstList?.dateList && reulstList.dateList.map( (v : any, index : any) => {
+                                                                const cnt = v?.CURRENT_CNT === undefined ? 0 : v?.CURRENT_CNT;
+                                                                let color = ''; 
+
+                                                                if      ( v?.CURRENT_CNT >= 200                         ) { color = 'green';  } 
+                                                                else if ( v?.CURRENT_CNT > 100  && v?.CURRENT_CNT < 200 ) { color = 'yellow'; }
+                                                                else if ( v?.CURRENT_CNT > 50   && v?.CURRENT_CNT < 100 ) { color = 'pink';   }  
+                                                                else    { color = 'gray'; }
+
+                                                                 return <td className={color} key={ v + 'dfsaf' + index }>{cnt}</td>;
+                                                        }) 
+                                                    }
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </>
+                                    }
                                 </div>
                             </div>
                             <div className="statics_grapDiv1 snans">
                                 <h4>그래프</h4>
-                                <div className="graph graph1"></div>
-                                <div className="graph graph2"></div>
+                                <div className="graph graph1" ref={chartRef}>
+                                    {
+                                        reulstList.loading == true  ?  <Loading/> : charList.pre.length === 0 ? '' :
+                                        <HighChartVertical xCategory={chartdateArr} title="마을별 주민수" series={[{name :  day, data : charList.current }, { name :  preday, data : charList.pre } ]} ref={chartRef} options = {options}/> 
+                                    }
+                                </div>
+                                <div className="graph graph2" ref={chartRef2}>
+                                    {
+                                        reulstList.loading == true  ?  <Loading/> : charList.pre.length === 0 ? '' :
+                                        <HighChartPola xCategory={chartdateArr} title="마을별 주민수" series={[{type: 'line', name :  day, data : charList.current }, { type: 'line', name :  preday, data : charList.pre } ]} ref={chartRef2} options = {options}/> 
+                                    }
+                                </div>
                             </div>
                         </div>
                 </div>
