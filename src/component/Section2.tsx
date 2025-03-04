@@ -1,5 +1,5 @@
 
-import { Route, Routes, useLocation, Link, useParams, useSearchParams }     from "react-router-dom";
+import { Route, Routes, useLocation }     from "react-router-dom";
 
 /* Section2 */
 import GameInfoHeroChangeCompo     from "../section2Component/gameInfoComponent/gameInfoHeroChange";     // 영웅강림
@@ -9,6 +9,7 @@ import GameInfoRecallHeroCompo     from "../section2Component/gameInfoComponent/
 import GameInfoSystemOfKingCompo   from "../section2Component/gameInfoComponent/gameInfoSystemOfKing";   // 왕실시스템
 import GameInfoCraftsManCompo      from "../section2Component/gameInfoComponent/gameInfoCraftsMan";      // 장인목록
 import GameInfoVillageStaticsCompo from "../section2Component/gameInfoComponent/gameInfoVillageStatics"; // 주민수
+import GameInfoYangStaticsCpCompo  from "../section2Component/gameInfoComponent/gameInfoYangStatics";    // 양이전쟁
 
 /* 게임정보(마구간) */
 import HorsHouseExplainCompo    from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
@@ -32,7 +33,8 @@ import { SystemOfKingMacroThinkInfoCompo  }  from "../section2Component/gameInfo
 import { CraftsManListInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/craftsMan/CraftsManListInfoCompo"; // 장인 모곩
 
 /* 주민수 통계 */
-import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo"; // 장인 모곩
+import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo"; // 주민수 통계
+import { YangStaticsInfoCompo             }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/yangStatics/YangStaticsInfoCompo"; // 양이전쟁 통계
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
@@ -41,7 +43,7 @@ import Section1                 from "./Section1";
 const Section2 = () => {
 
     const location = useLocation();
-    const {pathname, state} = location;
+    const {state} = location;
    
     return (
         <>
@@ -71,10 +73,13 @@ const Section2 = () => {
                                                 <Route path="systemOfKingMacoThinking" element={<SystemOfKingMacroThinkInfoCompo/>}/>
                                         </Route>
                                         <Route path="craftsManInfo" element={<GameInfoCraftsManCompo/>}>
-                                                <Route path="craftsManListInfo"     element={<CraftsManListInfoCompo/>}/>
+                                                <Route path="craftsManListInfo"        element={<CraftsManListInfoCompo/>}/>
                                         </Route>
                                         <Route path="staticsInfo" element={<GameInfoVillageStaticsCompo/>}>
-                                                <Route path="villageStaticsInfo"     element={<VillageStaticsInfoCompo/>}/>
+                                                <Route path="villageStaticsInfo"       element={<VillageStaticsInfoCompo/>}/>
+                                        </Route>
+                                        <Route path="staticsInfo" element={<GameInfoYangStaticsCpCompo/>}>
+                                                <Route path="yangStaticsInfo"          element={<YangStaticsInfoCompo/>}/>
                                         </Route>
                                         <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                                 </Routes>

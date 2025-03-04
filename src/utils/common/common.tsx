@@ -1,5 +1,5 @@
 import axios        from "axios";
-import { useQuery } from  "react-query";
+import { useQuery, useQueryClient, useMutation } from  "react-query";
 import qs           from "qs";
 
 export async function axiosCall(requsetType: string, url: string, data: any, _callbackFunction ?: ((data: any) => void) | null, _errorCallback ?: ((data: any) => void) | null) {
@@ -110,7 +110,7 @@ export function errorHandler(response: any) {
 */
 export function useQuerySingle(
     keyName: string,
-    keyId: string | null,
+    keyId: any,
     url: string,
     statleTime           ?: number,
     cacheTime            ?: number | undefined,
@@ -160,3 +160,20 @@ export function useQuerySingle(
 
     return result;
 }
+
+export function  useMutationSingle (
+        queryKey : string,
+        param : any,
+        callbackFn : any
+) {
+    const queryClient = useQueryClient();
+    const { mutate } = useMutation({
+        mutationFn: callbackFn,
+          onSuccess: () =>
+            queryClient.invalidateQueries({ queryKey: [queryKey] }),
+        });
+
+        
+}
+
+

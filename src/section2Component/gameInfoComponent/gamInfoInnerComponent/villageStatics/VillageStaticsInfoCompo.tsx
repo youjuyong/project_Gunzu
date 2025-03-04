@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useRef, useEffect }    from "react";
-import { CalendarMonthInit            } from "../../../../utils/common/datePicker";
-import { axiosCall, useQuerySingle    } from "../../../../utils/common/common";
-import { API_IP_INFO                  } from "../../../../utils/apiUrl";
-import { Loading                      } from "../../../../commComponent/Loading";
+import { CalendarMonthInit                } from "../../../../utils/common/datePicker";
+import { axiosCall, useQuerySingle        } from "../../../../utils/common/common";
+import { API_IP_INFO                      } from "../../../../utils/apiUrl";
+import { Loading                          } from "../../../../commComponent/Loading";
 import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
 
 const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length === 1 ? '0' + String(i+1) : String(i+1));
@@ -13,7 +13,7 @@ const VillageStaticsInfoCp = ( ) => {
     const [   paramInfo, setParamInfo ] = useState({village_id : '', month : '' });
     const [ reulstList, setResultList ] = useState<any>({ dateList : [], loading : false, searchInfo : [] });
     const [     charList, setCharList ] = useState<any>({ current : [], pre : []});
-    const chartRef = useRef<HTMLDivElement>(null);
+    const chartRef  = useRef<HTMLDivElement>(null);
     const chartRef2 = useRef<HTMLDivElement>(null);
     const day    = paramInfo.month.substr(0,4) + '-' + paramInfo.month.substr(4,2);
     const preday = reulstList?.dateList.length !== 0 ? reulstList.dateList[0]["DT_CC"].substr(0,4) + '-' + reulstList.dateList[0]["DT_CC"].substr(4,2) : '';
@@ -23,6 +23,7 @@ const VillageStaticsInfoCp = ( ) => {
             setParamInfo({...paramInfo, month: data.st_mm});
      }, [paramInfo]);
 
+     // 조회 버튼 클릭시
      const clickVillageHuman = () => {
         if ( paramInfo.village_id === '' ) {
             alert('조회 하고자하는 마을명을 선택해주세요.');
@@ -43,6 +44,7 @@ const VillageStaticsInfoCp = ( ) => {
         });
      };
 
+     // 마을명 select 선택시
      const onChangeVillageName = ( e : any ) => {
         const { name, value} = e.target;
         setParamInfo({...paramInfo, [name] : value});
@@ -72,9 +74,9 @@ const VillageStaticsInfoCp = ( ) => {
                                     <tbody>
                                         <tr>
                                             <th>저번달</th>
-                                            <td>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]?.ASC_PER + '%' : ''} { reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'UP'     ? <img className="tdImg" src={require("../../../../assets/image/up.png")}     ></img> :
-                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'DOWN'   ? <img className="tdImg" src={require("../../../../assets/image/down.png")}   ></img> :
-                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'NORMAL' ? <img className="tdImg" style = {{ margin : '3px'}} src={require("../../../../assets/image/normal.png")} ></img> : ''}</td>
+                                            <td>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]?.ASC_PER + '%' : ''} { reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'UP'     ? <img alt="UP" className="tdImg" src={require("../../../../assets/image/up.png")}     ></img> :
+                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'DOWN'   ? <img alt="DOWN" className="tdImg" src={require("../../../../assets/image/down.png")}   ></img> :
+                                                                                                                                      reulstList.searchInfo.length !== 0 && reulstList.searchInfo[0]?.ASC_ICON === 'NORMAL' ? <img alt="NORMAL" className="tdImg" style = {{ margin : '3px'}} src={require("../../../../assets/image/normal.png")} ></img> : ''}</td>
                                         </tr>
                                         {/* <tr>
                                             <th>어제</th>
@@ -97,7 +99,6 @@ const VillageStaticsInfoCp = ( ) => {
                                             })
                                         }
                                     </select>
-                                    {/* <input className="select276" type="text" title="날짜"></input> */}
                                     <CalendarMonthInit  _callbackFunction = { timeCallback }/>
                                     <button title="조회" className="btnsearch" onClick={clickVillageHuman}>조회</button>
                                 </div>
@@ -107,9 +108,9 @@ const VillageStaticsInfoCp = ( ) => {
                                 <div className="statics_table">
                                     <fieldset className="mark1">
                                         <ul className="markscon">
-                                            <li><span className="green"></span>200 ~ </li>
-                                            <li><span className="yellow"></span>100 ~ 200</li>
-                                            <li><span className="red"></span>50  ~ 100</li>
+                                            <li><span className="green"></span>100 ~ </li>
+                                            <li><span className="yellow"></span>50 ~ 100</li>
+                                            <li><span className="red"></span>1  ~ 50</li>
                                             <li><span className="gray"></span>0</li>
                                         </ul>
                                     </fieldset>
@@ -140,9 +141,9 @@ const VillageStaticsInfoCp = ( ) => {
                                                             const cnt = v?.PRE_CNT ===undefined ? 0 : v?.PRE_CNT ;
                                                             let color = ''; 
 
-                                                            if      ( v?.PRE_CNT >= 200                      ) { color = 'green';  } 
-                                                            else if ( v?.PRE_CNT > 100   && v?.PRE_CNT < 200 ) { color = 'yellow'; }
-                                                            else if ( v?.PRE_CNT > 50    && v?.PRE_CNT < 100 ) { color = 'pink';   }  
+                                                            if      ( v?.PRE_CNT >= 100                     ) { color = 'green';  } 
+                                                            else if ( v?.PRE_CNT >= 50  && v?.PRE_CNT < 100 ) { color = 'yellow'; }
+                                                            else if ( v?.PRE_CNT > 0    && v?.PRE_CNT < 50  ) { color = 'pink';   }  
                                                             else    { color = 'gray'; }
 
                                                             return  <th className={color} key={  v + 'sadsa' + index }>{cnt}</th>
@@ -157,9 +158,9 @@ const VillageStaticsInfoCp = ( ) => {
                                                                 const cnt = v?.CURRENT_CNT === undefined ? 0 : v?.CURRENT_CNT;
                                                                 let color = ''; 
 
-                                                                if      ( v?.CURRENT_CNT >= 200                         ) { color = 'green';  } 
-                                                                else if ( v?.CURRENT_CNT > 100  && v?.CURRENT_CNT < 200 ) { color = 'yellow'; }
-                                                                else if ( v?.CURRENT_CNT > 50   && v?.CURRENT_CNT < 100 ) { color = 'pink';   }  
+                                                                if      ( v?.CURRENT_CNT >= 100                         ) { color = 'green';  } 
+                                                                else if ( v?.CURRENT_CNT >= 50  && v?.CURRENT_CNT < 100 ) { color = 'yellow'; }
+                                                                else if ( v?.CURRENT_CNT > 0    && v?.CURRENT_CNT < 50  ) { color = 'pink';   }  
                                                                 else    { color = 'gray'; }
 
                                                                  return <td className={color} key={ v + 'dfsaf' + index }>{cnt}</td>;
@@ -176,14 +177,14 @@ const VillageStaticsInfoCp = ( ) => {
                                 <h4>그래프</h4>
                                 <div className="graph graph1" ref={chartRef}>
                                     {
-                                        reulstList.loading == true  ?  <Loading/> : charList.pre.length === 0 ? '' :
-                                        <HighChartVertical xCategory={chartdateArr} title="마을별 주민수" series={[{name :  day, data : charList.current }, { name :  preday, data : charList.pre } ]} ref={chartRef} options = {options}/> 
+                                        reulstList.loading === true  ?  <Loading/> : charList.pre.length === 0 ? '' :
+                                        <HighChartVertical xCategory={chartdateArr} title="마을별 주민수" series={[{name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef} options = {options}/> 
                                     }
                                 </div>
                                 <div className="graph graph2" ref={chartRef2}>
                                     {
-                                        reulstList.loading == true  ?  <Loading/> : charList.pre.length === 0 ? '' :
-                                        <HighChartPola xCategory={chartdateArr} title="마을별 주민수" series={[{type: 'line', name :  day, data : charList.current }, { type: 'line', name :  preday, data : charList.pre } ]} ref={chartRef2} options = {options}/> 
+                                        reulstList.loading === true  ?  <Loading/> : charList.pre.length === 0 ? '' :
+                                        <HighChartPola xCategory={chartdateArr} title="마을별 주민수" series={[{type: 'line', name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { type: 'line', name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef2} options = {options}/> 
                                     }
                                 </div>
                             </div>

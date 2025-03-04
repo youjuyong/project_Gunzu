@@ -33,7 +33,11 @@ export const headerNavInfo = [
                 menuName    : "마을별 주민수 통계",
                 subClassCnt : 3
             }, {
-                 subTitle : "양이전쟁"
+                subTitle : "양이전쟁",
+                subUrl      : "gameInfo/staticsInfo/yangStaticsInfo",
+                url         : "yangStaticsInfo",   
+                menuName    : "마을별 양이전쟁 통계",
+                subClassCnt : 4
             }
         ]
     },
@@ -152,6 +156,19 @@ export const villageStaticsheader = [
         title     : "마을별 주민수 통계",
         imgUrl    : null,
         imgAlt    : "마을별 주민수 통계",
+        className : null
+    }
+]
+
+/* 게임정보(양이전쟁) */
+export const yangStaticsheader = [
+    {
+        mainUrl   : "/gameInfo/staticsInfo/yangStaticsInfo",
+        url       : "yangStaticsInfo",
+        mainMenu  : "양이전쟁",
+        title     : "마을별 양이전쟁 통계",
+        imgUrl    : null,
+        imgAlt    : "마을별 양이전쟁 통계",
         className : null
     }
 ]
@@ -528,39 +545,97 @@ export const horseBurf =  [
     },
     {
         horseId : "HOS10",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>무기술 5 증가</p>
+                    <p>흑룡세트 착용시 공격력/방어력 +5%</p>
+                </>
+          )}
     },
     {
         horseId : "HOS11",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 100증가</p>
+                    <p>무기술 3증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS12",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 2800증가</p>
+                    <p>무기술 15증가</p>
+                    <p>탑승 시 명마이펙트</p>
+                </>
+          )}
     },
     {
         horseId : "HOS13",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 1000증가</p>
+                    <p>무기술 9증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS14",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>마법공격력 15%증가</p>
+                    <p>모든 기술 5증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS15",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 3500증가</p>
+                    <p>무기술 20증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS16",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>마법공격력 250증가</p>
+                    <p>마법공격력 20%증가</p>
+                    <p>모든기술 8증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS17",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 4000증가</p>
+                    <p>무기술 30증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS18",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>마법공격력 500증가</p>
+                    <p>마법공격력 30%증가</p>
+                    <p>모든기술 10증가</p>
+                    <p>근력/순발력/생명력 + 50</p>
+                </>
+          )}
     },
     {
         horseId : "HOS19",

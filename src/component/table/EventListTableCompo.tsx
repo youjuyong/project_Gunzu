@@ -32,10 +32,10 @@ const EventCp = () => {
     const masterYn = sessionStorage.getItem("masterYn");
 
     useLayoutEffect(() => {
-                 // setLoading(true);
-                  axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
+         setLoading(true);
+         axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
                      setEventBoardList(data);
-                    // setLoading(false);
+                     setLoading(false);
          });
     },[]);
 
