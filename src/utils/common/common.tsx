@@ -1,6 +1,8 @@
+import { Loading                 } from "../../commComponent/Loading";
 import axios        from "axios";
-import { useQuery, useQueryClient, useMutation } from  "react-query";
 import qs           from "qs";
+import { useEffect, useRef, useState } from "react";
+import { useQuery, useQueryClient, useMutation } from  "react-query";
 
 export async function axiosCall(requsetType: string, url: string, data: any, _callbackFunction ?: ((data: any) => void) | null, _errorCallback ?: ((data: any) => void) | null) {
     const options = {
@@ -177,3 +179,63 @@ export function  useMutationSingle (
 }
 
 
+interface imageLazyHook {
+    src       : string | any,
+    alt       : string,
+    className : string,
+    height    : number
+}
+
+export const LazyImageHook = (  props : imageLazyHook ) => {
+    const imgRef:any = useRef(null);
+    const [ isLoading, setIsLoading ] = useState(false);
+    
+    useEffect (() => {
+        let observer = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+
+                if (entry.isIntersecting && imgRef?.current !== undefined ) {
+                    const imgR = imgRef?.current;
+                    if ( imgR === null ) return;
+                    imgR.src  = props.src;
+                  
+                    imgR.onload = () => {
+                     setIsLoading(true);
+                     observer.disconnect();
+                   };
+                }
+              });
+            },
+            {
+              rootMargin: "100px",
+            }
+        );
+
+        if ( imgRef?.current ) {
+            observer.observe(imgRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+        }
+
+    },[props.src]);
+
+    return isLoading ? (
+        <img className={props.className} alt={props.alt} id={props.src} src={props.src} />
+      ) : (
+        <img
+        className={props.className}
+        ref={imgRef}
+        id={props.src}
+        style={{
+            zIndex:'999',
+            height: `${props.height}}px`,
+            backgroundColor: "whitesmoke",
+            borderRadius : '10px'
+        }}
+        ></img>
+      )
+ 
+}

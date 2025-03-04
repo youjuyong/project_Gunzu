@@ -15,9 +15,6 @@ export const HorseHouseHeaderCompo = () => {
     const location  = useLocation();
     const { state } = location;
 
-    useEffect(() => {
-    },[location]);
-
     function gameInfoHeaderHandle ( e : any ) {
         const { parentElement } = e?.target?.parentElement;
     } 

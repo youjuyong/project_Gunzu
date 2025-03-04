@@ -105,15 +105,15 @@ export const SwiperImgList = [
     {
         url : "SliderImg2",
         alt : "슬라이드1"
-    },
-    {
-        url : "main_test",
-        alt : "슬라이드2"
-    },
-    {
-        url : "main_test2",
-        alt : "슬라이드3"
     }
+    // {
+    //     url : "main_test",
+    //     alt : "슬라이드2"
+    // },
+    // {
+    //     url : "main_test2",
+    //     alt : "슬라이드3"
+    // }
 ]
 
 /* 게임정보(마구간) */

@@ -5,7 +5,7 @@ import "swiper/css";
 import "../assets/scss/comm/__swiper.min.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import { LazyImageHook } from "../../src/utils/common/common";
 SwiperCore.use([Navigation, Pagination, Autoplay ]);
 
 interface slideListTp {
@@ -32,9 +32,10 @@ const SwiperComponent = () => {
         >  
             { 
                 SwiperImgList.map(( slideInfo : slideListTp, index : number ) : any => {
+                    const src= require("../assets/image/" + ( slideInfo.url ) + ".PNG");
                     return (
                             <SwiperSlide key={ index }>
-                                <img src={ require("../assets/image/" + ( slideInfo.url ) + ".PNG")} alt={ slideInfo.alt }/>
+                                <LazyImageHook src={src} alt={slideInfo.alt} className='' height={503}/>
                             </SwiperSlide>
                            )
                 })

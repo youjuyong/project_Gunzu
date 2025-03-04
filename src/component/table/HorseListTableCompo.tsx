@@ -6,6 +6,7 @@ import { horseImgInfo     } from "../../utils/ContextList";
 import { HorseReviewModal } from "../modal/horseReviewModal/HorseReviewModal"
 import { Pagination, useListPage } from "../../../src/commComponent/TablePageFooterCompo";
 import { Loading          } from "../../commComponent/Loading";
+import { LazyImageHook    } from "../../../src/utils/common/common";
 
 interface tableCompoType {
     queryKeyValue : string, // 리액트 쿼리 키값
@@ -112,11 +113,15 @@ export const CreateTable = ( props : any ) => {
                 props?.data && props.data.map((v : horseListType, i : number) => {
 
                     const img = horseImgInfo.filter((horse : any) => horse.horseId === v.HORSE_ID)[0],
-                        score = Math.floor(Number(v.SCORE));
+                        score = Math.floor(Number(v.SCORE)),
+                       urlSrc = img?.imgUrl,
+                    horseName = v.HORSE_NAME;
 
                     return(
                         <tr key={ i }>
-                            <td> <img src={img?.imgUrl} className="" alt=""/></td>
+                            <td> 
+                                <LazyImageHook src={urlSrc} alt={horseName} className='' height={150}/> 
+                            </td>
                             <td><span className='horseNameSpan' onClick={() => { props.setBitaddOpenValue(true, v) }}>{v?.HORSE_NAME}</span>
                             </td>
                             <td>{v?.HORSER_LIMIT_CON}</td>

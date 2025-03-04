@@ -44,7 +44,7 @@ const Section2 = () => {
 
     const location = useLocation();
     const {state} = location;
-   
+    
     return (
         <>
                 <Section1/>
@@ -53,6 +53,7 @@ const Section2 = () => {
                         <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
                         <div className="section2DivInner">
                                 <Routes>
+                                <Route path="horseListInfo"           element={<HorsListCompo/>}/>
                                         <Route path="horseHouseInfo"    element={<GameInfoHorseHouseCompo/>}>
                                                 <Route path="horseHouseWordInfo"      element={<HorsHouseExplainCompo/>}/>
                                                 <Route path="horseHouseWideMehodInfo" element={<HorseHouseWideMehodCompo/>}/>

@@ -1,4 +1,4 @@
-import { useState                  } from "react";
+import React,{ useState            } from "react";
 import { useQuerySingle            } from "../../../../utils/common/common";
 import { API_IP_INFO               } from "../../../../utils/apiUrl";
 import { HorseListTableCompo       } from "../../../../component/table/HorseListTableCompo";
@@ -13,7 +13,7 @@ interface HouseHeaderType {
 }
 
 /* 탈것 리스트 */
-const HorsListCompo = () => {
+const HorsListCp = () => {
     const [ form, setForm ] = useState({inputValue: ''});
     const { inputValue    } = form;
 
@@ -44,7 +44,7 @@ const HorsListCompo = () => {
     const searchkeyWord = () => {
         setSearchValue({...searchValue, ['keyword'] :inputValue });
     }
-
+    
     return (
         <>  
              <div className='contenbox'>
@@ -142,4 +142,5 @@ const HorsListCompo = () => {
     )
 }
 
+const HorsListCompo = React.memo(HorsListCp);
 export default HorsListCompo;
