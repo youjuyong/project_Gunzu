@@ -457,13 +457,13 @@
     .intro_title_raw {
 
         .intro_div2 {
-            background      : url(../../image/systemKingTitle.png)center no-repeat;
-            background-size : cover;
-            width           : 100%;
-            border-radius   : 10px;
-            height          : 360px;
-            color           : --var(white);
-            text-align      : center;
+            background-size  : cover;
+            width            : 100%;
+            border-radius    : 10px;
+            height           : 360px;
+            color            : --var(white);
+            text-align       : center;
+            background-color : whitesmoke;
 
             .king_title_h3 {
                     width         : auto;
@@ -610,13 +610,13 @@
 
     .intro_title_think_macro {
         .intro_div2 {
-            background      : url(../../image/systemKingTitle.png)center no-repeat;
             background-size : cover;
             width           : 100%;
             border-radius   : 10px;
             height          : 360px;
             color           : --var(white);
             text-align      : center;
+            background-color: whitesmoke;
 
             .king_title_h3 {
                     width         : auto;
@@ -694,13 +694,13 @@
     .intro_title_macro {
 
         .intro_div2 {
-            background      : url(../../image/macro2.png)center no-repeat;
-            background-size : cover;
-            width           : 100%;
-            border-radius   : 10px;
-            height          : 360px;
-            color           : --var(white);
-            text-align      : center;
+            background-size  : cover;
+            width            : 100%;
+            border-radius    : 10px;
+            height           : 360px;
+            color            : --var(white);
+            text-align       : center;
+            background-color : whitesmoke;
 
             .king_title_h3 {
                     width         : auto;

@@ -144,7 +144,6 @@ const HighChartVerticalCp = React.forwardRef( ( props : barChartType, ref : any 
 
 const HighChartPolaCp = React.forwardRef( ( props : barChartType, ref : any ) => {
     const chartRef = useRef<any>(null);  
-    console.log(props.xCategory);
     const options = {
         credits:{
 			enabled: false

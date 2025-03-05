@@ -1,12 +1,20 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import React    from "react";
+import { LazyImageHook    } from "../../../../../src/utils/common/common";
+import { LazyDivHook      } from "../../../../../src/utils/common/common";
+import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 
 /* 매크로 판별창 */
 const SystemOfKingMacroThinkInfo = () => {
+    
+    useEffect(() => {
+        LazyDivHook(".lazy-background")
+    },[]);
+
     return (
         <> 
             <div className='intro_title_think_macro'>
-                <div className='intro_div2 intro1'>
+                <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
                     <h3 className="king_title_h3">매크로 판별창</h3>
                     <p className="king_title_pTag">
                             "유저"가 아닌 운영자가 매크로를 잡기 위해 인게임에 넣어 놓은 프로그램
@@ -21,7 +29,7 @@ const SystemOfKingMacroThinkInfo = () => {
                         <p>시스템적 불편함이 굉장히 많습니다.그리고 게임하는 유저 라면 이 것 때문에 수감을 한번씩은 당해봤기 때문에</p>
                         <p>복귀 or 초보자 에게는 매우 중요한 사항으로 유의점 몇가지를 숙지 하고 계셔야 합니다.</p>
                         <h3>1. 무게는 반드시 소수점을 포함해서 입력 하자.</h3>
-                        <img className="img1" src={require("../../../../assets/image/macro10.png")}></img>
+                        <LazyImageHook src={require("../../../../assets/image/macro10.png")} alt={'매크로'} className={'img1'} height={659}/> 
                         <p>게임을 시작하고 야외지역 or 사냥터 에서 20분 정도 사냥시에 위와 같은 창하나가 뜨기 시작 할 겁니다.</p>
                         <p>질문은 대체로 아이템 이름을 묻거나 수명을 묻거나 무게를 묻거나 다양합니다. 이번에는 무게를 묻는 판별창입니다.</p>
                         <h2>문제는 소수점을 포함 해서 "256.0"을 입력 해야 되는데 "256" 까지만 입력 해서 수감을 당하시는 분들이 굉장히 많습니다. </h2>

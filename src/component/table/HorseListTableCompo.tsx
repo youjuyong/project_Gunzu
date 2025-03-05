@@ -1,5 +1,5 @@
 import  React, { useLayoutEffect } from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { axiosCall        } from "../../utils/common/common";
 import { API_IP_INFO      } from "../../utils/apiUrl";
 import { horseImgInfo     } from "../../utils/ContextList";
@@ -107,6 +107,7 @@ const HorseListTableCp = ( props:tableCompoType ) => {
 }
 
 export const CreateTable = ( props : any ) => {
+    
     return (
         <>  
             {

@@ -1,9 +1,13 @@
-import Slider from "react-slick";
-import { Link } from "react-router-dom"
+import Slider        from "react-slick";
+import { useEffect } from "react";
+import { Link      } from "react-router-dom"
 import { horseHousePageheader, recallHeroPageheader } from "../../utils/ContextList";
 import { useQuerySingle       } from "../../utils/common/common";
 import { API_IP_INFO          } from "../../utils/apiUrl";
 import { Loading              } from "../../commComponent/Loading";
+import { LazyDivHook          } from "../../../src/utils/common/common";
+import test_png                 from "../../assets/image/test.png";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -29,7 +33,11 @@ const MainPageInfoCompo = () => {
 
     // 주민수 리스트
     const human_cnt_data  = useQuerySingle("get-human-data", null, `${API_IP_INFO}/stat/village-human-cnt`, 60000 * 5, 60000 * 10, false, true, false);
-   
+    
+    useEffect(() => {
+        LazyDivHook(".lazy-background");
+    },[]);
+
     return(
         <>
         <Section1/>
@@ -181,7 +189,7 @@ const MainPageInfoCompo = () => {
                                 <li>서비스 준비중입니다.</li>
                             </ul>
                         </div>
-                    <div className="contentsBox"></div>
+                    <div className="contentsBox lazy-background" data-bg={`url(${test_png})`}></div>
                 </div>
                 </section>
             </section>

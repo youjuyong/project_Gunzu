@@ -1,12 +1,20 @@
-import { memo } from "react";
+import { useEffect } from "react";
 import React    from "react";
+import { LazyImageHook    } from "../../../../../src/utils/common/common";
+import { LazyDivHook      } from "../../../../../src/utils/common/common";
+import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 
 /* 왕실시스템이란? */
 const SystemOfKingWordInfo = () => {
+
+    useEffect(()=> {
+        LazyDivHook(".lazy-background")
+    },[]);
+
     return (
         <> 
             <div className='intro_title_raw'>
-                <div className='intro_div2 intro1'>
+                <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
                     <h3 className="king_title_h3">왕실이란?</h3>
                     <p className="king_title_pTag">
                        서버별로 유저들의 투표로 선출되는 '군주'를 중심으로 6조(이조, 에조, 호조, 병조, 공조, 형조) 판서들과
@@ -24,7 +32,7 @@ const SystemOfKingWordInfo = () => {
                         <div className = "content1_div">
                             <dl className="dl1">
                                 <dt>
-                                    <img src={require("../../../../assets/image/test33.png")}></img>
+                                    <LazyImageHook src={require("../../../../assets/image/test33.png")} alt={'군주'} className={''} height={309}/> 
                                     <span className="dl1Span">군주</span>
                                 </dt>
                                 <dd>

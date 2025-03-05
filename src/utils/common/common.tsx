@@ -186,6 +186,7 @@ interface imageLazyHook {
     height    : number
 }
 
+// 지연 로딩 이미지 훅
 export const LazyImageHook = (  props : imageLazyHook ) => {
     const imgRef:any = useRef(null);
     const [ isLoading, setIsLoading ] = useState(false);
@@ -237,5 +238,30 @@ export const LazyImageHook = (  props : imageLazyHook ) => {
         }}
         ></img>
       )
- 
+}
+
+
+// 지연 로딩 이미지 훅
+export const LazyDivHook = ( cls_name : string ) => {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // 50% 이상 보일 때 콜백 호출
+      };
+      
+      function callback(entries:any, observer:any) {
+        entries.forEach((entry:any) => {
+          if (entry.isIntersecting) {
+            const container = entry.target;
+            container.style.backgroundImage = container.dataset.bg;
+            container.classList.add('loaded');
+            observer.unobserve(container); 
+          }
+        });
+      }
+    
+      const observer = new IntersectionObserver(callback, options);
+      const lazyBackgrounds = document.querySelectorAll(cls_name);
+  
+      lazyBackgrounds.forEach(container => observer.observe(container));
 }

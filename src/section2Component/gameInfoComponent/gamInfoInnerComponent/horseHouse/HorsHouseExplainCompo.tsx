@@ -1,5 +1,6 @@
 import { Link                 } from "react-router-dom";
 import { horseHousePageheader } from "../../../../utils/ContextList";
+import { LazyImageHook        } from "../../../../../src/utils/common/common";
 
 /* 마굿간 설명 */
 const HorsHouseExplainCompo = () => {
@@ -10,8 +11,8 @@ const HorsHouseExplainCompo = () => {
             <h3 className="magutganiran_h3">마구간 이란?</h3>
             <p> "마을 내에 '시전'이란 건물 안에 있는 장소. 말을 넣어 둘 수 있는 곳을 의미합니다. "<br/> "초보자 때에는 사용할 일이 거의 없지만 점점 레벨이 상승하고 사냥터의 몬스터가 강해질수록 마구간의 중요성은 높아집니다."</p>
             <div className="introduce_magugan">
-                <img src={require("../../../../assets/image/maul_sigon.png")}></img>
-                <img src={require("../../../../assets/image/magutganClick.png")}></img>
+                <LazyImageHook src={require("../../../../assets/image/maul_sigon.png")} alt={'마구간시전'} className={''} height={433}/> 
+                <LazyImageHook src={require("../../../../assets/image/magutganClick.png")} alt={'마구간시전'} className={''} height={421}/> 
             </div>
             <p> "시전 건물을 우클릭시"<br/><br/>
                 ① : 시전에 입장 하는 버튼 입니다. <br/> 
@@ -29,11 +30,11 @@ const HorsHouseExplainCompo = () => {
                 <span>"이처럼 마구간에는 말을 보관하는 기능 이외에 버프를 부여하는 역할도 있습니다."</span>
             </p>
             <div className="introduce_magugan2">
-                <img src={require("../../../../assets/image/magutgan3.png")}></img>
+                <LazyImageHook src={require("../../../../assets/image/magutgan3.png")} alt={'마구간시전'} className={''} height={318}/> 
                 <p> 처음 마구간에 들어 갔을 때 활성화가 되어 있지 않은 상태 입니다.</p>
-                <img src={require("../../../../assets/image/magutgan4.png")}></img>
+                <LazyImageHook src={require("../../../../assets/image/magutgan4.png")} alt={'마구간시전'} className={''} height={345}/> 
             </div>
-            <p> "대상전에서 '시전개조이용권' 으로 활성화가 가능합니다."<br/><br/>
+            <p> "대상전에서 '시전개조이용권'을 구매하여 활성화가 가능합니다."<br/><br/>
                 <span> "다음은 마구간 유의 사항에 대해 알아 보겠습니다."</span><br/><br/>
             </p>
 

@@ -1,3 +1,4 @@
+import { LazyImageHook    } from "../../../../../src/utils/common/common";
 
 /* 마구간 유의 사항 */
 const HorseHouseWideMehodCompo = () => {
@@ -9,14 +10,14 @@ const HorseHouseWideMehodCompo = () => {
                     <span className="magutgan_alert_title_span">1. 한 캐릭당 최대 15개의 말 버프를 중첩 시킬 수 있습니다.<br/> </span><br/><br/>
                 </p>
                 <div className="alert_magugan">
-                    <img src={require("../../../../assets/image/magutgan_alert1.png")}></img>
+                     <LazyImageHook src={require("../../../../assets/image/magutgan_alert1.png")} alt={'마구간1'} className={''} height={433}/> 
                     <p>한 캐릭당 최대 3개의 시전을 받을 수 있습니다. </p>
-                    <img src={require("../../../../assets/image/magutgan_alert2.png")}></img>
+                    <LazyImageHook src={require("../../../../assets/image/magutgan_alert2.png")} alt={'마구간2'} className={''} height={421}/> 
                     <p>시전 하나에 최대 5마리의 말을 넣을 수 있습니다. <br/><br/>
                       1개 시전에 마법공격력 8%를 올려주는 백미호가 5마리면 마법공격력<span className="magutgan_alert_span"> 8% * 5 = 40% </span><br/>
                       3개 시전에 백미호 15마리를 넣을경우 마법공격력 <span className="magutgan_alert_span">8% * 15 = 120% </span>를 올려줍니다.
                     </p>
-                    <img src={require("../../../.././assets/image/magutgan_alert3.png")}></img>
+                    <LazyImageHook src={require("../../../../assets/image/magutgan_alert3.png")} alt={'마구간3'} className={''} height={318}/> 
                         <p>만약에, 1개의 시전에만 방어력 8%를 올려주는 '채운'으로만 채울 경우. <br/>
                         <span className="magutgan_alert_span">방어력 40%, 마법공격력 80%</span>의 버프가 적용됩니다.<br/>
                         이처럼, 시전마다 버프타입을 바꿔서 넣는 것도 가능합니다.<br/><br/>
@@ -27,7 +28,7 @@ const HorseHouseWideMehodCompo = () => {
                     다음 예시를 보면
                 </p>
                 <div className="alert_magugan2">
-                    <img src={require("../../../../assets/image/magutgan_alert4.png")}></img>
+                    <LazyImageHook src={require("../../../../assets/image/magutgan_alert4.png")} alt={'마구간4'} className={''} height={345}/> 
                     <p> 
                         마법 공격력 <span className="magutgan_alert_span">( 1% + 8% = 9%)</span>
                         , 물리 공격력 <span className="magutgan_alert_span">1% </span>  , 방어력 <span className="magutgan_alert_span">1% </span> 가 있다면 <br/>
