@@ -1,24 +1,49 @@
-.skeletom {
-    background-repeat : no-repeat;
-    background-image  : 
-     /* layer 2: avatar */
-    /* white circle with 16px radius */
-    radial-gradient(circle 16px, white 99%, transparent 0),
-    /* layer 1: title */
-    /* white rectangle with 40px height */
-    linear-gradient(white 40px, transparent 0),
-    /* layer 0: card bg */
-    /* gray rectangle that covers whole element */
-    linear-gradient(gray 100%, transparent 0);
-
-    background-size :
-        32px 32px,
-        200px 40px,
-        100% 100%;
-
-    background-position: 
-    24px 24px,
-    24px 200px,
-    0 0;
-
-}
+/* 기본 스타일 */
+.skeleton-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width  : 100%;
+    height : 100%;
+  }
+  
+  .skeleton-image {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    border-radius: 8px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  .skeleton-text {
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  .skeleton-text.short {
+    width: 60%;
+  }
+  
+  /* 스켈레톤 애니메이션 */
+  @keyframes shimmer {
+    0% {
+      background-position: -100%;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
+  
+  .skeleton-image,
+  .skeleton-text {
+    background: linear-gradient(
+      90deg,
+      #e0e0e0 25%,
+      #f5f5f5 50%,
+      #e0e0e0 75%
+    );
+    background-size: 200% 100%;
+  }

@@ -24,19 +24,22 @@ export const headerNavInfo = [
         }]
     },
     {
-        title   : "통계",
-        url     : "headerNavGameData",
-        subMenu : [{
+        title    : "통계",
+        url      : "headerNavGameData",
+        subUrl   : "gameInfo/staticsInfo/villageStaticsInfo",
+        subTitle : "통계",
+        menuName : "마을별 주민수 통계",
+        subMenu  : [{
                 subTitle    : "주민수",
                 subUrl      : "gameInfo/staticsInfo/villageStaticsInfo",
                 url         : "villageStaticsInfo",   
-                menuName    : "마을별 주민수 통계",
+                menuName    : "주민수",
                 subClassCnt : 3
             }, {
-                subTitle : "양이전쟁",
+                subTitle    : "양이전쟁",
                 subUrl      : "gameInfo/staticsInfo/yangStaticsInfo",
                 url         : "yangStaticsInfo",   
-                menuName    : "마을별 양이전쟁 통계",
+                menuName    : "양이전쟁",
                 subClassCnt : 4
             }
         ]
@@ -60,10 +63,17 @@ export const headerNavInfo = [
             menuName    : "소환영웅이란?",
             subClassCnt : 4
         }, {
-            subTitle  : "영웅강림",
-            subUrl    : "heroChangeInfo",
-            url       : ""   ,
+            subTitle    : "영웅강림",
+            subUrl      : "heroChangeInfo",
+            url         : "",
+            menuName    : "영웅강림?",
             subClassCnt : 4
+        }, {
+            subTitle    : "홍길동",
+            subUrl      : "gameInfo/hongGilDongInfo/hongGilDongWordInfo",
+            url         : "hongGilDongInfo",
+            menuName    : "홍길동이란?",
+            subClassCnt : 3
         }]
     },
     {
@@ -272,6 +282,28 @@ export const recallHeroPageheader = [
         imgUrl    : require("../assets/image/recallHero.png"),
         imgAlt    : "소환영웅 목록",
         className : "recallHeroList"
+    }
+]
+
+/* 홍길동 정보 */
+export const hongGilDongHeader = [
+    {
+        mainUrl   : "/gameInfo/hongGilDongInfo/hongGilDongWordInfo",
+        url       : "hongGilDongWordInfo",
+        mainMenu  : "홍길동",
+        title     : "전투향상술이란?",
+        imgUrl    : null,
+        imgAlt    : '',
+        className : "hongGilDongWordInfo"
+    },
+    {
+        mainUrl   : "/gameInfo/hongGilDongInfo/hongGilDongRecommand",
+        url       : "hongGilDongRecommand",
+        mainMenu  : "홍길동",
+        title     : "전투향상술 추천",
+        imgUrl    : null,
+        imgAlt    : '',
+        className : "hongGilDongRecommand"
     }
 ]
 

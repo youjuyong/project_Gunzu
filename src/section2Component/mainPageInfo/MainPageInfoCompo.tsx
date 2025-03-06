@@ -1,7 +1,7 @@
 import Slider        from "react-slick";
 import { useEffect } from "react";
 import { Link      } from "react-router-dom"
-import { horseHousePageheader, recallHeroPageheader } from "../../utils/ContextList";
+import { horseHousePageheader, recallHeroPageheader, hongGilDongHeader } from "../../utils/ContextList";
 import { useQuerySingle       } from "../../utils/common/common";
 import { API_IP_INFO          } from "../../utils/apiUrl";
 import { Loading              } from "../../commComponent/Loading";
@@ -35,7 +35,7 @@ const MainPageInfoCompo = () => {
     const human_cnt_data  = useQuerySingle("get-human-data", null, `${API_IP_INFO}/stat/village-human-cnt`, 60000 * 5, 60000 * 10, false, true, false);
     
     useEffect(() => {
-        LazyDivHook(".lazy-background");
+        LazyDivHook(".lazy-background", ".skeleton-image");
     },[]);
 
     return(
@@ -46,11 +46,11 @@ const MainPageInfoCompo = () => {
                     <article className="service">
                         <h2>서비스 바로가기</h2>
                         <ul>
-                            <li><Link to='gameInfo/horseHouseInfo/horseHouseWordInfo' state={{ menuName : horseHousePageheader[0].title , mainMenuName : horseHousePageheader[0].mainMenu, url: horseHousePageheader[0].url }} className="service3">마구간<span>마구간 버프 소개</span></Link></li>
-                            <li><Link to='' className="service2">홍길동<span>전투향상술 소개</span></Link></li>
+                            <li><Link to='gameInfo/horseHouseInfo/horseHouseWordInfo'   state={{ menuName : horseHousePageheader[0].title , mainMenuName : horseHousePageheader[0].mainMenu, url: horseHousePageheader[0].url }} className="service3">마구간<span>마구간 버프 소개</span></Link></li>
+                            <li><Link to='gameInfo/hongGilDongInfo/hongGilDongWordInfo' state={{ menuName : hongGilDongHeader[0].title    , mainMenuName : hongGilDongHeader[0].mainMenu,    url: hongGilDongHeader[0].url    }}  className="service2">홍길동<span>전투향상술 소개</span></Link></li>
                             <li><Link to='' className="service5">영웅강림<span>영웅강림 소개</span></Link></li>
-                            <li><Link to='gameInfo/horseHouseInfo/horseListInfo' state={{ menuName : horseHousePageheader[2].title , mainMenuName : horseHousePageheader[2].mainMenu, url: horseHousePageheader[2].url }} className="service6">탈것<span>각종탈것 소개</span></Link></li>
-                            <li><Link to='gameInfo/recallHeroInfo/recallHeroWordInfo' state={{ menuName : recallHeroPageheader[0].title , mainMenuName : recallHeroPageheader[0].mainMenu, url: recallHeroPageheader[0].url }} className="service4">소환영웅<span>소환영웅 소개</span></Link></li>
+                            <li><Link to='gameInfo/horseHouseInfo/horseListInfo'        state={{ menuName : horseHousePageheader[2].title , mainMenuName : horseHousePageheader[2].mainMenu, url: horseHousePageheader[2].url }} className="service6">탈것<span>각종탈것 소개</span></Link></li>
+                            <li><Link to='gameInfo/recallHeroInfo/recallHeroWordInfo'   state={{ menuName : recallHeroPageheader[0].title , mainMenuName : recallHeroPageheader[0].mainMenu, url: recallHeroPageheader[0].url }} className="service4">소환영웅<span>소환영웅 소개</span></Link></li>
                             <li><Link to='' className="service7">무기추천<span>무기별 소개</span></Link></li>
                             <li><Link to='' className="service8">정령<span>팅키 정령</span></Link></li>
                         </ul>
@@ -77,7 +77,6 @@ const MainPageInfoCompo = () => {
                                                             , YES_RANK
                                                             , DIFF_TYPE
                                                             , DIFF_NUM
-                                                            , YES_DATE
                                                             } = humanStatInfo;
                                                             
                                                             let villageName = YES_RANK + '. ' + VILLAGE_NAME;
@@ -90,15 +89,15 @@ const MainPageInfoCompo = () => {
                                                                             </span>
                                                                         </p>
                                                                         { 
-                                                                            DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     key={ 'img2' + index }></img>   :
-                                                                            DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   key={ 'img2' + index }></img>   :
-                                                                            DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} key={ 'img2' + index }></img>   :
+                                                                            DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     alt='up'     key={ 'img2' + index }></img>   :
+                                                                            DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   alt='down'   key={ 'img2' + index }></img>   :
+                                                                            DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} alt='normal' key={ 'img2' + index }></img>   :
                                                                             ''
                                                                         }
                                                                         <p className={ DIFF_TYPE === 'UP'       ? 'up_p'     :
-                                                                                    DIFF_TYPE === 'DOWN'     ? 'down_p'   :
-                                                                                    DIFF_TYPE === 'NORMAL'   ? 'normal_p' : 
-                                                                                    ''
+                                                                                       DIFF_TYPE === 'DOWN'     ? 'down_p'   :
+                                                                                       DIFF_TYPE === 'NORMAL'   ? 'normal_p' : 
+                                                                                       ''
                                                                         } key={'ptag2' + index}>{DIFF_NUM}</p> 
                                                                     </li>
                                                                 </div>
@@ -120,11 +119,9 @@ const MainPageInfoCompo = () => {
                                         <Slider {...settings}>
                                             {
                                                 yangi_data?.data && yangi_data.data.map (( statInfo : any, index : number ) => {
-                                                    const { BYES_KILL
-                                                        , BYES_RANK
-                                                        , DIFF_NUM
+                                                    const { 
+                                                          DIFF_NUM
                                                         , DIFF_TYPE
-                                                        , VILLAGE_ID
                                                         , VILLAGE_NAME
                                                         , YES_KILL
                                                         , YES_RANK
@@ -142,18 +139,18 @@ const MainPageInfoCompo = () => {
                                                         <div key={'yang_div' + index}>
                                                             <li key={ 'li' + index }>
                                                             { 
-                                                                YES_RANK === 1 ? <img src={require("../../assets/image/gold.png")}   key={ 'img1' + index }></img>   :
-                                                                YES_RANK === 2 ? <img src={require("../../assets/image/silver.png")} key={ 'img1' + index }></img>   :
-                                                                YES_RANK === 3 ? <img src={require("../../assets/image/dong.png")}   key={ 'img1' + index }></img>   :
+                                                                YES_RANK === 1 ? <img src={require("../../assets/image/gold.png")}   key={ 'img1' + index } alt='gold'></img>   :
+                                                                YES_RANK === 2 ? <img src={require("../../assets/image/silver.png")} key={ 'img1' + index } alt='silver'></img>   :
+                                                                YES_RANK === 3 ? <img src={require("../../assets/image/dong.png")}   key={ 'img1' + index } alt='dong'></img>   :
                                                                 ''
                                                             }
                                                                 <p key={'ptag' + index} className = {YES_RANK === 1 || YES_RANK === 2 || YES_RANK === 3 ? "top_yangi_village_title" : "yangi_village_title" }>
                                                                     <span key={'spantag' + index}>{villageName}<strong>{YES_KILL}</strong></span>
                                                                 </p>
                                                             { 
-                                                                DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     key={ 'img2' + index }></img>   :
-                                                                DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   key={ 'img2' + index }></img>   :
-                                                                DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} key={ 'img2' + index }></img>   :
+                                                                DIFF_TYPE === 'UP'     ? <img src={require("../../assets/image/up.png")}     key={ 'img2' + index } alt='up'></img>   :
+                                                                DIFF_TYPE === 'DOWN'   ? <img src={require("../../assets/image/down.png")}   key={ 'img2' + index } alt='down'></img>   :
+                                                                DIFF_TYPE === 'NORMAL' ? <img src={require("../../assets/image/normal.png")} key={ 'img2' + index } alt='normal'></img>   :
                                                                 ''
                                                             }
                                                             <p className={ DIFF_TYPE === 'UP'       ? 'up_p'     :
@@ -183,13 +180,17 @@ const MainPageInfoCompo = () => {
                 </div>
                 <section id="section3">
                 <div className="section2Div2">
-                    <h2></h2>
+                    <h2>..</h2>
                         <div className="cardContents">
                             <ul className="card_ul">
                                 <li>서비스 준비중입니다.</li>
                             </ul>
                         </div>
-                    <div className="contentsBox lazy-background" data-bg={`url(${test_png})`}></div>
+                    <div className="contentsBox lazy-background"  data-bg={`url(${test_png})`}>
+                        <div className="skeleton-wrapper">
+                                <div className="skeleton-image"></div>
+                        </div>
+                    </div>
                 </div>
                 </section>
             </section>

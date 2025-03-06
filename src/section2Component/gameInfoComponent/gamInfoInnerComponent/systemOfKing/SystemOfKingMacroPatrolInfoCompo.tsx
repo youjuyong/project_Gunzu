@@ -8,22 +8,25 @@ import macro2_img         from "../../../../assets/image/macro2.png";
 const SystemOfKingMacroPatrolInfo = () => {
 
     useEffect(() => {
-        LazyDivHook(".lazy-background")
+        LazyDivHook(".lazy-background",".skeleton-image");
     },[]);
 
-    
     return (
         <> 
              <div className='intro_title_macro'>
                 <div className='intro_div2 intro1 lazy-background' data-bg= {`url(${macro2_img})`}>
-                    <h3 className="king_title_h3">왕실 매크로 순찰</h3>
-                    <p className="king_title_pTag">
-                            왕실 인원이 매크로를 잡기 위해 마을을 제외한 곳에서 순찰 활동을 하는 것을 의미합니다.
-                            <br/>
-                            일반창으로 질문을 하면 일반창으로 대답을 하는식으로 순찰을 하며 
-                            <br/>
-                            무조건적으로 협조를 해야 하는 시스템입니다.
-                    </p>
+                    <div className="skeleton-wrapper">
+                        <div className="skeleton-image">
+                            <h3 className="king_title_h3">왕실 매크로 순찰</h3>
+                            <p className="king_title_pTag">
+                                    왕실 인원이 매크로를 잡기 위해 마을을 제외한 곳에서 순찰 활동을 하는 것을 의미합니다.
+                                    <br/>
+                                    일반창으로 질문을 하면 일반창으로 대답을 하는식으로 순찰을 하며 
+                                    <br/>
+                                    무조건적으로 협조를 해야 하는 시스템입니다.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div className="king_body_div">
                     <div className="content1">

@@ -1,7 +1,6 @@
-import { Loading                 } from "../../commComponent/Loading";
-import axios        from "axios";
-import qs           from "qs";
-import { useEffect, useRef, useState } from "react";
+import axios                                     from "axios";
+import qs                                        from "qs";
+import { useEffect, useRef, useState }           from "react";
 import { useQuery, useQueryClient, useMutation } from  "react-query";
 
 export async function axiosCall(requsetType: string, url: string, data: any, _callbackFunction ?: ((data: any) => void) | null, _errorCallback ?: ((data: any) => void) | null) {
@@ -209,7 +208,9 @@ export const LazyImageHook = (  props : imageLazyHook ) => {
               });
             },
             {
-              rootMargin: "100px",
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // 50% 이상 보일 때 콜백 호출
             }
         );
 
@@ -242,19 +243,30 @@ export const LazyImageHook = (  props : imageLazyHook ) => {
 
 
 // 지연 로딩 이미지 훅
-export const LazyDivHook = ( cls_name : string ) => {
+export const LazyDivHook = ( cls_name : string, remove_class ?: string | null ) => {
     const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5 // 50% 이상 보일 때 콜백 호출
+        root       : null,
+        rootMargin : '0px',
+        threshold  : 0.5 // 50% 이상 보일 때 콜백 호출
       };
-      
-      function callback(entries:any, observer:any) {
-        entries.forEach((entry:any) => {
-          if (entry.isIntersecting) {
+
+      function callback ( entries : any, observer : any ) {
+        entries.forEach(( entry : any ) => {
+
+          if ( entry.isIntersecting ) {
             const container = entry.target;
             container.style.backgroundImage = container.dataset.bg;
-            container.classList.add('loaded');
+
+            if ( remove_class != null ) {
+
+                const removeDiv = document.querySelectorAll(remove_class);
+
+                if ( removeDiv.length > 0) {
+                    removeDiv[0].classList.remove(removeDiv[0].classList[0]);
+                }
+            }
+        
+           
             observer.unobserve(container); 
           }
         });

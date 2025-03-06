@@ -8,23 +8,27 @@ import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 const SystemOfKingWordInfo = () => {
 
     useEffect(()=> {
-        LazyDivHook(".lazy-background")
+        LazyDivHook(".lazy-background",".skeleton-image");
     },[]);
 
     return (
         <> 
             <div className='intro_title_raw'>
                 <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
-                    <h3 className="king_title_h3">왕실이란?</h3>
-                    <p className="king_title_pTag">
-                       서버별로 유저들의 투표로 선출되는 '군주'를 중심으로 6조(이조, 에조, 호조, 병조, 공조, 형조) 판서들과
-                        <br/>
-                        포교, 수호천사를 일컫는 집단을 의미함. 군주의 임기는 현실 시간 72일(대략 3달)이며 임기 동안 
-                        <br/>
-                        서버 공지 수정, 유저 소환, 수감 권한을 가진다.
-                        <br/>
-                        군주는 마을들의 화합을 도모하며 유저들의 편의성을 고려하는 중재자의 위치에 있다.
-                    </p>
+                    <div className="skeleton-wrapper">
+                        <div className="skeleton-image">
+                            <h3 className="king_title_h3">왕실이란?</h3>
+                            <p className="king_title_pTag">
+                            서버별로 유저들의 투표로 선출되는 '군주'를 중심으로 6조(이조, 에조, 호조, 병조, 공조, 형조) 판서들과
+                                <br/>
+                                포교, 수호천사를 일컫는 집단을 의미함. 군주의 임기는 현실 시간 72일(대략 3달)이며 임기 동안 
+                                <br/>
+                                서버 공지 수정, 유저 소환, 수감 권한을 가진다.
+                                <br/>
+                                군주는 마을들의 화합을 도모하며 유저들의 편의성을 고려하는 중재자의 위치에 있다.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                  <div className="king_body_div">
                     <div className="content1">

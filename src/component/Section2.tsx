@@ -10,18 +10,19 @@ import GameInfoSystemOfKingCompo   from "../section2Component/gameInfoComponent/
 import GameInfoCraftsManCompo      from "../section2Component/gameInfoComponent/gameInfoCraftsMan";      // 장인목록
 import GameInfoVillageStaticsCompo from "../section2Component/gameInfoComponent/gameInfoVillageStatics"; // 주민수
 import GameInfoYangStaticsCpCompo  from "../section2Component/gameInfoComponent/gameInfoYangStatics";    // 양이전쟁
+import GameInfoHongGilDong         from "../section2Component/gameInfoComponent/gameInfoHongGilDong";    // 홍길동
 
 /* 게임정보(마구간) */
-import HorsHouseExplainCompo    from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
-import HorseHouseWideMehodCompo from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorseHouseWideMehodCompo"; // 마구간 확장 방법
-import HorsListCompo            from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsListCompo";            // 마구간 탈것 리스트
+import HorsHouseExplainCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
+import HorseHouseWideMehodCompo    from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorseHouseWideMehodCompo"; // 마구간 확장 방법
+import HorsListCompo               from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsListCompo";            // 마구간 탈것 리스트
 
 /* 게임정보(소환영웅)  */
-import RecallHeroWordInfoCompo   from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroWordInfoCompo";     // 소환영웅이란?
-import RecallHeroRecomandCompo   from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroRecomandCompo";     // 소환영웅이란?
-import RecallHeroAmuletCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroAmuletCompo";       // 소환영웅이란?
-import RecallHeroExpireCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroExpireCompo";       // 소환영웅이란?
-import RecallHeroListCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroListCompo";         // 소환영웅이란?
+import RecallHeroWordInfoCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroWordInfoCompo";     // 소환영웅이란?
+import RecallHeroRecomandCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroRecomandCompo";     // 소환영웅이란?
+import RecallHeroAmuletCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroAmuletCompo";       // 소환영웅이란?
+import RecallHeroExpireCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroExpireCompo";       // 소환영웅이란?
+import RecallHeroListCompo         from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroListCompo";         // 소환영웅이란?
 
 /* 왕실 시스템 */
 import { SystemOfKingWordInfoCompo        }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingWordInfoCompo";          // 왕실이란?
@@ -30,11 +31,15 @@ import { SystemOfKingMacroPatrolInfoCompo }  from "../section2Component/gameInfo
 import { SystemOfKingMacroThinkInfoCompo  }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingMacroThinkInfoCompo";    // 매크로 판별창
 
 /* 장인 목록 */
-import { CraftsManListInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/craftsMan/CraftsManListInfoCompo"; // 장인 모곩
+import { CraftsManListInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/craftsMan/CraftsManListInfoCompo";                 // 장인 모곩
 
 /* 주민수 통계 */
-import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo"; // 주민수 통계
-import { YangStaticsInfoCompo             }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/yangStatics/YangStaticsInfoCompo"; // 양이전쟁 통계
+import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo";           // 주민수 통계
+import { YangStaticsInfoCompo             }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/yangStatics/YangStaticsInfoCompo";                 // 양이전쟁 통계
+
+/* 홍길동 */
+import HongGilDongWordInfoCompo              from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongWordInfoCompo";              // 홍길동
+import HongGilDongRecommandCompo              from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongRecommandCompo";            // 전투향상술 추천
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
@@ -50,7 +55,7 @@ const Section2 = () => {
                 <Section1/>
                 <section id="section2">
                 <div className="section2Div">
-                        <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
+                        <LocationCompo submenu={state?.menuName} mainMenuName={state?.mainMenuName}></LocationCompo>
                         <div className="section2DivInner">
                                 <Routes>
                                 <Route path="horseListInfo"           element={<HorsListCompo/>}/>
@@ -73,14 +78,18 @@ const Section2 = () => {
                                                 <Route path="systemOfKingMacroPatrol"  element={<SystemOfKingMacroPatrolInfoCompo/>}/>
                                                 <Route path="systemOfKingMacoThinking" element={<SystemOfKingMacroThinkInfoCompo/>}/>
                                         </Route>
-                                        <Route path="craftsManInfo" element={<GameInfoCraftsManCompo/>}>
+                                        <Route path="craftsManInfo"     element={<GameInfoCraftsManCompo/>}>
                                                 <Route path="craftsManListInfo"        element={<CraftsManListInfoCompo/>}/>
                                         </Route>
-                                        <Route path="staticsInfo" element={<GameInfoVillageStaticsCompo/>}>
+                                        <Route path="staticsInfo"       element={<GameInfoVillageStaticsCompo/>}>
                                                 <Route path="villageStaticsInfo"       element={<VillageStaticsInfoCompo/>}/>
                                         </Route>
-                                        <Route path="staticsInfo" element={<GameInfoYangStaticsCpCompo/>}>
+                                        <Route path="staticsInfo"       element={<GameInfoYangStaticsCpCompo/>}>
                                                 <Route path="yangStaticsInfo"          element={<YangStaticsInfoCompo/>}/>
+                                        </Route>
+                                        <Route path="hongGilDongInfo"    element={<GameInfoHongGilDong/>}>
+                                                <Route path="hongGilDongWordInfo"       element={<HongGilDongWordInfoCompo/>}/>
+                                                <Route path="hongGilDongRecommand"      element={<HongGilDongRecommandCompo/>}/>
                                         </Route>
                                         <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                                 </Routes>

@@ -80,15 +80,16 @@
             span {
                 text-decoration : underline;
                 font-size       : 18px;
+                line-height     : 25px;
             }
-
+            .redSpan { color : red  }
 
             p {
                 font-size      : 16px;
                 line-height    : 23px;
                 margin-top     : 50px;
                 margin-bottom  : 50px;
-                font-weight    : 700;
+                font-weight    : 400;
             }
 
             button {
@@ -112,7 +113,11 @@
                 flex-direction : column;
                 
                 img:nth-child(2) { margin-top: 40px };
+            }
 
+            .hong {
+                max-width : 400px;
+                max-height : 350px;
             }
 
             .alert_magugan {
@@ -163,6 +168,9 @@
 
         }
 
+        .hongButtonDiv {
+            padding : 50px 0;
+        }
         .horseInnerDiv {
             height  : 75rem;
             padding : 55px;

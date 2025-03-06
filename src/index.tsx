@@ -21,6 +21,7 @@ import "./assets/scss/section/__gameInfoHeader.css";
 import "./assets/scss/section/__gameInfo.css";
 import "./assets/scss/section/__statics.css";
 
+import "./assets/scss/setting/__skeleton.css";
 const queryClient = new QueryClient();
 const root        = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 

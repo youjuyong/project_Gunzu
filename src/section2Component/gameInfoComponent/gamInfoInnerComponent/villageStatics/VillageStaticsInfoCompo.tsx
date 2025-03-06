@@ -58,7 +58,7 @@ const VillageStaticsInfoCp = ( ) => {
 
      const options = {
         xAxis : { title : { text : '일자'} } ,
-        yAxis : { title : { text : '주민수'} }
+        yAxis : { title : { text : '주민수(명)'} }
     }
 
     return (

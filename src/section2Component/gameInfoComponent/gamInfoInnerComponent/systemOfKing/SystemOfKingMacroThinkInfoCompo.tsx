@@ -8,19 +8,23 @@ import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 const SystemOfKingMacroThinkInfo = () => {
     
     useEffect(() => {
-        LazyDivHook(".lazy-background")
+        LazyDivHook(".lazy-background",".skeleton-image");
     },[]);
 
     return (
         <> 
             <div className='intro_title_think_macro'>
                 <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
-                    <h3 className="king_title_h3">매크로 판별창</h3>
-                    <p className="king_title_pTag">
-                            "유저"가 아닌 운영자가 매크로를 잡기 위해 인게임에 넣어 놓은 프로그램
-                            <br/>
-                            사냥 도중 10~20분 간격으로 매크로 판별창이 뜨고 질문을 이해 하고 입력창에 답을 직접 '입력'을 해야됩니다.
-                    </p>
+                    <div className="skeleton-wrapper">
+                        <div className="skeleton-image">
+                        <h3 className="king_title_h3">매크로 판별창</h3>
+                        <p className="king_title_pTag">
+                                "유저"가 아닌 운영자가 매크로를 잡기 위해 인게임에 넣어 놓은 프로그램
+                                <br/>
+                                사냥 도중 10~20분 간격으로 매크로 판별창이 뜨고 질문을 이해 하고 입력창에 답을 직접 '입력'을 해야됩니다.
+                        </p>
+                        </div>
+                    </div>
                 </div>
                 <div className="king_body_div">
                     <div className="content1">
