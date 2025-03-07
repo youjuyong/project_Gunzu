@@ -1,14 +1,14 @@
 import { Link                  } from "react-router-dom";
 import { hongGilDongHeader     } from "../../../../utils/ContextList";
 import { LazyImageHook         } from "../../../../../src/utils/common/common";
-import Section2BackgroundDiv     from "../../../../utils/commonStyles";
+import Section2BackgroundDiv, { Section2Titleh3 }    from "../../../../utils/commonStyles";
 
 /* 홍길동이란? */
 const HongGilDongWordInfoCompo = () => {
     return (
         <> 
             <div className='intro_title'>
-                <h3 className="magutganAlert_h3 snans">전투향상술 이란?</h3>
+                 <Section2Titleh3 className='snans' url={'st2'}>전투향상술 이란?</Section2Titleh3>
                 <p className="snans"> "무기별 전투 능력을 향상 시킬 수 있는 기술입니다. <span>'홍길동 NPC'</span> 에게 돈과, 기술점수를 사용하여 배울 수 있습니다."<br/> "초보자 때에는 배울 필요가 없지만 레벨이 점점 상승하고 사냥터의 몬스터가 강해질수록 전투향상술의 중요성은 매우 높아집니다."</p>
                 
                 <Section2BackgroundDiv width={'500px'} height={'500px'}>

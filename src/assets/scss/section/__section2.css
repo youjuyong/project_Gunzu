@@ -29,6 +29,87 @@
             border-radius    : 10px;
             box-shadow       : rgba(0, 0, 0, 0.24) 0px 3px 8px;
             letter-spacing   : -1px;
+
+
+            .HongSideBar {
+                position: absolute;
+                top: 200px;
+                left : 100px;
+                transition: top 0.7s ease-out;
+
+                .nectangle {
+                    position: absolute;
+                    top: 10px;
+                left : 26px;
+                width : 200px;
+                height : 450px;
+                border: 3px solid #ba00ff;
+                border-top: #fff;
+                border-bottom: #fff;
+                border-right: #fff;
+                }
+                ul {
+                    height: 100%;
+                    display: block;
+                    left:30px;
+                    right: 30px;
+                }
+                li {
+                    width: 100%; 
+                    height:79px; 
+                    font-size:16px; 
+                    font-weight: bold; 
+                    padding: 10px 0!important; 
+                    position: relative;
+                }
+                .circle {
+                    color : #000;
+                    float : left;
+                    border : 2px solid #ba00ff;
+                    width: 57px;
+                    height : 57px;
+                    border-radius: 50%;
+                    text-align: center;
+                    background-color: white;
+                    line-height: 57px;
+                    font-size: 25px;
+                    color : #ba00ff;
+                    transition: all 1s ease-in-out;
+                }
+                .circle:hover {  
+                    box-shadow: 
+                    inset 0 0 0 100px rgba(186, 0, 255 0.6);
+                    color : #fff;
+                    background-color: #ba00ff;
+                    cursor: pointer;
+                }
+                .click {
+                    background-color: #ba00ff;
+                    color : white;
+                }
+                .circletext {
+                    width : 100%;
+                    color: #000; 
+                    padding:6px 0 6px 10px; 
+                    position: absolute; 
+                    right: 0px; 
+                    height: 100%;
+                    line-height: 23px;
+                    top: 21px; 
+                    bottom: 0; 
+                    left: 57px; 
+                    text-overflow:ellipsis; 
+                    white-space: nowrap;
+                    font-weight: 400 !important;
+                    span {
+                        display: block; 
+                        width: 100%; 
+                        overflow: hidden; 
+                        text-overflow:ellipsis; 
+                        white-space: nowrap;
+                    }
+                }
+            }
         }
 
         .intro_title {
@@ -41,15 +122,6 @@
                 height      : 64px;
                 font-weight : 700;
                 background  : url(../../image/st2.png)center top no-repeat
-            }
-
-            .magutganAlert_h3 {
-                font-size   : 40px;
-                line-height : 64px;
-                height      : 64px;
-                font-weight : 700;
-                background  : url(../../image/st2.png)center top no-repeat;
-                background-size : 503px 64px;
             }
 
             .magutganAlert_h5 {
@@ -170,11 +242,146 @@
 
         .hongButtonDiv {
             padding : 50px 0;
+            background-color: #f2f2f2;
+            .hong_img {
+                padding-right : 17px;
+                width : 60px;
+                height : 60px;
+                position : absolute;
+                left : 864px;
+                margin-left : -17px;
+            }
         }
         .horseInnerDiv {
             height  : 75rem;
             padding : 55px;
         }
+        .table_div {
+            width : 1200px;
+            margin : 0 auto;
+        }
+        .hong_table {
+            ::-webkit-scrollbar {
+                display: none;
+            }
+          
+            margin-top: 40px;
+            width : 100%;
+            font-size: 15px;
+            position: relative;
+            height : 214px;
+            .orange_thead {
+                background : var(--yellow400);
+            }
+            .orange_tbody {
+                background : var(--yellow200);
+            }
+            .blue_thead {
+                background : var(--main400);
+            }
+            .blue_tbody{
+                background : var(--main200);
+            }
+            .gray_thead {
+                background : var(--gray400);
+            }
+            .gray_tbody{
+                background : var(--gray200);
+            }
+            .red_thead {
+                background : var(--red400);
+            }
+            .red_tbody{
+                background : var(--red200);
+            }
+            .green_thead {
+                background : var(--green300);
+            }
+            .green_tbody{
+                background : var(--green100);
+            }
+            .yellow_thead {
+                background : var(--yellow300);
+            }
+            .yellow_tbody{
+                background : var(--yellow100);
+            }
+            thead {
+                    position: absolute; 
+                    width: 100%; 
+                    height: 36px; 
+                    border-radius: 10px;
+                    border: 1px solid #d2d2d2; 
+                    font-weight: 700;
+
+                    th {
+                        border-right: 1px solid #d2d2d2;
+                        height : 30px;
+                        font-weight: 400;
+                        
+                    }
+
+                    th:nth-child(1) {width:  8%};
+                    th:nth-child(2) {width:  8%};
+                    th:nth-child(3) {width:  15.5%};
+                    th:nth-child(4) {width:  15.5%};
+                    th:nth-child(5) {width:  10.6%};
+                    th:nth-child(6) {width:  10.6%};
+                    th:nth-child(7) {width:  10.6%};
+                    th:nth-child(8) {width:  10.6%};
+                    th:nth-child(9) {width:  10.6%};
+            }
+            tr{
+                display : table;
+                width : 100%
+            }
+
+            tbody {
+                border-radius: 10px;
+                position: absolute; 
+                width: 100%; 
+                overflow-y: scroll; 
+                top: 36px; 
+                bottom: 0; 
+                background : var(--yellow100);
+                border-bottom: 1px solid #d2d2d2;
+                border-right: 1px solid #d2d2d2;
+                border-left: 1px solid #d2d2d2;
+                text-align: center;
+                th:nth-child(1) {width:  8%};
+                th:nth-child(2) {width:  8%};
+                th:nth-child(3) {width:  15.5%};
+                th:nth-child(4) {width:  15.5%};
+               
+               td { 
+                    width:  10.6%; 
+                     border: 1px solid #d7d7d7; 
+                     border-top: none; 
+                     color: #000; 
+                     padding: 7px 0; 
+                     font-size: 14px; 
+                    height: 35px;
+                    text-align: center;
+                }
+
+                th {
+                    font-weight: 400;
+                    border-bottom: 1px solid #d7d7d7; 
+                    border-right: 1px solid #d7d7d7; 
+                }
+            }
+        }
+
+        /* th:nth-child(1), td:nth-child(1) { width: 14%; };
+        th:nth-child(2)  td:nth-child(2) { width: 11%; };
+        th:nth-child(3), td:nth-child(3) { width: 10%; };
+        th:nth-child(4), td:nth-child(4) { width: 11%; };
+        th:nth-child(5), td:nth-child(5) { width: 8%;  };
+        th:nth-child(6), td:nth-child(6) { width: 5%;  };
+        th:nth-child(7), td:nth-child(7) { width: 10%; };
+        th:nth-child(8), td:nth-child(8) { width: 10%; };
+        th:nth-child(9), td:nth-child(9) { width: 9%;  };
+        th:nth-child(10), td:nth-child(10) { width: 10%;  }; */
 
         .section2InnerDiv {
             padding : 55px;

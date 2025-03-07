@@ -44,9 +44,9 @@ import HongGilDongRecommandCompo              from "../section2Component/gameInf
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
 import Section1                 from "./Section1";
+import { Section2DivInner }     from "../utils/commonStyles";
 
 const Section2 = () => {
-
     const location = useLocation();
     const {state} = location;
     
@@ -56,7 +56,7 @@ const Section2 = () => {
                 <section id="section2">
                 <div className="section2Div">
                         <LocationCompo submenu={state?.menuName} mainMenuName={state?.mainMenuName}></LocationCompo>
-                        <div className="section2DivInner">
+                                <Section2DivInner className="section2DivInner" width={ state?.url === "hongGilDongRecommand" ? '85rem' : '95rem'}>
                                 <Routes>
                                 <Route path="horseListInfo"           element={<HorsListCompo/>}/>
                                         <Route path="horseHouseInfo"    element={<GameInfoHorseHouseCompo/>}>
@@ -93,7 +93,7 @@ const Section2 = () => {
                                         </Route>
                                         <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                                 </Routes>
-                        </div>
+                        </Section2DivInner>
                 </div>
                 </section>
         </>
