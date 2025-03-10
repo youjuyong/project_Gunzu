@@ -277,3 +277,40 @@ export const LazyDivHook = ( cls_name : string, remove_class ?: string | null ) 
   
       lazyBackgrounds.forEach(container => observer.observe(container));
 }
+
+
+// 지연 로딩 이미지 훅
+export const LazyDivHookMulti = ( class_name : string, remove_class ?: any ) => {
+    const options = {
+        root       : null,
+        rootMargin : '0px',
+        threshold  : 0.5 // 50% 이상 보일 때 콜백 호출
+      };
+
+      function callback ( entries : any, observer : any ) {
+        entries.forEach(( entry : any ) => {
+
+            if ( entry.isIntersecting ) {
+                const container = entry.target;
+                const imgDiv    = entry.target.firstChild;
+
+                if ( container.children.length > 0 ) {
+                    const imgUrl = container.children[0].innerText;
+                    container.style.backgroundImage = imgUrl;
+                }
+
+                if ( imgDiv.classList.length > 0 ) {
+                    imgDiv.classList.remove(imgDiv.classList[0]);
+                }
+        
+           
+            observer.unobserve(container); 
+          }
+      })
+    }
+    
+      const observer = new IntersectionObserver(callback, options);
+      const lazyBackgrounds = document.querySelectorAll(class_name);
+
+      lazyBackgrounds.forEach(container => observer.observe(container));
+}

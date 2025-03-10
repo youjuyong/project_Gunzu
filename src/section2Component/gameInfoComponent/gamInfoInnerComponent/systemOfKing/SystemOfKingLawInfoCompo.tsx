@@ -1,4 +1,4 @@
-import { memo , useState } from "react";
+import { useState } from "react";
 import { FlippingPages }   from 'flipping-pages';
 import React    from "react";
 import 'flipping-pages/dist/style.css';

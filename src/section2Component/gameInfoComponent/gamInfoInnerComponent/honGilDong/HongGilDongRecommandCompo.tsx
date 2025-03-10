@@ -1,8 +1,6 @@
-import { Link                  } from "react-router-dom";
 import { useEffect, useState   } from "react";
-import { hongGilDongHeader     } from "../../../../utils/ContextList";
 import { LazyImageHook         } from "../../../../../src/utils/common/common";
-import Section2BackgroundDiv, { Section2Titleh3 } from "../../../../utils/commonStyles";
+import { Section2Titleh3       } from "../../../../utils/commonStyles";
 
 /* 전추향상술 추천 */
 const HongGilDongRecommandCompo = () => {
@@ -22,9 +20,10 @@ const HongGilDongRecommandCompo = () => {
         };
       }, []);
 
+      // 사이드 바 클릭시
       const onClickHandler = ( e : any ) => {
         const { innerHTML } = e.target;
-        if      ( innerHTML === '1' ) { window.scrollTo(0, 650); } 
+        if      ( innerHTML === '1' )  { window.scrollTo(0, 650);  } 
         else if ( innerHTML === '2' )  { window.scrollTo(0, 1180); } 
         else if ( innerHTML === '3' )  { window.scrollTo(0, 1680); } 
         else if ( innerHTML === '4' )  { window.scrollTo(0, 2200); } 

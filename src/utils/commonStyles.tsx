@@ -37,5 +37,14 @@ export const Section2Titleh3 = styled.h3<innerh3Type>`
                                    : props.url === 'st7' ? `url(${st7})` :  `url(${st2})` }center top no-repeat;
          background-size : 503px 64px;
 `;
+
+interface backImageDivType {
+    height  : string,
+}
+
+export const BackImageDiv = styled.div<backImageDivType>`
+    height            : ${(props) => props?.height  ? props?.height  : '0px'};
+`;
+
 export default Section2Background;
 
