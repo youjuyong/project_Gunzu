@@ -18,7 +18,7 @@ const SystemOfKingLawInfo = ( ) => {
     return (
         <>
         <div className='intro_title'>
-            <h3 className="magutganAlert_h5">117대 왕실 법안</h3>
+            <h3 className="magutganAlert_h5">118대 왕실 법안</h3>
             <div className="raw_Div">
                 <div className="pages">
                     <label className="book_label">
@@ -42,11 +42,11 @@ const SystemOfKingLawInfo = ( ) => {
                                        </div>
                                        <div className="page__content-blockquote_hang">
                                             <p className="page__content-text1">1항 [ 법안 집행  ]</p>
-                                                <p className="page__content-text1_2">1. 왕실은 제정된 법안을 집행하는 것을 방해를 받지 않는다. <span>단, 왕실은 서버 내 법안에 대한 숙지 요청을 늘 해야한다.(2항에서 보충)</span></p>
+                                                <p className="page__content-text1_2">1. 왕실은 제정된 법안을 집행하는 것을 방해를 받지 않는다.단, 왕실은 서버 내 법안에 대한 숙지 요청을 늘 해야한다.(2항에서 보충)</p>
                                                 <p className="page__content-text1_2">2. 사건에 대하여 법안의 미숙지는 회피의 사유가 되지 않는다.</p>
                                                 <p className="page__content-text1_2">3. 법안은 운영원칙 아래 보호받으며, ‘왕실회의’와 역대 ‘왕실회의’를 통해 작성된 ‘세종서버 판례’를 통하여, 법안에 언급되지 않은 사건들을 처리한다.</p>
                                              <p className="page__content-text1">2항 [ 법안 숙지 의무  ]</p>
-                                                 <p className="page__content-text1_2">1. <span>세종서버 유저는 왕실법안을 숙지하며, 지킬 의무가 있다.</span></p>
+                                                 <p className="page__content-text1_2">1. 세종서버 유저는 왕실법안을 숙지하며, 지킬 의무가 있다.</p>
                                                 <p className="page__content-text1_2">2. 왕실은 항상 법안을 숙지할 것을 홍보하며, 권장할 의무가 있다.</p>
                                                 <p className="page__content-text1_2">3. 마을 간부는 마을 주민들이 법안을 숙지할 수 있도록, 늘 권장할 의무가 있다.</p>
                                                 <p className="page__content-text1_2">4. 세종서버 유저는 법안을 숙지하거나, 혹 문제가 발생했을때 먼저 법안을 찾아보고 확인 후에 [ 문제 제기 ] 를 할 권리와 의무가 있다.</p>
@@ -61,14 +61,14 @@ const SystemOfKingLawInfo = ( ) => {
                                 <div className="page">
                                         <div className="page__content-blockquote_zno">
                                             <p className="page__content-text1">2조 [ 순찰 ]</p>
-                                             <p className="page__content-text1_2"><span>1. 군주,판서.포교들은 모든 사냥 가능한 지역(사냥터,수렵장,야외지역,섬 등)을 순찰할 권리와 의무가있다.</span></p>
+                                             <p className="page__content-text1_2">1. 군주,판서.포교들은 모든 사냥 가능한 지역(사냥터,수렵장,야외지역,섬 등)을 순찰할 권리와 의무가있다.</p>
                                              <p className="page__content-text1_2">2. 순찰 거부, 순찰 방해는 범죄에 해당된다.</p>
                                              <p className="page__content-text1_2">3. 왕실 구성원은 순찰 시 왕실의복(ex.포교모자)을 착용할 필요가 없다. . 순찰 대상은 1초라도 사냥하는 것이 보이는 유저를 대상으로 한다. (포교의 순찰 멘트는 일반창이 사라진 뒤 다음 멘트 사용 가능)</p>
                                              <p className="page__content-text1_2">( 예시- 순찰 거부 및 순찰 방해 )</p>
                                              <p className="page__content-text1_2">A. 순찰 거부 : 순찰 중인 해당 구성원에게 순찰 응답을 하지 않는 경우</p>
                                              <p className="page__content-text1_2">a. 순찰 멘트에 3회 불응하면 순찰자는 해당 유저에 대해 신고하기 이용권을 사용한다</p>
                                              <p className="page__content-text1_2">b. 피순찰자가 순찰멘트를 놓치는경우 순찰자는 1회 불응할 때마다 몬스터 사이를 왔다갔다 할 수있다. ( 상황에 맞게 순찰자의 자율적판단)</p>
-                                             <p className="page__content-text1_2"><span>c. 순찰 멘트에 3회 이상 불응한 횟수가 2회 이상일 경우 블랙리스트 등록 후 왕실과 대행수과 관리하며 블랙리스트에 등록된 인원은 순찰 멘트 없이 신고하기 이용권 사용 가능(단, 1회차 거부 이후 10회 연속 응답시 블랙리스트 삭제)</span></p>
+                                             <p className="page__content-text1_2">c. 순찰 멘트에 3회 이상 불응한 횟수가 2회 이상일 경우 블랙리스트 등록 후 왕실과 대행수과 관리하며 블랙리스트에 등록된 인원은 순찰 멘트 없이 신고하기 이용권 사용 가능(단, 1회차 거부 이후 10회 연속 응답시 블랙리스트 삭제)</p>
                                              <p className="page__content-text1_2">B. 순찰 방해 : 순찰 중인 해당 구성원에게 폭언 및 욕설을 하는 경우</p>
                                              <p className="page__content-text1_2">C. 악의적 응답 : 순찰 중인 해당 구성원에게 욕설형 응답 및 불만 / 비꼬는 응답인 경우</p>
                                              <p className="page__content-text1_2">(채팅에 응답은 하였으나 순찰 채팅에 명시된  응답을 하지 않을 경우도 포함)</p>
@@ -173,10 +173,10 @@ const SystemOfKingLawInfo = ( ) => {
                                     <h1 className="conent_title">제 4장 [ 사냥터 ] </h1>
                                     <div className="page__content-blockquote_zno">
                                             <p className="page__content-text1">1조 [ 자리  ]</p>
-                                            <p className="page__content-text1_2">1. 범위 공격을 하는 게임의 특성상 범위가 겹치지 않도록, 몬스터가 몰리는 위치를 [자리] 라는 개념으로 인정한다.</p>
+                                            <p className="page__content-text1_2"><span>1. 범위 공격을 하는 게임의 특성상 범위가 겹치지 않도록, 몬스터가 몰리는 위치 [좌표]를  자리라는 개념으로 인정한다.</span></p>
                                             <p className="page__content-text1_2">2. 자리는 현재 사용하는 사람이 그 소유권을 가진다.</p>
                                             <p className="page__content-text1_2">3. 기억의 돌 사용시, 몬스터 리젠자리(좌표)로 바로 이동(젠자리텔)을 금지한다.</p>
-                                            <p className="page__content-text1_2"><span>-검/지팡이 사냥을 위하여 좌표를 저장했을 경우, 좌표 근처에 이동 후 자리가 빈 것을 확인 후에 젠자리텔을 한다.</span></p>
+                                            <p className="page__content-text1_2">-검/지팡이 사냥을 위하여 좌표를 저장했을 경우, 좌표 근처에 이동 후 자리가 빈 것을 확인 후에 젠자리텔을 한다.</p>
                                             <p className="page__content-text1_2">- 섬의 경우는 섬 중앙이 아니라, 섬 가장자리 외곽에 저장한다.</p>
                                     </div>
                                     <div className="page__content-blockquote_hang">
@@ -198,18 +198,19 @@ const SystemOfKingLawInfo = ( ) => {
                                 <div className="page">
                                     <div className="page__content-blockquote_hang">
                                             <p className="page__content-text1">2항 [ 휴식(광고창 잠수) ]</p>
-                                            <p className="page__content-text1_2"><span>1. 사냥 중 최대 2회간 [ 휴식(광고창 잠수) ]를 인정한다.</span></p>
+                                            <p className="page__content-text1_2">1. 사냥 중 최대 2회간 [ 휴식(광고창 잠수) ]를 인정한다.</p>
                                             <p className="page__content-text1_2">2. [ 휴식(광고창 잠수) ] 는 [휴식 시작시간을 기재한 것만 ] 인정하며 1회당 10분이다.</p>
                                             <p className="page__content-text1_2">3. [ 휴식(광고창 잠수) ] 는 광고창이 내려가는 것을 방지하기 위하여,반드시[ 탈것 ]에서 내린 뒤에 시행한다.</p>
                                             <p className="page__content-text1_2">4. 1차 휴식 시작 시간을 기준으로 최소 20분이 지난 후 부터 2차 휴식이 가능하다. (예시) 13:20 1차 휴식 시작 → 13:30 1차 휴식 종료 → 2차 휴식은 13:40 이후부터 가능 (13:20분부터 13:40분까지 휴식 2개를 붙여 20분 연속 휴식하는 행위 금지)</p>
-                                            <p className="page__content-text1_2">5. [ 광고창이 없는 잠수 ] 및 [ 휴식 시작 시간 기재 없는 광고창 잠수 ] 일 경우</p>
+                                            <p className="page__content-text1_2"><span>5. 연속휴식에 적발되었을때  1차 경고 . 2차 60분수감. 3차 120분 수감으로 처리한다.</span></p>
+                                            <p className="page__content-text1_2">6. [ 광고창이 없는 잠수 ] 및 [ 휴식 시작 시간 기재 없는 광고창 잠수 ] 일 경우</p>
                                             <p className="page__content-text1_2">ㄱ. 대기자가 자리 소유자에게 귓말 후 자리 소유자가 3분 이내 대답 및 사냥을 재개할 경우 휴식으로 치지 않는다. (휴식 횟수 차감하지 않는다.)</p>
                                             <p className="page__content-text1_2">→ 채팅, 시공서를 통한 버프 및 물약 구매, 보안관 등장에 의한 잠깐의 사냥 정지는 휴식이 아닌 사냥의 일부로 인정</p>
                                             <p className="page__content-text1_2">ㄴ. 대기자가 자리 소유자에게 귓말 후 자리 소유자가 3분 이내 대답을 했더라도 첫 귓말을 보낸 시점부터 3분 초과하여 사냥을 하지 않을 경우 휴식 1회 차감한다. (대기자는 영상 촬영으로 증거를 남긴다.)</p>
                                             <p className="page__content-text1_2">ㄷ. 대기자가 자리 소유자에게 귓말 후 자리 소유자가 3분 이내 대답도 하지않고 사냥도 하지 않을 경우 자리의 소유권은 대기자에게 넘어간다.</p>
                                             <p className="page__content-text1_2">ㄹ. 단, [ 탈것에서 내린 상태 ]일 경우 광고창 없는 휴식에 한하여 (기타 사유로 광고창이 보이지 않는 것으로 간주) 귓말을 보낸 시점부터 10분간 휴식을 인정 및 휴식 1회 차감하며,</p>
                                             <p className="page__content-text1_2">10분을 초과하였는데도 대답 및 사냥 재개 하지 않을 경우 자리 소유권은 대기자에게 넘어간다.</p>
-                                            <p className="page__content-text1_2">6. 시간 이내와 초과의 기준 적용 예시</p>
+                                            <p className="page__content-text1_2">7. 시간 이내와 초과의 기준 적용 예시</p>
                                             <p className="page__content-text1_2">[13 : 20] A : 안녕하세요. 사냥하시나요?</p>
                                             <p className="page__content-text1_2">[13 : 23] B : 보안관이 나와서 잠깐 대기하고 있었습니다.</p>
                                             <p className="page__content-text1_2">→ 23분 - 20분 = 3분</p>
@@ -233,6 +234,7 @@ const SystemOfKingLawInfo = ( ) => {
                                         <p className="page__content-text1_2">2. 사망의 경우, [부활서] 사용 시, 자리 소유권을 인정한다.</p>
                                         <p className="page__content-text1_2">3. 어사패의 경우 버그(오류)로 인하여 남아있게 되더라도 [대기자]가 그것을 입증하면 소유권을 박탈한다.(2시간 간격의 2장의 스크린 샷으로 하며, 군주력으로 시간이 지남을 판단한다.)</p>
                                         <p className="page__content-text1_2">4. 오오라석으로 해당 자리의 소유권을 주장할 수 없다.</p>
+                                        <p className="page__content-text1_2"><span>5. 사냥중 좌표에서 5보 미만 이탈은 자리이탈 로 인정하지 않는다 (모든 무기포함)</span></p>
                                         <p className="page__content-text1">4항 [ 예외 ]</p>
                                         <p className="page__content-text1_2">1. (공성)공성 시간 30분간은 사망으로 인해 자리가 비워질 경우를 대비하여 사망 이전에 미리 대기자에게 미리 양해를 구하며 3분 내로 자리로 복귀하면 소유권를 인정한다. ( 단, 공성 진행 마을의 경우 순간이동 불가능으로 인해 5분 내로 복귀 )</p>
                                         <p className="page__content-text1_2">2. (공성) 대기자가 없는 경우, 사냥 중인 스크린샷과 죽은 후 해당 자리에서 찍은 사망 알림 스크린샷 확인 후 소유권을 인정한다.</p>
@@ -244,8 +246,8 @@ const SystemOfKingLawInfo = ( ) => {
                                         <p className="page__content-text1_2">A. 같은 마을 B에게 귓속말로 자리를 양도 하는 경우 ( 단, 대기자가 없을 시 양도 허용 )</p>
                                         <p className="page__content-text1_2">B. 용무 후에 다시 자리를 쓰기 위해 친한 C에게 잠시 자리를 양도 하는 경우 ( 대기자가 없을 시 지인 양도 허용 )</p>
                                         <p className="page__content-text1">6항 [ 처벌 ]</p>
-                                        <p className="page__content-text1_2"><span>1. 2회 이상 혹은 타인의 제지에도 불구하고, 계속해서 반복하는 행위를 [악의적]이라 정의한다.</span></p>
-                                        <p className="page__content-text1_2"><span>2. (소유권) [악의적]으로 통한 자리 소유권 침범은 1회 60분 수감, 2회 120분 수감, 3회부턴 120분 수감 및 운영자 신고한다.</span></p>
+                                        <p className="page__content-text1_2">1. 2회 이상 혹은 타인의 제지에도 불구하고, 계속해서 반복하는 행위를 [악의적]이라 정의한다.</p>
+                                        <p className="page__content-text1_2">2. (소유권) [악의적]으로 통한 자리 소유권 침범은 1회 60분 수감, 2회 120분 수감, 3회부턴 120분 수감 및 운영자 신고한다.</p>
                                         <p className="page__content-text1_2">3. (소유권 박탈) 소유권 박탈에 불복하여 방해행위(스틸, 겹치기)를 하는 경우에는 1차 60분 수감, 2차 120분 수감한다.</p>
                                         <p className="page__content-text1_2">4. (휴식) [악의적]으로 대기자가 있는데, 3회 이상 휴식(광고창 잠수)를 지속할 경우 1차 경고, 2차이상 60분 수감한다.</p>
                                         <p className="page__content-text1_2">5. (양도) 대기자가 있을 때, 자리를 양도/판매하는 행위 적발 시 120분 수감한다.</p>
@@ -378,7 +380,9 @@ const SystemOfKingLawInfo = ( ) => {
                                      </div>
                                      <div className="page__content-blockquote_hang">
                                         <p className="page__content-text1">1항 [ 예외 ]</p>
-                                        <p className="page__content-text1_2">1. 공적인 업무(수호천사 등), 레벨업 축하, 전체창을 제외한 마을 홍보, 장사 관련 자막광고, 파티요청, 고백 요청은 예외로 둔다.</p>
+                                        <p className="page__content-text1_2">1. 공적인 업무(수호천사 등), 레벨업 축하, 전체창을 제외한 마을 홍보, 파티요청, 고백 요청은 예외로 둔다.</p>
+                                        <p className="page__content-text1_2"><span>2. 장사관련 자막은 도배로 인정하지 않는다 단 (장사관련 내용은 같은내용으로 2번이상 적을수없다)</span></p>
+                                        <p className="page__content-text1_2"><span>3. 장사관련 같은 내용을 2번이상 지속적으로 자막을 사용할경우 (도배) 처벌과 동일하게 처리한다</span></p>
                                         <p className="page__content-text1">2항 [ 처벌 ]</p>
                                         <p className="page__content-text1_2">1. 도배를 할 경우 1차 경고 후 60분 수감, 2차시부터 120분씩 수감한다.</p>
                                     </div>
@@ -514,6 +518,8 @@ const SystemOfKingLawInfo = ( ) => {
                                             <p className="page__content-text1_2">1. 중재회의 시간이 1시간이 초과되는 경우, 해당 분쟁의 쟁점이 중재를 통해 해결되지 않는다고 판단하고, 회의를 중단한다.</p>
                                             <p className="page__content-text1_2">2. 이후 현실시간 24시간 이내에, 중재 신청자들끼리 접점을 찾고, 왕실은 그대로 이행해 준다.</p>
                                             <p className="page__content-text1_2">3. 접점을 찾지 못하면, 그 회의는 잠정적으로 무산된다.</p>
+                                            <p className="page__content-text1_2"><span>4. 중재의 접점을 찾지 못한경우 왕실 찬반투표 를 요청 할 수있다. 찬반투표는 6조판서가 진행한다 (이조.호조.예조.병조.형조.공조)</span></p>
+                                            <p className="page__content-text1_2"><span>5. 찬반투표 에서 나온 결과에 대해서는 중재 양측모두 받아들이고 중재를 마친다</span></p>
                                         </div>
                                         <h1 className="conent_title">제 8장 [ 예외규정  ] </h1>
                                         <div className="page__content-blockquote">
@@ -526,13 +532,7 @@ const SystemOfKingLawInfo = ( ) => {
                                             <p className="page__content-text1_2">3. 해당 왕실 군주는 판례집을 작성하여 보관하도록 하며 다음 임기 군주에게 넘기도록 한다.</p>
                                             <p className="page__content-text1">2조 [ 운영자 ]</p>
                                             <p className="page__content-text1_2">1. 해결 방법이 없는 예외 사건은 [운영자]에게 의뢰하며, 운영자의 판단에 따른다.</p>
-                                            <p className="page__content-text1">3조 [ 해킹피해의심자 ]</p>
-                                            <p className="page__content-text1_2">1. 해킹피해유저의 피해를 최소화 하기 위하여 아래 조건 중 일부조건이 충족 될 경우 해킹 피해 의심 유저로 간주할 수 있다.</p>
-                                            <p className="page__content-text1_2">a. 아이템을 모두 벗는 행위</p>
-                                            <p className="page__content-text1_2">b. 한양으로 이동하는 행위</p>
-                                            <p className="page__content-text1_2">c. 마을 채팅과 귓속말에 응답없는 경우</p>
-                                            <p className="page__content-text1_2">d. 마을 자체에서 심사 후 의심자로 판단 될 경우</p>
-                                            <p className="page__content-text1_2">2. 마을행수진은 [해킹피해의심]유저로 간주할 경우 스크린샷으로 확보 후 왕실에 수감요청을 할 수 있다.(미접으로인하여 마을이 탈퇴된 유저 는 이전 마을 행수진이 신고한다)</p>
+                                            
                                         </div>
                                         <div className="pageCntView"><p>- {selected + 1} / 16 -</p></div>
                                     </div>
@@ -542,6 +542,13 @@ const SystemOfKingLawInfo = ( ) => {
                                 <div className="book_page_content">
                                     <div className="page">
                                         <div className="page__content-blockquote_zno">
+                                        <p className="page__content-text1">3조 [ 해킹피해의심자 ]</p>
+                                            <p className="page__content-text1_2">1. 해킹피해유저의 피해를 최소화 하기 위하여 아래 조건 중 일부조건이 충족 될 경우 해킹 피해 의심 유저로 간주할 수 있다.</p>
+                                            <p className="page__content-text1_2">a. 아이템을 모두 벗는 행위</p>
+                                            <p className="page__content-text1_2">b. 한양으로 이동하는 행위</p>
+                                            <p className="page__content-text1_2">c. 마을 채팅과 귓속말에 응답없는 경우</p>
+                                            <p className="page__content-text1_2">d. 마을 자체에서 심사 후 의심자로 판단 될 경우</p>
+                                            <p className="page__content-text1_2">2. 마을행수진은 [해킹피해의심]유저로 간주할 경우 스크린샷으로 확보 후 왕실에 수감요청을 할 수 있다.(미접으로인하여 마을이 탈퇴된 유저 는 이전 마을 행수진이 신고한다)</p>
                                             <p className="page__content-text1_2">3. 왕실은 빠른 대처를 위하여 즉시 그 캐릭터를 수감 후 스크린샷을 확인한다.</p>
                                         </div> 
                                         <div className="page__content-blockquote_hang">
@@ -553,6 +560,14 @@ const SystemOfKingLawInfo = ( ) => {
                                             <p className="page__content-text1_2">a. 해킹 피해 의심 캐릭터가 접속 또는 접속종료를 반복하는 경우</p>
                                             <p className="page__content-text1_2">b. 해킹 피해 의심 캐릭터가 접속한 상태에서 잠수하는 경우</p>
                                         </div>
+                                       
+                                       <div className="pageCntView"><p>- {selected + 1} / 16 -</p></div>
+                                    </div>
+                                </div>
+
+                                {/* 17페이지 */}
+                                <div className="book_page_content">
+                                    <div className="page">
                                         <div className="page__content-blockquote_zno">
                                             <p className="page__content-text1">4조 [ 버그 악용  ]</p>
                                             <p className="page__content-text1_2">1. 게임 내 시스템 오류나 버그의 악용을 금지한다.</p>
@@ -569,7 +584,7 @@ const SystemOfKingLawInfo = ( ) => {
                                             <p className="page__content-blockquote-text">1. 각 마을의 대행수는 군주 또는 판서에게 행수 리콜에 대한 사전 요청을 할 수 있다.</p>
                                             <p className="page__content-blockquote-text">2. 리콜 권한이 있는 군주나 형조판서는 동의를 받은 마을 주민의 요청이 있을 시, 그 마을의 대행수나 행수를 리콜할 수 있다. (리콜 대상은 요청자가 정한다)</p>
                                        </div>
-                                       <div className="pageCntView"><p>- {selected + 1} / 16 -</p></div>
+                                       <div className="pageCntView"><p>- {selected + 1} / 17 -</p></div>
                                     </div>
                                 </div>
                         </FlippingPages>

@@ -1,7 +1,7 @@
 import Slider        from "react-slick";
 import { useEffect } from "react";
 import { Link      } from "react-router-dom"
-import { horseHousePageheader, recallHeroPageheader, hongGilDongHeader } from "../../utils/ContextList";
+import { horseHousePageheader, recallHeroPageheader, hongGilDongHeader, headerNavInfo } from "../../utils/ContextList";
 import { useQuerySingle       } from "../../utils/common/common";
 import { API_IP_INFO          } from "../../utils/apiUrl";
 import { Loading              } from "../../commComponent/Loading";
@@ -33,11 +33,15 @@ const MainPageInfoCompo = () => {
 
     // 주민수 리스트
     const human_cnt_data  = useQuerySingle("get-human-data", null, `${API_IP_INFO}/stat/village-human-cnt`, 60000 * 5, 60000 * 10, false, true, false);
+
+    // 공지사항 리스트
+    const board_data  = useQuerySingle("get-board-data", null, `${API_IP_INFO}/board/main-board-list`, 60000 * 5, 60000 * 10, false, true, false);
     
     useEffect(() => {
         LazyDivHook(".lazy-background", ".skeleton-image");
     },[]);
 
+    const mainBoard = headerNavInfo.filter((v : { url : string} ) => v.url === 'mainBoardInfo')[0];
     return(
         <>
         <Section1/>
@@ -170,10 +174,27 @@ const MainPageInfoCompo = () => {
                             }
                             </section>
                             <section className="main_section3">
-                                <h3> 공지사항 <span>1건</span></h3>
-                                <Link to="" className="boardInfo_plus">
+                                <h3> 공지사항 <span>{board_data?.data?.length >= 3 ? 3 : board_data?.data?.length}건</span></h3>
+                                <Link to="mainBoardInfo" className="boardInfo_plus" state={{ menuName : mainBoard?.menuName , mainMenuName : mainBoard?.title, url: mainBoard?.url }} >
                                     <img src={require("../../assets/image/more2.png")}></img>
                                 </Link>
+                                <div className='listbox'>
+                                    <ul>
+                                        {   
+                                            board_data.data && board_data.data.map(( bordInfo : { id : string, textTitl : string, regDt : String }, index : number ) => {
+                                                if ( index >= 3) return;
+                                                return (
+                                                         <li key={bordInfo.regDt + 'li'+index} >
+                                                            <Link to="mainBoardInfo" key={bordInfo + 'Link'+index} state= {{text_id : bordInfo.id, url : 'mainBordTextInfo', text_title : bordInfo.textTitl, reg_dt : bordInfo?.regDt.substring(0,10)}} >
+                                                                <span className="title" key={bordInfo + 'title'+index}>{bordInfo.textTitl}</span>
+                                                                <span className="day"   key={bordInfo + 'day'+index}>{bordInfo.regDt.substring(0,10)}</span>
+                                                            </Link>
+                                                        </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
                             </section>
                         </div>
                     </article>

@@ -36,6 +36,11 @@ const EventBoardPrizeCp = (props : any) => {
             text_id : text_id,
             user_id : id
         }
+
+        if (  prize_yn=== 'Y' ) {
+            alert('신청 기간이 마감되었습니다.');
+            return;
+        }
         axiosCall("post", API_IP_INFO + "/board/event-board-prize-sumit", param, (data) => {
             alert(data.message);
             return;

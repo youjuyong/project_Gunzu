@@ -7,7 +7,7 @@ export const headerNavInfo = [
         url      : "systemOfKingWordInfo",
         subUrl   : "gameInfo/systemOfKing/systemOfKingWordInfo",
         subTitle : "왕실시스템",
-        menuName : "왕실이란?"
+        menuName : "왕실이란?",
     },
     {
         title    : "제조/장인",
@@ -16,7 +16,7 @@ export const headerNavInfo = [
         subTitle : "제조/장인",
         menuName : "장인목록",
         subMenu  : [{
-            subTitle     : "장인목록",
+            subTitle     : "제조/장인",
             subUrl       : "gameInfo/craftsManInfo/craftsManListInfo",
             url          : "craftsManListInfo",   
             menuName     : "장인목록",
@@ -28,7 +28,7 @@ export const headerNavInfo = [
         url      : "headerNavGameData",
         subUrl   : "gameInfo/staticsInfo/villageStaticsInfo",
         subTitle : "통계",
-        menuName : "마을별 주민수 통계",
+        menuName : "주민수",
         subMenu  : [{
                 subTitle    : "주민수",
                 subUrl      : "gameInfo/staticsInfo/villageStaticsInfo",
@@ -84,8 +84,18 @@ export const headerNavInfo = [
         menuName : "이벤트공지"
     },
     {
-        title   : "게시판",
-        url     : "headerNavBoard"
+        title    : "게시판",
+        url      : "mainBoardInfo",
+        subUrl   : "mainBoardInfo",
+        subTitle : "게시판",
+        menuName : "공지사항",
+        subMenu  : [{
+            subTitle     : "공지사항",
+            subUrl       : "mainBoardInfo",
+            url          : "mainBoardInfo",   
+            menuName     : "공지사항",
+            subClassCnt  : 4
+        }]
     },
     {
         title   : "홈페이지소개",

@@ -36,6 +36,11 @@
             }
         
         }
+
+        .board {
+            padding-bottom: 56px;
+        }
+
         .prizeH2 {
             font-weight: 700;
             text-align: center;

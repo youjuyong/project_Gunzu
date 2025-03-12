@@ -177,9 +177,12 @@
         }
 
         .sub-menu div:nth-of-type(5) a{
-            padding-right : 50px;
+            margin-left : 50px;
         }
 
+        .sub-menu div:nth-of-type(6) a{
+            margin-left : -165px;
+        }
 
         
         .sub-menu   {

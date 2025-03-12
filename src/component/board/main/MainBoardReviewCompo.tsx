@@ -13,10 +13,10 @@ const EventBoardTextCompo = ( props : any ) => {
       const deleteHandler = () => {
             if ( window.confirm("댓글을 삭제 하시겠습니까?") ) {
                 const param = {
-                    text_id : text_id,
-                    user_id   : user_id
+                    text_id  : text_id,
+                    user_id  : user_id
                 }
-                 axiosCall("delete", API_IP_INFO + "/board/review-remove", param, (data) => {
+                 axiosCall("delete", API_IP_INFO + "/board/main-board-review-remove", param, (data) => {
                             
                             if ( data === 1 ) {
                                 alert("댓글삭제완료!!");
@@ -35,7 +35,7 @@ const EventBoardTextCompo = ( props : any ) => {
                  text_id : text_id
              }
      
-             axiosCall("get", API_IP_INFO + "/board/event-board-review-list", param, (data) => {
+             axiosCall("get", API_IP_INFO + "/board/main-board-review-list", param, (data) => {
                 setReviewList(data);
              });
     }
@@ -51,14 +51,19 @@ const EventBoardTextCompo = ( props : any ) => {
                 alert("이미 등록된 댓글이 있습니다.");
                 return;
             }
-          
+            else if ( user_id === null ) 
+            {
+                alert("댓글 작성은 로그인이 필요합니다.");
+                return;
+            }
+            
             if ( textValue === undefined || textValue === null ) 
             {
-                alert("댓글을 한글자라도 작성해 주세요.");
+                alert("댓글은 한글자라도 작성해 주세요.");
                 return;
             }
     
-            if ( window.confirm("댓글을 저장 하시겠습니까?")) 
+            if ( window.confirm("댓글을 저장 하시겠습니까?") ) 
             {
     
                 let url = '';
@@ -71,7 +76,7 @@ const EventBoardTextCompo = ( props : any ) => {
                     user_id  : user_id,
                     content  : textValue
                 }
-                 axiosCall("put", API_IP_INFO + "/board/review", param, (data) => {
+                 axiosCall("put", API_IP_INFO + "/board/main-board-review", param, (data) => {
                             
                             if ( data === 1 ) {
                                 alert("댓글등록완료!!");
@@ -89,7 +94,6 @@ const EventBoardTextCompo = ( props : any ) => {
                     <ul>
                      {
                                         reviewList && reviewList.map(( v: any, index : number ) => {
-                                            const score = Math.floor(Number(v.SCORE));
                                             return (
                                                 <li key={v +'revietarLi' + String(index)}>
                                                 <div key={v +'revietarDiv1' + String(index)}>

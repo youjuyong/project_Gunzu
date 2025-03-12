@@ -39,7 +39,7 @@ import { YangStaticsInfoCompo             }  from "../section2Component/gameInfo
 
 /* 홍길동 */
 import HongGilDongWordInfoCompo              from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongWordInfoCompo";              // 홍길동
-import HongGilDongRecommandCompo              from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongRecommandCompo";            // 전투향상술 추천
+import HongGilDongRecommandCompo             from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongRecommandCompo";             // 전투향상술 추천
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
