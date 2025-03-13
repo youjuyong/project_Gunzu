@@ -8,12 +8,12 @@ import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 const SystemOfKingMacroThinkInfo = () => {
     
     useEffect(() => {
-        LazyDivHook(".lazy-background",".skeleton-image");
+        LazyDivHook(".lazy-background",".skeleton-image",".skeleton-wrapper");
     },[]);
 
     return (
         <> 
-            <div className='intro_title_think_macro'>
+            <div className='intro_title_think_macro '>
                 <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
                     <div className="skeleton-wrapper">
                         <div className="skeleton-image">
@@ -26,7 +26,7 @@ const SystemOfKingMacroThinkInfo = () => {
                         </div>
                     </div>
                 </div>
-                <div className="king_body_div">
+                <div className="king_body_div pretend">
                     <div className="content1">
                         <p>미리 말씀을 드리지만 판별창은 왕실과 전혀 무관한 "운영자"가 매크로를 잡기 위해 인게임에 넣어 놓은 프로그램 입니다.</p>
                         <p>하지만 왕실 카메고리에 놓은 이유는 왕실 시스템의 매크로 순찰과 목적은 똑같지만 </p>

@@ -1,10 +1,11 @@
+import Section2BackgroundDiv, { Section2Titleh3 }    from "../../../../utils/commonStyles";
 
 /* 소환영웅이란? */
 const RecallHeroWordInfoCompo = () => {
     return (
         <> 
             <div className='intro_title'>
-                <h3 className="magutganAlert_h3">소환영웅 이란?</h3>
+                <Section2Titleh3 className='pretend' url={'st2'}>소환영웅 이란?</Section2Titleh3>
             </div>
         </>
     )

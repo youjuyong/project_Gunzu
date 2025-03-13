@@ -4,7 +4,7 @@ const LocationCompo = ( props : any ) => {
 
     return (
         <>
-            <div className="location">
+            <div className="location pretend">
                     <ul>
                         <li>
                             <Link to="/">

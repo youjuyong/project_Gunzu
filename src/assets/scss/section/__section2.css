@@ -153,15 +153,18 @@
                 text-decoration : underline;
                 font-size       : 18px;
                 line-height     : 25px;
+                letter-spacing  : 0.2px;
             }
             .redSpan { color : red  }
 
             p {
-                font-size      : 16px;
+                font-size      : 19px;
                 line-height    : 23px;
                 margin-top     : 50px;
                 margin-bottom  : 50px;
                 font-weight    : 400;
+                line-height    : 25px;
+                letter-spacing : 0.1px;
             }
 
             button {
@@ -193,7 +196,6 @@
             }
 
             .alert_magugan {
-                height         : 930px;
                 width          : 580px;
                 margin         : 0 auto;
                 display        : flex;
@@ -869,7 +871,7 @@
             }
 
             .content1 {
-                width   : 700px;
+                width   : 730px;
                 padding : 44px 0;
                 margin  : 44px 0 20px 0;
                 display        : flex;

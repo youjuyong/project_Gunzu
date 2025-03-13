@@ -8,7 +8,7 @@ import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
 const SystemOfKingWordInfo = () => {
 
     useEffect(()=> {
-        LazyDivHook(".lazy-background",".skeleton-image");
+        LazyDivHook(".lazy-background",".skeleton-image",".skeleton-wrapper");
     },[]);
 
     return (

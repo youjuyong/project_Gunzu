@@ -64,7 +64,7 @@
                     padding     : 80px 0;
                 }
 
-                th:nth-child(1), td:nth-child(1) { width: 14%; };
+                th:nth-child(1), td:nth-child(1) { width: 14%; border-radius : 25px; overflow : hidden };
                 th:nth-child(2)  td:nth-child(2) { width: 11%; };
                 th:nth-child(3), td:nth-child(3) { width: 10%; };
                 th:nth-child(4), td:nth-child(4) { width: 11%; };

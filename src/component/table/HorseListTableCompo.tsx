@@ -71,11 +71,11 @@ const HorseListTableCp = ( props:tableCompoType ) => {
             <HorseReviewModal modalBoolean={addMdValue.openBoolean} horsData={addMdValue.horseData} setModalIsOpen={setAddmdOpen}></HorseReviewModal>
             <div className="rideListArea">
                           <div className="tableConbin">
-                                <table className="table rideListTable snans">
+                                <table className="table rideListTable pretend">
                                     <caption>탈것 리스트</caption>
                                     <thead>
                                         <tr>
-                                            <th>이미지</th>
+                                            <th className="image_first">이미지</th>
                                             <th>이름</th>
                                             <th>사용조건</th>
                                             <th>특수 버프 종류</th>

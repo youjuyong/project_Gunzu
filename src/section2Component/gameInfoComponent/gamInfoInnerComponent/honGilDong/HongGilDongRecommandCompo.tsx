@@ -34,39 +34,39 @@ const HongGilDongRecommandCompo = () => {
     return (
         <>
               <div className='hongButtonDiv'>
-                    <div className="HongSideBar snans"  style={{ top: barPosition }}>
+                    <div className="HongSideBar  pretend"  style={{ top: barPosition }}>
                         <div className="nectangle"></div>
                         <ul>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition < 800 ? 'circle click' : 'circle'}>1</p>
-                                <p className="circletext snans">검</p>
+                                <p className="circletext pretend">검</p>
                             </li>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition >= 800 && barPosition < 1343  ? 'circle click' : 'circle'}>2</p>
-                                <p className="circletext snans">창</p>
+                                <p className="circletext pretend">창</p>
                             </li>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition >= 1343 && barPosition < 1800  ? 'circle click' : 'circle'}>3</p>
-                                <p className="circletext snans">총</p>
+                                <p className="circletext pretend">총</p>
                             </li>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition >= 1800 && barPosition < 2300  ? 'circle click' : 'circle'}>4</p>
-                                <p className="circletext snans">활</p>
+                                <p className="circletext pretend">활</p>
                             </li>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition >= 2300 && barPosition < 3000  ? 'circle click' : 'circle'}>5</p>
-                                <p className="circletext snans">지팡이</p>
+                                <p className="circletext pretend">지팡이</p>
                             </li>
                             <li onClick={onClickHandler}>
                                 <p className={barPosition >= 3000 && barPosition < 3400  ? 'circle click' : 'circle'}>6</p>
-                                <p className="circletext snans">도끼</p>
+                                <p className="circletext pretend">도끼</p>
                             </li>
                         </ul>
                     </div>
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/sword.png")} alt={'검'} className={'hong_img'} height={40}></LazyImageHook>검</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="orange_thead">
                                     <tr>
                                         <th>순서</th>
@@ -138,7 +138,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"장비가 매우 좋으시면 5단계 흡성증가술을 '무기공격력증폭술'로 바꾸셔도 되지만 대부분 해당사항이 아니시니"<br></br>
+                            <p className="pretend">"장비가 매우 좋으시면 5단계 흡성증가술을 '무기공격력증폭술'로 바꾸셔도 되지만 대부분 해당사항이 아니시니"<br></br>
                                 "흡성 증가술을 찍어줍니다."
                             </p>
                         </div>
@@ -146,7 +146,7 @@ const HongGilDongRecommandCompo = () => {
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/spear.png")} alt={'창'} className={'hong_img'} height={40}></LazyImageHook>창</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="blue_thead">
                                     <tr>
                                         <th>순서</th>
@@ -218,14 +218,14 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"창은 마법중에 경험치 증가 스킬이 있기 때문에 4단계 '만류귀종'이 없고 대신 '공격력간격감소술'을 찍어줍니다."<br></br>
+                            <p className="pretend">"창은 마법중에 경험치 증가 스킬이 있기 때문에 4단계 '만류귀종'이 없고 대신 '공격력간격감소술'을 찍어줍니다."<br></br>
                             </p>
                         </div>
                     </div>
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/gun.png")} alt={'총'} className={'hong_img'} height={40}></LazyImageHook>총</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="gray_thead">
                                     <tr>
                                         <th>순서</th>
@@ -297,14 +297,14 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"총은 무난하게 4단계 '만류귀종' 찍어줍니다."<br></br>
+                            <p className="pretend">"총은 무난하게 4단계 '만류귀종' 찍어줍니다."<br></br>
                             </p>
                         </div>
                     </div>
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/bow.png")} alt={'활'} className={'hong_img'} height={40}></LazyImageHook>활</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="red_thead">
                                     <tr>
                                         <th>순서</th>
@@ -376,7 +376,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"활도 무난하게 4단계 '만류귀종' 5단계 '흡성증가술'을 찍어줍니다."<br></br>
+                            <p className="pretend">"활도 무난하게 4단계 '만류귀종' 5단계 '흡성증가술'을 찍어줍니다."<br></br>
                             "활같은 경우 안타까운게 3번째 '사거리증가술'은 어차피 정지사냥이 추세인 현시점에서 공성전을 빼면 거의"<br></br>
                             "없는 스킬이기 때문에 여러모로 추천드리지 않는 무기중 하나입니다."
                             </p>
@@ -385,7 +385,7 @@ const HongGilDongRecommandCompo = () => {
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/magin_stick.png")} alt={'지팡이'} className={'hong_img'} height={40}></LazyImageHook>지팡이</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="green_thead">
                                     <tr>
                                         <th>순서</th>
@@ -457,7 +457,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"지팡이는 몬스터 수가 많아 지는 중후반 사냥시 굉장히 선호하는 무기중 하나입니다."<br></br>
+                            <p className="pretend">"지팡이는 몬스터 수가 많아 지는 중후반 사냥시 굉장히 선호하는 무기중 하나입니다."<br></br>
                             "4번 '만류귀종'은 불변이고 5번 흡성증가술 아니면 무기공격력증폭술이 있지만 생존을 위해 흡성을 추천드립니다."
                             </p>
                         </div>
@@ -465,7 +465,7 @@ const HongGilDongRecommandCompo = () => {
                     <div className="intro_title">
                         <Section2Titleh3 url={'st7'}><LazyImageHook src={require("../../../../assets/image/craftTypeImg/ax.png")} alt={'도끼'} className={'hong_img'} height={40}></LazyImageHook>도끼</Section2Titleh3>
                         <div className="table_div">
-                            <table className="hong_table snans">
+                            <table className="hong_table pretend">
                                 <thead className="yellow_thead">
                                     <tr>
                                         <th>순서</th>
@@ -537,7 +537,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="snans">"도끼는 흡성스킬이 있기때문에 5번 스킬은 '무기 공격력 증폭술' 추천드립니다."<br></br>
+                            <p className="pretend">"도끼는 흡성스킬이 있기때문에 5번 스킬은 '무기 공격력 증폭술' 추천드립니다."<br></br>
                             </p>
                         </div>
                     </div>

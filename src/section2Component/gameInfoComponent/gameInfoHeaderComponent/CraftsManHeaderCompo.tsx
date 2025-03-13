@@ -31,8 +31,8 @@ export const CraftsManHeaderCompo = () => {
                         return (
                              <div key={ 'horseDiv' + index } >  
                                     <Link key={ 'horseLink' + index } to={ url } className= "gameInfoButton nanum" state={{ url : url, menuName : title, mainMenuName : mainMenu  }} onClick={ gameInfoHeaderHandle }> 
-                                         <span key={ 'gaim' + index } className="text">{ imgUrl &&  <img  className={ className } src={ imgUrl } alt={ imgAlt }/> }{ title }</span>
-                                          <span key={ 'gaime' + index } className="masker" style={{ height : state?.url === url ? '100%' : '' }}>
+                                         <span key={ 'gaim' + index } className="text pretend">{ imgUrl &&  <img  className={ className } src={ imgUrl } alt={ imgAlt }/> }{ title }</span>
+                                          <span key={ 'gaime' + index } className="masker pretend" style={{ height : state?.url === url ? '100%' : '' }}>
                                           <span key={ 'gamid' + index }>{ imgUrl &&  <img  className={ className } src={ imgUrl } alt={ imgAlt }/> }{ title }</span>
                                          </span> 
                                      </Link>

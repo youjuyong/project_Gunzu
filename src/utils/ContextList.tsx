@@ -71,8 +71,8 @@ export const headerNavInfo = [
         }, {
             subTitle    : "홍길동",
             subUrl      : "gameInfo/hongGilDongInfo/hongGilDongWordInfo",
-            url         : "hongGilDongInfo",
-            menuName    : "홍길동이란?",
+            url         : "hongGilDongWordInfo",
+            menuName    : "전투향상술이란?",
             subClassCnt : 3
         }]
     },

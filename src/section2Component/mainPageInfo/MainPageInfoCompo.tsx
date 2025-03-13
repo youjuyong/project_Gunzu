@@ -46,7 +46,7 @@ const MainPageInfoCompo = () => {
         <>
         <Section1/>
             <section id="section2">
-                <div className="section2Div">
+                <div className="section2Div pretend">
                     <article className="service">
                         <h2>서비스 바로가기</h2>
                         <ul>
@@ -59,7 +59,7 @@ const MainPageInfoCompo = () => {
                             <li><Link to='' className="service8">정령<span>팅키 정령</span></Link></li>
                         </ul>
                     </article>
-                    <article className="realTimeMainInfo">
+                    <article className="realTimeMainInfo pretend">
                         <h2>다양한 <br/> 군주 통계 정보 </h2>
                         <div className="realMainInfo_left">
                             <span className="real_span">
@@ -173,7 +173,7 @@ const MainPageInfoCompo = () => {
                                 </>
                             }
                             </section>
-                            <section className="main_section3">
+                            <section className="main_section3 pretend">
                                 <h3> 공지사항 <span>{board_data?.data?.length >= 3 ? 3 : board_data?.data?.length}건</span></h3>
                                 <Link to="mainBoardInfo" className="boardInfo_plus" state={{ menuName : mainBoard?.menuName , mainMenuName : mainBoard?.title, url: mainBoard?.url }} >
                                     <img src={require("../../assets/image/more2.png")}></img>

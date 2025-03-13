@@ -51,7 +51,7 @@ const HorsListCp = () => {
                 <div className='horseInnerDiv'>
                     <section className="horseRideSection1" >
                         <div className="rideSelectArea">
-                            <table className="table tableHorse snans">
+                            <table className="table tableHorse pretend">
                                     <thead>
                                         <tr>
                                             <th>사용조건 : </th>

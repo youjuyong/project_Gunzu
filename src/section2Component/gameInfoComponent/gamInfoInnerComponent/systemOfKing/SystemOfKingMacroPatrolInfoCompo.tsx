@@ -8,7 +8,7 @@ import macro2_img         from "../../../../assets/image/macro2.png";
 const SystemOfKingMacroPatrolInfo = () => {
 
     useEffect(() => {
-        LazyDivHook(".lazy-background",".skeleton-image");
+        LazyDivHook(".lazy-background",".skeleton-image", ".skeleton-wrapper");
     },[]);
 
     return (

@@ -436,7 +436,9 @@ margin-top: 5px;
     left : 0;
     top: 0;
 }
-
+.image_first {
+    border-radius: 0px !important;
+}
 .eventSumitDiv {
     margin-bottom  : 30px;
     text-align: center;
@@ -472,4 +474,3 @@ margin-top: 5px;
 .btnsearch:hover {
     text-decoration: underline;
 }
-

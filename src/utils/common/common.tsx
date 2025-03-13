@@ -243,7 +243,7 @@ export const LazyImageHook = (  props : imageLazyHook ) => {
 
 
 // 지연 로딩 이미지 훅
-export const LazyDivHook = ( cls_name : string, remove_class ?: string | null ) => {
+export const LazyDivHook = ( cls_name : string, remove_class ?: string | null, remove_class2 ?: any ) => {
     const options = {
         root       : null,
         rootMargin : '0px',
@@ -259,10 +259,22 @@ export const LazyDivHook = ( cls_name : string, remove_class ?: string | null ) 
 
             if ( remove_class != null ) {
 
-                const removeDiv = document.querySelectorAll(remove_class);
+                const removeDiv  = document.querySelectorAll(remove_class);
+                
 
                 if ( removeDiv.length > 0) {
                     removeDiv[0].classList.remove(removeDiv[0].classList[0]);
+                }
+
+               
+            }
+
+            if ( remove_class2 !== null ) {
+
+                const removeDiv2  = document.querySelectorAll(remove_class2);
+
+                if ( removeDiv2.length > 0 ) {
+                    removeDiv2[0].classList.remove(removeDiv2[0].classList[0]);
                 }
             }
         

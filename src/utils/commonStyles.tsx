@@ -48,3 +48,17 @@ export const BackImageDiv = styled.div<backImageDivType>`
 
 export default Section2Background;
 
+interface FotterButtonType {
+    width : string
+}
+export const FotterButton = styled.button<FotterButtonType>`
+    width : ${(props) => props?.width };
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height : 30px;
+    
+    &:hover {
+        background : #fff;
+    }
+`;
