@@ -506,7 +506,7 @@ const HongGilDongRecommandCompo = () => {
                                         <th>3</th>
                                         <th>도끼</th>
                                         <th>공격력간격감소율</th>
-                                        <th>공격력 간격 감수</th>
+                                        <th>공격력 간격 감소</th>
                                         <td>10%</td>
                                         <td>20%</td>
                                         <td>30%</td>

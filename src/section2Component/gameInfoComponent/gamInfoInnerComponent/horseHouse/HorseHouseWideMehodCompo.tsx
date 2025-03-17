@@ -1,5 +1,5 @@
 import { LazyImageHook    } from "../../../../../src/utils/common/common";
-import Section2BackgroundDiv, { Section2Titleh3 }    from "../../../../utils/commonStyles";
+import { Section2Titleh3  } from "../../../../utils/commonStyles";
 
 /* 마구간 유의 사항 */
 const HorseHouseWideMehodCompo = () => {

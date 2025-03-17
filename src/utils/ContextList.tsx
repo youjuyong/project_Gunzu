@@ -684,27 +684,70 @@ export const horseBurf =  [
     },
     {
         horseId : "HOS19",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리공격력 4500증가</p>
+                    <p>근력/순발력/생명력 + 50</p>
+                    <p>무기술 30증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS20",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>마법공격력 1000증가</p>
+                    <p>마법공격력 30%증가</p>
+                    <p>모든기술 15증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS21",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>방어력 3000증가</p>
+                    <p>피해저항 7%증가</p>
+                    <p>순발력 50, 생명력 100증가</p>
+                    <p>치명타 피해저항 7%</p>
+                </>
+          )}
     },
     {
         horseId : "HOS22",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>물리 공격력 5000증가</p>
+                    <p>무기술 30증가</p>
+                    <p>순발력, 생명력 100증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS23",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>마법 공격력 30% 증가</p>
+                    <p>모든 기술 20증가</p>
+                    <p>순발력, 도력 120증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS24",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>방어력 4000 증가</p>
+                    <p>피해저항 7% 중거</p>
+                    <p>순발력 100 , 순발력 150증가</p>
+                </>
+          )}
     },
     {
         horseId : "HOS25",

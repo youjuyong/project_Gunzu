@@ -62,3 +62,56 @@ export const FotterButton = styled.button<FotterButtonType>`
         background : #fff;
     }
 `;
+
+
+interface Section2TableDivType {
+    width : string
+}
+export const Section2TableDiv = styled.div<Section2TableDivType>`
+  width : ${(props) => props?.width }  !important;
+  margin : 0 auto;
+`;
+
+interface Section2TheadType {
+    color : string
+}
+export const Section2Thead = styled.thead<Section2TheadType>`
+   background : var(${(props) => props.color});
+   position : relative !important;
+`;
+
+interface Section2TheadThType {
+    widthpertectage : string
+}
+export const Section2TheadTh = styled.th<Section2TheadThType>`
+   width : ${(props) => props?.widthpertectage }  !important;
+`;
+
+interface Section2TBodyType {
+    color : string,
+    height : string
+}
+export const Section2Tbody = styled.tbody<Section2TBodyType>`
+   background : var(${(props) => props.color});
+   height : ${(props) => props?.height };
+   position : relative !important;
+   top : 0 !important;
+`;
+
+interface Section2TbodyThType {
+    widthpertectage : string
+}
+export const Section2TbodyTh = styled.th<Section2TbodyThType>`
+   width : ${(props) => props?.widthpertectage } !important;
+`;
+
+interface spanTagStyle1Type {
+    color : string,
+    weight : number
+}
+export const SpanTagStyle1 = styled.span<spanTagStyle1Type>`
+   color : var(${(props) => props?.color });
+   text-decoration : underline;
+   text-align:center;
+   font-weight : ${(props) => props?.weight };
+`;

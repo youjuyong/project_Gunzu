@@ -45,9 +45,7 @@ const EventBoardTextCompo = ( props : any ) => {
     }
 
       const saveHandler = ( e : any ) => {
-            
-  
-            if ( reviewList.filter((v:any) => v.USER_ID === props.userId).length > 0 ) {
+            if ( reviewList.filter((v:any) => v.USER_ID === user_id).length > 0 ) {
                 alert("이미 등록된 댓글이 있습니다.");
                 return;
             }
@@ -101,7 +99,7 @@ const EventBoardTextCompo = ( props : any ) => {
                                                         <div className="reviewDateDiv">
                                                             <span className="reViewSpan snans dateSpan">{v.REG_DT}</span>
                                                             {
-                                                                v.USER_ID === props.userId ?  <button className="reviewDelete"ref={buttonElement} onClick={deleteHandler}>삭제</button> : ""
+                                                                v.USER_ID === user_id ?  <button className="reviewDelete"ref={buttonElement} onClick={deleteHandler}>삭제</button> : ""
                                                             }
                                                         </div>
                                                     </div>
@@ -113,7 +111,7 @@ const EventBoardTextCompo = ( props : any ) => {
                     </ul>
                 </div>
                 <div className="contentInput">
-                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {props.userId=== null ? true: false } placeholder={props.userId=== null ? "로그인이 필요합니다." : "댓글을 작성해주세요." }></textarea>
+                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {user_id === null ? true: false } placeholder={user_id=== null ? "로그인이 필요합니다." : "댓글을 작성해주세요." }></textarea>
                                     <button ref={buttonElement} onClick={saveHandler}>저장</button>
                 </div>
              </div>
