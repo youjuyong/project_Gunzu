@@ -151,7 +151,7 @@
 
             span {
                 text-decoration : underline;
-                font-size       : 18px;
+                font-size       : 19px;
                 line-height     : 25px;
                 letter-spacing  : 0.2px;
             }
@@ -164,7 +164,7 @@
                 margin-bottom  : 50px;
                 font-weight    : 400;
                 line-height    : 25px;
-                letter-spacing : 0.1px;
+                letter-spacing : -0.9px;
             }
 
             button {
@@ -1567,3 +1567,141 @@
         }
     }
 }
+
+.content_warp {
+    position: relative;
+    background: var(--white);
+    padding : 28px 30px 40px 30px;
+    border : 1px solid #e5ebf2;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px 0 rgba(66, 78, 108, 0.05), 3px 3px 10px 0 rgba(0, 0, 0, 0.05);
+
+
+    .weapon_Serize {
+        display : flex;
+        width: 100%;
+        border-bottom: 1px solid var(--gray601);
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            position : relative;
+            bottom : -1px;
+            min-width: 88px;
+        }
+
+        li  button {
+            border-color: var(--blue400);
+            margin : 0 auto;
+            display: flex;
+            align-items: center;
+            padding : 0px 10px 12px;
+            font-weight: 600;
+            font-size: 18px;
+            background : white;
+        }
+
+        .on button {
+            border-bottom : 2px solid var(--blue400);
+            color :  var(--blue400);
+        }
+
+        .on button::before {
+            background : url(../../image/check2.png)50% 50% no-repeat;
+            background-size: 100% 100%;
+          
+        };
+
+        li  button::before {
+            content:'';
+            width:14px;
+            height:14px;
+            margin-right : 4px;
+        };
+    }
+
+    .content {
+        p {
+            font-size      : 19px;
+            line-height    : 23px;
+            margin-top     : 50px;
+            margin-bottom  : 50px;
+            font-weight    : 400;
+            line-height    : 25px;
+        }
+
+        ul {
+            li {
+                width         : 100%;
+                display       : flex;
+                margin-top    : 125px;
+                border        : 1px solid var(--gray601);
+                height        : 200px;
+                border-radius : 20px;
+                border-left   : 10px solid var(--main400)
+            }
+        }
+
+        .number_content {
+            position    : relative;
+            margin      : -68px 9px;
+            height      : 50px;
+            text-align  : left;
+            font-size   : 30px;
+            font-weight : 700;
+            border-left : 8px solid #ddd;
+            padding     : 5px 10px;
+            width       : 130px;
+        }
+
+        .recallImg {
+            width : 200px;
+
+            img {
+                display     : block;
+                position    : relative;
+                margin-top  : 25px;
+                margin-left : -105px;
+            }
+        }
+
+        .recall_content_text {
+            width : 80%;
+            height : 100%;
+        }
+
+        .recall_content_text::before {
+            width : 1px;
+            background : var(--gray601);
+            height : 50px;
+            position: absolute;
+            content:'';
+            top : 208px;
+            left : 313px;
+            height : 160px;
+        }
+      
+        .recall_content_exp {
+            width : 20%;
+            height : 100%;
+
+            p {
+                margin-top: 85px !important;
+            }
+        }
+
+        .recall_content_exp::before {
+            width : 1px;
+            background : var(--gray601);
+            height : 50px;
+            position: absolute;
+            content:'';
+            top : 208px;
+            right : 270px;
+            height : 160px;
+        }
+    }
+}
+

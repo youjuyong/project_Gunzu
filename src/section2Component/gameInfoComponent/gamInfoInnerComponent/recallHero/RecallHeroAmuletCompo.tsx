@@ -16,7 +16,7 @@ const RecallHeroWordInfoCompo = () => {
                 <LazyImageHook src={require("../../../../assets/image/sunbudang.png")} alt={'소환영웅1'} className={''} height={287}/> 
                 <p className="pretend">"부적 부착 방법은 소환영웅 소환상태에서 선무당 NPC, 장착 에서 강화 할 수 있습니다." <br></br></p><br></br> <br></br> 
                 <Section2Titleh3 className='pretend' url={'st2'}>무방풀은 필수?</Section2Titleh3><br></br> <br></br> 
-                <p className="pretend">"무방풀은  <SpanTagStyle1 color={'--main600'} weight={700}>'필수가 아니라 권장입니다.'</SpanTagStyle1>"<br></br>
+                <p className="pretend">"무방풀은  <SpanTagStyle1 color={'--main600'} weight={700}>'필수가 아니라 권장사항 입니다.'</SpanTagStyle1>"<br></br>
                 "무방풀에 따른 능력치 증가는 근소하기 때문에 무조건 무방풀을 고집할 필요는 없습니다."
                 </p><br></br> 
                 <LazyImageHook src={require("../../../../assets/image/recall_pricee.png")} alt={'소환영웅1'} className={''} height={107}/>  <br></br> 

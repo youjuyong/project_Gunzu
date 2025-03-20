@@ -16,7 +16,7 @@
 
     --footer-Color   : #a1a1a1;
     --footerBg-Color : #3f4144;
-    
+    --blue400: #0182ff;
     --main100: #ECF2FF;
     --main200: #D5E3FF;
     --main300: #B3CDFF;
@@ -31,8 +31,9 @@
     --gray200: #ebeef1;
     --gray250: #DBE0E4;
     --gray300: #C3CBD1;
-    --gray400: #9AA4AF;
+    --gray400: #222324;
     --gray500: #758592;
+    --gray601: #757B8A33;
     --gray600: #57646F;
     --gray700: #44515C;
     --gray800: #34414D;
