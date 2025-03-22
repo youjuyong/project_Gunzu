@@ -217,7 +217,8 @@
 
 /*탈것 평점*/
 .popup_horseReview {
-    width: 1200px;
+    width: 100%;
+    height : 100%;
 
     .horse-modal-content {
         position: relative;
@@ -228,8 +229,8 @@
         outline: 0;
         -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-          overflow: hidden;
-          height: 700px;
+        overflow: hidden;
+        height: 100%;
     }
     .horse_popcontent {
         width      : 100%; 
@@ -249,10 +250,11 @@
           font-weight : normal;
         }
 
+
         .popchild {
               display : inline-block;
-                width : 380px;
-               height : 580px;
+                width : 446px;
+               height : 650px;
                border : 1px solid #ddd;
           margin-left : 6px;
           border-radius : 10px;
@@ -264,7 +266,8 @@
             img {
                 display     : block;
                 margin-top  : 50%;
-                margin-left : 75px;
+                margin-left : 184px;
+
             }
         }
 
@@ -274,7 +277,8 @@
             table {
                 border-collapse : collapse;
                 border          : 0;
-
+                font-size       : 13px;
+                
                 th,td {
                     border            : 1px solid #ddd;
                     border-top-color  : #eeeeee;
@@ -285,10 +289,15 @@
                     width : 120px;
                 }
 
-                .horseBurf    { height: 68px; };
-                .horsePassive { height: 107px; };
-                .horseSkill   { height: 133px; };
+                .horseBurf    { height: 100px; };
+                .horsePassive { height: 130px; };
+                .horseSkill   { height: 147px; };
 
+                .magic {
+                    color : var(--purple400);
+                    font-weight: 700;
+                    
+                }
                 td {
                     height : 30px;
                     text-align: center;
@@ -320,7 +329,7 @@
             }
 
             .contentMain {
-                height : 380px;
+                height : 438px;
 
                 ul {
                     height : 100%;
@@ -449,7 +458,8 @@
                     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
                     background : #4f5158;
                     border-radius : 5px;
-                    margin-left : 310px
+                    margin-left : 370px;
+                    margin-top : 10px
                 }
 
                 button:hover {

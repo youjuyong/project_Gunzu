@@ -109,6 +109,7 @@
 
     span {
         display: block;
+        letter-spacing: 0.5px;
     }
 
     .masker {

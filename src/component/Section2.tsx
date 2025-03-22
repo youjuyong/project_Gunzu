@@ -19,10 +19,10 @@ import HorsListCompo               from "../section2Component/gameInfoComponent/
 
 /* 게임정보(소환영웅)  */
 import RecallHeroWordInfoCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroWordInfoCompo";     // 소환영웅이란?
-import RecallHeroRecomandCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroRecomandCompo";     // 소환영웅이란?
-import RecallHeroAmuletCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroAmuletCompo";       // 소환영웅이란?
-import RecallHeroExpireCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroExpireCompo";       // 소환영웅이란?
-import RecallHeroListCompo         from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroListCompo";         // 소환영웅이란?
+import RecallHeroRecomandCompo     from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroRecomandCompo";     // 소환영웅추천
+import RecallHeroAmuletCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroAmuletCompo";       // 소환영웅부적
+import RecallHeroExpireCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroExpireCompo";       // 소환영웅만료일
+import RecallHeroListCompo         from "../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/RecallHeroListCompo";         // 소환영웅리스트
 
 /* 왕실 시스템 */
 import { SystemOfKingWordInfoCompo        }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/systemOfKing/SystemOfKingWordInfoCompo";          // 왕실이란?

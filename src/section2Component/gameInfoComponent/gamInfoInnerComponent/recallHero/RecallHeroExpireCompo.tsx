@@ -13,7 +13,7 @@ const RecallHeroWordInfoCompo = () => {
                   <LazyImageHook src={require("../../../../assets/image/sunmudang.png")} alt={'소환영웅'} className={''} height={363}/> 
                   <p className="pretend"> "하지만 만료일이 오래된 경우에는 소환 영웅의 값과 부적값을 잘 고려하셔야 됩니다."</p><br/>
                   <LazyImageHook src={require("../../../../assets/image/gigan.png")} alt={'소환영웅'} className={''} height={100}/> 
-                  <p className="pretend"> <SpanTagStyle1 color={'--orange600'} weight={700}>"기간 연장 부적이 비싸기 때문에 '연장값'이 영웅 값을 넘을 수 있기 때문입니다."</SpanTagStyle1><br/>
+                  <p className="pretend"> <SpanTagStyle1 color={'--orange600'} weight={700}>"기간 연장 부적이 비싸기 때문에 '연장기간'이 영웅 값을 넘을 수 있기 때문입니다."</SpanTagStyle1><br/>
                   "따라서 영웅을 연장해서 다시 사용할지 새로운 영웅으로 교체할지를 잘 판단하시길 바랍니다."</p>
             </div>
         </>
