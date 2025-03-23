@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { REC20_INFO, REC21_INFO, REC25_INFO, REC26_INFO, REC29_INFO, REC30_INFO, REC33_INFO, REC34_INFO, REC35_INFO, REC38_INFO, REC39_INFO } from "./heroContextList";
 /* 소환영웅 추천 */
 const RecallHeroWordInfoCompo = () => {
 
@@ -30,44 +30,120 @@ const RecallHeroWordInfoCompo = () => {
                             <li className={ viewPage === 'gun' ? 'on' : ''}>
                                 <button type="button" className='pretend' name='gun' onClick={ButtonClickHandler}>총</button>
                             </li>
+                            <li className={ viewPage === 'magic' ? 'on' : ''}>
+                                <button type="button" className='pretend' name='magic' onClick={ButtonClickHandler}>검(마법)/지팡이</button>
+                            </li>
                         </ul>
                     </div>
                     {
                         viewPage === 'sword' ? 
                             <div className="content">
                                 <ul>
-                                    <li>
-                                        <div className="number_content pretend">대길이</div>
-                                        <div className='recallImg'>
-                                            <img src={require("../../../../assets/image/horseFolder/HOS10.gif")}></img>
-                                        </div>
-                                        <div className='recall_content_text'>
-                                            <p className="pretend">추가 경험치 : 0%</p>
-                                        </div>
-                                        <div className='recall_content_exp'>
-                                            <p className="pretend">추가 경험치 : 0%</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className="number_content pretend">미실이</div>
-                                    </li>
+                                    {/* 언년이 */}
+                                    <REC20_INFO></REC20_INFO> 
+                                    {/* 대길이 */}
+                                    <REC21_INFO></REC21_INFO>
+                                    {/* 미실이 */}
+                                    <REC25_INFO></REC25_INFO>
+                                    {/* 명량이순신 */}
+                                    <REC26_INFO></REC26_INFO>
+                                    {/* 시리 */}
+                                    <REC30_INFO></REC30_INFO>
+                                    {/* 유복이 */}
+                                    <REC33_INFO></REC33_INFO>
+                                     {/* 사방청룡 */}
+                                    <REC38_INFO></REC38_INFO>
                                 </ul>
                             </div>
                         : viewPage === 'spear' ?
                          <div className="content">
                                 <ul>
-                                    <li>
-                                        <div className="number_content">미실이</div>
-                                    </li>
-                                    <li>
-                                        <div className="number_content">미실이</div>
-                                    </li>
+                                    {/* 언년이 */}
+                                    <REC20_INFO></REC20_INFO> 
+                                    {/* 대길이 */}
+                                    <REC21_INFO></REC21_INFO>
+                                    {/* 미실이 */}
+                                    <REC25_INFO></REC25_INFO>
+                                    {/* 명량이순신 */}
+                                    <REC26_INFO></REC26_INFO>
+                                    {/* 시리 */}
+                                    <REC30_INFO></REC30_INFO>
+                                    {/* 유복이 */}
+                                    <REC33_INFO></REC33_INFO>
+                                     {/* 사방청룡 */}
+                                    <REC38_INFO></REC38_INFO>
                                 </ul>
                         </div>
-                        : viewPage === 'spear' ?
-                        '' 
-                        : 
-                        ''
+                        : viewPage === 'ex' ?
+                        <div className="content">
+                                <ul>
+                                    {/* 언년이 */}
+                                    <REC20_INFO></REC20_INFO> 
+                                    {/* 대길이 */}
+                                    <REC21_INFO></REC21_INFO>
+                                    {/* 미실이 */}
+                                    <REC25_INFO></REC25_INFO>
+                                    {/* 명량이순신 */}
+                                    <REC26_INFO></REC26_INFO>
+                                    {/* 시리 */}
+                                    <REC30_INFO></REC30_INFO>
+                                    {/* 유복이 */}
+                                    <REC33_INFO></REC33_INFO>
+                                    {/* 충의호권호수 */}
+                                    <REC35_INFO></REC35_INFO>
+                                     {/* 사방청룡 */}
+                                    <REC38_INFO></REC38_INFO>
+                                </ul>
+                        </div>
+                         : viewPage === 'bow' ? 
+                         <div className="content">
+                            <ul>
+                                {/* 언년이 */}
+                                <REC20_INFO></REC20_INFO> 
+                                {/* 대길이 */}
+                                <REC21_INFO></REC21_INFO>
+                                {/* 미실이 */}
+                                <REC25_INFO></REC25_INFO>
+                                {/* 명량이순신 */}
+                                <REC26_INFO></REC26_INFO>
+                                {/* 시리 */}
+                                <REC30_INFO></REC30_INFO>
+                                {/* 유복이 */}
+                                <REC33_INFO></REC33_INFO>
+                                {/* 사방청룡 */}
+                                <REC38_INFO></REC38_INFO>
+                            </ul>
+                         </div>
+                     : viewPage === 'gun' ? 
+                     <div className="content">
+                        <ul>
+                            {/* 언년이 */}
+                            <REC20_INFO></REC20_INFO> 
+                            {/* 대길이 */}
+                            <REC21_INFO></REC21_INFO>
+                            {/* 미실이 */}
+                            <REC25_INFO></REC25_INFO>
+                            {/* 명량이순신 */}
+                            <REC26_INFO></REC26_INFO>
+                            {/* 시리 */}
+                            <REC30_INFO></REC30_INFO>
+                            {/* 유복이 */}
+                            <REC33_INFO></REC33_INFO>
+                            {/* 사방청룡 */}
+                            <REC38_INFO></REC38_INFO>
+                        </ul>
+                     </div>
+                     :
+                     <div className="content">
+                     <ul>
+                         {/* 오례 */}
+                         <REC29_INFO></REC29_INFO> 
+                         {/* 설옥 */}
+                         <REC34_INFO></REC34_INFO> 
+                         {/* 금선 */}
+                         <REC39_INFO></REC39_INFO> 
+                     </ul>
+                  </div>
                     }
                 </div>
         </>

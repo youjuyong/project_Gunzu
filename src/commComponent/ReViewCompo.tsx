@@ -72,6 +72,8 @@ const ReViewCp = ( props : reviewType ) => {
             switch( props.objectType ) {
                 case 'horse' : url = "/horse/review";
                                break;
+                case 'hero'  : url = "/hero/review";
+                               break;
             }
             const param = {
                 score    : clickedStarNum,
@@ -97,6 +99,8 @@ const ReViewCp = ( props : reviewType ) => {
             switch( props.objectType ) {
                 case 'horse' : url = "/horse/review-remove";
                                break;
+                case 'hero'  : url = "/hero/review-remove";
+                               break;
             }
             const param = {
                 objectId : props.objectId,
@@ -117,6 +121,8 @@ const ReViewCp = ( props : reviewType ) => {
         let url = '';
         switch( props.objectType ) {
             case 'horse' : url = "/horse/review-list";
+                           break;
+            case 'hero'  : url = "/hero/review-list";
                            break;
         }
 

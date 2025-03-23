@@ -2,7 +2,7 @@ import React,{ useState            } from "react";
 import { useQuerySingle            } from "../../../../utils/common/common";
 import { API_IP_INFO               } from "../../../../utils/apiUrl";
 import { HeroListTableCompo        } from "../../../../component/table/HeroListTableCompo";
-import UseEnterBtnClick              from "utils/common/useEnterBtnClick";
+import UseEnterBtnClick              from "../../../../utils/common/useEnterBtnClick";
 
 interface HouseHeaderType {
     heroType              : string,  // 영웅 타입

@@ -851,47 +851,136 @@ export const heroSkill =  [
     },
     {
         heroId : "REC30",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">푸른 늑대의 포효( SHIFT + 타겟 우클릭)</p>
+                        <p>▷영웅/ 소유자 체력 회복 및 상태이상 제거 </p>
+                        <p>ㄴ체력 회복 기본 100 + 도력 / 10</p>
+                        <p>재사용 시간 : 10초 / 마법력 200소모 </p>
+                   </>
+        )}
     },
     {
         heroId : "REC31",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">봉인마창( SHIFT + 타겟 우클릭)</p>
+                        <p>▷지정 타겟에게 창 투척 </p>
+                        <p>ㄴ피격 범위(2) 상태이상-침묵 부여  (최대 3명)</p>
+                        <p>재사용 시간 : 10초 / 마법력 200소모 </p>
+                   </>
+        )}
     },
     {
         heroId : "REC32",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">장비록( SHIFT + 타겟 우클릭)</p>
+                        <p>▷지정 대상에게 화염구 5발 </p>
+                   </>
+        )}
     },
     {
         heroId : "REC33",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">섬광열탄( SHIFT + 타겟 우클릭)</p>
+                        <p>▷지정 타겟 열탄을 발사 ( 사거리 10) </p>
+                        <p>ㄴ 피격 범위 (2) 상태 이상-시야 축소부여(최대4번)</p>
+                        <p>ㄴ 시야축소 지속 5초 / 30% 확률로 발동</p>
+                        <p>재사용시간 : 30 초/ 마법력 300소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC34",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">권선문( SHIFT + 타겟 우클릭) 쿨타임 300초</p>
+                        <p>▷설옥 마법력 완전히 회복 </p>
+                        <p>▷패시브1 마나소모 X (10초) / 추가공격력 2배적용 </p>
+                        <p>▷패시브2 효과 2% 추가적용(10초) </p>
+                   </>
+        )}
     },
     {
         heroId : "REC35",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">대지의 상처( SHIFT + 타겟 우클릭) 쿨타임 300초</p>
+                        <p>▷영웅중심 반경 3타일 범위 내 </p>
+                        <p>모든 적 (PvP포함) 4초 이동속도 90% 감소 </p>
+                        <p>재사용시간 : 30 초/ 마법력 300소모 </p>
+                   </>
+        )}
     },
     {
         heroId : "REC36",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">모두 조아려라</p>
+                        <p>▷자동 마법 사용 설정 대상의 체력 회복 </p>
+                        <p> ㄴ 회복량 300 + 영웅 도력 / 2 </p>
+                        <p>사용 방법  : 자동 마법 사용 우선순위 설정</p>
+                   </>
+        )}
     },
     {
         heroId : "REC37",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">모두 조아려라 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 60% 확률 5초기절 ( 최대 5개체 )</p>
+                        <p>재사용시간 : 60 초 / 마법력 400 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC38",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">모두 조아려라 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 60% 확률 5초기절 ( 최대 5개체 )</p>
+                        <p>재사용시간 : 60 초 / 마법력 400 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC39",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">적의 기운 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC40",
-        Skill    : null
+        Skill   : function() {
+            return (
+                   <>
+                        <p className="magic">청의 기운 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC41",
@@ -910,13 +999,319 @@ export const heroSkill =  [
         Skill   : function() {
             return (
                    <>
-                       <p>지휘버프( 관직/행수 전용 )</p>
-                        <p>치명피해 감소 +8%</p>
-                        <p>방어력(근순도 합계)*3+500증가</p>
-                        <p>*지휘권한 보유 캐릭터 한정 적용</p>
-                        <p>  ㄴ대행수/행수 : 마을 유저 한정 적용</p>
-                        <p>  ㄴ 군주/판서  : 모든 유저 적용</p>
+                    
                    </>
       )}
     }
 ]
+
+// 언년이
+export const REC20_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">언년이</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC20.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                    <p className="pretend">옛날부터 많이 써왔던 가성비 소환영웅<br></br>
+                    초보자들이 많이 사용하며 풀영강 이상을 추천드립니다.
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>풀강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 0%</p>
+                </div>
+           </li>
+        </>
+    )
+}
+
+// 대길이
+export const REC21_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">대길이</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC21.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                    <p className="pretend"> 물공(검) 유저들이 옛날부터 많이 사용해 왔던 가성비 소환영웅<br></br>
+                    초보자들이 많이 사용하며 풀영강 이상을 추천드립니다.<br></br>
+                    영웅 소환시 소유자 '검 공격력'을 영웅 무기공격력 50%만큼 올려주기 때문에 추천드립니다.
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>풀강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 0%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 미실이
+export const REC25_INFO = () => {
+    return (
+        <>
+           <li>
+                <div className="number_content pretend">미실이</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC25.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 신체령 프리미엄 적용시 (영웅레벨/8)% 만큼 소유자 공/방을 올려주는 가성비 소환영웅.<br></br>
+                    초보자 때 많이 사용하는 소환영웅 입니다. <br></br>풀영강을 추천드리지만 여력이없다면 레벨 300 이상추천해 드립니다. <br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>풀강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 0%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 명량이순신
+export const REC26_INFO = () => {
+    return (
+        <>
+           <li>
+                <div className="number_content pretend">명량이순신</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC26.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 미실이와 신체령 프리미엄시 공방 업 증가율이 비슷하지만.<br></br>
+                    소유자 물리 공격력을 (영웅 레벨/15)% 만큼 증가시켜 주는 미실이 상위 호환 영웅입니다. <br></br>300레벨 이상 추천 드리지만 여력이 없다면<br></br> 200레벨 이상 구매 후 나중에 교체 준비를 추천해 드립니다.<br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 0%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 오례
+export const REC29_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">백사무녀오례</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC29.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                   <p className="pretend"> 마공 무기의 최소 조건을 갖추는 소환영웅입니다.<br></br>
+                      마공 쪽으로 가기 위해서 최소한 오례 이상을 갖고 가시는걸 추천드립니다.<br></br>  소유자의 속성 공격력, 마공 증가, 크리티컬 확률 증가 등 뭐 하나 빠진 것이 없습니다.  <br></br>지팡이에게 가성비가 굉장히 좋은 소환영웅입니다.
+                   </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 10%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 시리
+export const REC30_INFO = () => {
+    return (
+        <>
+           <li>
+                <div className="number_content pretend">시리</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC30.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 본격적으로 추가 경험치(10%)가 붙은 소환영웅으로 중가성비 성능을 자랑합니다. <br></br>
+                자본 여유가 어느정도 되시면 추천해 드립니다. <br></br>최근에 소환영웅이 늘어나는 추세로 고영강은 추천드리지 않습니다.<br></br>300레벨 9영강 이상을 보통 많이 사용합니다.<br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 10%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 유복이
+export const REC33_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">유복이</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC33.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 유복이 또한 추가 경험치(12%)가 붙은 소환영웅으로 요즘 많이 찾는 영웅중 하나입니다.<br></br>
+                    가격이 비싸고 매물이 없는게 단점이지만 쭉 사용이 가능하기 때문에 <br></br>자본 여유가 되신다면 강력히 추천해 드립니다. 340레벨이상 9영강 이상 추천해 드립니다.<br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 12%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 설옥
+export const REC34_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">선문서가설옥</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC34.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                   <p className="pretend"> 검(마법) 무기에게 추천해 드립니다.  검(마법)에게 오례보다 설옥이를 추천하는 이유<br></br>
+                      오례에게 있는 크리확률버프 활용도가 적어서 입니다. 지팡이 같은 경우 3타이기 때문에 크리확률<br></br>  버프 의존도가 높지만 검의 마법은 일격이기 때문에 그다지 활용도가 높지 않아서입니다.<br></br>
+                    추경도 (12%) 있고 소유자 마공도 올려 주기 때문에 검(마법) 무기에게 경력히 추천 드립니다. 
+                   </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9강이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 12%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 충의호권오수
+export const REC35_INFO = () => {
+    return (
+        <>
+            <li>
+                <div className="number_content pretend">충의호권오수</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC35.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                   <p className="pretend"> 주로 공성전에서 활약을 하는 도끼무기에게 좋은 소환영웅입니다.<br></br>
+                    공성전 자체가 자본이 어느정도 필요하기 때문에 고영강을 추천드립니다.<br></br>소유자 방어력을 (영웅레벨/9)% 만큼 증가<br></br>
+                   </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>풀강</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 12%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+
+// 사방처룡
+export const REC38_INFO = () => {
+    return (
+        <>
+             <li>
+                <div className="number_content pretend">사방청룡</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC38.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 초 고자본용 소환영웅으로 추경(12%) (영웅레벨/12)% 공방업등 좋은 성능을 보여줍니다.<br></br>
+                  성능만큼 가격이 무척 비싸고 매물이 없기 때문에<br></br>자본 여유가 되신다면 추천해 드립니다. 340레벨이상 9영강 이상 추천해 드립니다.<br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 12%</p>
+                </div>
+            </li>
+        </>
+    )
+}
+
+// 금선
+export const REC39_INFO = () => {
+    return (
+        <>
+             <li>
+                <div className="number_content pretend">사방주작금선</div>
+                <div className='recallImg'>
+                    <img alt='' src={require("../../../../assets/image/recallHero/REC39.PNG")}></img>
+                </div>
+                <div className='recall_content_text'>
+                <p className="pretend"> 초 고자본용 마공 소환 영웅으로 추경(12%) (영웅 레벨/12)% 공방업등 좋은 성능을 보여줍니다.<br></br>
+                  성능만큼 가격이 무척 비싸고 매물이 없기 때문에 자본 여유가 되신다면 추천해 드립니다.<br></br>오례의 상위호환으로 340레벨이상 9영강 이상 추천해 드립니다.<br></br>
+                    </p>
+                </div>
+                <div className='recall_content_yong'>
+                        <dl>
+                            <dd>영력강화 : </dd>
+                            <dt>9이상</dt>
+                        </dl>
+                </div>
+                <div className='recall_content_exp'>
+                    <p className="pretend">추가 경험치 : 12%</p>
+                </div>
+            </li>
+        </>
+    )
+}

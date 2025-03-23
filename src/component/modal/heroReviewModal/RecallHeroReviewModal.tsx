@@ -129,7 +129,7 @@ const heroReviewMd = ( props : heroReviewType ) => {
                                     </tbody>
                                 </table>
                             </div>
-                            <ReViewCompo userId={userId} objectId={props.heroData.HORSE_ID} objectType={'horse'}></ReViewCompo>
+                            <ReViewCompo userId={userId} objectId={props.heroData.HERO_ID} objectType={'hero'}></ReViewCompo>
                             <div className="horseRevie_buttonset">
                                 <button data-dismiss="modal" onClick={() => {
                                     props.setModalIsOpen({openBoolean : false, heroData : {}})

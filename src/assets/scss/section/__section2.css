@@ -1653,23 +1653,31 @@
             font-weight : 700;
             border-left : 8px solid #ddd;
             padding     : 5px 10px;
-            width       : 130px;
+            width       : 225px;
         }
 
         .recallImg {
-            width : 200px;
+            width : 195px;
 
             img {
                 display     : block;
                 position    : relative;
-                margin-top  : 25px;
-                margin-left : -105px;
+                margin-top  : 26px;
+                margin-left : -77px;
+                width       : 134px;
+                height      : 134px;
             }
         }
 
         .recall_content_text {
-            width : 80%;
+            width : 60%;
             height : 100%;
+            p {
+                margin-top: 55px !important;
+                width : 662px;
+            }
+            display: grid;
+            align-items: center;
         }
 
         .recall_content_text::before {
@@ -1678,17 +1686,60 @@
             height : 50px;
             position: absolute;
             content:'';
-            top : 208px;
-            left : 313px;
             height : 160px;
         }
-      
-        .recall_content_exp {
+
+        .recall_content_yong {
+            display:inline-flex;
             width : 20%;
             height : 100%;
 
             p {
                 margin-top: 85px !important;
+            }
+
+            dl {
+                display: flex;
+                align-items: center;
+                margin : 5px 0;
+                font-size: 14px;
+                margin-left:30px;
+            }
+
+            dt {
+                flex : 0 0 auto;
+                margin-right: 6px;
+                color : var(--purple400);
+                font-size: 19px;
+                font-weight: 600;
+                margin-left : 10px;
+            }
+
+            dd {
+                flex : 0 0 auto;
+                color : #aaa;
+                font-size: 19px;
+            }
+        }
+
+        .recall_content_yong::before {
+            width : 1px;
+            background : var(--gray601);
+            height : 50px;
+            position: relative;
+            content:'';
+            height : 160px;
+            margin-top: 20px;
+        }
+      
+        .recall_content_exp {
+            width : 20%;
+            height : 100%;
+            display:inline-flex;
+
+            p {
+                margin-top: 85px !important;
+                margin-left : 55px;
             }
         }
 
@@ -1696,11 +1747,11 @@
             width : 1px;
             background : var(--gray601);
             height : 50px;
-            position: absolute;
+            position: relative;
             content:'';
-            top : 208px;
-            right : 270px;
             height : 160px;
+            margin-top: 20px;
+            
         }
     }
 }
