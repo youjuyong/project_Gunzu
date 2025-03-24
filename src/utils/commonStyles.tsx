@@ -115,3 +115,16 @@ export const SpanTagStyle1 = styled.span<spanTagStyle1Type>`
    text-align:center;
    font-weight : ${(props) => props?.weight };
 `;
+
+interface humanStaticsliTagStyleType {
+    width : string
+}
+export const HumanStaticsliTagStyle = styled.li<humanStaticsliTagStyleType>`
+    display: inline-block;
+    font-size: 13px;
+    color: #000;
+    line-height: 35px;
+    float: none;
+    width : ${(props) => props?.width };
+`;
+

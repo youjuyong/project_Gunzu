@@ -35,7 +35,6 @@ interface heroReviewType {
 
 const heroReviewMd = ( props : heroReviewType ) => {
     const imgUrl = heroInfo.filter((imgInfo : any) => imgInfo.heroId === props.heroData.HERO_ID).map((m : any) => m.imgUrl)[0];
-    console.log(props);
     const userId = sessionStorage.getItem("id");
     const passiveHtml1 = horsePassive1.filter( (v : any)  => props.heroData.HERO_ID === v.heroId)?.[0];
     const passiveHtml2 = horsePassive2.filter( (v : any)  => props.heroData.HERO_ID === v.heroId)?.[0];

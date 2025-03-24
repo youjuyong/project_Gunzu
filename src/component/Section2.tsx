@@ -35,6 +35,7 @@ import { CraftsManListInfoCompo           }  from "../section2Component/gameInfo
 
 /* 주민수 통계 */
 import { VillageStaticsInfoCompo          }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/VillageStaticsInfoCompo";           // 주민수 통계
+import { ServerStaticsInfoCompo           }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/villageStatics/ServerStaticsInfoCompo";           // 주민수 통계
 import { YangStaticsInfoCompo             }  from "../section2Component/gameInfoComponent/gamInfoInnerComponent/yangStatics/YangStaticsInfoCompo";                 // 양이전쟁 통계
 
 /* 홍길동 */
@@ -83,6 +84,7 @@ const Section2 = () => {
                                         </Route>
                                         <Route path="staticsInfo"       element={<GameInfoVillageStaticsCompo/>}>
                                                 <Route path="villageStaticsInfo"       element={<VillageStaticsInfoCompo/>}/>
+                                                <Route path="serverStaticsInfo"        element={<ServerStaticsInfoCompo/>}/>
                                         </Route>
                                         <Route path="staticsInfo"       element={<GameInfoYangStaticsCpCompo/>}>
                                                 <Route path="yangStaticsInfo"          element={<YangStaticsInfoCompo/>}/>

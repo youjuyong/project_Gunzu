@@ -180,6 +180,15 @@ export const villageStaticsheader = [
         imgUrl    : null,
         imgAlt    : "마을별 주민수 통계",
         className : null
+    },
+    {
+        mainUrl   : "/gameInfo/staticsInfo/serverStaticsInfo",
+        url       : "serverStaticsInfo",
+        mainMenu  : "주민수",
+        title     : "서버별 주민수 통계",
+        imgUrl    : null,
+        imgAlt    : "서버별 주민수 통계",
+        className : null
     }
 ]
 

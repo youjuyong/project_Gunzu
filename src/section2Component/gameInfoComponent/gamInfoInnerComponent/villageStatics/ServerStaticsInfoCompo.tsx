@@ -1,17 +1,17 @@
 import React, { useCallback, useState, useRef, useEffect }    from "react";
 import { CalendarMonthInit                } from "../../../../utils/common/datePicker";
-import { axiosCall, useQuerySingle        } from "../../../../utils/common/common";
+import { axiosCall                        } from "../../../../utils/common/common";
 import { API_IP_INFO                      } from "../../../../utils/apiUrl";
 import { Loading                          } from "../../../../commComponent/Loading";
 import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
-import { HumanStaticsliTagStyle           } from "../../../../utils/commonStyles";
+import { HumanStaticsliTagStyle           }    from "../../../../utils/commonStyles";
 
 const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length === 1 ? '0' + String(i+1) : String(i+1));
 const chartdateArr = Array.from({length : 31}, (v,i ) =>  String(i+1) + '일');
 
-const VillageStaticsInfoCp = ( ) => {
-    const villageList  = useQuerySingle("get-village-list", null, `${API_IP_INFO}/stat/village-list`, 60000 * 5, 60000 * 10, false, true, false);
-    const [   paramInfo, setParamInfo ] = useState({village_id : '', month : '' });
+const ServerStaticsInfoCp = ( ) => {
+  //  const villageList  = useQuerySingle("get-village-list", null, `${API_IP_INFO}/stat/village-list`, 60000 * 5, 60000 * 10, false, true, false);
+    const [   paramInfo, setParamInfo ] = useState({server_id : '', month : '' });
     const [ reulstList, setResultList ] = useState<any>({ dateList : [], loading : false, searchInfo : [] });
     const [     charList, setCharList ] = useState<any>({ current : [], pre : []});
     const chartRef  = useRef<HTMLDivElement>(null);
@@ -25,18 +25,19 @@ const VillageStaticsInfoCp = ( ) => {
      }, [paramInfo]);
 
      // 조회 버튼 클릭시
-     const clickVillageHuman = () => {
-        if ( paramInfo.village_id === '' ) {
-            alert('조회 하고자하는 마을명을 선택해주세요.');
+     const clickServerHuman = () => {
+        if ( paramInfo.server_id === '' ) {
+            alert('조회 하고자하는 서버명을 선택해주세요.');
             return;
         }
 
         const param = {
             strt_dt   : paramInfo.month,
-            villageId : paramInfo.village_id
+            serverId : paramInfo.server_id
         }
+
         setResultList({...reulstList, loading : true });
-        axiosCall("get", API_IP_INFO + "/stat/village-human-statics", param, (data) => {
+        axiosCall("get", API_IP_INFO + "/stat/server-human-statics", param, (data) => {
             if ( data["preCnt"] === undefined || data["preCnt"].length === 0 ) {
                 alert("데이터가 없습니다.");
                 return;
@@ -45,8 +46,8 @@ const VillageStaticsInfoCp = ( ) => {
         });
      };
 
-     // 마을명 select 선택시
-     const onChangeVillageName = ( e : any ) => {
+     // 서버명 select 선택시
+     const onChangeServerName = ( e : any ) => {
         const { name, value} = e.target;
         setParamInfo({...paramInfo, [name] : value});
      };
@@ -71,7 +72,7 @@ const VillageStaticsInfoCp = ( ) => {
                 <div className="staticContentDiv">
                         <div className="feildBox">
                                 <table>
-                                    <caption>마을별 주민수 동향 비교 (평균)</caption>
+                                    <caption>서버별 주민수 동향 비교 (평균)</caption>
                                     <tbody>
                                         <tr>
                                             <th>저번달</th>
@@ -89,39 +90,32 @@ const VillageStaticsInfoCp = ( ) => {
                         <div className="staticsBox ">
                             <div className="statics_searchbox snans">
                                 <div className="select_date">
-                                    <select className="select276" title="마을선택" name="village_id" onChange={onChangeVillageName}>
-                                         <option value='' key=''>마을명</option>
-                                        {
-                                            villageList.data && villageList.data.map((v :{ VILLAGE_NAME:string, VILLAGE_ID : string}) => {
-                                        
-                                                return (
-                                                    <option value={v.VILLAGE_ID} key={v.VILLAGE_ID || 'option'}>{v.VILLAGE_NAME}</option>
-                                                )
-                                            })
-                                        }
+                                    <select className="select276" title="마을선택" name="server_id" onChange={ onChangeServerName }>
+                                         <option value='' key=''>서버명</option>
+                                         <option value='SEVT1' key='server_option1'>세종</option>
                                     </select>
                                     <CalendarMonthInit  _callbackFunction = { timeCallback }/>
-                                    <button title="조회" className="btnsearch" onClick={clickVillageHuman}>조회</button>
+                                    <button title="조회" className="btnsearch" onClick= { clickServerHuman }>조회</button>
                                 </div>
                             </div>
                             <div className="staticsBox2">
-                                <p className="statics_title"><span>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]["DT"] + ' ' +  reulstList.searchInfo[0]["VILLAGE_NAME"] + '마을 평균 주민수는 ' + reulstList.searchInfo[0]["HUMAN_CNT"] + ' 입니다.': '' }</span></p>
+                                <p className="statics_title"><span>{reulstList.searchInfo.length !== 0 ? reulstList.searchInfo[0]["DT"] + ' ' +  reulstList.searchInfo[0]["SERVER_NAME"] + ' 평균 주민수는 ' + reulstList.searchInfo[0]["HUMAN_CNT"] + ' 입니다.': '' }</span></p>
                                 <div className="statics_table">
                                     <fieldset className="mark1">
                                         <ul className="markscon">
-                                            <HumanStaticsliTagStyle width='85px'> <span className="green"></span>10 ~    </HumanStaticsliTagStyle>
-                                            <HumanStaticsliTagStyle width='85px'><span className="yellow"></span>50 ~ 100</HumanStaticsliTagStyle>
-                                            <HumanStaticsliTagStyle width='85px'><span className="red"></span>1  ~ 50     </HumanStaticsliTagStyle>
-                                            <HumanStaticsliTagStyle width='85px'><span className="gray"></span>0           </HumanStaticsliTagStyle>
+                                        <HumanStaticsliTagStyle width='100px'> <span className="green"></span>1800 ~     </HumanStaticsliTagStyle>
+                                        <HumanStaticsliTagStyle width='100px'><span className="yellow"></span>1600 ~ 1800</HumanStaticsliTagStyle>
+                                        <HumanStaticsliTagStyle width='100px'><span className="red"></span>0  ~ 1600     </HumanStaticsliTagStyle>
+                                        <HumanStaticsliTagStyle width='100px'><span className="gray"></span>0            </HumanStaticsliTagStyle>
                                         </ul>
                                     </fieldset>
                                     { reulstList?.loading === true ? <Loading/> :  
                                         <>
                                             <table className="table2">
-                                                <caption>마을별 주민수 통계</caption>
+                                                <caption>서버별 주민수 통계</caption>
                                                 <thead>
                                                     <tr>
-                                                        <th>마을명</th>
+                                                        <th>서버명</th>
                                                         <th>구분</th>
                                                         {
                                                             dateArr.map((v : string, index : number) => {
@@ -142,9 +136,9 @@ const VillageStaticsInfoCp = ( ) => {
                                                             const cnt = v?.PRE_CNT ===undefined ? 0 : v?.PRE_CNT ;
                                                             let color = ''; 
 
-                                                            if      ( v?.PRE_CNT >= 100                     ) { color = 'green';  } 
-                                                            else if ( v?.PRE_CNT >= 50  && v?.PRE_CNT < 100 ) { color = 'yellow'; }
-                                                            else if ( v?.PRE_CNT > 0    && v?.PRE_CNT < 50  ) { color = 'pink';   }  
+                                                            if      ( v?.PRE_CNT >= 1800                        ) { color = 'green';  } 
+                                                            else if ( v?.PRE_CNT >= 1500  && v?.PRE_CNT < 1800  ) { color = 'yellow'; }
+                                                            else if ( v?.PRE_CNT > 0      && v?.PRE_CNT < 1500  ) { color = 'pink';   }  
                                                             else    { color = 'gray'; }
 
                                                             return  <th className={color} key={  v + 'sadsa' + index }>{cnt}</th>
@@ -159,9 +153,9 @@ const VillageStaticsInfoCp = ( ) => {
                                                                 const cnt = v?.CURRENT_CNT === undefined ? 0 : v?.CURRENT_CNT;
                                                                 let color = ''; 
 
-                                                                if      ( v?.CURRENT_CNT >= 100                         ) { color = 'green';  } 
-                                                                else if ( v?.CURRENT_CNT >= 50  && v?.CURRENT_CNT < 100 ) { color = 'yellow'; }
-                                                                else if ( v?.CURRENT_CNT > 0    && v?.CURRENT_CNT < 50  ) { color = 'pink';   }  
+                                                                if      ( v?.CURRENT_CNT >= 1800                           ) { color = 'green';  } 
+                                                                else if ( v?.CURRENT_CNT >= 1500  && v?.CURRENT_CNT < 1800 ) { color = 'yellow'; }
+                                                                else if ( v?.CURRENT_CNT > 0      && v?.CURRENT_CNT < 1500 ) { color = 'pink';   }  
                                                                 else    { color = 'gray'; }
 
                                                                  return <td className={color} key={ v + 'dfsaf' + index }>{cnt}</td>;
@@ -179,13 +173,13 @@ const VillageStaticsInfoCp = ( ) => {
                                 <div className="graph graph1" ref={chartRef}>
                                     {
                                         reulstList.loading === true  ?  <Loading/> : charList.pre.length === 0 ? '' :
-                                        <HighChartVertical xCategory={chartdateArr} title="마을별 주민수" series={[{name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef} options = {options}/> 
+                                        <HighChartVertical xCategory={chartdateArr} title="서버별 주민수" series={[{name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef} options = {options}/> 
                                     }
                                 </div>
                                 <div className="graph graph2" ref={chartRef2}>
                                     {
                                         reulstList.loading === true  ?  <Loading/> : charList.pre.length === 0 ? '' :
-                                        <HighChartPola xCategory={chartdateArr} title="마을별 주민수" series={[{type: 'line', name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { type: 'line', name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef2} options = {options}/> 
+                                        <HighChartPola xCategory={chartdateArr} title="서버별 주민수" series={[{type: 'line', name :  day, data : charList.current.filter((v:any)=> v !== '-').map((v:any) => Number(v)) }, { type: 'line', name :  preday, data : charList.pre.filter((v:any)=> v !== '-').map((v:any) => Number(v)) } ]} ref={chartRef2} options = {options}/> 
                                     }
                                 </div>
                             </div>
@@ -197,4 +191,4 @@ const VillageStaticsInfoCp = ( ) => {
 }
 
 
-export const  VillageStaticsInfoCompo = React.memo(VillageStaticsInfoCp);
+export const  ServerStaticsInfoCompo = React.memo(ServerStaticsInfoCp);

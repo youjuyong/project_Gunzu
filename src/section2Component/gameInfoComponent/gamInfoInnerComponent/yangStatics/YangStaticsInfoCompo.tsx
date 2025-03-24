@@ -4,6 +4,7 @@ import { axiosCall, useQuerySingle        } from "../../../../utils/common/commo
 import { API_IP_INFO                      } from "../../../../utils/apiUrl";
 import { Loading                          } from "../../../../commComponent/Loading";
 import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
+import { HumanStaticsliTagStyle           } from "../../../../utils/commonStyles";
 
 const SELECT_COMM_CODE = 'YANT';
 const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length === 1 ? '0' + String(i+1) : String(i+1));
@@ -134,10 +135,10 @@ const YangStaticsCp = () => {
                                             <div className="statics_table">
                                                 <fieldset className="mark1">
                                                     <ul className="markscon">
-                                                        <li><span className="green"></span>700 ~ </li>
-                                                        <li><span className="yellow"></span>100 ~ 700</li>
-                                                        <li><span className="red"></span>1  ~ 100</li>
-                                                        <li><span className="gray"></span>0</li>
+                                                        <HumanStaticsliTagStyle width='85px'> <span className="green"></span>700 ~     </HumanStaticsliTagStyle>
+                                                        <HumanStaticsliTagStyle width='85px'><span className="yellow"></span>100 ~ 700</HumanStaticsliTagStyle>
+                                                        <HumanStaticsliTagStyle width='85px'><span className="red"></span>1  ~ 100     </HumanStaticsliTagStyle>
+                                                        <HumanStaticsliTagStyle width='85px'><span className="gray"></span>0            </HumanStaticsliTagStyle>
                                                     </ul>
                                                 </fieldset>
                                                     <>
