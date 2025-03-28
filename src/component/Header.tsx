@@ -78,9 +78,9 @@ const Header = () => {
                                           <ul key= {'ul' + index }>
                                              {
                                                subMenu && subMenu.map(( subInfo : any, subIndex : number ) => {
-                                                   const { subTitle, subUrl, url, menuName, subClassCnt } = subInfo;
+                                                   const { subTitle, subUrl, url, menuName, subClassCnt, title } = subInfo;
                                                    return ( 
-                                                            <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className={ subClassCnt === 3?  'tab subheader snans headerThClass' : 'tab subheader snans'} >{ subTitle }</Link></li> 
+                                                            title && <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className={ subClassCnt === 3?  'tab subheader snans headerThClass' : 'tab subheader snans'} >{ title }</Link></li> 
                                                     )
                                                 })
                                              }

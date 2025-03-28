@@ -20,6 +20,7 @@ export const headerNavInfo = [
             subUrl       : "gameInfo/craftsManInfo/craftsManListInfo",
             url          : "craftsManListInfo",   
             menuName     : "장인목록",
+            title        : '장인목록',
             subClassCnt  : 4
         }]
     },
@@ -33,13 +34,15 @@ export const headerNavInfo = [
                 subTitle    : "주민수",
                 subUrl      : "gameInfo/staticsInfo/villageStaticsInfo",
                 url         : "villageStaticsInfo",   
-                menuName    : "주민수",
+                menuName    : "마을별 주민수 통계",
+                title       : '주민수',
                 subClassCnt : 3
             }, {
                 subTitle    : "양이전쟁",
                 subUrl      : "gameInfo/staticsInfo/yangStaticsInfo",
                 url         : "yangStaticsInfo",   
-                menuName    : "양이전쟁",
+                menuName    : "마을별 양이전쟁 통계",
+                title       : '양이전쟁',
                 subClassCnt : 4
             }
         ]
@@ -55,33 +58,46 @@ export const headerNavInfo = [
             subUrl      : "gameInfo/horseHouseInfo/horseHouseWordInfo",
             url         : "horseHouseWordInfo",   
             menuName    : "마구간이란?",
+            title       : '마구간',
             subClassCnt : 3
         }, {
             subTitle    : "소환영웅",
             subUrl      : "gameInfo/recallHeroInfo/recallHeroWordInfo",
             url         : "recallHeroWordInfo",
             menuName    : "소환영웅이란?",
+            title       : '소환영웅',
             subClassCnt : 4
         }, {
             subTitle    : "영웅강림",
             subUrl      : "heroChangeInfo",
             url         : "",
             menuName    : "영웅강림?",
+            title       : '영웅강림',
             subClassCnt : 4
         }, {
             subTitle    : "홍길동",
             subUrl      : "gameInfo/hongGilDongInfo/hongGilDongWordInfo",
             url         : "hongGilDongWordInfo",
             menuName    : "전투향상술이란?",
+            title       : '홍길동',
             subClassCnt : 3
         }]
     },
     {
-        title    : "이벤트",
+        title    : "마을",
         url      : "eventInfo",
         subUrl   : "eventInfo",
-        subTitle : "이벤트",
-        menuName : "이벤트공지"
+        subTitle : "마을",
+        menuName : "이벤트",
+        subMenu  : [{
+                subTitle : "마을",
+                    subUrl : "eventInfo",
+                        url : "eventInfo",
+                menuName : "이벤트",
+                    title : '이벤트',
+                subClassCnt : 3
+            }
+        ]
     },
     {
         title    : "게시판",
@@ -90,19 +106,22 @@ export const headerNavInfo = [
         subTitle : "게시판",
         menuName : "공지사항",
         subMenu  : [{
-            subTitle     : "공지사항",
+            subTitle     : "게시판",
             subUrl       : "mainBoardInfo",
             url          : "mainBoardInfo",   
             menuName     : "공지사항",
+            title        : '공지사항',
             subClassCnt  : 4
         }]
     },
     {
-        title   : "홈페이지소개",
-        url     : "introduce",
-        subUrl  : "introduce",
+        title    : "홈페이지소개",
+        url      : "introduce",
+        subUrl   : "introduce",
         subTitle : "홈페이지소개",
-        menuName : "소개"
+        menuName : "소개",
+        subMenu  : [{
+        }]
     }
 ];
 

@@ -11,7 +11,7 @@ interface mainBoardListType {
     textTitl                    : string, // 공지 제목
     wrtr                        : string, // 작성자
     regDt                       : string, // 등록날짜
-    impt_yn                     : string, // 공지 중요도
+    imptYn                      : string, // 공지 중요도
 }
 
 const viewPageDataCnt = 7;  // 한페이지에 보여줄 데이터 갯수
@@ -80,9 +80,9 @@ export const CreateTable = ( props : any ) => {
             {
                 props?.data && props.data.map((v : mainBoardListType, i : number) => {
                     return(
-                        <tr key={ i } className = {v.impt_yn === 'Y' ? 'impt' : ''}>
+                        <tr key={ i } className = {v.imptYn === 'Y' ? 'impt' : ''}>
                             <td>{v?.id}</td>
-                            <td>{v.impt_yn === 'Y'       ? <span className='alert'>중요</span> : ''}<Link to="mainBordTextInfo" state= {{text_id : v.id, url : 'mainBordTextInfo', text_title : v.textTitl, reg_dt : v?.regDt.substring(0,10),}}>{v?.textTitl}</Link></td>
+                            <td>{v.imptYn === 'Y'       ? <span className='alert'>중요</span> : ''}<Link to="mainBordTextInfo" state= {{text_id : v.id, url : 'mainBordTextInfo', text_title : v.textTitl, reg_dt : v?.regDt.substring(0,10),}}>{v?.textTitl}</Link></td>
                             <td>{v?.wrtr   === undefined ? '관리자' : v.wrtr}</td>
                             <td>{v?.regDt.substring(0,10)}</td>
                             <td>{v?.rtrvCnt}</td>
