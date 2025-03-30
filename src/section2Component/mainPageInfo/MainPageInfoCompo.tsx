@@ -201,7 +201,6 @@ const MainPageInfoCompo = () => {
                 </div>
                 <section id="section3">
                 <div className="section2Div2">
-                    <h2>..</h2>
                         <div className="cardContents">
                             <ul className="card_ul">
                                 <li>서비스 준비중입니다.</li>

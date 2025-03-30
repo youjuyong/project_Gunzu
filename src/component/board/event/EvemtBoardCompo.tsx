@@ -3,7 +3,7 @@ import EventBoardTextCompo       from "./EventBoardTextCompo";
 import EventListTableCompo       from "../../table/EventListTableCompo"
 import LocationCompo             from "../../../commComponent/LocationCompo";
 import { useLocation }           from "react-router-dom";
-import React, { useEffect,memo } from "react";
+import React                     from "react";
 
 const EvemtBoardCp = () => {
     const { state } = useLocation();

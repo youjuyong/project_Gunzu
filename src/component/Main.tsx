@@ -4,6 +4,7 @@ import { Route, Routes  } from "react-router-dom";
 import Section2             from "./Section2";
 import Login                from "./Login";
 import EvemtBoardCompo      from "../component/board/event/EvemtBoardCompo";
+import EquipmentLentCompo   from "../component/equipment/EquipmentLentCompo";
 import MainBoardCompo       from "../component/board/main/MainBoardCompo";
 import IntroduceCompo       from "../component/introduce/IntroduceCompo";
 import MainPageInfoCompo    from "../section2Component/mainPageInfo/MainPageInfoCompo";
@@ -27,6 +28,8 @@ const Main = ( props : any ) => {
                             {/* 이벤트 탭 */}
                             <Route path="eventInfo"                       element={<EvemtBoardCompo/>}/>
                             <Route path="eventInfo/eventTextInfo"         element={<EvemtBoardCompo/>}/>
+                            {/* 장비대여 탭 */}
+                            <Route path="equipmentLent"                   element={<EquipmentLentCompo/>}/>
                             {/* 공지사항 탭 */}
                             <Route path="mainBoardInfo"                   element={<MainBoardCompo/>}/>
                             <Route path="mainBoardInfo/mainBordTextInfo"  element={<MainBoardCompo/>}/>

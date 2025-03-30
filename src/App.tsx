@@ -3,17 +3,21 @@ import { Suspense, lazy } from "react";
 import { MainLoading    } from "./commComponent/Loading";
 
 /*component*/
-import Header   from "./component/Header";
-import Footer   from "./component/Footer";
-const Main = lazy(() => import("./component/Main"));
+const Header = lazy(() => import("./component/Header"));
+const Main   = lazy(() => import("./component/Main"));
+const Footer = lazy(() => import("./component/Footer"));
 
 function App() {
   return (
     <>
         <Suspense fallback={<MainLoading/>}>
           <Header/>
+          <Suspense fallback={<MainLoading/>}>
+          <Suspense fallback={<MainLoading/>}>
           <Main/>
+          </Suspense>
           <Footer/>
+          </Suspense>
        </Suspense>
     </>
   );
