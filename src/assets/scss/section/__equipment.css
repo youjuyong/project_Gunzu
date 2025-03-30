@@ -1,0 +1,31 @@
+.equipment {
+    padding-bottom: 56px;
+}
+
+.equipContentstitle {
+    text-align : center;
+         width : 900px;
+   padding-top : 0px;
+        border : 1px solid #ddd;
+      position : relative;
+ border-radius : 40px;
+        margin : auto;
+        margin-top: 50px;
+
+    h3 {
+          font-size : 35px;
+        line-height : 40px;
+            color : #000;
+        font-weight : bold;
+    }
+
+    .select_value {
+        position: absolute;
+        top    : 0;
+        bottom : 0;
+        right  : 208px;
+        left   : 0;
+    }
+    
+
+}

@@ -128,3 +128,43 @@ export const HumanStaticsliTagStyle = styled.li<humanStaticsliTagStyleType>`
     width : ${(props) => props?.width };
 `;
 
+interface selectTagSpanType {
+    width : string
+}
+export const SelectTagSpanTypeStyle = styled.span<selectTagSpanType>`
+        display : block;
+         height : 10px;
+          width : ${(props) => props?.width};
+`;
+
+interface selectTagType {
+          width : string,
+     marginLeft : string,
+     borderLeft : string
+}
+export const SelectTagTypeStyle = styled.select<selectTagType>`
+         height : 100%;
+         border : none;
+         border-right : 1px solid #ddd;
+         border-left  : ${(props) => props.borderLeft}; solid #ddd;
+         font-size : 14px;
+         padding-left : 10px;
+         display : block;
+         float : left;
+         width : ${(props) => props.width};
+         padding-left : 10px;
+         margin-left : ${(props) => props.marginLeft};
+`;
+
+interface inputTagType {
+    width : string,
+}
+export const InputTagTypeStyle = styled.input<inputTagType>`
+    position  : absolute;
+    right     : -78px;
+    bottom    : 0;
+       top    : 0;
+    height    : 100%;
+     width    : ${(props) => props.width};
+    border    : 1px solid #ddd;
+`;

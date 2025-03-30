@@ -91,12 +91,19 @@ export const headerNavInfo = [
         menuName : "이벤트",
         subMenu  : [{
                 subTitle : "마을",
-                    subUrl : "eventInfo",
-                        url : "eventInfo",
+                  subUrl : "eventInfo",
+                     url : "eventInfo",
                 menuName : "이벤트",
-                    title : '이벤트',
-                subClassCnt : 3
-            }
+                   title : '이벤트',
+             subClassCnt : 3
+        },{
+                subTitle : "마을",
+                  subUrl : "equipmentLent",
+                     url : "equipmentLent",
+                menuName : "장비대여",
+                   title : '장비대여',
+             subClassCnt : 4
+        }
         ]
     },
     {

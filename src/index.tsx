@@ -9,6 +9,7 @@ import "./assets/scss/setting/__mixin.css";
 import "./assets/scss/setting/__reset.css";
 
 import "./assets/scss/section/__modalCss.css";
+import "./assets/scss/section/__equipment.css";
 import "./assets/scss/section/__event.css";
 import "./assets/scss/section/__header.css";
 import "./assets/scss/section/__login.css";
