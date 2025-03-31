@@ -139,32 +139,208 @@ export const SelectTagSpanTypeStyle = styled.span<selectTagSpanType>`
 
 interface selectTagType {
           width : string,
-     marginLeft : string,
-     borderLeft : string
+     marginleft : string,
+     borderleft : string
 }
 export const SelectTagTypeStyle = styled.select<selectTagType>`
          height : 100%;
          border : none;
          border-right : 1px solid #ddd;
-         border-left  : ${(props) => props.borderLeft}; solid #ddd;
+         border-left  : ${(props) => props.borderleft}; solid #ddd;
          font-size : 14px;
          padding-left : 10px;
          display : block;
          float : left;
          width : ${(props) => props.width};
          padding-left : 10px;
-         margin-left : ${(props) => props.marginLeft};
+         margin-left : ${(props) => props.marginleft};
 `;
 
 interface inputTagType {
     width : string,
+    right : string
 }
 export const InputTagTypeStyle = styled.input<inputTagType>`
     position  : absolute;
-    right     : -78px;
+    right     : ${(props) => props.right};
     bottom    : 0;
        top    : 0;
     height    : 100%;
      width    : ${(props) => props.width};
     border    : 1px solid #ddd;
+`;
+
+interface buttonTagType {
+    width : string,
+}
+export const ButtonTagTypeStyle = styled.button<buttonTagType>`
+    position   : absolute;
+    right      : 0;
+    top        : 0;
+    bottom     : 0;
+    width      : ${(props) => props.width};
+    background : #667a00;
+    color      : #fff;
+    font-size  : 15px;
+    cursor: pointer;
+
+    &:hover {
+        background :rgb(125, 146, 18);
+    }
+`;
+
+
+/*
+*
+* 장비 대여 items
+* 
+*/
+
+interface ItemsLiTagStyle1Type {
+    height : string,
+    width  : string,
+    margin : string
+}
+export const ItemsLiTagStyle1 = styled.li<ItemsLiTagStyle1Type>`
+    height : ${(props) => props.height};
+    margin : ${(props) => props.margin};
+    float  : left;
+    display : block;
+    width :  ${(props) => props.width};
+`;
+
+interface ItemsDivTagStyle1Type {
+    height : string,
+    width  : string
+}
+export const ItemsDivTagStyle1 = styled.div<ItemsDivTagStyle1Type>`
+    height : ${(props) => props.height};
+    background-color : #fff;
+    transition : all .15s linear;
+    cursor : pointer;
+    position  : relative;
+    display : block;
+    width :  ${(props) => props.width};
+    overflow : hidden;
+
+    &:active {
+        box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+        transition: all .2s linear
+    }
+
+    &:hover {
+        box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+        transition: all .2s linear;
+        
+            img {
+                transition : all .6s cubic-bezier(.23,1,.32,1);
+                transform  : scale(1.1) translateZ(0);
+            }
+    }
+`;
+
+interface ItemsSpanImgStyleType {
+    height : string,
+    width  : string 
+}
+export const ItemsSpanImgStyle1 = styled.span<ItemsSpanImgStyleType>`
+    height : ${(props) => props.height};
+     width : ${(props) => props.width};
+   display : block;
+   overflow : hidden;
+`;
+
+export const ItemsImgStyle1 = styled.img`
+    transition : all .15s cubic-bezier(.23,1,.32,1);
+    transform  : scale(1) translateZ(0);
+    top : 0;
+    left : 0;
+
+    &:hover {
+        transition : all .6s cubic-bezier(.23,1,.32,1);
+        transform  : scale(1.1) translateZ(0);
+    }
+`;
+
+export const ItemsNameSpanStyle1 = styled.span`
+   position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 15
+`;
+
+export const ItemsNameAStyle1 = styled.a`
+    display: block;
+    padding-top: 224px;
+    color: #17191d;
+`;
+
+interface ItemsNameSpanStyleType {
+    width : string,
+    height : string
+}
+
+export const ItemsNameStyle1 = styled.span<ItemsNameSpanStyleType>`
+    display : block;
+    height : ${(props) => props.height};
+    width  : ${(props) => props.width};
+    margin : 0 auto;
+    word-wrap : break-word;
+    padding-right : 24px;
+    font-family : 'Pretendard-Regular';
+    font-weight : 700;
+`;
+
+interface ItemsStateSpanStyleType {
+    width : string,
+    height : string
+}
+
+export const ItemsStateStyle1 = styled.span<ItemsStateSpanStyleType>`
+    height : ${(props) => props.height};
+    width  : ${(props) => props.width};
+    display: block;
+    margin: 50px auto 0;
+    color: #737881;
+    letter-spacing: -.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+`;
+
+interface ItemsInlineStateSpanStyleType {
+     color : string
+}
+
+export const ItemsInlineStateStyle1 = styled.span<ItemsInlineStateSpanStyleType>`
+    display: inline-block;
+    color:${(props) => props.color };
+    text-transform: uppercase;
+    font-family : 'Pretendard-Regular';
+     font-weight : 700;
+`;
+
+export const ItemsPeriodSpanStyle = styled.span`
+   display: table;
+   width : 100%;
+   margin-bottom : 12px;
+`;
+
+export const ItemsBorrowNameSpanStyle = styled.span`
+    padding : 4px 0 4px 20px;
+    text-align : left;
+    display : table-cell;
+    white-space : nowrap;
+    font-family : 'Pretendard-Regular';
+`;
+
+export const ItemsPeriodTextSpanStyle = styled.span`
+    display : table-cell;
+    white-space : nowrap;
+    text-align : right;
+    padding-right : 12px;
+    font-family : 'Pretendard-Regular';
 `;
