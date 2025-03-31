@@ -3,6 +3,7 @@
 }
 
 .equipContentstitle {
+      overflow : hidden;
     text-align : center;
          width : 900px;
    padding-top : 0px;
@@ -11,6 +12,7 @@
  border-radius : 40px;
         margin : auto;
         margin-top: 50px;
+        margin-bottom: 100px;
 
     h3 {
           font-size : 35px;
@@ -26,6 +28,18 @@
         right  : 208px;
         left   : 0;
     }
-    
+}
 
+.itemsDiv {
+    background-color : var(--white100);
+    border-radius : 10px;
+    box-shadow : rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    letter-spacing : -1px;
+
+    .items {
+        padding : 48px 36px 48px 60px;
+        display: grid;
+        min-height: 300px;
+
+    }
 }

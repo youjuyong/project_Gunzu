@@ -110,6 +110,7 @@ select {
     -moz-appearance: none;
     appearance: none;
     background: url('../../image/sel.png') calc(100% - 5px) center no-repeat;
+    font-family: "Pretendard-Regular";
 }
 select::-ms-expand { 
 	display: none;
