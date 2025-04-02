@@ -1,8 +1,9 @@
-import { heroScoreReViewModal       } from "../../../utils/common/modalCss";
+import { heroScoreReViewModal  } from "../../../utils/common/modalCss";
+import { ModalContent          } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
 import React from "react";
-import { heroInfo                               } from "../../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
-import { ReViewCompo                                } from "../../../commComponent/ReViewCompo";
+import { heroInfo                                } from "../../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
+import { ReViewCompo                             } from "../../../commComponent/ReViewCompo";
 import { horsePassive1, horsePassive2, heroSkill } from "../../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
 
 interface heroListType {
@@ -51,7 +52,7 @@ const heroReviewMd = ( props : heroReviewType ) => {
                 shouldCloseOnOverlayClick={false}
             >
                  <div className="modal-dialog popup_horseReview" role="document">
-                    <div className="horse-modal-content">
+                     <ModalContent $modalstate={String(props.modalBoolean)}>
                         {/* <!-- 해더 영역 --> */}
                         <div className="modal-header">
                             <h2>{props.heroData.HORSE_NAME} 상세정보</h2>
@@ -137,7 +138,7 @@ const heroReviewMd = ( props : heroReviewType ) => {
                             </div>
                         </div>
                         {/* <!-- ./컨텐츠 영역 --> */}
-                    </div>
+                   </ModalContent>
                 </div>
             </Modal>
         </div>

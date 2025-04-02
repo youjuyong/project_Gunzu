@@ -344,3 +344,115 @@ export const ItemsPeriodTextSpanStyle = styled.span`
     padding-right : 12px;
     font-family : 'Pretendard-Regular';
 `;
+
+
+/*
+*
+* 장비 대여 items 모달
+* 
+*/
+
+interface ItemsContentDivStyleType {
+    width : string,
+    $bgcolor : string
+} 
+export const ItemsContentDivStyle = styled.div<ItemsContentDivStyleType>`
+    max-width : ${props => props.width };
+    min-width : ${props => props.width };
+    box-sizing : border-box;
+    position : relative;
+    width : 100%;
+    padding : 0px;
+    margin : 0px;
+    border-radius : 8px;
+    background-color : ${props => props.$bgcolor };
+`;
+
+
+export const ItemsContentButtonStyle = styled.button`
+    position : relative;
+    width : 100%;
+    background-color : var(--white);
+    margin : 0px;
+    border : 1px solid #e0e0e0;
+    padding : 8px 8px 32px;
+    border-radius : 8px;
+    display : grid;
+    grid-template-columns : repeat(auto-fit, minmax(150px, auto));
+    gap : 8px;
+    align-items : center;
+    flex-direction : row;
+    transition : background-color 0.125s ease-in-out;
+    overflow : hidden;
+
+    &:hover  {
+        cursor : pointer;
+        background-color : rgba(255, 255, 255, 0.2);
+    }
+`;
+
+export const ItemsContentUlStyle = styled.ul`
+    list-style : none;
+    padding : 0px;
+    margin : 0px;
+    position : absolute;
+    top : 12px;
+    left : 12px;
+    z-index : 1;
+`
+
+export const ItemsContentliStyle = styled.li`
+  width: fit-content;
+  font-size: 10px;
+  border-radius: 8px;
+  padding : 2px 4px;
+  background-color : var(--white);
+  trasition : box-shadow 0.125s ease-in-out;
+`
+
+export const ItemsContentImgDivStyle = styled.div`
+    margin : 0px;
+    padding : 0px;
+    border-radius : 8px;
+    text-align : center;
+    transition : background-color 0.125s ease-in-out;
+    background-color : #eaeaea;
+    min-height : 80px;
+    display : flex;
+    justify-content: center;
+    align-items:center;
+`
+
+export const ItemsContentTitleDivStyle = styled.div`
+    height : 100%;
+    display : flex;
+    flex-direction : column;
+    padding : 4px 0px;
+    gap : 4px;
+    box-sizing : border-box;
+`
+const textStyle = styled.p`
+    color : rgba(0, 0, 0, 0.75);
+    font-family : "Pretendard-Regular";
+    padding : 0px;
+    margin : 0px;
+    font-size : 16px;
+`
+
+export const ItemsPtagStyle = styled(textStyle)`
+    width : 100%;
+    text-align : left;
+    line-height : 1;
+    font-weight : 500;
+    text-wrap : balance;
+`;
+
+export const ItemsSpanTagStyle = styled.span`
+    width : 100%;
+    text-align : left;
+    font-size : 12px;
+    line-height : 1.2;
+    display : flex;
+    align-items : center;
+    min-height : 30px;
+`;

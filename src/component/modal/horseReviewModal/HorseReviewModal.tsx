@@ -1,6 +1,8 @@
 import { horseScoreReViewModal } from "../../../utils/common/modalCss";
+import { ModalContent          } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
 import React from "react";
+
 import { horseImgInfo                               } from "../../../utils/ContextList";
 import { ReViewCompo                                } from "../../../commComponent/ReViewCompo";
 import { horseBurf, horseSpecialSkill, horsePassive } from "../../../utils/ContextList";
@@ -39,7 +41,7 @@ const HorseReviewMd = ( props : horseReviewType ) => {
     const burfHtml    = horseBurf.filter(        (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const passiveHtml = horsePassive.filter(     (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const skillHtml   = horseSpecialSkill?.filter((v : any) => props.horsData.HORSE_ID === v.horseId)?.[0];
-
+    
     return ( 
         <div>
             <Modal
@@ -51,7 +53,7 @@ const HorseReviewMd = ( props : horseReviewType ) => {
                 shouldCloseOnOverlayClick={false}
             >
                  <div className="modal-dialog popup_horseReview" role="document">
-                    <div className="horse-modal-content">
+                    <ModalContent $modalstate={String(props.modalBoolean)}>
                         {/* <!-- 해더 영역 --> */}
                         <div className="modal-header">
                             <h2>{props.horsData.HORSE_NAME} 상세정보</h2>
@@ -138,7 +140,7 @@ const HorseReviewMd = ( props : horseReviewType ) => {
                             </div>
                         </div>
                         {/* <!-- ./컨텐츠 영역 --> */}
-                    </div>
+                    </ModalContent>
                 </div>
             </Modal>
         </div>
