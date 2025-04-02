@@ -559,3 +559,7 @@ margin-top: 5px;
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
+
+.eZmTbQ[aria-selected="true"] {
+    background-color : rgba(105,178,236,0.2);
+}

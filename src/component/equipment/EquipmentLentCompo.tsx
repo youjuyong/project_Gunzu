@@ -1,10 +1,11 @@
 
 import { useLocation }           from "react-router-dom";
 import LocationCompo             from "../../commComponent/LocationCompo";
-import React, { useEffect,memo } from "react";
-import { SelectTagTypeStyle }    from '../../../src/utils/commonStyles';
-import { InputTagTypeStyle  }    from '../../../src/utils/commonStyles';
-import { ButtonTagTypeStyle }    from '../../../src/utils/commonStyles';
+import React, { useEffect,memo, useState } from "react";
+import { ExquipmentFlowModal }   from "../modal/flowModal/ExquipmentFlowModal"
+import { SelectTagTypeStyle  }    from '../../../src/utils/commonStyles';
+import { InputTagTypeStyle   }    from '../../../src/utils/commonStyles';
+import { ButtonTagTypeStyle  }    from '../../../src/utils/commonStyles';
 
 import { ItemsLiTagStyle1    }    from '../../../src/utils/commonStyles';
 import { ItemsDivTagStyle1   }    from '../../../src/utils/commonStyles';
@@ -21,18 +22,21 @@ import { ItemsNameAStyle1       }    from '../../../src/utils/commonStyles';
 import { ItemsPeriodSpanStyle     }    from '../../../src/utils/commonStyles';
 import { ItemsBorrowNameSpanStyle }    from '../../../src/utils/commonStyles';
 import { ItemsPeriodTextSpanStyle }    from '../../../src/utils/commonStyles';
+
 import ReactFlow from "reactflow";
 
 import "reactflow/dist/style.css";
 const EquipmentLentCp = () => {
     const { state } = useLocation();
+    const [flowModal, setFlowModal] = useState(false);
     
-    const liClickHandler = (e : any) => {
-
+    const equipClickHandler = (open:boolean) => {
+        setFlowModal(open);
     }
 
     return (
         <div id="event_wrap">  
+        <ExquipmentFlowModal modalBoolean={flowModal} setModalIsOpen={setFlowModal}></ExquipmentFlowModal>
                     <article className="articlewrap">
                         <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
                         <div className='equipContentstitle equipment'>
@@ -63,7 +67,7 @@ const EquipmentLentCp = () => {
                             <div className='itemsDiv'>
                                 <div className='items equipment'>
                                     <ul>
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
+                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(true)} >
                                             <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
                                                 <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
                                                     <ItemsImgStyle1 src={require("../../assets/image/equipment/furmiru2.png")} ></ItemsImgStyle1>
@@ -87,7 +91,7 @@ const EquipmentLentCp = () => {
                                                 </ItemsPeriodSpanStyle>
                                             </ItemsDivTagStyle1>
                                         </ItemsLiTagStyle1>
-
+{/* 
                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
                                             <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
                                                 <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
@@ -131,7 +135,7 @@ const EquipmentLentCp = () => {
                                                     
                                                 </ItemsSpanImgStyle1>
                                             </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
+                                        </ItemsLiTagStyle1> */}
                                     </ul>
                                 </div>
                             </div>
