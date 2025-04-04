@@ -3,7 +3,6 @@ import { FlowModalContent     } from "../../../utils/common/modalCss";
 import { ReactFlowProvider    } from "reactflow";
 import { EquipButtonCompo     } from "./EquipButtonCompo";
 import EquipNode                from "./EquipNode";
-import Popover                  from "./Popover";
 import ReactFlow, {
     addEdge,
     useNodesState,
@@ -110,14 +109,6 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                                                         </Panel>
                                                     </ReactFlow>
                                                 </ReactFlowProvider>
-                                                        <Popover
-                                                            anchor={nodeDetail?.evt || null}
-                                                            onClose={() => setNodeDetail(null)}
-                                                            nodeData={nodeDetail?.node || null}
-                                                            onBottom={true}
-                                                            nodeRef={nodeRef}
-                                                        ></Popover>
-                                                         
                                            </div>
                                             <div className="horseRevie_buttonset">
                                                 <button data-dismiss="modal" onClick={() => {
