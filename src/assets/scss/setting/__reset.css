@@ -563,3 +563,10 @@ margin-top: 5px;
 .eZmTbQ[aria-selected="true"] {
     background-color : rgba(105,178,236,0.2);
 }
+
+.hsgyBx {
+    img {
+        width : 20px;
+        height : 20px;
+    }
+}

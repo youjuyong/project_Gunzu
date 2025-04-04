@@ -388,6 +388,11 @@ export const ItemsContentButtonStyle = styled.button`
     &:hover  {
         cursor : pointer;
         background-color : rgba(255, 255, 255, 0.2);
+
+           img {
+            transition : all .6s cubic-bezier(.23,1,.32,1);
+            transform : scale(1.1) translateZ(0);
+        }
     }
 `;
 
@@ -406,7 +411,7 @@ export const ItemsContentliStyle = styled.li`
   font-size: 10px;
   border-radius: 8px;
   padding : 2px 4px;
-  background-color : var(--white);
+  background-color : #eaeaea;
   trasition : box-shadow 0.125s ease-in-out;
 `
 
@@ -456,3 +461,9 @@ export const ItemsSpanTagStyle = styled.span`
     align-items : center;
     min-height : 30px;
 `;
+
+export const EquipmentItemsSpanTagStyle = styled.span`
+    top : -5px;
+    position : relative;
+    margin-left : 4px;
+`
