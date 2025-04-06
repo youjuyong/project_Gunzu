@@ -1,7 +1,7 @@
 
 import { useLocation }           from "react-router-dom";
 import LocationCompo             from "../../commComponent/LocationCompo";
-import React, { useEffect,memo, useState } from "react";
+import React, { useLayoutEffect, memo, useState } from "react";
 import { ExquipmentFlowModal }   from "../modal/flowModal/ExquipmentFlowModal"
 import { SelectTagTypeStyle  }    from '../../../src/utils/commonStyles';
 import { InputTagTypeStyle   }    from '../../../src/utils/commonStyles';
@@ -23,17 +23,33 @@ import { ItemsPeriodSpanStyle     }    from '../../../src/utils/commonStyles';
 import { ItemsBorrowNameSpanStyle }    from '../../../src/utils/commonStyles';
 import { ItemsPeriodTextSpanStyle }    from '../../../src/utils/commonStyles';
 
-import ReactFlow from "reactflow";
+import { useQuerySingle, axiosCall } from "../../utils/common/common";
+import EquipmentList from "./EqupmentList";
+import { API_IP_INFO    } from "../../utils/apiUrl";
 
 import "reactflow/dist/style.css";
-const EquipmentLentCp = () => {
-    const { state } = useLocation();
-    const [flowModal, setFlowModal] = useState(false);
-    
-    const equipClickHandler = (open:boolean) => {
-        setFlowModal(open);
-    }
 
+type Equip = {
+    EQUIP_ID : number,
+    EQUIP_NAME : string,
+    EQUIP_LENT_STATUS : string,
+    EQUIP_LENT_PERIOD_END : string,
+    EQUIP_LENT_PERIOD_STRT : string,
+    SYMB_IMAG_TYPE : string,
+    imgUrl : string
+}
+const EquipmentLentCp = () => {
+
+    const { state } = useLocation();
+    const [flowModal, setFlowModal] = useState<boolean>(false);
+    const [equipList, setEquipList] = useState<Equip>();
+
+    useLayoutEffect(() => {
+        axiosCall("get", API_IP_INFO + '/equip/equip-list', null, (data) => {
+                             setEquipList(data);
+         });
+    }, []);
+    
     return (
         <div id="event_wrap">  
         <ExquipmentFlowModal modalBoolean={flowModal} setModalIsOpen={setFlowModal}></ExquipmentFlowModal>
@@ -67,75 +83,7 @@ const EquipmentLentCp = () => {
                             <div className='itemsDiv'>
                                 <div className='items equipment'>
                                     <ul>
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(true)} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    <ItemsImgStyle1 src={require("../../assets/image/equipment/furmiru2.png")} ></ItemsImgStyle1>
-                                                </ItemsSpanImgStyle1>
-                                               <ItemsNameSpanStyle1>
-                                                    <ItemsNameAStyle1></ItemsNameAStyle1>
-                                                    <ItemsNameStyle1 width ={'262px'} height={'36px'}>
-                                                        푸르미르 호품 셋트
-                                                    </ItemsNameStyle1>
-                                                </ItemsNameSpanStyle1>
-                                                <ItemsStateStyle1 width ={'262px'} height={'32px'}>
-                                                    <ItemsInlineStateStyle1 color={'var(--red400)'}>대여중</ItemsInlineStateStyle1>
-                                                </ItemsStateStyle1>
-                                                <ItemsPeriodSpanStyle>
-                                                        <ItemsBorrowNameSpanStyle>
-                                                                    달콤꾸꾸
-                                                        </ItemsBorrowNameSpanStyle>
-                                                        <ItemsPeriodTextSpanStyle>
-                                                                    2024.05 ~ 2024.11
-                                                        </ItemsPeriodTextSpanStyle>
-                                                </ItemsPeriodSpanStyle>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-{/* 
-                                       <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-                                        
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-                                        
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1>
-                                        <ItemsLiTagStyle1 width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={liClickHandler} >
-                                            <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                                <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
-                                                    
-                                                </ItemsSpanImgStyle1>
-                                            </ItemsDivTagStyle1>
-                                        </ItemsLiTagStyle1> */}
+                                       { equipList && <EquipmentList data={equipList} EquipmentData={equipList} setFlowModal={setFlowModal}></EquipmentList> } 
                                     </ul>
                                 </div>
                             </div>
