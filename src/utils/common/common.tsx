@@ -66,12 +66,6 @@ export function errorHandler(response: any) {
         case "F003":
             alert("[Error] 출발 시간은 4자리 ( ex : 18시 30분 -> 1830 ) 형식으로 작성해주세요.");
             break;
-        case "F004":
-            alert("[Error] 노선 명칭에 해당하는 노선이 없습니다.");
-            break;
-        case "F005":
-            alert("[Error] 구분을 기입해 주시기 바랍니다.");
-            break;
         case "F006":
             alert("[Error] '시간'은 0시 이상 24시 이하로 입력해주세요.");
             break;

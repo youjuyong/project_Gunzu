@@ -467,3 +467,40 @@ export const EquipmentItemsSpanTagStyle = styled.span`
     position : relative;
     margin-left : 4px;
 `
+
+export const MoreButton = styled.button`
+  width: 100px;
+  height: 45px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.25s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aliceblue;
+  color: var(--primary-color);
+
+  &:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(1.5);
+  }
+`;
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  gap: 10px;
+`;
+
