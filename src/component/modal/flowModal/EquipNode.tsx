@@ -11,9 +11,22 @@ import { ItemsPtagStyle }              from '../../../utils/commonStyles';
 import { ItemsSpanTagStyle }           from '../../../utils/commonStyles';
 import { EquipmentItemsSpanTagStyle }  from '../../../utils/commonStyles';
 
+import water from "../../../assets/image/equipment/water.png";
+import fire  from "../../../assets/image/equipment/fire.png";
+import ston  from "../../../assets/image/equipment/ston.png";
+import wind  from "../../../assets/image/equipment/wind.png";
 
 export default memo(({ data, isConnectable } : any) => {
-    console.log(data,isConnectable );
+    let enchantImg = null;
+
+    if ( data.enchantYn === 'Y' ) {
+      enchantImg = data.enchantType === 'ELST1' ? water
+                 : data.enchantType === 'ELST2' ? fire
+                 : data.enchantType === 'ELST3' ? ston
+                 : data.enchantType === 'ELST4' ? wind
+                 : '';
+    }
+    
   return (
     <>
       <Handle
@@ -25,7 +38,7 @@ export default memo(({ data, isConnectable } : any) => {
         <ItemsContentDivStyle width={'240px'} $bgcolor={'azure'}>
           <ItemsContentUlStyle>
             <ItemsContentliStyle>
-               <img src={require("../../../assets/image/equipment/water.png")} alt='소환영웅1' ></img>
+             { data.enchantYn === 'N' ? <></> :<img src={enchantImg} alt='소환영웅1' ></img> }  
             </ItemsContentliStyle>
           </ItemsContentUlStyle>
           <ItemsContentButtonStyle>
@@ -36,9 +49,9 @@ export default memo(({ data, isConnectable } : any) => {
               </ItemsContentImgDivStyle>
               <ItemsContentTitleDivStyle>
                 <ItemsPtagStyle>
-                  푸르미르의 신발
+                  {data?.detlName}
                 </ItemsPtagStyle>
-                <ItemsSpanTagStyle>6챈</ItemsSpanTagStyle>
+                <ItemsSpanTagStyle>{ data?.statFir }<br></br>{ data?.statSec }  { data?.statFir+ data.enchantYn === 'Y' ? <br></br> + '챈 : ' + data.enchantLevl : '' } </ItemsSpanTagStyle>
               </ItemsContentTitleDivStyle>
           </ItemsContentButtonStyle>
         </ItemsContentDivStyle>

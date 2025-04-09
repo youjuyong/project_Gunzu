@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import st2 from '../assets/image/st2.png';
 import st6 from '../assets/image/st6.png';
 import st7 from '../assets/image/st7.png';
@@ -482,8 +482,8 @@ export const MoreButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  background-color: aliceblue;
-  color: var(--primary-color);
+  background-color: black;
+  color: var(--white);
 
   &:hover {
     letter-spacing: 2px;
@@ -504,3 +504,19 @@ export const LoadingWrapper = styled.div`
   gap: 10px;
 `;
 
+export const SkeleTonStyle = () => {
+    return (
+        <li>
+                <div className="post-container">
+                <div className="post-thumbnail-wrapper">
+                    <div className="post-thumbnail"></div>
+                </div>
+                <div className="post-article-wrapper">
+                    <div className="post-article-item title"></div>
+                    <div className="post-article-item summary"></div>
+                    <div className="post-article-item author"></div>
+                </div>
+            </div>
+        </li>
+    )
+}

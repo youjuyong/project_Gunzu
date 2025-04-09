@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState, useRef, useEffect } from "react";
+import React, { FC, PropsWithChildren, useState, useRef, useEffect, Suspense, ReactElement } from "react";
 
 import { ItemsLiTagStyle1    }    from '../../../src/utils/commonStyles';
 import { ItemsDivTagStyle1   }    from '../../../src/utils/commonStyles';
@@ -15,14 +15,15 @@ import { ItemsNameAStyle1         }    from '../../../src/utils/commonStyles';
 import { ItemsPeriodSpanStyle     }    from '../../../src/utils/commonStyles';
 import { ItemsBorrowNameSpanStyle }    from '../../../src/utils/commonStyles';
 import { ItemsPeriodTextSpanStyle }    from '../../../src/utils/commonStyles';
+import { SkeleTonStyle            }    from '../../../src/utils/commonStyles';
 
 import  { MoreButton }  from "../../utils/commonStyles";
 
-type EquipmentProps = PropsWithChildren<{
+type EquipmentProps = {
     data : any,
     EquipmentData : any,
     setFlowModal : any
-}>;
+};
 
 type Equip = {
     EQUIP_ID : number,
@@ -30,12 +31,15 @@ type Equip = {
     EQUIP_LENT_STATUS : string,
     EQUIP_LENT_PERIOD_END : string,
     EQUIP_LENT_PERIOD_STRT : string,
+    EQUIP_LENT_PERIOD_STRT_CODE : string,
+    EQUIP_LENT_STATUS_CODE : string,
+    EQUIP_TYPE             : string,
     SYMB_IMAG_TYPE : string,
-    imgUrl : string
+    imgUrl : string,
+    EQUIP_LENT_NAME : string
 }
 
-const EquipmentListCompo = ( props : EquipmentProps ) => {
-    const { children, data, EquipmentData, setFlowModal } = props;
+const EquipmentListCompo : FC<PropsWithChildren<EquipmentProps>> = ( { data, EquipmentData, setFlowModal, children } )=> {
     const [visibleItems, setVisibleItems] = useState(4);
     const [viewAll, setViewAll] = useState(false);
     const listRef = useRef(null);
@@ -80,6 +84,7 @@ const EquipmentListCompo = ( props : EquipmentProps ) => {
         }
     }, [viewAll, target]);
 
+    // 더보기 버튼 클릭시
     const moreButton = () => {
         setViewAll(true);
         loadMoreItems();
@@ -91,41 +96,55 @@ const EquipmentListCompo = ( props : EquipmentProps ) => {
         );
     }, [data, EquipmentData]);
 
-    const equipClickHandler = (open:boolean) => {
-        setFlowModal(open);
+    const equipClickHandler = (equipId : number, openValue : boolean) => {
+        setFlowModal({ equipId : equipId, openValue : openValue });
     }
-
+    
     return (
         <>
            { 
              Array.isArray(itemsToShow) && itemsToShow.slice(0, visibleItems).map( (equipinfo : Equip, index : number) => {
+                
                                     const lentName = equipinfo.EQUIP_NAME,
+                                            lentHuman = equipinfo.EQUIP_LENT_NAME,
                                             strtDate = equipinfo.EQUIP_LENT_PERIOD_STRT,
                                             endDate = equipinfo.EQUIP_LENT_PERIOD_END,
                                             status = equipinfo.EQUIP_LENT_STATUS,
                                             imgType = equipinfo.SYMB_IMAG_TYPE,
-                                            imgUrl = equipinfo.imgUrl;
-                                            
+                                            imgUrl = equipinfo.imgUrl,
+                                           equipId = equipinfo.EQUIP_ID,
+                                           lentStatus = equipinfo.EQUIP_LENT_STATUS_CODE;
+                                    let color = '';
+                                    
+                                    switch ( lentStatus ) {
+                                        case  'ELTL1' :  color = 'var(--green300)';
+                                                         break;
+                                        case  'ELTL2' :  color = 'var(--orange400)';
+                                                         break;
+                                        case  'ELTL3' :  color = 'var(--red400)';
+                                                         break;
+                                    }
+                                    
                                     const img = 'data:image/' + imgType.toLowerCase()  + ';base64,' + imgUrl;
                         return (
-                            <>
-                                    <ItemsLiTagStyle1 ref={listRef} key={equipinfo.EQUIP_ID + 'ItemsLiTagStyle1'} width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(true)} >
-                                        <ItemsDivTagStyle1 width ={'302px'} height={'320px'}>
-                                            <ItemsSpanImgStyle1 width ={'302px'} height={'200px'}>
+                                <Suspense fallback={ SkeleTonStyle() } key={equipinfo.EQUIP_ID + 'Suspense'}>
+                                    <ItemsLiTagStyle1 ref={listRef} key={equipinfo.EQUIP_ID + 'ItemsLiTagStyle1'} width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(equipId, true)} >
+                                        <ItemsDivTagStyle1 width ={'302px'} height={'320px'} key={equipinfo.EQUIP_ID + 'ItemsDivTagStyle1'}>
+                                            <ItemsSpanImgStyle1 width ={'302px'} height={'200px'} key={equipinfo.EQUIP_ID + 'ItemsSpanImgStyle1'}>
                                                         <img src={img} alt={lentName} key={equipinfo.EQUIP_ID} ></img>
                                             </ItemsSpanImgStyle1>
-                                        <ItemsNameSpanStyle1>
-                                                <ItemsNameAStyle1></ItemsNameAStyle1>
-                                                <ItemsNameStyle1 width ={'262px'} height={'36px'}>
+                                        <ItemsNameSpanStyle1 key={equipinfo.EQUIP_ID + 'ItemsNameSpanStyle1'}>
+                                                <ItemsNameAStyle1 key={equipinfo.EQUIP_ID + 'ItemsNameAStyle1'}></ItemsNameAStyle1>
+                                                <ItemsNameStyle1 width ={'262px'} height={'36px'} key={equipinfo.EQUIP_ID + 'ItemsNameStyle1'}>
                                                     {lentName}
                                                 </ItemsNameStyle1>
                                             </ItemsNameSpanStyle1>
-                                            <ItemsStateStyle1 width ={'262px'} height={'32px'}>
-                                                <ItemsInlineStateStyle1 color={'var(--red400)'}>{status}</ItemsInlineStateStyle1>
+                                            <ItemsStateStyle1 width ={'262px'} height={'32px'} key={equipinfo.EQUIP_ID + 'ItemsStateStyle1'}>
+                                                <ItemsInlineStateStyle1 color={color} key={equipinfo.EQUIP_ID + 'ItemsStateStyle1'}>{status}</ItemsInlineStateStyle1>
                                             </ItemsStateStyle1>
                                             <ItemsPeriodSpanStyle>
                                                     <ItemsBorrowNameSpanStyle>
-                                                            {strtDate && strtDate}
+                                                            {lentHuman && lentHuman}
                                                     </ItemsBorrowNameSpanStyle>
                                                     <ItemsPeriodTextSpanStyle>
                                                                 {endDate === undefined ? '' : strtDate + ' ~ ' + endDate}
@@ -133,7 +152,7 @@ const EquipmentListCompo = ( props : EquipmentProps ) => {
                                             </ItemsPeriodSpanStyle>
                                         </ItemsDivTagStyle1>
                                     </ItemsLiTagStyle1>
-                            </>
+                                </Suspense>
                         )
                     })
              }
