@@ -1,7 +1,6 @@
 import DatePicker from "react-datepicker";
 import {ko} from "date-fns/locale";
 import './react-datepicker.css';
-import { getMonth, getYear, format } from 'date-fns';
 import {useState, useEffect} from "react";
 import React from "react";
 
