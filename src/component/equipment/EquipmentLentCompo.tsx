@@ -1,7 +1,7 @@
 
 import { useLocation }           from "react-router-dom";
 import LocationCompo             from "../../commComponent/LocationCompo";
-import React, { useLayoutEffect, useEffect, useState } from "react";
+import React, { useLayoutEffect, useEffect, useState, useCallback } from "react";
 import { ExquipmentFlowModal }   from "../modal/flowModal/ExquipmentFlowModal"
 import { SelectTagTypeStyle  }    from '../../../src/utils/commonStyles';
 import { InputTagTypeStyle   }    from '../../../src/utils/commonStyles';
@@ -28,14 +28,15 @@ type Equip = {
 }
 
 type FlowModal = {
-    openValue : boolean,
-    equipId   : number  | null
+    openValue  : boolean,
+    equipId    : number  | null,
+    lentStatus : string  | null
 }
 
 const EquipmentLentCp = () => {
 
     const { state } = useLocation();
-    const [flowModal, setFlowModal] = useState<FlowModal>({ equipId : null, openValue : false });
+    const [flowModal, setFlowModal] = useState<FlowModal>({ equipId : null, openValue : false, lentStatus : null });
     const [equipList, setEquipList] = useState<Equip[]>();
     const codeList         = useQuerySingle("get-equipment-status-list", null, `${API_IP_INFO}/comm/code-list/ELTL`, 60000 * 5, 60000 * 10, false, true, false);
     const typeList         = useQuerySingle("get-equipment-list-type", null, `${API_IP_INFO}/comm/code-list/TELY`, 60000 * 5, 60000 * 10, false, true, false);
@@ -66,6 +67,12 @@ const EquipmentLentCp = () => {
          });
     }, [param]);
 
+    const reload = useCallback(() => {
+        axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
+            setEquipList(data);
+        });
+    },[equipList]);
+
     const onClickSearch = () => {
         if ( !serParam.searchCode ) {
             alert("검색조건을 선택해주세요.");
@@ -78,7 +85,7 @@ const EquipmentLentCp = () => {
 
     return (
         <div id="event_wrap">  
-        <ExquipmentFlowModal modalBoolean={flowModal.openValue} equipId={flowModal.equipId} setModalIsOpen={setFlowModal}></ExquipmentFlowModal>
+        <ExquipmentFlowModal modalBoolean={flowModal.openValue} reload={reload} equipId={flowModal.equipId} setModalIsOpen={setFlowModal} lentStatus={flowModal.lentStatus}></ExquipmentFlowModal>
                     <article className="articlewrap">
                         <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
                         <div className='equipContentstitle equipment'>

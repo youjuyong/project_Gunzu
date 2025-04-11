@@ -19,6 +19,7 @@ import { SkeleTonStyle            }    from '../../../src/utils/commonStyles';
 
 import  { MoreButton }  from "../../utils/commonStyles";
 
+
 type EquipmentProps = {
     data : any,
     EquipmentData : any,
@@ -96,14 +97,14 @@ const EquipmentListCompo : FC<PropsWithChildren<EquipmentProps>> = ( { data, Equ
         );
     }, [data, EquipmentData]);
 
-    const equipClickHandler = (equipId : number, openValue : boolean) => {
-        setFlowModal({ equipId : equipId, openValue : openValue });
+    const equipClickHandler = ( equipId : number, openValue : boolean, lentStatus : string ) => {
+        setFlowModal({ equipId : equipId, openValue : openValue, lentStatus : lentStatus });
     }
     
     return (
         <>
            { 
-             Array.isArray(itemsToShow) && itemsToShow.slice(0, visibleItems).map( (equipinfo : Equip, index : number) => {
+             Array.isArray(itemsToShow) && itemsToShow.slice(0, visibleItems).map( ( equipinfo : Equip, index : number) => {
                 
                                     const lentName = equipinfo.EQUIP_NAME,
                                             lentHuman = equipinfo.EQUIP_LENT_NAME,
@@ -128,7 +129,7 @@ const EquipmentListCompo : FC<PropsWithChildren<EquipmentProps>> = ( { data, Equ
                                     const img = 'data:image/' + imgType.toLowerCase()  + ';base64,' + imgUrl;
                         return (
                                 <Suspense fallback={ SkeleTonStyle() } key={equipinfo.EQUIP_ID + 'Suspense'}>
-                                    <ItemsLiTagStyle1 ref={listRef} key={equipinfo.EQUIP_ID + 'ItemsLiTagStyle1'} width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(equipId, true)} >
+                                    <ItemsLiTagStyle1 ref={listRef} key={equipinfo.EQUIP_ID + 'ItemsLiTagStyle1'} width ={'302px'} height={'320px'} margin={'0 24px 60px 0'} onClick={() => equipClickHandler(equipId, true, lentStatus)} >
                                         <ItemsDivTagStyle1 width ={'302px'} height={'320px'} key={equipinfo.EQUIP_ID + 'ItemsDivTagStyle1'}>
                                             <ItemsSpanImgStyle1 width ={'302px'} height={'200px'} key={equipinfo.EQUIP_ID + 'ItemsSpanImgStyle1'}>
                                                         <img src={img} alt={lentName} key={equipinfo.EQUIP_ID} ></img>
