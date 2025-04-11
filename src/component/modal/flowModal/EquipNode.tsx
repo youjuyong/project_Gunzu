@@ -51,7 +51,7 @@ export default memo(({ data, isConnectable } : any) => {
                 <ItemsPtagStyle>
                   {data?.detlName}
                 </ItemsPtagStyle>
-                <ItemsSpanTagStyle>{ data?.statFir }<br></br>{ data?.statSec }  { data?.statFir+ data.enchantYn === 'Y' ? <br></br> + '챈 : ' + data.enchantLevl : '' } </ItemsSpanTagStyle>
+                <ItemsSpanTagStyle>{ data?.statFir } {  data.enchantYn === 'Y' ?  '/ 인챈트 : ' + data.enchantLevl : '' }<br></br>{ data?.statSec }   </ItemsSpanTagStyle>
               </ItemsContentTitleDivStyle>
           </ItemsContentButtonStyle>
         </ItemsContentDivStyle>

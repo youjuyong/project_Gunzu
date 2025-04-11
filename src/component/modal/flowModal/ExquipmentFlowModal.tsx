@@ -2,6 +2,7 @@ import { equipmentBorrowModal } from "../../../utils/common/modalCss";
 import { FlowModalContent     } from "../../../utils/common/modalCss";
 import { ReactFlowProvider    } from "reactflow";
 import { EquipButtonCompo     } from "./EquipButtonCompo";
+import { EquipAlertCompo      } from "./EquipAlertCompo";
 import { axiosCall            } from "../../../utils/common/common";
 import { API_IP_INFO          } from "../../../utils/apiUrl";
 import EquipNode                from "./EquipNode";
@@ -24,7 +25,9 @@ import React, { useCallback, useEffect, useState, createRef, SetStateAction } fr
 interface equipmentType {
     modalBoolean   : boolean,
     equipId : number | null,
-    setModalIsOpen : (e : any) => void
+    setModalIsOpen : (e : any) => void,
+    lentStatus : string  | null,
+    reload : ( ) => void
 }
 
 const nodeTypes = {
@@ -50,8 +53,6 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
     const [nodes, setNodes, onNodesChange]:any = useNodesState<any>([]);
     const [edges, setEdges, onEdgesChange]     = useEdgesState([]);
     const connectionLineStyle = { stroke: "#fff" };
-    const appRef = createRef();
-    const nodeRef = React.useRef(null);
 
     useEffect(() => {
           if ( props.equipId === null ) return;
@@ -146,7 +147,10 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                                                         <Controls />
                                                         <MiniMap />
                                                         <Panel position="top-right">
-                                                            <EquipButtonCompo />
+                                                            <EquipButtonCompo reload={props.reload} modalOpen={props.setModalIsOpen} equipId={props.equipId} lentStatus={props.lentStatus} />
+                                                        </Panel>
+                                                        <Panel position="top-center">
+                                                            <EquipAlertCompo/>
                                                         </Panel>
                                                     </ReactFlow>
                                                 </ReactFlowProvider>

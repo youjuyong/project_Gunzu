@@ -104,6 +104,33 @@ export const heroScoreReViewModal: ReactModal.Styles = {
     },
 };
 
+// 장비 대여 신청 모달
+export const equipLentButtonModal: ReactModal.Styles = {
+    overlay: {
+        width: "100%",
+        zIndex: "10",
+        top: "0",
+        left: "0",
+        background: "",
+    },
+    content: {
+        width: "200px",
+        height: "100px",
+        zIndex: "150",
+        position: "absolute",
+        top: "500px",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        borderRadius: "10px",
+        boxShadow: "2px 2px 2px rgba(0, 0, 0, 0.25)",
+        justifyContent: "center",
+        overflow: "auto",
+        padding: "0px",
+        border: ""
+    },
+};
+
+
 // 장비 대여 모달
 export const equipmentBorrowModal: ReactModal.Styles = {
     overlay: {
