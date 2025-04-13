@@ -506,6 +506,7 @@ export const LoadingWrapper = styled.div`
 
 export const SkeleTonStyle = () => {
     return (
+        <>
         <li>
                 <div className="post-container">
                 <div className="post-thumbnail-wrapper">
@@ -518,5 +519,42 @@ export const SkeleTonStyle = () => {
                 </div>
             </div>
         </li>
+        <li>
+            <div className="post-container">
+            <div className="post-thumbnail-wrapper">
+                <div className="post-thumbnail"></div>
+                </div>
+                <div className="post-article-wrapper">
+                    <div className="post-article-item title"></div>
+                    <div className="post-article-item summary"></div>
+                    <div className="post-article-item author"></div>
+                </div>
+            </div>
+        </li>
+        <li>
+                <div className="post-container">
+                <div className="post-thumbnail-wrapper">
+                    <div className="post-thumbnail"></div>
+                </div>
+                <div className="post-article-wrapper">
+                    <div className="post-article-item title"></div>
+                    <div className="post-article-item summary"></div>
+                    <div className="post-article-item author"></div>
+                </div>
+            </div>
+        </li>
+            <li>
+                <div className="post-container">
+                <div className="post-thumbnail-wrapper">
+                    <div className="post-thumbnail"></div>
+                </div>
+                <div className="post-article-wrapper">
+                    <div className="post-article-item title"></div>
+                    <div className="post-article-item summary"></div>
+                    <div className="post-article-item author"></div>
+                </div>
+            </div>
+         </li>
+</>
     )
 }

@@ -8,9 +8,9 @@ const RecallHeroWordInfoCompo = () => {
             <div className='intro_title'>
                 <Section2Titleh3 className='pretend' url={'st2'}>소환영웅 이란?</Section2Titleh3>
                 <p className="pretend"> "소환영웅은 소환 상태일때 캐릭터 뒤에 따라다니는 영웅을 뜻합니다.<br/>
-                "소환영웅은 '대기' 모드와 '공격' 모드가 있습니다. '공격'모드 일때는 캐릭터와 함께 몬스터를 공격 하고,"<br></br>"대기"모드 일때는 <span>'신체령 프리미엄'</span>을 사용하여 자신의 능력치에 비례하여 캐릭터에게 버프를 부여 할 수 있습니다.</p>
+                "소환영웅은 '대기' 모드와 '공격' 모드가 있습니다. '공격'모드일 경우 캐릭터(소유자)와 함께 몬스터를 공격 하고,"<br></br>"대기"모드 일때는 <span>'신체령 프리미엄'</span>을 사용하여 자신의 능력치에 비례하여 캐릭터(소유자)에게 버프를 부여 할 수 있습니다.</p>
                 <LazyImageHook src={require("../../../../assets/image/recallHeroGame.png")} alt={'소환영웅1'} className={''} height={177}/> 
-                <p className="pretend"> "소환영웅 상태는 '상태 정보창' {">"} '소환 영웅' 에서 확인 하실 수 잇습니다. "<br/></p>
+                <p className="pretend"> "소환영웅 상태는 '상태 정보창' {">"} '소환 영웅' 에서 확인 하실 수 있습니다. "<br/></p>
                 <LazyImageHook src={require("../../../../assets/image/reacalInfo_f.png")} alt={'소환영웅2'} className={''} height={363}/> 
                 <p className="pretend"> 
                                 ① : 소환 영웅의 이름을 변경 할 수 있습니다.<br/> 

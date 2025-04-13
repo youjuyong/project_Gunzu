@@ -22,17 +22,20 @@ const HongGilDongWordInfoCompo = () => {
                     <LazyImageHook src={require("../../../../assets/image/hong1.png")} alt={'홍길동1'} className={''} height={607}/> 
                 </Section2BackgroundDiv>
                 <p className="pretend">"홍길동 NPC를 우클릭시 나오는 창입니다."<br/><br/>  <br/> 
-                                ① : 기술을 배우기 위해 필요한 것들입니다. 해당 무기 기술점수 (해당 무기 착용 후 사냥으로 올린 점수or책), 돈 <br/> 
+                               <span> ① : 기술을 배우기 위해 필요한 것들입니다. 해당 무기 기술점수 (해당 무기 착용 후 사냥으로 올린 점수or책), 돈</span> <br/> 
                                 ② : 무기 목록 <br/> 
                                 ③ : 현재 습득한 무기별 기술 목록 현황<br/> 
-                                ④ : 4번기술 선택 목록<br/> 
-                                ⑤ : 5번기술 선택 목록<br/>   
-                                ⑥ : 해당기술 현재 등급, 기술익히기 버튼, 현재 가지고 있는 기술점수<br/>  
+                                ④ : 4번째, 5번째 기술 선택 목록<br/> 
+                                ⑤ : 기술 습득 조건<br/>   
+                                ⑥ : 기술등급 기술점수, 기술익히기 버튼, 현재 가지고 있는 기술점수<br/>  
                                 <br/>  <br/> 
-                <span className="pretend">"일단, 첫번째로 처음 전투향상술 배우시는 분들은 ③번 목록에 3개밖에없을 겁니다."<br></br>
+                <span className="pretend">"처음 전투향상술 배우시는 분들은 ③번 목록에 3개입니다." </span><br></br>
                     "4번째, 5번째 기술은 ④번항목에서 배우 실 수 있습니다."<br></br>
                     "전투향상술은 무조건 5번째 5단계 까지 돈을 끌어 모아서 라도 배우셔야 합니다. 마스터 유무가 천지 차이 입니다."<br></br>
-                    "간혹 초보자분 들께서 안 배워 진다고 하실 때 에는 99% 돈 or 기술점수가 부족한 경우입니다."</span></p><br></br>
+                    <span className="pretend"> "간혹 초보자분 들께서 안 배워 진다고 하실 때 에는 99% 돈 or 기술점수가 부족한 경우입니다."</span>
+                   <br></br> "사냥을 통해 올리시면 됩니다."
+                   
+                </p><br></br>
                 <Section2BackgroundDiv width={'305px'} height={'495px'}>    
                     <LazyImageHook src={require("../../../../assets/image/hong2.png")} alt={'홍길동5'} className={''} height={607}/> 
                 </Section2BackgroundDiv>

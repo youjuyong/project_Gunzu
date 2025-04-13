@@ -27,12 +27,18 @@ interface equipmentType {
     equipId : number | null,
     setModalIsOpen : (e : any) => void,
     lentStatus : string  | null,
-    reload : ( ) => void
+    reload : ( data : paramType ) => void,
+    param : paramType
 }
 
 const nodeTypes = {
     equipNode: EquipNode
 };
+
+type paramType = {
+    typeList : string,
+    codeList : string
+}
 
 type equipDetlType = {
      EQUIP_ID           ?: string
@@ -91,14 +97,14 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                         target: 'equip-' + (index + 2), 
                         animated: true
                     });
-                })
+                });
                 setNodes([...nodes]);
                 setEdges([...edges]);
             }
           });
       
     },[props.equipId]);
-   
+
     const onConnect = useCallback((params:any) =>  {
         setEdges((els) => addEdge({ ...params, animated: true, style: { stroke: connectionLineStyle } }, els))
     },[]);
@@ -135,7 +141,7 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                                                         nodesDraggable={false}
                                                         nodeTypes={nodeTypes}
                                                         onEdgesChange={onEdgesChange}
-                                                        fitView
+                                                        defaultViewport={  { x : 0, y : 250, zoom: 1} }
                                                         onConnect={onConnect}
                                                         connectionLineStyle={connectionLineStyle}
                                                         onNodeClick={(evt: React.MouseEvent, node : any) : void => {
@@ -147,7 +153,7 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                                                         <Controls />
                                                         <MiniMap />
                                                         <Panel position="top-right">
-                                                            <EquipButtonCompo reload={props.reload} modalOpen={props.setModalIsOpen} equipId={props.equipId} lentStatus={props.lentStatus} />
+                                                            <EquipButtonCompo reload={props.reload} param={props.param} modalOpen={props.setModalIsOpen} equipId={props.equipId} lentStatus={props.lentStatus} />
                                                         </Panel>
                                                         <Panel position="top-center">
                                                             <EquipAlertCompo/>

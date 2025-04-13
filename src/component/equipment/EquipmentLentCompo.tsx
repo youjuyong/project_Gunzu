@@ -7,7 +7,7 @@ import { SelectTagTypeStyle  }    from '../../../src/utils/commonStyles';
 import { InputTagTypeStyle   }    from '../../../src/utils/commonStyles';
 import { ButtonTagTypeStyle  }    from '../../../src/utils/commonStyles';
 
-
+import { SkeleTonStyle             } from '../../../src/utils/commonStyles';
 import { axiosCall, useQuerySingle } from "../../utils/common/common";
 import EquipmentList from "./EqupmentList";
 import { API_IP_INFO    } from "../../utils/apiUrl";
@@ -33,6 +33,10 @@ type FlowModal = {
     lentStatus : string  | null
 }
 
+type paramType = {
+    typeList : string,
+    codeList : string
+}
 const EquipmentLentCp = () => {
 
     const { state } = useLocation();
@@ -41,8 +45,9 @@ const EquipmentLentCp = () => {
     const codeList         = useQuerySingle("get-equipment-status-list", null, `${API_IP_INFO}/comm/code-list/ELTL`, 60000 * 5, 60000 * 10, false, true, false);
     const typeList         = useQuerySingle("get-equipment-list-type", null, `${API_IP_INFO}/comm/code-list/TELY`, 60000 * 5, 60000 * 10, false, true, false);
     const searchCode       = useQuerySingle("get-equipment-lent-type", null, `${API_IP_INFO}/comm/code-list/ECSO`, 60000 * 5, 60000 * 10, false, true, false);
-    const [param, setParam]       = useState({ typeList : '', codeList : '', })
+    const [param, setParam]       = useState<paramType>({ typeList : '', codeList : '', })
     const [serParam, setSerParam] = useState({ searchCode : '', keyword : ''});
+    const [isLoading, setLoading] = useState(false);
 
     useLayoutEffect(() => {
         axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
@@ -62,14 +67,14 @@ const EquipmentLentCp = () => {
     };
 
     useLayoutEffect(() => {
-        axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
-                             setEquipList(data);
-         });
+         reload(param);
     }, [param]);
 
-    const reload = useCallback(() => {
+    const reload = useCallback((param : paramType) => {
+        setLoading(true);
         axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
             setEquipList(data);
+            setLoading(false);
         });
     },[equipList]);
 
@@ -85,7 +90,7 @@ const EquipmentLentCp = () => {
 
     return (
         <div id="event_wrap">  
-        <ExquipmentFlowModal modalBoolean={flowModal.openValue} reload={reload} equipId={flowModal.equipId} setModalIsOpen={setFlowModal} lentStatus={flowModal.lentStatus}></ExquipmentFlowModal>
+        <ExquipmentFlowModal modalBoolean={flowModal.openValue} reload={reload} param={param} equipId={flowModal.equipId} setModalIsOpen={setFlowModal} lentStatus={flowModal.lentStatus}></ExquipmentFlowModal>
                     <article className="articlewrap">
                         <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
                         <div className='equipContentstitle equipment'>
@@ -132,9 +137,9 @@ const EquipmentLentCp = () => {
                             <div className='itemsDiv'>
                                 <div className='items equipment'>
                                     <ul>
-                                        
-                                       {  equipList &&  equipList.length > 0   ? <EquipmentList data={equipList} EquipmentData={equipList} setFlowModal={setFlowModal}></EquipmentList>
-                                        : equipList &&  equipList.length === 0 ?  <p className="items_noData pretend">해당 조건의 데이터가 없습니다.</p>
+                                        { isLoading === true ? SkeleTonStyle() : 
+                                          isLoading === false && equipList &&  equipList.length > 0   ? <EquipmentList data={equipList} EquipmentData={equipList} setFlowModal={setFlowModal}></EquipmentList>
+                                        : isLoading === false && equipList &&  equipList.length === 0 ?  <p className="items_noData pretend">해당 조건의 데이터가 없습니다.</p>
                                         : ''
                                       } 
                                     </ul>

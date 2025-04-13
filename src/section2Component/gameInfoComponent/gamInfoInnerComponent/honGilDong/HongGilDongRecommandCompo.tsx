@@ -138,7 +138,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="pretend">"장비가 매우 좋으시면 5단계 흡성증가술을 '무기공격력증폭술'로 바꾸셔도 되지만 대부분 해당사항이 아니시니"<br></br>
+                            <p className="pretend">"장비가 매우 좋으시면 5번째 흡성증가술을 '무기공격력증폭술'로 바꾸셔도 되지만 대부분 해당사항이 아니시니"<br></br>
                                 "흡성 증가술을 찍어줍니다."
                             </p>
                         </div>
@@ -218,7 +218,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="pretend">"창은 마법중에 경험치 증가 스킬이 있기 때문에 4단계 '만류귀종'이 없고 대신 '공격력간격감소술'을 찍어줍니다."<br></br>
+                            <p className="pretend">"창은 마법중에 경험치 증가 스킬이 있기 때문에 4번째 스킬 '만류귀종'이 없고 대신 '공격력간격감소술'을 찍어줍니다."<br></br>
                             </p>
                         </div>
                     </div>
@@ -376,7 +376,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="pretend">"활도 무난하게 4단계 '만류귀종' 5단계 '흡성증가술'을 찍어줍니다."<br></br>
+                            <p className="pretend">"활도 무난하게 4번째 '만류귀종' 5번째 '흡성증가술'을 찍어줍니다."<br></br>
                             "활같은 경우 안타까운게 3번째 '사거리증가술'은 어차피 정지사냥이 추세인 현시점에서 공성전을 빼면 거의"<br></br>
                             "없는 스킬이기 때문에 여러모로 추천드리지 않는 무기중 하나입니다."
                             </p>
