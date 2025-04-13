@@ -67,14 +67,16 @@ export const headerNavInfo = [
             menuName    : "소환영웅이란?",
             title       : '소환영웅',
             subClassCnt : 4
-        }, {
-            subTitle    : "영웅강림",
-            subUrl      : "heroChangeInfo",
-            url         : "",
-            menuName    : "영웅강림?",
-            title       : '영웅강림',
-            subClassCnt : 4
-        }, {
+        }, 
+        // {
+        //     subTitle    : "영웅강림",
+        //     subUrl      : "heroChangeInfo",
+        //     url         : "",
+        //     menuName    : "영웅강림?",
+        //     title       : '영웅강림',
+        //     subClassCnt : 4
+        // }, 
+        {
             subTitle    : "홍길동",
             subUrl      : "gameInfo/hongGilDongInfo/hongGilDongWordInfo",
             url         : "hongGilDongWordInfo",

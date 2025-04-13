@@ -1,29 +1,19 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
 import { FlowModalButtonStyle } from "../../../utils/common/modalCss";
-import axios from "axios";
-import { axiosCall   } from "utils/common/common";
-import { API_IP_INFO } from "utils/apiUrl";
+import { axiosCall   } from "../../../utils/common/common";
+import { API_IP_INFO } from "../../../utils/apiUrl";
 
 type equipDetlType = {
      equipId    : number | null,
      lentStatus : string  | null,
      modalOpen : ( data : boolean   ) => void,
-     reload    : () => void
+     reload    : ( data : paramType ) => void,
+     param : paramType
 }
 
-type equipType = {
-    EQUIP_ID           ?: string
-  , DETL_EQUIP_ID      ?: string
-  , DETL_EQUIP_NAME    ?: string
-  , ENCHANT_YN         : string
-  , ENCHANT_LEVL       : string
-  , STAT_FIR           : string
-  , STAT_SEC           : string
-  , ENCHANT_TYPE       : string
-  , EQUIP_IMG          : string 
-  , SYMB_IMAG_TYPE     : string
-  , imgUrl             : string
+type paramType = {
+    typeList : string,
+    codeList : string
 }
 
 const EquipButtonCp = ( props : equipDetlType ) => {
@@ -63,7 +53,7 @@ const EquipButtonCp = ( props : equipDetlType ) => {
             axiosCall("put", API_IP_INFO + "/equip/equip-lent-name", param, (data) => {
                 if ( data === 1 ) {
                     alert("신청이 완료 되었습니다.");
-                    props.reload();
+                    props.reload(props.param);
                     props.modalOpen(false);
                     return;
                 } else {

@@ -154,14 +154,15 @@
                 font-size       : 19px;
                 line-height     : 25px;
                 letter-spacing  : 0.2px;
+                color           : var(--blue400);
             }
             .redSpan { color : red  }
 
             p {
                 font-size      : 19px;
                 line-height    : 23px;
-                margin-top     : 50px;
-                margin-bottom  : 50px;
+                margin-top     : 100px;
+                margin-bottom  : 100px;
                 font-weight    : 400;
                 line-height    : 25px;
                 letter-spacing : -0.9px;

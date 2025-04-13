@@ -26,7 +26,8 @@ export default memo(({ data, isConnectable } : any) => {
                  : data.enchantType === 'ELST4' ? wind
                  : '';
     }
-    
+    const src = 'data:image/' + data.symbol  + ';base64,' + data.imgUrl ;
+
   return (
     <>
       <Handle
@@ -44,7 +45,7 @@ export default memo(({ data, isConnectable } : any) => {
           <ItemsContentButtonStyle>
               <ItemsContentImgDivStyle aria-selected="false">
                   <picture>
-                    <img src={require("../../../assets/image/book.png")}  alt='소환영웅1' ></img>
+                    <img src={src} alt={data?.detlName}></img>
                   </picture>
               </ItemsContentImgDivStyle>
               <ItemsContentTitleDivStyle>
