@@ -701,6 +701,7 @@
                 line-height : 25px;
                 color       : var(--white);
                 font-weight   : bold;
+                letter-spacing: 0.5px;
             }
 
         }
