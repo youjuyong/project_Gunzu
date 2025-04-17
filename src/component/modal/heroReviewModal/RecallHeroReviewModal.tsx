@@ -66,7 +66,7 @@ const heroReviewMd = ( props : heroReviewType ) => {
                         {/* <!-- 컨텐츠 영역 --> */}
                         <div className="horse_popcontent">
                             <div className="popchild heroReviewChild reviewImgDiv">
-                                <img src={imgUrl}></img>
+                                <img src={imgUrl} alt='영웅 이미지'></img>
                             </div>
                             <div className="popchild heroReviewChild reviewDetailDiv">
                                 <table>

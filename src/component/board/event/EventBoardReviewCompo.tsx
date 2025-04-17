@@ -92,7 +92,7 @@ const EventBoardTextCompo = ( props : any ) => {
                                                 <li key={v +'revietarLi' + String(index)}>
                                                 <div key={v +'revietarDiv1' + String(index)}>
                                                     <div className="reviewText" key={v +'revietarDiv2' + String(index)}>
-                                                        <span><img src={require("../../../assets/image/user.png")}></img>
+                                                        <span><img src={require("../../../assets/image/user.png")} alt='유저이미지'></img>
                                                             <p className="nickNameSpan snans" key={v +'revietarPtag' + String(index)}>{v.USER_NAME}</p>
                                                         </span>
                                                         <span className="reViewSpan eventReviewSpan snans">{v.COMMENT}</span>

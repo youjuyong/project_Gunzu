@@ -151,7 +151,7 @@ const ReViewCp = ( props : reviewType ) => {
                                                 <li key={v +'revietarLi' + String(index)}>
                                                 <div key={v +'revietarDiv1' + String(index)}>
                                                     <div className="reviewText" key={v +'revietarDiv2' + String(index)}>
-                                                        <span><img src={require("../assets/image/user.png")}></img>
+                                                        <span><img src={require("../assets/image/user.png")} alt='유저 이미지'></img>
                                                             <p className="nickNameSpan snans" key={v +'revietarPtag' + String(index)}>{v.USER_NAME}</p>
                                                             <div className="startReviewImgDiv">
                                                             {

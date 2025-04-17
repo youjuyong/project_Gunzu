@@ -176,7 +176,7 @@ const MainPageInfoCompo = () => {
                             <section className="main_section3 pretend">
                                 <h3> 공지사항 <span>{board_data?.data?.length >= 3 ? 3 : board_data?.data?.length}건</span></h3>
                                 <Link to="mainBoardInfo" className="boardInfo_plus" state={{ menuName : mainBoard?.menuName , mainMenuName : mainBoard?.title, url: mainBoard?.url }} >
-                                    <img src={require("../../assets/image/more2.png")}></img>
+                                    <img src={require("../../assets/image/more2.png")} alt='공지사항 더보기'></img>
                                 </Link>
                                 <div className='listbox'>
                                     <ul>

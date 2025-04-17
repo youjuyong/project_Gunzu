@@ -41,11 +41,11 @@ const SystemOfKingWordInfo = () => {
                                 </dt>
                                 <dd>
                                     <br></br>
-                                    <div className="img1"><img src={require("../../../../assets/image/sub_title_arrow.png")}></img></div><h3 className="h11">제한 : 200렙이상</h3>
-                                    <div className="img2"><img src={require("../../../../assets/image/sub_title_arrow.png")}></img></div><h3 className="h22">임기 : 72일</h3>
-                                    <div className="img3"><img src={require("../../../../assets/image/sub_title_arrow.png")}></img></div><h3 className="h33">권한 : 유저소환(/recall), 캐릭터 수감, 서버 공지(/king)</h3>
-                                    <div className="img4"><img src={require("../../../../assets/image/sub_title_arrow.png")}></img></div><h3 className="h44">임기 규정: 연임은 1회에 가능, 중임 무제한</h3>
-                                    <div className="img5"><img src={require("../../../../assets/image/sub_title_arrow.png")}></img></div><h3 className="h55">임명권한 : (이조, 예조, 호조, 병조, 형조, 공조) 판서</h3>
+                                    <div className="img1"><img src={require("../../../../assets/image/sub_title_arrow.png")} alt='화살표'></img></div><h3 className="h11">제한 : 200렙이상</h3>
+                                    <div className="img2"><img src={require("../../../../assets/image/sub_title_arrow.png")} alt='화살표'></img></div><h3 className="h22">임기 : 72일</h3>
+                                    <div className="img3"><img src={require("../../../../assets/image/sub_title_arrow.png")} alt='화살표'></img></div><h3 className="h33">권한 : 유저소환(/recall), 캐릭터 수감, 서버 공지(/king)</h3>
+                                    <div className="img4"><img src={require("../../../../assets/image/sub_title_arrow.png")} alt='화살표'></img></div><h3 className="h44">임기 규정: 연임은 1회에 가능, 중임 무제한</h3>
+                                    <div className="img5"><img src={require("../../../../assets/image/sub_title_arrow.png")} alt='화살표'></img></div><h3 className="h55">임명권한 : (이조, 예조, 호조, 병조, 형조, 공조) 판서</h3>
                                 </dd>
                             </dl>
                         </div>

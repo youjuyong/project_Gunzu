@@ -1040,7 +1040,7 @@ export const REC21_INFO = () => {
             <li>
                 <div className="number_content pretend">대길이</div>
                 <div className='recallImg'>
-                    <img alt='' src={require("../../../../assets/image/recallHero/REC21.PNG")}></img>
+                    <img alt='대길이' src={require("../../../../assets/image/recallHero/REC21.PNG")}></img>
                 </div>
                 <div className='recall_content_text'>
                     <p className="pretend"> 물공(검) 유저들이 옛날부터 많이 사용해 왔던 가성비 소환영웅<br></br>

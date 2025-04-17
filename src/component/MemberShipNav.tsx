@@ -62,7 +62,7 @@ const MembershipNavCompo = ( props : any ) => {
                 <div className="loginlayOut loayOutBann" id="loginlayOut"  style={{visibility : 'hidden'}}>
                     <div className="infoMy">
                         <span className="loginNickName snans">
-                            <a className="nickNameAtag">{name}</a>
+                            <span className="nickNameAtag">{name}</span>
                             <p>님 안녕하세요!</p>
                             <p className="accessTimePtag">접속시간   : {startDt} {startHH}</p>
                         </span>
