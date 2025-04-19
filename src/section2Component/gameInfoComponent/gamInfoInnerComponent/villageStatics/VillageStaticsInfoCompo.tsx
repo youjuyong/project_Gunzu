@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useRef, useEffect }    from "react";
 import { CalendarMonthInit                } from "../../../../utils/common/datePicker";
-import { axiosCall, useQuerySingle        } from "../../../../utils/common/common";
+import { AxiosCall, useQuerySingle, errorHandler, Token } from "../../../../utils/common/common";
 import { API_IP_INFO                      } from "../../../../utils/apiUrl";
 import { Loading                          } from "../../../../commComponent/Loading";
 import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
@@ -10,6 +10,7 @@ const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length ===
 const chartdateArr = Array.from({length : 31}, (v,i ) =>  String(i+1) + '일');
 
 const VillageStaticsInfoCp = ( ) => {
+    const token =Token();
     const villageList  = useQuerySingle("get-village-list", null, `${API_IP_INFO}/stat/village-list`, 60000 * 5, 60000 * 10, false, true, false);
     const [   paramInfo, setParamInfo ] = useState({village_id : '', month : '' });
     const [ reulstList, setResultList ] = useState<any>({ dateList : [], loading : false, searchInfo : [] });
@@ -36,13 +37,15 @@ const VillageStaticsInfoCp = ( ) => {
             villageId : paramInfo.village_id
         }
         setResultList({...reulstList, loading : true });
-        axiosCall("get", API_IP_INFO + "/stat/village-human-statics", param, (data) => {
+        AxiosCall("get", API_IP_INFO + "/stat/village-human-statics", param, (data) => {
             if ( data["preCnt"] === undefined || data["preCnt"].length === 0 ) {
                 alert("데이터가 없습니다.");
                 return;
             }
             setResultList({...reulstList, dateList : data["preCnt"] , loading : false, searchInfo : data["curCnt"] });
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+         }, token);
      };
 
      // 마을명 select 선택시

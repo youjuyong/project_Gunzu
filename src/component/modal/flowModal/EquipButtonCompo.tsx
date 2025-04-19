@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FlowModalButtonStyle } from "../../../utils/common/modalCss";
-import { axiosCall   } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO } from "../../../utils/apiUrl";
+import { useSelector } from "react-redux";
+import { rootState   } from "../../../utils/reducer/index";
 
 type equipDetlType = {
      equipId    : number | null,
@@ -17,12 +19,10 @@ type paramType = {
 }
 
 const EquipButtonCp = ( props : equipDetlType ) => {
-    
-    const  userId = sessionStorage.getItem("id"),
-         masterYn = sessionStorage.getItem("masterYn"),
-     cityUserName = sessionStorage.getItem("cityUserName");
-
+    const token = Token();
+    const { userId, masterYn, cityUserName } = useSelector((state: rootState)=>state.userReducer);
     const buttonClick = ( e : React.MouseEvent<HTMLButtonElement> | undefined ) => {
+
         if ( props.lentStatus === 'ELTL2' )
         {
             alert("신청중인 장비입니다.");
@@ -50,7 +50,7 @@ const EquipButtonCp = ( props : equipDetlType ) => {
                 cityUserName : cityUserName
             }
 
-            axiosCall("put", API_IP_INFO + "/equip/equip-lent-name", param, (data) => {
+            AxiosCall("put", API_IP_INFO + "/equip/equip-lent-name", param, (data) => {
                 if ( data === 1 ) {
                     alert("신청이 완료 되었습니다.");
                     props.reload(props.param);
@@ -60,7 +60,9 @@ const EquipButtonCp = ( props : equipDetlType ) => {
                     alert("신청이 실패 되었습니다.");
                     return;
                 }
-            });
+            }, (e) => {
+                            errorHandler(e.response);
+             }, token);
         }
         
        

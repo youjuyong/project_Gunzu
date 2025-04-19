@@ -1,6 +1,6 @@
 import  React, { useLayoutEffect } from "react";
 import { useState, useCallback } from "react";
-import { axiosCall        } from "../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../utils/common/common";
 import { API_IP_INFO      } from "../../utils/apiUrl";
 import { heroInfo         } from "../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
 import { RecallHeroReviewModal   } from "../modal/heroReviewModal/RecallHeroReviewModal"
@@ -46,6 +46,7 @@ const array = Array.from({ length : 5}, (v,i) =>  i);
 
 const HeroListTableCp = ( props:tableCompoType ) => {
     const [heroList, setHeroList] = useState([]);
+    const token = Token();
     // 소환영웅 리뷰 모달 open 여부
     const [addMdValue, setAddmdOpen] = useState({openBoolean : false, heroData : {}});
     const [isLoading,    setLoading] = useState(false);
@@ -54,10 +55,12 @@ const HeroListTableCp = ( props:tableCompoType ) => {
     
     useLayoutEffect(() => {
         setLoading(true);
-        axiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
+        AxiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
             setHeroList(data);
             setLoading(false);
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+         }, token);
     },[props.selectTType]);
 
     // 소환영웅 리뷰 모달 open 여부

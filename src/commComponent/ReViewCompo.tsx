@@ -1,7 +1,7 @@
 import React    from "react";
 import UseEnterBtnClick from "../utils/common/useEnterBtnClick";
 import { useEffect, useState} from "react";
-import { axiosCall     } from "../utils/common/common";
+import { AxiosCall, errorHandler, Token   } from "../utils/common/common";
 import { API_IP_INFO   } from "../utils/apiUrl";
 
 const array = Array.from({ length : 5}, (v,i) =>  i);
@@ -13,7 +13,7 @@ interface reviewType {
 }
 
 const ReViewCp = ( props : reviewType ) => {
-    
+    const token = Token();
     const buttonElement = UseEnterBtnClick();
     const [textValue,    setTxtValue] = useState();
     const [ reviewList, setRevieList] = useState([]);
@@ -81,14 +81,16 @@ const ReViewCp = ( props : reviewType ) => {
                 userId   : props.userId,
                 content  : textValue
             }
-             axiosCall("put", API_IP_INFO + url, param, (data) => {
+            AxiosCall("put", API_IP_INFO + url, param, (data) => {
                         
                         if ( data === 1 ) {
                             alert("리뷰등록완료!!");
                             Reload();
                         }
                   
-            });
+            },(e) => {
+                    errorHandler(e.response);
+            }, token);
         }
     }
 
@@ -106,14 +108,16 @@ const ReViewCp = ( props : reviewType ) => {
                 objectId : props.objectId,
                 userId   : props.userId
             }
-             axiosCall("delete", API_IP_INFO + url, param, (data) => {
+            AxiosCall("delete", API_IP_INFO + url, param, (data) => {
                         
                         if ( data === 1 ) {
                             alert("리뷰삭제완료!!");
                             Reload();
                         }
                   
-            });
+            }, (e) => {
+                            errorHandler(e.response);
+            }, token);
         }
     }
     const Reload = () => {
@@ -131,9 +135,11 @@ const ReViewCp = ( props : reviewType ) => {
             objectId : props.objectId
         }
 
-        axiosCall("get", API_IP_INFO + url, param, (data) => {
+        AxiosCall("get", API_IP_INFO + url, param, (data) => {
             setRevieList(data);
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+         }, token);
     }
 
     return (

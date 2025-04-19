@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import React, { useEffect, useState} from "react";
 import { useNavigate        } from "react-router-dom";
 import { InputTagIdValidate } from "../../../utils/common/dataValidateCheck";
-import { axiosCall          } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO        } from "../../../utils/apiUrl";
 import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
 
@@ -23,6 +23,7 @@ interface basicObjectType {
 
 const LoginPassWordModifyMd = ( props : memberShipType ) => {
     const movePage      = useNavigate();
+    const token = Token();
     const buttonElement = UseEnterBtnClick();
     const [inputValue,   setInputValue] = useState<basicObjectType>({USER_PW : '', USER_PW_RE:''});
 
@@ -52,14 +53,16 @@ const LoginPassWordModifyMd = ( props : memberShipType ) => {
         }
         
         if ( window.confirm("비밀번호를 수정 하시겠습니까?"))  {
-            axiosCall("patch", API_IP_INFO + '/user/pass-modify-info', param, (data) => {
+            AxiosCall("patch", API_IP_INFO + '/user/pass-modify-info', param, (data) => {
                     if ( data === 1 ) {
                         alert("수정 완료 되었습니다. 다시 로그인 해주세요.");
                         movePage("/");
                         sessionStorage.clear();
                         window.location.reload();
                     }
-            });
+            }, (e) => {
+                            errorHandler(e.response);
+            }, token);
         } else {
             return;
         }

@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useLayoutEffect, memo    } from "react";
-import { axiosCall                          } from "../../utils/common/common";
+import { AxiosCall, errorHandler, Token     } from "../../utils/common/common";
 import { API_IP_INFO                        } from "../../utils/apiUrl";
 import { Link                               } from "react-router-dom";
 import { Pagination, useListPage            } from "../../../src/commComponent/TablePageFooterCompo";
 import { Loading                            } from "../../commComponent/Loading";
+import { rootState    } from "../../utils/reducer/index";
+import { useSelector  } from "react-redux";
 interface eventBoardListType {
     TEXT_ID                     : string, // 공지 ID
     RTRV_CNT                    : number, // 조회수
@@ -26,23 +28,28 @@ const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수 
 
 const EventCp = () => {
+    const token = Token();
     const [ eventBoardList, setEventBoardList ] = useState([]);
     const [isLoading,              setLoading ] = useState(false);
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(eventBoardList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
-    const masterYn = sessionStorage.getItem("masterYn");
+    const { masterYn }  = useSelector(( state : rootState ) => state.userReducer);
 
     useLayoutEffect(() => {
          setLoading(true);
-         axiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
+         AxiosCall("get", API_IP_INFO + '/board/event-board-list', null, (data) => {
                      setEventBoardList(data);
                      setLoading(false);
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+         }, token);
     },[]);
 
     const fileDownLoad = (fileNum : number, textId : string) => {
-        axiosCall("post", API_IP_INFO + '/board/event-board-file-download', {textId : textId, fileNumber : fileNum}, (data) => {
+        AxiosCall("post", API_IP_INFO + '/board/event-board-file-download', {textId : textId, fileNumber : fileNum}, (data) => {
             console.log("event file down load!!");
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+        }, token);
     }
 
     return (

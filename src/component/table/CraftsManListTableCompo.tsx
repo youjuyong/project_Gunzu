@@ -1,6 +1,6 @@
 import { memo, useEffect, useState,useCallback } from "react";
 import React from "react";
-import { axiosCall   } from "../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../utils/common/common";
 import { API_IP_INFO } from "../../utils/apiUrl";
 import { Pagination, useListPage } from "../../../src/commComponent/TablePageFooterCompo";
 import { Loading                 } from "../../commComponent/Loading";
@@ -26,17 +26,19 @@ const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수 
 
 const CraftsManListTable = ( props : tableCompoType ) => {
- 
+    const token =Token();
     const [ craftList, setCraftList ] = useState([]);
     const [isLoading,    setLoading ] = useState(false);
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(craftList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
 
     useEffect(() => {
         setLoading(true);
-             axiosCall("get", API_IP_INFO + '/crafts/list', props.selectTType, (data) => {
+        AxiosCall("get", API_IP_INFO + '/crafts/list', props.selectTType, (data) => {
                 setCraftList(data);
                 setLoading(false);
-            });
+        }, (e) => {
+                        errorHandler(e.response);
+        }, token);
      },[props.selectTType]);
 
     return (

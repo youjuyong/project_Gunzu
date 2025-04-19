@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useLayoutEffect, memo    } from "react";
-import { axiosCall                          } from "../../utils/common/common";
+import { AxiosCall, errorHandler, Token     } from "../../utils/common/common";
 import { API_IP_INFO                        } from "../../utils/apiUrl";
 import { Link                               } from "react-router-dom";
 import { Pagination, useListPage            } from "../../../src/commComponent/TablePageFooterCompo";
@@ -19,16 +19,19 @@ const initCurrentPage = 1;  // 초기 페이지 쪽수
 const viewPageCnt     = 5;  // 하단 페이지 목록 표출 갯수 
 
 const MainCp = () => {
+    const token = Token();
     const [mainBoardList, setMainBoardList] = useState([]);
     const [isLoading,           setLoading] = useState(false);
     const [renderList, setViewData, setCurrentPage, currentPage, totalPage, firstPage, lastPage, slicedList] = useListPage(mainBoardList ,viewPageDataCnt, initCurrentPage, viewPageCnt);
 
     useLayoutEffect(() => {
          setLoading(true);
-         axiosCall("get", API_IP_INFO + '/board/main-board-list', null, (data) => {
+         AxiosCall("get", API_IP_INFO + '/board/main-board-list', null, (data) => {
                 setMainBoardList(data);
                 setLoading(false);
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+        }, token);
     },[]);
 
     return (

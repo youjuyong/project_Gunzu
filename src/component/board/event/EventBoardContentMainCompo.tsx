@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect, useRef  } from "react";
-import { axiosCall       } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token       } from "../../../utils/common/common";
 import { API_IP_INFO     } from "../../../utils/apiUrl";
 import { Loading         } from "../../../commComponent/Loading";
 
@@ -10,6 +10,7 @@ const EventBoardContentMainCp = ( props : any ) => {
     const { text_id, text_title, reg_dt} = props.state;
     const [ loading, setLoading ] = useState(true);
     const ref = useRef<any>(null);
+    const token = Token();
     const [ html, setHtml ] = useState<any>();
 
     useLayoutEffect(() => {
@@ -17,7 +18,7 @@ const EventBoardContentMainCp = ( props : any ) => {
             text_id : text_id
         }
         
-        axiosCall("get", API_IP_INFO + "/board/event-board-content-list", param, (data) => {
+        AxiosCall("get", API_IP_INFO + "/board/event-board-content-list", param, (data) => {
             
             const { contentList, imgList } = data;
             
@@ -36,7 +37,10 @@ const EventBoardContentMainCp = ( props : any ) => {
 
             setHtml(html);
             setLoading(false);
-         });
+         }, (e) => {
+              errorHandler(e.response);
+         }, token);
+
          return(setLoading(true));
     },[]);
 

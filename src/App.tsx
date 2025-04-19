@@ -11,13 +11,9 @@ function App() {
   return (
     <>
         <Suspense fallback={<MainLoading/>}>
-            <Suspense fallback={<MainLoading/>}>
             <Header/> 
-               <Suspense fallback={<MainLoading/>}>
                 <Main/>
-              </Suspense>
             <Footer/>
-          </Suspense>
        </Suspense>
     </>
   );

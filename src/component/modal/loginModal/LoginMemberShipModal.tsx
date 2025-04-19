@@ -4,7 +4,7 @@ import React, {useCallback, useEffect, useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import UseEnterBtnClick from "../../../utils/common/useEnterBtnClick";
 import { InputTagIdValidate } from "../../../utils/common/dataValidateCheck";
-import { axiosCall          } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token  } from "../../../utils/common/common";
 import { API_IP_INFO        } from "../../../utils/apiUrl";
 
 interface memberShipType {
@@ -27,6 +27,7 @@ const LoginMemberShipMd = ( props : any ) => {
     const [cityPerson,   setCityPerson] = useState<any>({yesCheck : false, noCheck : true});
     const [inputValue,   setInputValue] = useState<basicObjectType>({USER_ID : '', USER_PW : '', USER_NAME : '', CITY_USER_NAME : ''});
     const [middleCheck, setMiddleCheck] = useState(false);
+    const token = Token();
 
     // 저장 버튼 클릭시
     function saveBitInfo() {
@@ -61,14 +62,16 @@ const LoginMemberShipMd = ( props : any ) => {
             cityName : inputValue.CITY_USER_NAME,
             cityYn   : cityPerson.noCheck === true ? 'N' : 'Y'
         }
-        axiosCall("put", API_IP_INFO + '/user/new-info', param, (data) => {
+        AxiosCall("put", API_IP_INFO + '/user/new-info', param, (data) => {
             
             if ( data === 1 ) {
                 alert("회원가입 완료!!");
                 props.setModalIsOpen(false);
             }
           
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+         }, token);
     }
 
     // 의정부 주민 여부 체크박스
@@ -98,7 +101,7 @@ const LoginMemberShipMd = ( props : any ) => {
             return;
         }
      
-        axiosCall("get", API_IP_INFO + '/user/middle-check', {userId : inputValue.USER_ID}, (data) => {
+        AxiosCall("get", API_IP_INFO + '/user/middle-check', {userId : inputValue.USER_ID}, (data) => {
             if ( data.length > 0 ) {
                 alert("이미 존재 하는 ID입니다.")
                 return;
@@ -106,7 +109,9 @@ const LoginMemberShipMd = ( props : any ) => {
                 alert("사용 가능한 ID입니다.");
                 setMiddleCheck(true);
             }
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+         }, token);
 
     }
 

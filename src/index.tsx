@@ -1,8 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { QueryClient, QueryClientProvider } from "react-query";
-import { BrowserRouter }                    from "react-router-dom";
+import React        from 'react';
+import ReactDOM     from 'react-dom/client';
+import App          from './App';
+import store  from 'utils/reducer';
+import { QueryClient, QueryClientProvider  }  from "react-query";
+import { BrowserRouter }                      from "react-router-dom";
+import { legacy_createStore as createStore }  from 'redux';
+import { Provider }                           from 'react-redux';
+
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+
 import "./assets/scss/setting/__font.css";
 import "./assets/scss/setting/__vars.css";
 import "./assets/scss/setting/__mixin.css";
@@ -22,14 +29,21 @@ import "./assets/scss/section/__gameInfoHeader.css";
 import "./assets/scss/section/__gameInfo.css";
 import "./assets/scss/section/__statics.css";
 
+
 import "./assets/scss/setting/__skeleton.css";
 const queryClient = new QueryClient();
 const root        = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+let persistor     = persistStore(store);
+
 
 root.render(
-    <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-             <App />
-        </QueryClientProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <BrowserRouter>
+                <QueryClientProvider client={queryClient}>
+                    <App />
+                </QueryClientProvider>
+            </BrowserRouter>
+        </PersistGate>
+    </Provider>
 );

@@ -1,24 +1,27 @@
-import { memo, useCallback, useState, useRef } from "react";
-import { useLocation }       from "react-router-dom";
+import { useCallback, useState, useRef } from "react";
 import React                 from "react";
 import moment                from 'moment';
+import { useDispatch       } from "react-redux";
+import { user_save         } from "utils/reducer/userInfo";
 import 'moment/locale/ko';
 
 import { useNavigate             } from "react-router-dom";
 import { LoginMemberShipModal    } from "../component/modal/loginModal/LoginMemberShipModal"
 import { API_IP_INFO             } from "../../src/utils/apiUrl";
-import { axiosCall, errorHandler } from "../../src/utils/common/common"; 
+import { AxiosCall, errorHandler, Token } from "../../src/utils/common/common"; 
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const token = Token();
     const [ form, setForm ] = useState({userId: '', userPassWord: ''});
-    const {userId, userPassWord} = form;
+    const { userId, userPassWord } = form;
     const movePage = useNavigate();
     const idInput = useRef<HTMLInputElement>(null);
     // 회원 가입 모달 open 여부
     const [addMdOpenValue, setAddmdOpen] = useState(false);
        
 
-    const setBitaddOpenValue = useCallback((data: boolean) => {
+    const setBitaddOpenValue = useCallback(( data : boolean ) => {
         setAddmdOpen(data);
     }, [addMdOpenValue]);
 
@@ -29,34 +32,28 @@ const Login = () => {
     
     const LoginformSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         if (form.userId !== '' && form.userPassWord !== '') {
-            axiosCall("POST", API_IP_INFO + "/user/login", {
+            AxiosCall("POST", API_IP_INFO + "/user/login", {
                 userId: form.userId,
                 userPwd: form.userPassWord
-            }, function (data) {
-                sessionStorage.setItem("token", `Bearer ${data.accessToken}`);
-                sessionStorage.setItem("id", data.userId);
-                sessionStorage.setItem("conn_dt", moment().format('YYYY-MM-DD'));
-                sessionStorage.setItem("conn_tm", moment().format('HH:mm:ss'));
-                sessionStorage.setItem("expireIn", data.tokenExpiresIn);
-                sessionStorage.setItem("nickName",data.member.userName);
-                sessionStorage.setItem("cityYn",data.member.cityYn);
-                sessionStorage.setItem("cityUserName",data.member.cityUserName);
-                sessionStorage.setItem("masterYn",data.member.masterYn);
-                sessionStorage.setItem("regDt",data.member.registeredDate);
-                // if (isRemember) {
-                //     setCookie("userId", form.userId, {maxAge: 60 * 60 * 24})
-                // } else {
-                //     removeCookie("userId");
-                // }
+            }, function ( data ) {
+                const param = {
+                              id : data.userId,
+                           token : `Bearer ${data.accessToken}`,
+                         conn_dt : moment().format('YYYY-MM-DD'),
+                         conn_tm : moment().format('HH:mm:ss'),
+                        expireIn : data.tokenExpiresIn,
+                        nickName : data.member.userName,
+                          cityYn : data.member.cityYn,
+                    cityUserName : data.member.cityUserName,
+                        masterYn : data.member.masterYn,
+                           regDt : data.member.registeredDate
+                }
+                dispatch(user_save(param));
                 movePage("/");
-                window.location.reload();
-                
-                
             }, (e) => {
                 errorHandler(e.response);
-            });
+            }, token);
         } else {
             alert("ID와 비밀번호를 확인해주세요.");
             setForm({userId: '', userPassWord: ''});

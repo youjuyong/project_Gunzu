@@ -2,6 +2,8 @@ import { heroScoreReViewModal  } from "../../../utils/common/modalCss";
 import { ModalContent          } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
 import React from "react";
+import { rootState          } from "../../../utils/reducer/index";
+import { useSelector        } from "react-redux";
 import { heroInfo                                } from "../../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
 import { ReViewCompo                             } from "../../../commComponent/ReViewCompo";
 import { horsePassive1, horsePassive2, heroSkill } from "../../../section2Component/gameInfoComponent/gamInfoInnerComponent/recallHero/heroContextList";
@@ -34,12 +36,12 @@ interface heroReviewType {
     heroData       : heroListType | any
 }
 
-const heroReviewMd = ( props : heroReviewType ) => {
+const HeroReviewMd = ( props : heroReviewType ) => {
     const imgUrl = heroInfo.filter((imgInfo : any) => imgInfo.heroId === props.heroData.HERO_ID).map((m : any) => m.imgUrl)[0];
-    const userId = sessionStorage.getItem("id");
     const passiveHtml1 = horsePassive1.filter( (v : any)  => props.heroData.HERO_ID === v.heroId)?.[0];
     const passiveHtml2 = horsePassive2.filter( (v : any)  => props.heroData.HERO_ID === v.heroId)?.[0];
     const   skillHtml  = heroSkill?.filter((v : any) => props.heroData.HERO_ID === v.heroId)?.[0];
+    const { userId }   = useSelector(( state: rootState ) => state.userReducer);
 
     return ( 
         <div>
@@ -145,4 +147,4 @@ const heroReviewMd = ( props : heroReviewType ) => {
     )
 }
 
-export const RecallHeroReviewModal = React.memo(heroReviewMd);
+export const RecallHeroReviewModal = React.memo(HeroReviewMd);

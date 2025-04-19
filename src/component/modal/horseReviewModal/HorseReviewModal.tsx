@@ -3,6 +3,8 @@ import { ModalContent          } from "../../../utils/common/modalCss";
 import Modal from "react-modal";
 import React from "react";
 
+import { rootState    } from "../../../utils/reducer/index";
+import { useSelector  } from "react-redux";
 import { horseImgInfo                               } from "../../../utils/ContextList";
 import { ReViewCompo                                } from "../../../commComponent/ReViewCompo";
 import { horseBurf, horseSpecialSkill, horsePassive } from "../../../utils/ContextList";
@@ -37,11 +39,11 @@ const HorseReviewMd = ( props : horseReviewType ) => {
 
     const imgUrl = horseImgInfo.filter((imgInfo : any) => imgInfo.horseId === props.horsData.HORSE_ID).map((m : any) => m.imgUrl)[0];
     
-    const userId = sessionStorage.getItem("id");
     const burfHtml    = horseBurf.filter(        (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const passiveHtml = horsePassive.filter(     (v : any)  => props.horsData.HORSE_ID === v.horseId)?.[0];
     const skillHtml   = horseSpecialSkill?.filter((v : any) => props.horsData.HORSE_ID === v.horseId)?.[0];
-    
+    const { userId }  = useSelector(( state : rootState ) => state.userReducer);
+
     return ( 
         <div>
             <Modal

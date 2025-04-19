@@ -3,7 +3,7 @@ import { FlowModalContent     } from "../../../utils/common/modalCss";
 import { ReactFlowProvider    } from "reactflow";
 import { EquipButtonCompo     } from "./EquipButtonCompo";
 import { EquipAlertCompo      } from "./EquipAlertCompo";
-import { axiosCall            } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO          } from "../../../utils/apiUrl";
 import EquipNode                from "./EquipNode";
 import ReactFlow, {
@@ -55,6 +55,7 @@ type equipDetlType = {
 }
 
 const ExquipmentFlowMd = ( props : equipmentType ) => {
+    const token = Token();
     const [nodeDetail, setNodeDetail]          = useState<any>(null);
     const [nodes, setNodes, onNodesChange]:any = useNodesState<any>([]);
     const [edges, setEdges, onEdgesChange]     = useEdgesState([]);
@@ -62,7 +63,7 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
 
     useEffect(() => {
           if ( props.equipId === null ) return;
-          axiosCall("get", API_IP_INFO + '/equip/equip-detl-list', { equipId : props.equipId }, ( data ) => {
+          AxiosCall("get", API_IP_INFO + '/equip/equip-detl-list', { equipId : props.equipId }, ( data ) => {
            
             if ( data.length === 0 ) {
                 setNodes([]);
@@ -101,7 +102,9 @@ const ExquipmentFlowMd = ( props : equipmentType ) => {
                 setNodes([...nodes]);
                 setEdges([...edges]);
             }
-          });
+          }, (e) => {
+                          errorHandler(e.response);
+          }, token);
       
     },[props.equipId]);
 

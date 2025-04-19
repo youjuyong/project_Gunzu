@@ -1,6 +1,6 @@
 import  React, { useLayoutEffect } from "react";
 import { useState, useCallback } from "react";
-import { axiosCall        } from "../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../utils/common/common";
 import { API_IP_INFO      } from "../../utils/apiUrl";
 import { horseImgInfo     } from "../../utils/ContextList";
 import { HorseReviewModal } from "../modal/horseReviewModal/HorseReviewModal"
@@ -45,6 +45,7 @@ const viewPageCnt     = 5; // 하단 페이지 목록 표출 갯수
 const array = Array.from({ length : 5}, (v,i) =>  i);
 
 const HorseListTableCp = ( props:tableCompoType ) => {
+    const token = Token();
     const [horseList, setHorseList] = useState([]);
     // 탈것 리뷰 모달 open 여부
     const [addMdValue, setAddmdOpen] = useState({openBoolean : false, horseData : {}});
@@ -54,10 +55,12 @@ const HorseListTableCp = ( props:tableCompoType ) => {
     
     useLayoutEffect(() => {
         setLoading(true);
-        axiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
+        AxiosCall("get", API_IP_INFO + props.apiUrl, props.selectTType, (data) => {
             setHorseList(data);
             setLoading(false);
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+        }, token);
     },[props.selectTType]);
 
     // 탈것 리뷰 모달 open 여부

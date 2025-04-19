@@ -1,7 +1,7 @@
 import { useEffect         } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { headerNavInfo     } from "../../../utils/ContextList";
-import { axiosCall         } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO       } from "../../../utils/apiUrl";
 
 import { EventBoardContentMainCompo } from "./EventBoardContentMainCompo";
@@ -13,6 +13,7 @@ const EventBoardTextCompo = ( props : any ) => {
     const location  = useLocation();
     const { state } = location;
     const event     = headerNavInfo.filter((v:any) => v.url === 'eventInfo')[0];
+    const token = Token();
 
     useEffect(() => {
         const cookies       = Object.fromEntries(document.cookie.split(';').map((cookie) => cookie.trim().split('=')));
@@ -23,7 +24,9 @@ const EventBoardTextCompo = ( props : any ) => {
         } else {
             const date2 = new Date(Date.now() + 86400e3).toUTCString();
             document.cookie = `event${state.text_id}=John;   Path=/; Max-Age=3600;  expires=${date2};`  ;
-            axiosCall("post", API_IP_INFO + '/board/viewCount', {text_id : state.text_id});
+            AxiosCall("post", API_IP_INFO + '/board/viewCount', {text_id : state.text_id}, null, (e) => {
+                            errorHandler(e.response);
+             }, token);
         }
     },[]);
     

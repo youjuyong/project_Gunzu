@@ -8,7 +8,7 @@ import { InputTagTypeStyle   }    from '../../../src/utils/commonStyles';
 import { ButtonTagTypeStyle  }    from '../../../src/utils/commonStyles';
 
 import { SkeleTonStyle             } from '../../../src/utils/commonStyles';
-import { axiosCall, useQuerySingle } from "../../utils/common/common";
+import { AxiosCall, useQuerySingle, errorHandler, Token } from "../../utils/common/common";
 import EquipmentList from "./EqupmentList";
 import { API_IP_INFO    } from "../../utils/apiUrl";
 
@@ -38,7 +38,7 @@ type paramType = {
     codeList : string
 }
 const EquipmentLentCp = () => {
-
+    const token = Token();
     const { state } = useLocation();
     const [flowModal, setFlowModal] = useState<FlowModal>({ equipId : null, openValue : false, lentStatus : null });
     const [equipList, setEquipList] = useState<Equip[]>();
@@ -50,9 +50,11 @@ const EquipmentLentCp = () => {
     const [isLoading, setLoading] = useState(false);
 
     useLayoutEffect(() => {
-        axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
+        AxiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
                              setEquipList(data);
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+         }, token);
     }, []);
     
     // 마을명, 시간 select 선택시
@@ -72,10 +74,12 @@ const EquipmentLentCp = () => {
 
     const reload = useCallback((param : paramType) => {
         setLoading(true);
-        axiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
+        AxiosCall("get", API_IP_INFO + '/equip/equip-list', param, (data) => {
             setEquipList(data);
             setLoading(false);
-        });
+        }, (e) => {
+                 errorHandler(e.response);
+        }, token);
     },[equipList]);
 
     const onClickSearch = () => {
@@ -83,9 +87,11 @@ const EquipmentLentCp = () => {
             alert("검색조건을 선택해주세요.");
             return;
         }
-        axiosCall("get", API_IP_INFO + '/equip/equip-list', Object.assign( param, serParam ), (data) => {
+        AxiosCall("get", API_IP_INFO + '/equip/equip-list', Object.assign( param, serParam ), (data) => {
             setEquipList(data);
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+        }, token);
     }
 
     return (

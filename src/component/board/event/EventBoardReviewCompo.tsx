@@ -1,28 +1,33 @@
 import { useState, useEffect } from "react";
 import UseEnterBtnClick        from "../../../utils/common/useEnterBtnClick";
-import { axiosCall           } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO         } from "../../../utils/apiUrl";
+import { rootState           } from "../../../utils/reducer/index";
+import { useSelector         } from "react-redux";
 
 const EventBoardTextCompo = ( props : any ) => {
     const buttonElement = UseEnterBtnClick();
     const [ reviewList, setReviewList ] = useState([]);
     const [ textValue,    setTxtValue ] = useState();
-    const user_id     = sessionStorage.getItem("id");
+    const { userId  } = useSelector((state: rootState)=>state.userReducer);
     const { text_id } = props.state;
+    const token = Token();
 
       const deleteHandler = () => {
             if ( window.confirm("댓글을 삭제 하시겠습니까?") ) {
                 const param = {
                     text_id : text_id,
-                    user_id   : user_id
+                    user_id : userId
                 }
-                 axiosCall("delete", API_IP_INFO + "/board/review-remove", param, (data) => {
+                AxiosCall("delete", API_IP_INFO + "/board/review-remove", param, (data) => {
                             
                             if ( data === 1 ) {
                                 alert("댓글삭제완료!!");
                                 Reload();
                             }
-                });
+                }, (e) => {
+                        errorHandler(e.response);
+                }, token);
             }
      }
 
@@ -35,9 +40,11 @@ const EventBoardTextCompo = ( props : any ) => {
                  text_id : text_id
              }
      
-             axiosCall("get", API_IP_INFO + "/board/event-board-review-list", param, (data) => {
+             AxiosCall("get", API_IP_INFO + "/board/event-board-review-list", param, (data) => {
                 setReviewList(data);
-             });
+             }, (e) => {
+                        errorHandler(e.response);
+             }, token);
     }
     const textAreaChangeHandle = (e : any) => {
         const {value} = e.target;
@@ -45,7 +52,7 @@ const EventBoardTextCompo = ( props : any ) => {
     }
 
       const saveHandler = ( e : any ) => {
-            if ( reviewList.filter((v:any) => v.USER_ID === user_id).length > 0 ) {
+            if ( reviewList.filter((v:any) => v.USER_ID === userId).length > 0 ) {
                 alert("이미 등록된 댓글이 있습니다.");
                 return;
             }
@@ -66,17 +73,19 @@ const EventBoardTextCompo = ( props : any ) => {
                 }
                 const param = {
                     text_id  : text_id,
-                    user_id  : user_id,
+                    user_id  : userId,
                     content  : textValue
                 }
-                 axiosCall("put", API_IP_INFO + "/board/review", param, (data) => {
+                AxiosCall("put", API_IP_INFO + "/board/review", param, (data) => {
                             
                             if ( data === 1 ) {
                                 alert("댓글등록완료!!");
                                 Reload();
                             }
                       
-                });
+                }, (e) => {
+                                errorHandler(e.response);
+                }, token);
             }
     }
     return (
@@ -99,7 +108,7 @@ const EventBoardTextCompo = ( props : any ) => {
                                                         <div className="reviewDateDiv">
                                                             <span className="reViewSpan snans dateSpan">{v.REG_DT}</span>
                                                             {
-                                                                v.USER_ID === user_id ?  <button className="reviewDelete"ref={buttonElement} onClick={deleteHandler}>삭제</button> : ""
+                                                                v.USER_ID === userId ?  <button className="reviewDelete"ref={buttonElement} onClick={deleteHandler}>삭제</button> : ""
                                                             }
                                                         </div>
                                                     </div>
@@ -111,7 +120,7 @@ const EventBoardTextCompo = ( props : any ) => {
                     </ul>
                 </div>
                 <div className="contentInput">
-                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {user_id === null ? true: false } placeholder={user_id=== null ? "로그인이 필요합니다." : "댓글을 작성해주세요." }></textarea>
+                                    <textarea className="reviewtextarea" onChange={textAreaChangeHandle} disabled = {userId === null ? true: false } placeholder={userId=== null ? "로그인이 필요합니다." : "댓글을 작성해주세요." }></textarea>
                                     <button ref={buttonElement} onClick={saveHandler}>저장</button>
                 </div>
              </div>

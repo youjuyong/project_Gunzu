@@ -1,18 +1,21 @@
 import { useState, useLayoutEffect,useRef, useEffect } from "react";
-import { axiosCall       } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { HighChartBar    } from "../../../utils/common/chart";
 import { API_IP_INFO     } from "../../../utils/apiUrl";
 import { Loading         } from "../../../commComponent/Loading";
+import { rootState       } from "../../../utils/reducer/index";
+import { useSelector     } from "react-redux";
 import moment                from 'moment';
 import 'moment/locale/ko';
 
 const EventBoardTextMainCompo = ( props : any ) => {
+    const token = Token();
     const [ dateTime, setDateTime   ]     = useState();
     const [isLoading,    setLoading ] = useState(false);
     const [ dateCheck, setDateCheck ]:any = useState ({ date1 : false, date2 : false, date3 : false, date4 : false });
     const [ timeCheck, setTimeCheck ]:any = useState ({ time1 : false, time2 : false, time3 : false, time4 : false, time5 : false, time6 : false, time7 : false });
     const { text_id, text_title, reg_dt, event_term} = props.state;
-    const user_id = sessionStorage.getItem("id");
+    const { userId } = useSelector((state: rootState)=>state.userReducer);
 
     const dateCheckCnt = Object.values(dateCheck).filter((v : any) => v === true ).length;
     const timeCheckCnt = Object.values(timeCheck).filter((v : any) => v === true ).length;
@@ -57,10 +60,12 @@ const EventBoardTextMainCompo = ( props : any ) => {
     // 처음 날짜 가져오기
     useLayoutEffect(() => {
         setLoading(true);
-            axiosCall("get", API_IP_INFO + '/board/event-board-day-time', {text_id : text_id, event_term : event_term}, (data) => {
+        AxiosCall("get", API_IP_INFO + '/board/event-board-day-time', {text_id : text_id, event_term : event_term}, (data) => {
                 setDateTime(data);
                 setLoading(false);
-            });
+        }, (e) => {
+                            errorHandler(e.response);
+        }, token);
      },[]);
 
      useEffect(() => {
@@ -69,7 +74,7 @@ const EventBoardTextMainCompo = ( props : any ) => {
 
      const chartReload = () => {
         if ( !dateTime ) return;
-        axiosCall("get", API_IP_INFO + '/board/event-board-day-time-chart', {text_id : text_id}, (data) => {
+        AxiosCall("get", API_IP_INFO + '/board/event-board-day-time-chart', {text_id : text_id}, (data) => {
             if ( data.length > 0 ) {
                 setChartData({ 
                     dateXcategory : [dateTime[0]["DATE1"], dateTime[0]["DATE2"],dateTime[0]["DATE3"], dateTime[0]["DATE4"]]
@@ -78,7 +83,9 @@ const EventBoardTextMainCompo = ( props : any ) => {
                      , timeSerize : [data[0]["TIME1"],data[0]["TIME2"],data[0]["TIME3"],data[0]["TIME4"],data[0]["TIME5"],data[0]["TIME6"],data[0]["TIME7"]]
                  });
             }
-        });
+        }, (e) => {
+                        errorHandler(e.response);
+        }, token);
      }
     
      // 결과보기
@@ -98,7 +105,7 @@ const EventBoardTextMainCompo = ( props : any ) => {
             alert(`신청날짜는 ${dateTime[0]["END_TIME"]} 까지입니다..`);
             return;
         }
-        axiosCall("get", API_IP_INFO + '/board/event-board-user-check', {text_id : text_id, user_id : user_id}, (data) => {
+        AxiosCall("get", API_IP_INFO + '/board/event-board-user-check', {text_id : text_id, user_id : userId}, (data) => {
           if ( data.length > 0 ) {
             alert("이미 신청이 되셨습니다. 관리자에게 문의 부탁드립니다.");
             return;
@@ -115,7 +122,7 @@ const EventBoardTextMainCompo = ( props : any ) => {
           }
           const param = {
               text_id : text_id
-            , user_id : user_id
+            , user_id : userId
             ,   date1 : dateCheck.date1 === false ? 0 : 1
             ,   date2 : dateCheck.date2 === false ? 0 : 1
             ,   date3 : dateCheck.date3 === false ? 0 : 1
@@ -129,14 +136,18 @@ const EventBoardTextMainCompo = ( props : any ) => {
             ,   time7 : timeCheck.time7 === false ? 0 : 1
           }
 
-          axiosCall("put", API_IP_INFO + '/board/event-board-day-time-sumit', param, (data) => {
+          AxiosCall("put", API_IP_INFO + '/board/event-board-day-time-sumit', param, (data) => {
                 if ( data === 1 ) {
                     alert("신청되셨습니다.");
                     chartReload();
                     return;
                 }
-          });
-        });
+          }, (e) => {
+                          errorHandler(e.response);
+           }, token);
+        }, (e) => {
+                        errorHandler(e.response);
+          }, token);
      }
 
     const options = {

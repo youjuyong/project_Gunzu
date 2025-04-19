@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect, useRef  } from "react";
-import { axiosCall       } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token     } from "../../../utils/common/common";
 import { API_IP_INFO     } from "../../../utils/apiUrl";
 import { Loading         } from "../../../commComponent/Loading";
 
@@ -7,6 +7,7 @@ import React               from "react";
 import 'moment/locale/ko';
 
 const MainBoardContentMainCp = ( props : any ) => {
+    const token = Token();
     const { text_id, text_title, reg_dt} = props.state;
     const [ loading, setLoading ] = useState(true);
     const ref               = useRef<any>(null);
@@ -18,7 +19,7 @@ const MainBoardContentMainCp = ( props : any ) => {
             text_id : text_id
         }
         
-        axiosCall("get", API_IP_INFO + "/board/main-board-content-list", param, (data) => {
+        AxiosCall("get", API_IP_INFO + "/board/main-board-content-list", param, (data) => {
             
             const { contentList, imgList } = data;
             
@@ -37,7 +38,9 @@ const MainBoardContentMainCp = ( props : any ) => {
 
             setHtml(html);
             setLoading(false);
-         });
+         }, (e) => {
+                         errorHandler(e.response);
+         }, token);
          return(setLoading(true));
     },[]);
 

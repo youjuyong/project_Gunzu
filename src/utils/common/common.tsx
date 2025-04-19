@@ -2,14 +2,17 @@ import axios                                     from "axios";
 import qs                                        from "qs";
 import { useEffect, useRef, useState }           from "react";
 import { useQuery, useQueryClient, useMutation } from  "react-query";
+import { rootState    } from "../../utils/reducer/index";
+import { useSelector  } from "react-redux";
 
-export async function axiosCall(requsetType: string, url: string, data: any, _callbackFunction ?: ((data: any) => void) | null, _errorCallback ?: ((data: any) => void) | null) {
+export async function AxiosCall(requsetType: string, url: string, data: any, _callbackFunction ?: ((data: any) => void) | null,  _errorCallback ?: ((data: any) => void) | null, token ?: string | null | undefined ) {
+    
     const options = {
         url: url,
         method: requsetType,
         params: data,
         headers: {
-            Authorization: sessionStorage.getItem("token")
+            Authorization: token
             ,  "Content-Type": "application/json; charset=utf-8",
         },
         paramsSerializer: (params: any) => {
@@ -118,10 +121,11 @@ export function useQuerySingle(
     enabled              ?: boolean,
     ...arg: any
 ) {
+    const { token } = useSelector((state: rootState)=>state.userReducer);
     const result = useQuery(
         [keyName, keyId],
         async () => {
-            const response = await fetch(url, {headers: {Authorization: sessionStorage.getItem("token")!}});
+            const response = await fetch(url, {headers: {Authorization: token!}});
             if (response.status === 401) {
                 alert("로그인 토큰이 만료되어 로그인 페이지로 이동합니다.");
                 window.location.href = "/"
@@ -319,4 +323,11 @@ export const LazyDivHookMulti = ( class_name : string, remove_class ?: any ) => 
       const lazyBackgrounds = document.querySelectorAll(class_name);
 
       lazyBackgrounds.forEach(container => observer.observe(container));
+}
+
+
+export function Token () {
+     const { token } = useSelector((state: rootState)=>state.userReducer);
+
+     return token;
 }

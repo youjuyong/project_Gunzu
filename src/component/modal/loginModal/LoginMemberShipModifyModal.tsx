@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import React, { useEffect, useState} from "react";
 import { useNavigate        } from "react-router-dom";
 import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
-import { axiosCall          } from "../../../utils/common/common";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO        } from "../../../utils/apiUrl";
 
 interface memberShipType {
@@ -20,6 +20,7 @@ interface basicObjectType {
 }
 
 const LoginMemberShipModifyMd = ( props : memberShipType ) => {
+    const token = Token();
     const movePage      = useNavigate();
     const buttonElement = UseEnterBtnClick();
     const [cityPerson, setCityPerson] = useState<any>({yesCheck : false, noCheck : true});
@@ -49,14 +50,16 @@ const LoginMemberShipModifyMd = ( props : memberShipType ) => {
             cityYn   : cityPerson.noCheck === true ? 'N' : 'Y'
         }
         if ( window.confirm("수정 하시겠습니까?"))  {
-            axiosCall("patch", API_IP_INFO + '/user/modify-info', param, (data) => {
+            AxiosCall("patch", API_IP_INFO + '/user/modify-info', param, (data) => {
                     if ( data === 1 ) {
                         alert("수정 완료 되었습니다. 다시 로그인 해주세요.");
                         movePage("/");
                         sessionStorage.clear();
                         window.location.reload();
                     }
-            });
+            }, (e) => {
+                            errorHandler(e.response);
+            }, token);
         } else {
             return;
         }

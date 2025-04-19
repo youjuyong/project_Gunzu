@@ -2,13 +2,13 @@ import { Link, useLocation       } from "react-router-dom";
 import { headerNavInfo           } from "../utils/ContextList";
 import { loginHeaderNav          } from "../utils/ContextList";
 import { useLayoutEffect         } from "react";
-
+import { useSelector             } from "react-redux";
+import { rootState               } from "../utils/reducer/index";
 
 const Header = () => {
-    const { state } = useLocation();
-    const       id = sessionStorage.getItem("id");
-    const masterYn = sessionStorage.getItem("masterYn");
-
+    const { state  } = useLocation();
+    const { userId } = useSelector((state: rootState)=>state.userReducer);
+    
     useLayoutEffect(() => {
         const mainMenu = document.querySelector('.header__inner__section'),
               subMenu  = document.querySelector('.sub-menu-wrap');
@@ -63,7 +63,7 @@ const Header = () => {
                                 })
                             }
                             {
-                                ( state?.loginSuccss || id !== null ) ?  <li key={'header42'} id="loginInfoAtag" onClick={peronInfoClickHandler}><a>{loginHeaderNav[1].title}</a></li> :  
+                                ( state?.loginSuccss || userId !== null ) ?  <li key={'header42'} id="loginInfoAtag" onClick={peronInfoClickHandler}><a>{loginHeaderNav[1].title}</a></li> :  
                                                                          <li key={'header32'}><Link to={ loginHeaderNav[0].subUrl } state={{ url : loginHeaderNav[0].url, menuName : loginHeaderNav[0].menuName, mainMenuName : loginHeaderNav[0].subTitle} } className="tab snans">{ loginHeaderNav[0].title }</Link></li>
                             }
                         </ul>

@@ -1,24 +1,27 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import React from "react"
-import { axiosCall, errorHandler         } from "../../../utils/common/common";
-import { API_IP_INFO       } from "../../../utils/apiUrl";
+import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
+import { API_IP_INFO             } from "../../../utils/apiUrl";
+import { rootState               } from "../../../utils/reducer/index";
+import { useSelector             } from "react-redux";
 
 const EventBoardPrizeCp = (props : any) => {
     const { text_id, prize_yn } = props.state;
+    const { userId } = useSelector((state: rootState)=>state.userReducer);
     const ref = useRef<any>(null);
-    const id       = sessionStorage.getItem("id");
+    const token = Token();
 
      useLayoutEffect(() => {
             const param = {
                 text_id : text_id
             }
-             axiosCall("get", API_IP_INFO + "/board/event-board-prize-list", param, (data) => {
+            AxiosCall("get", API_IP_INFO + "/board/event-board-prize-list", param, (data) => {
                 
                  if ( data.length === 0 ) return;
 
                  let html = '';
                  data.map(( v : { PRIZE_NUM : number, TEXT_ID : string, PRIZE_NAME : string, USER_ID : string, USER_NAME : string } ) => {
-                    const className= ( v?.USER_ID === id  && prize_yn === 'Y' )? 'winning' : '';
+                    const className= ( v?.USER_ID === userId  && prize_yn === 'Y' )? 'winning' : '';
                     html += `<tr class=${className}>`;
                     html +=     `<td>${v.PRIZE_NUM}</td>`;
                     html +=     `<td>${v.PRIZE_NAME}</td>`;
@@ -27,26 +30,28 @@ const EventBoardPrizeCp = (props : any) => {
                  });
                
                  ref.current.innerHTML = html;
-              });
+            }, (e) => {
+                    errorHandler(e.response);
+            }, token);
     },[]);
 
     // 경품 신청
     const prizeSumitClick = () => {
         const param = {
             text_id : text_id,
-            user_id : id
+            user_id : userId
         }
 
         if (  prize_yn=== 'Y' ) {
             alert('신청 기간이 마감되었습니다.');
             return;
         }
-        axiosCall("post", API_IP_INFO + "/board/event-board-prize-sumit", param, (data) => {
+        AxiosCall("post", API_IP_INFO + "/board/event-board-prize-sumit", param, (data) => {
             alert(data.message);
             return;
          },  (e) => {
                 errorHandler(e.response);
-         });
+         },token);
     }
 
     return (
