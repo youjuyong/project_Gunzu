@@ -1,17 +1,17 @@
-import { Link, useLocation       } from "react-router-dom";
-import { headerNavInfo           } from "../utils/ContextList";
-import { loginHeaderNav          } from "../utils/ContextList";
-import { useLayoutEffect         } from "react";
-import { useSelector             } from "react-redux";
-import { rootState               } from "../utils/reducer/index";
+import { Link, useLocation         } from "react-router-dom";
+import { headerNavInfo             } from "../utils/ContextList";
+import { loginHeaderNav            } from "../utils/ContextList";
+import { useLayoutEffect, useState } from "react";
+import { useSelector               } from "react-redux";
+import { rootState                 } from "../utils/reducer/index";
 
 const Header = () => {
     const { state  } = useLocation();
     const { userId } = useSelector((state: rootState)=>state.userReducer);
-    
+    const [ navOnoff, setNavOnOff ] = useState(false);
+
     useLayoutEffect(() => {
 
-        console.log(window.innerWidth, window.innerHeight);
         const mainMenu = document.querySelector('.header__inner__section'),
               subMenu  = document.querySelector('.sub-menu-wrap'),
               btnMenu  = document.querySelector('.menubtn');
@@ -34,26 +34,24 @@ const Header = () => {
 
         window.addEventListener("resize", function () { 
 
-            if ( window.innerWidth > 1220 ) 
+            if ( window.innerWidth > 1430 ) 
             {
+                setNavOnOff(false);
                 // 헤더 hover 시
                 mainMenu && mainMenu.addEventListener('mouseover', addClass);
     
                 // 헤더 hover 풀시
                 mainMenu && mainMenu.addEventListener('mouseleave', removeClass);
-                console.log(btnMenu);
+
             } 
             else 
             {
+                setNavOnOff(false);
                 mainMenu && mainMenu.removeEventListener('mouseover',addClass);
                 mainMenu && mainMenu.removeEventListener('mouseleave', removeClass);
             }
         });
         
-        btnMenu && btnMenu?.addEventListener('click', function () {
-            
-        });
-
 
         return () => {
              mainMenu && mainMenu.removeEventListener('mouseover',addClass);
@@ -76,6 +74,10 @@ const Header = () => {
         }
     }
 
+    console.log(navOnoff);
+    const menuClick = ( e : React.MouseEvent<HTMLButtonElement>  ) => {
+        setNavOnOff(!navOnoff);
+    }
 
     return (
          <>
@@ -87,7 +89,7 @@ const Header = () => {
                             <a href="/">GURIDAEK.COM<em>구리댁닷컴</em></a>
                         </h1>
                     </div>
-                    <button className ="menubtn" title="메뉴">메뉴</button>
+                    <button className ={ "menubtn " +  (navOnoff === true ? 'off' : '')}  onClick={menuClick} title="메뉴">메뉴</button>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
                         <ul className="header__nav_menu">
                             {
@@ -127,6 +129,38 @@ const Header = () => {
                             }
                         </div>
                     </div>
+                    {
+                        navOnoff &&
+                        <nav className="mobile_nav pretend" role="navigation" aria-label="모바일 메뉴 탭">
+                            <ul>
+                                {
+                                     headerNavInfo.map(( info : any, index ) => {
+                                        const { url, title, menuName, subTitle, subUrl, subMenu } = info;
+                                        return (
+                                                <li className="menu">
+                                                        <Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}} className="tab snans">{ title }</Link>
+                                                        {
+                                                            
+                                                             ( subMenu !==undefined ) && subMenu?.length > 0 &&
+                                                             <ul className="mobiMenu">
+                                                             {
+                                                                subMenu.map(( subInfo : any, subIndex : number ) => {
+                                                                    const { subTitle, subUrl, url, menuName, subClassCnt, title } = subInfo;
+                                                                    return (
+                                                                               title && <li key= {'sub' + subIndex }><Link to={ subUrl } state={{ url : url, menuName : menuName, mainMenuName : subTitle}}  >{ title }</Link></li> 
+                                                                    )
+                                                                })
+                                                             }
+                                                            </ul> 
+                                                        }
+                                                </li>
+                                        )
+                                     })
+                                }
+                            </ul>
+                        </nav>
+                    }
+                    
                 </div>
             </header>
         </>

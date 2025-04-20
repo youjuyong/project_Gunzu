@@ -128,9 +128,7 @@ export const headerNavInfo = [
         url      : "introduce",
         subUrl   : "introduce",
         subTitle : "홈페이지소개",
-        menuName : "소개",
-        subMenu  : [{
-        }]
+        menuName : "소개"
     }
 ];
 

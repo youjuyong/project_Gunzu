@@ -21,7 +21,7 @@ interface innerDivType {
 export const Section2DivInner = styled.div<innerDivType>`
         padding     : 8rem 0 6rem 0;
         margin      : 0 auto;
-        width       : ${(props)  => props.width ? props.width  : '95rem'} !important;
+        width       : ${(props)  => props.width ? props.width  : '95rem'} ;
         text-align  : center;
 `;
 interface innerh3Type {

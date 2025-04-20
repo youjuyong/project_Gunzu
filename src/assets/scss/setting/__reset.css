@@ -731,3 +731,7 @@ margin-top: 5px;
     z-index: 3;
     color: var(--white);
  }
+
+.off{
+    background: url('../../image/menu_close.png') center no-repeat;
+ }

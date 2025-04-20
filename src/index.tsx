@@ -58,16 +58,3 @@ if (rootElement?.hasChildNodes()) {
     root.render(app);
 }
 
-// root.render(
-//     <Provider store={store}>
-//           <PersistGate persistor={persistor}>
-//             <BrowserRouter>
-//                 <QueryClientProvider client={queryClient}>
-//                     <HelmetProvider>
-//                     <App />
-//                     </HelmetProvider>
-//                 </QueryClientProvider>
-//             </BrowserRouter>
-//         </PersistGate>
-//     </Provider>
-// );
