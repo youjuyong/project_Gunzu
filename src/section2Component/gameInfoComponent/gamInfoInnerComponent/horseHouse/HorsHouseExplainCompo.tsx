@@ -1,12 +1,14 @@
 import { Link                 } from "react-router-dom";
 import { horseHousePageheader } from "../../../../utils/ContextList";
 import { LazyImageHook        } from "../../../../../src/utils/common/common";
+import MetaTag                  from "../../../../utils/common/SEOMetaTag";
 
 /* 마굿간 설명 */
 const HorsHouseExplainCompo = () => {
 
     return (
         <>
+        <MetaTag title="[군주온라인 마구간]" description="[군주온라인 마무간] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 마구간"></MetaTag>
         <div className='intro_title'>
             <h3 className="magutganiran_h3 pretend">마구간 이란?</h3>
             <p className='pretend'> "마을 내에 '시전'이란 건물 안에 있는 장소. 말을 넣어 둘 수 있는 곳을 의미합니다. "<br/> "초보자 때에는 사용할 일이 거의 없지만 점점 레벨이 상승하고 사냥터의 몬스터가 강해질수록 마구간의 중요성은 높아집니다."</p>

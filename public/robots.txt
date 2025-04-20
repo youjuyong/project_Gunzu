@@ -1,2 +1,4 @@
 User-agent: Yeti
 Allow:/
+
+Sitemap: https://guridaek.com/sitemap.xml

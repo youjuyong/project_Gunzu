@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FlippingPages }   from 'flipping-pages';
 import React    from "react";
 import 'flipping-pages/dist/style.css';
+import MetaTag  from "../../../../utils/common/SEOMetaTag";
 
 const SystemOfKingLawInfo = ( ) => {
 
@@ -17,6 +18,7 @@ const SystemOfKingLawInfo = ( ) => {
 
     return (
         <>
+         <MetaTag title="[군주온라인 왕실 법안]" description="[군주온라인 왕실 법안] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 왕실 법안"></MetaTag>
         <div className='intro_title'>
             <h3 className="magutganAlert_h5">118대 왕실 법안</h3>
             <div className="raw_Div">

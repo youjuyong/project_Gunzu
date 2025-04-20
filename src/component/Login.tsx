@@ -2,7 +2,7 @@ import { useCallback, useState, useRef } from "react";
 import React                 from "react";
 import moment                from 'moment';
 import { useDispatch       } from "react-redux";
-import { user_save         } from "utils/reducer/userInfo";
+import { user_save         } from "../utils/reducer/userInfo";
 import 'moment/locale/ko';
 
 import { useNavigate             } from "react-router-dom";

@@ -2,6 +2,7 @@ import React,{ useRef, useEffect }    from "react";
 import { LazyImageHook  } from "../../../../../src/utils/common/common";
 import { LazyDivHook    } from "../../../../../src/utils/common/common";
 import macro2_img         from "../../../../assets/image/macro2.png";
+import MetaTag            from "../../../../utils/common/SEOMetaTag";
 
 
 /* 왕실 매크로 순찰 */
@@ -13,6 +14,7 @@ const SystemOfKingMacroPatrolInfo = () => {
 
     return (
         <> 
+         <MetaTag title="[군주온라인 매크로 순찰]" description="[군주온라인 매크로 순찰] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 매크로 순찰"></MetaTag>
              <div className='intro_title_macro'>
                 <div className='intro_div2 intro1 lazy-background' data-bg= {`url(${macro2_img})`}>
                     <div className="skeleton-wrapper">

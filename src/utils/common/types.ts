@@ -11,3 +11,12 @@ export type UserReducePropsType = {
       masterYn : string, 
          regDt : string 
 }
+
+export type HelmetType = {
+    title : string,
+    description : string,
+    keywords : string,
+    ogimgsrc ?: string,
+    ogUrl ?: string,
+    twitterImgsrc ?: string
+}

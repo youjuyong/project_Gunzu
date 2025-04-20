@@ -49,6 +49,7 @@ module.exports = (env, argv) => {
                 React: "react",
             }),
             new HtmlWebpackPlugin({
+                publicPath: '/',
                 template: './public/index.html',
                 minify: process.env.NODE_ENV === 'production' ? {
                     collapseWhitespace: true,

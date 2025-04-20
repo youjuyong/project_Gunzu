@@ -5,6 +5,7 @@ import { API_IP_INFO                      } from "../../../../utils/apiUrl";
 import { Loading                          } from "../../../../commComponent/Loading";
 import { HighChartVertical, HighChartPola } from "../../../../utils/common/chart";
 import { HumanStaticsliTagStyle           } from "../../../../utils/commonStyles";
+import MetaTag                              from "../../../../utils/common/SEOMetaTag";
 
 const dateArr      = Array.from({length : 31}, (v,i ) =>  String(i+1).length === 1 ? '0' + String(i+1) : String(i+1));
 const chartdateArr = Array.from({length : 31}, (v,i ) =>  String(i+1) + '일');
@@ -67,6 +68,7 @@ const VillageStaticsInfoCp = ( ) => {
 
     return (
         <>
+          <MetaTag title="[군주온라인 주민수 통계]" description="[군주온라인 주민수 통계] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 주민수 통계"></MetaTag>
             <div className="section2InnerDiv">
                 <div className="contentstitle">
                     <h3>※ 마을 주민수는 매일 오후 9시에 업데이트 됩니다.</h3>

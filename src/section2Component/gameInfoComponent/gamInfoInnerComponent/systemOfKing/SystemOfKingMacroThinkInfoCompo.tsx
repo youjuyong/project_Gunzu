@@ -3,6 +3,7 @@ import React    from "react";
 import { LazyImageHook    } from "../../../../../src/utils/common/common";
 import { LazyDivHook      } from "../../../../../src/utils/common/common";
 import systemKingTitle      from "../../../../assets/image/systemKingTitle.png";
+import MetaTag              from "../../../../utils/common/SEOMetaTag";
 
 /* 매크로 판별창 */
 const SystemOfKingMacroThinkInfo = () => {
@@ -13,6 +14,7 @@ const SystemOfKingMacroThinkInfo = () => {
 
     return (
         <> 
+         <MetaTag title="[군주온라인 매크로 판별창]" description="[군주온라인 매크로 판별창] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 매크로 판별창"></MetaTag>
             <div className='intro_title_think_macro '>
                 <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
                     <div className="skeleton-wrapper">

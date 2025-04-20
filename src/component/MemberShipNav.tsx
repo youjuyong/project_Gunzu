@@ -3,7 +3,7 @@ import { useState     } from "react";
 import { useSelector  } from "react-redux";
 import { rootState    } from "../utils/reducer/index";
 import { useDispatch  } from "react-redux";
-import { user_clear   } from "utils/reducer/userInfo";
+import { user_clear   } from "../utils/reducer/userInfo";
 
 import LoginMemberShipModifyModal from "./modal/loginModal/LoginMemberShipModifyModal";
 import LoginPassWordModifyModal   from "./modal/loginModal/LoginPassWordModifyModal";

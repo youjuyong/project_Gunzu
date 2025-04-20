@@ -10,21 +10,56 @@ const Header = () => {
     const { userId } = useSelector((state: rootState)=>state.userReducer);
     
     useLayoutEffect(() => {
+
+        console.log(window.innerWidth, window.innerHeight);
         const mainMenu = document.querySelector('.header__inner__section'),
-              subMenu  = document.querySelector('.sub-menu-wrap');
+              subMenu  = document.querySelector('.sub-menu-wrap'),
+              btnMenu  = document.querySelector('.menubtn');
 
-        // 헤더 hover 시
-        mainMenu && mainMenu.addEventListener('mouseover', () => {
-                subMenu && subMenu.classList.add('sub-menu-hover');
-        });
 
-        // 헤더 hover 풀시
-        mainMenu && mainMenu.addEventListener('mouseleave', () => {
+        function addClass () {
+            subMenu && subMenu.classList.add('sub-menu-hover');
+        }
+
+        function removeClass () {
             setTimeout(() => {
                 subMenu && subMenu.classList.remove('sub-menu-hover');
-            });
+            })
+        }
+
+        mainMenu && mainMenu.addEventListener('mouseover', addClass);
+    
+        // 헤더 hover 풀시
+        mainMenu && mainMenu.addEventListener('mouseleave', removeClass);
+
+        window.addEventListener("resize", function () { 
+
+            if ( window.innerWidth > 1220 ) 
+            {
+                // 헤더 hover 시
+                mainMenu && mainMenu.addEventListener('mouseover', addClass);
+    
+                // 헤더 hover 풀시
+                mainMenu && mainMenu.addEventListener('mouseleave', removeClass);
+                console.log(btnMenu);
+            } 
+            else 
+            {
+                mainMenu && mainMenu.removeEventListener('mouseover',addClass);
+                mainMenu && mainMenu.removeEventListener('mouseleave', removeClass);
+            }
         });
-      
+        
+        btnMenu && btnMenu?.addEventListener('click', function () {
+            
+        });
+
+
+        return () => {
+             mainMenu && mainMenu.removeEventListener('mouseover',addClass);
+             mainMenu && mainMenu.removeEventListener('mouseleave', removeClass);
+             btnMenu && btnMenu.removeEventListener('mouseleave', removeClass);
+        }
     },[]);
 
     function peronInfoClickHandler () {
@@ -52,6 +87,7 @@ const Header = () => {
                             <a href="/">GURIDAEK.COM<em>구리댁닷컴</em></a>
                         </h1>
                     </div>
+                    <button className ="menubtn" title="메뉴">메뉴</button>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
                         <ul className="header__nav_menu">
                             {

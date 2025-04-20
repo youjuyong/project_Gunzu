@@ -3,7 +3,7 @@ import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { rootState    } from "../utils/reducer/index";
 import { useSelector  } from "react-redux";
 import { useDispatch  } from "react-redux";
-import { user_clear   } from "utils/reducer/userInfo";
+import { user_clear   } from "../utils/reducer/userInfo";
 
 const LoginOutlet = () => {
 

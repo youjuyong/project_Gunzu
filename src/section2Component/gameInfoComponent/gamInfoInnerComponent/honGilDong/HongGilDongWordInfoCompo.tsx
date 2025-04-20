@@ -2,11 +2,13 @@ import { Link                  } from "react-router-dom";
 import { hongGilDongHeader     } from "../../../../utils/ContextList";
 import { LazyImageHook         } from "../../../../../src/utils/common/common";
 import Section2BackgroundDiv, { Section2Titleh3 }    from "../../../../utils/commonStyles";
+import MetaTag                  from "../../../../utils/common/SEOMetaTag";
 
 /* 홍길동이란? */
 const HongGilDongWordInfoCompo = () => {
     return (
         <> 
+                 <MetaTag title="[군주온라인 홍길동 전투향상술]" description="군주온라인 홍길동 전투향상술 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 홍길동 전투향상술"></MetaTag>
             <div className='intro_title'>
                 <Section2Titleh3 className='pretend' url={'st2'}>전투향상술 이란?</Section2Titleh3>
                 <p className="pretend"> "무기별 전투 능력을 향상 시킬 수 있는 기술입니다. <span>'홍길동 NPC'</span> 에게 돈과, 기술점수를 사용하여 배울 수 있습니다."<br/> "초보자 때에는 배울 필요가 없지만 레벨이 점점 상승하고 사냥터의 몬스터가 강해질수록 전투향상술의 중요성은 매우 높아집니다."</p>

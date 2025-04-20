@@ -43,6 +43,7 @@
     "react-datepicker": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-flow-renderer": "^10.3.17",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.0.1",
     "react-kakao-maps-sdk": "^1.1.26",
     "react-modal": "^3.16.3",
@@ -53,8 +54,10 @@
     "react-query": "^3.39.3",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.21.3",
+    "react-router-sitemap": "^1.2.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.3",
+    "react-snap": "^1.23.0",
     "react-toastify": "^10.0.5",
     "reactflow": "^11.11.4",
     "redux": "^5.0.1",
@@ -73,7 +76,9 @@
     "build": "webpack --config ./webpack.config.js --mode=production --progress --stats-children --stats-error-details",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && aws s3 sync build/ s3://guridaekbucket"
+    "deploy": "npm run build && aws s3 sync build/ s3://guridaekbucket",
+    "sitemap": "babel-node src/sitemapGenerator.js",
+    "predeploy": "npm run sitemap"
   },
   "eslintConfig": {
     "extends": [
@@ -105,6 +110,8 @@
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-minify": "^0.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
@@ -119,5 +126,22 @@
     "ts-loader": "^9.5.1",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
+  },
+  "reactSnap": {
+    "source": "./dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "include": [
+      "/",
+      "/gameInfo/horseHouseInfo/horseHouseWordInfo",
+      "/gameInfo/hongGilDongInfo/hongGilDongWordInfo",
+      "/gameInfo/recallHeroInfo/recallHeroWordInfo",
+      "/gameInfo/systemOfKing/systemOfKingWordInfo",
+      "/gameInfo/systemOfKing/systemOfKingLawInfo",
+      "/gameInfo/systemOfKing/systemOfKingMacroPatrol",
+      "/gameInfo/systemOfKing/systemOfKingMacoThinking"
+    ]
   }
 }
