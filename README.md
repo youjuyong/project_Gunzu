@@ -2,17 +2,13 @@
 
 이 프로젝트는 군주온라인 정보 사이트 입니다.
 
-## Available Scripts
+## 만든 목적
 
-In the project directory, you can run:
+군주온라인 정보를 공유하고 마을 주민 관리를 위한 홈페이지 입니다.
 
-### `npm start`
+## 개발 기간
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2025.02 ~
 
 ### `npm test`
 
