@@ -20,8 +20,15 @@
 
 ## 개발 환경
 node.js 버전 : v16.16.0
+
 jre : jdk 17
 
 ## 개발 스택
-FrontEnd : React, TypeScript
-BackEnd : SpringBoot, JPA
+FrontEnd : React, TypeScript, JavaScript
+
+BackEnd : SpringBoot, JPA, MyBatis
+
+## 배포
+FrontEnd : AWS S3
+
+BackEnd : AWS EC2
