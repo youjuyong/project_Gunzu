@@ -12,9 +12,11 @@
 
 ## 시작 가이드 
 
-초기 다운로드
+###초기 다운로드
 
-git clone https://github.com/youjuyong/project_Gunzu.git
+$git clone https://github.com/youjuyong/project_Gunzu.git
+$npm install
+$npm start
 
 ### `npm run build`
 
