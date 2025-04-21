@@ -10,10 +10,11 @@
 
 2025.02 ~
 
-### `npm test`
+## 시작 가이드 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+초기 다운로드
+
+git clone https://github.com/youjuyong/project_Gunzu.git
 
 ### `npm run build`
 
