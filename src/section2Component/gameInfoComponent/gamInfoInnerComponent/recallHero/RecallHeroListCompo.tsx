@@ -3,7 +3,7 @@ import { useQuerySingle            } from "../../../../utils/common/common";
 import { API_IP_INFO               } from "../../../../utils/apiUrl";
 import { HeroListTableCompo        } from "../../../../component/table/HeroListTableCompo";
 import UseEnterBtnClick              from "../../../../utils/common/useEnterBtnClick";
-
+import MetaTag                       from "../../../../utils/common/SEOMetaTag";
 interface HouseHeaderType {
     heroType              : string,  // 영웅 타입
     versionType           : string,  // 버전 타입
@@ -47,6 +47,7 @@ const RecallHeroListCp = () => {
 
     return (
         <> 
+         <MetaTag title="소환영웅 목록" description="소환영웅 목록 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 소환영웅"></MetaTag>
               <div className='contenbox'>
                            <div className='horseInnerDiv'>
                                <section className="horseRideSection1">

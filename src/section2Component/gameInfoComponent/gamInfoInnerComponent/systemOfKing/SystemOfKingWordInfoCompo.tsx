@@ -14,7 +14,7 @@ const SystemOfKingWordInfo = () => {
 
     return (
         <> 
-            <MetaTag title="[군주온라인 왕실시스템]" description="군주온라인 왕실시스템에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 왕실시스템"></MetaTag>
+            <MetaTag title="왕실시스템" description="왕실시스템에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 왕실시스템"></MetaTag>
             <div className='intro_title_raw'>
                 <div className='intro_div2 intro1 lazy-background' data-bg={`url(${systemKingTitle})`}>
                     <div className="skeleton-wrapper">

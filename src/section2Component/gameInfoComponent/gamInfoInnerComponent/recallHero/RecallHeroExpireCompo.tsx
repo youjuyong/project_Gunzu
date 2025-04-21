@@ -1,10 +1,12 @@
 import { Section2Titleh3, SpanTagStyle1 } from "../../../../utils/commonStyles";
 import { LazyImageHook    } from "../../../../../src/utils/common/common";
+import MetaTag              from "../../../../utils/common/SEOMetaTag";
 
 /* 소환영웅 기간만료 */
 const RecallHeroWordInfoCompo = () => {
     return (
         <> 
+         <MetaTag title="소환영웅 만료" description="소환영웅 만료 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 소환영웅"></MetaTag>
             <div className='intro_title'>
                  <Section2Titleh3 className='pretend' url={'st2'}>소환영웅 만료시</Section2Titleh3>
                  <p className="pretend"> "소환영웅이 소환이 안되는 경우. 소환영웅의 사용 만료일 확인이 필요합니다"</p><br/>

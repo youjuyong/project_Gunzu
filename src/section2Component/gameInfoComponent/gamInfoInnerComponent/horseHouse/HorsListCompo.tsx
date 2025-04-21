@@ -47,7 +47,7 @@ const HorsListCp = () => {
     
     return (
         <>  
-          <MetaTag title="[군주온라인 탈것 목록]" description="[군주온라인 탈것 목록] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 탈것 목록"></MetaTag>
+          <MetaTag title="탈것 목록" description="탈것 목록 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 탈것 목록"></MetaTag>
              <div className='contenbox'>
                 <div className='horseInnerDiv'>
                     <section className="horseRideSection1" >

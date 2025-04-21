@@ -6,7 +6,7 @@ import MetaTag              from "../../../../utils/common/SEOMetaTag";
 const RecallHeroWordInfoCompo = () => {
     return (
         <> 
-         <MetaTag title="[군주온라인 소환영웅]" description="[군주온라인 소환영웅] 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 소환영웅"></MetaTag>
+         <MetaTag title="소환영웅" description="소환영웅 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 소환영웅"></MetaTag>
             <div className='intro_title'>
                 <Section2Titleh3 className='pretend' url={'st2'}>소환영웅 이란?</Section2Titleh3>
                 <p className="pretend"> "소환영웅은 소환 상태일때 캐릭터 뒤에 따라다니는 영웅을 뜻합니다.<br/>

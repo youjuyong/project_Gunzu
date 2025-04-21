@@ -10,7 +10,8 @@ export default (
         <Route path="/gameInfo/hongGilDongInfo/hongGilDongWordInfo" />
 
         <Route path="/gameInfo/recallHeroInfo/recallHeroWordInfo" />
-
+        <Route path="/gameInfo/recallHeroInfo/recallHeroExpiration" />
+        <Route path="/gameInfo/recallHeroInfo/recallHeroList" />
 
         <Route path="/gameInfo/systemOfKing/systemOfKingWordInfo" />
         <Route path="/gameInfo/systemOfKing/systemOfKingLawInfo" />

@@ -229,6 +229,7 @@ export const LazyImageHook = (  props : imageLazyHook ) => {
         className={props.className}
         ref={imgRef}
         id={props.src}
+        alt={props.alt} 
         style={{
             zIndex:'999',
             height: `${props.height}}px`,

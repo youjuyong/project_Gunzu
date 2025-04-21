@@ -2,8 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://guridaek.com/</loc> </url>
 <url> <loc>https://guridaek.com/</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/horseHouseInfo/horseListInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/horseHouseInfo/horseHouseWordInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/hongGilDongInfo/hongGilDongWordInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/recallHeroInfo/recallHeroWordInfo</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/recallHeroInfo/recallHeroExpiration</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/recallHeroInfo/recallHeroList</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/systemOfKing/systemOfKingWordInfo</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/systemOfKing/systemOfKingLawInfo</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/systemOfKing/systemOfKingMacroPatrol</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/systemOfKing/systemOfKingMacoThinking</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/staticsInfo/villageStaticsInfo</loc> </url>
 </urlset>
