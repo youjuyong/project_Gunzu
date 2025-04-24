@@ -146,15 +146,14 @@
     
     .gameInfoFirstDiv {
         display: block !important;
-        margin-left : 13%;
-
+        margin: 0 auto;
             div {
                 margin-bottom: 30px;
             }
     }
 
     .section2DivInner {
-        width : 21rem !important;
+        width : auto !important;
         img { 
             width: auto;
         }
@@ -165,9 +164,8 @@
         }
         .introduce_magugan2  {
             width: auto !important;
+            height:  auto !important;
         }
-
-
     }
 
     .HongSideBar   {
@@ -175,11 +173,37 @@
     }
    
     .section2DivInner  {
+        padding : 8rem 28px 6rem 15px !important;
+
         .table_div {
             width: auto;
         }
-    }
 
+        .section2HighLight {
+            padding : 18px;
+        }
+
+    }
+    .section2Header  {
+        display: flex;
+        margin: 0 auto;
+    }
+    .content_warp {
+        padding : 0px !important;
+    }
+    .weapon_Serize  {
+        ul {
+             margin-bottom:  1px;
+        }
+        li {
+            min-width: 10px !important;
+
+             button {
+                display: block !important;
+                font-size: 14px !important;
+             }
+        }
+    }
     .hong_table  {
         tbody {
             height : 100%;
@@ -239,6 +263,14 @@
             .content1 {
                 width:auto !important;
             }
+        }
+    }
+
+    .content_warp {
+        dl {
+            width : auto;
+            margin-left : 0px !important;
+
         }
     }
 } 

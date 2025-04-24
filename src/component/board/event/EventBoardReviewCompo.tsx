@@ -8,7 +8,7 @@ import { useSelector         } from "react-redux";
 const EventBoardTextCompo = ( props : any ) => {
     const buttonElement = UseEnterBtnClick();
     const [ reviewList, setReviewList ] = useState([]);
-    const [ textValue,    setTxtValue ] = useState();
+    const [ textValue,    setTxtValue ] = useState<string>();
     const { userId  } = useSelector((state: rootState)=>state.userReducer);
     const { text_id } = props.state;
     const token = Token();
@@ -46,7 +46,7 @@ const EventBoardTextCompo = ( props : any ) => {
                         errorHandler(e.response);
              }, token);
     }
-    const textAreaChangeHandle = (e : any) => {
+    const textAreaChangeHandle = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
         const {value} = e.target;
         setTxtValue(value);
     }

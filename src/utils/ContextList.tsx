@@ -83,6 +83,14 @@ export const headerNavInfo = [
             menuName    : "전투향상술이란?",
             title       : '홍길동',
             subClassCnt : 3
+        },
+        {
+            subTitle    : "무기추천",
+            subUrl      : "gameInfo/weaponRecommand/weaponRecommandInfo",
+            url         : "weaponRecommandInfo",
+            menuName    : "무기추천",
+            title       : "무기추천",
+            subClassCnt : 4
         }]
     },
     {
@@ -241,6 +249,19 @@ export const craftsManHeader = [
         imgUrl    : require("../assets/image/craftsMan.png"),
         imgAlt    : "장인리스트?",
         className : "craftsManListInfo"
+    }
+];
+
+/* 무기 추천 */
+export const weaponRecommandHeader = [
+    {
+        mainUrl   : "/gameInfo/weaponRecommand/weaponRecommandInfo",
+        url       : "weaponRecommandInfo",
+        mainMenu  : "장인목록",
+        title     : "무기추천",
+        imgUrl    : null,
+        imgAlt    : "무기추천",
+        className : "weaponRecommandManListInfo"
     }
 ];
 

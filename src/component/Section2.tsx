@@ -9,8 +9,9 @@ import GameInfoRecallHeroCompo     from "../section2Component/gameInfoComponent/
 import GameInfoSystemOfKingCompo   from "../section2Component/gameInfoComponent/gameInfoSystemOfKing";   // 왕실시스템
 import GameInfoCraftsManCompo      from "../section2Component/gameInfoComponent/gameInfoCraftsMan";      // 장인목록
 import GameInfoVillageStaticsCompo from "../section2Component/gameInfoComponent/gameInfoVillageStatics"; // 주민수
-import GameInfoYangStaticsCpCompo  from "../section2Component/gameInfoComponent/gameInfoYangStatics";    // 양이전쟁
-import GameInfoHongGilDong         from "../section2Component/gameInfoComponent/gameInfoHongGilDong";    // 홍길동
+import GameInfoYangStaticsCpCompo  from "../section2Component/gameInfoComponent/gameInfoYangStatics";     // 양이전쟁
+import GameInfoHongGilDong         from "../section2Component/gameInfoComponent/gameInfoHongGilDong";     // 홍길동
+import GameInfoWeaponRecommand     from "../section2Component/gameInfoComponent/gameInfoWeaponRecommand"; // 무기 추천
 
 /* 게임정보(마구간) */
 import HorsHouseExplainCompo       from "../section2Component/gameInfoComponent/gamInfoInnerComponent/horseHouse/HorsHouseExplainCompo";    // 마구간 이란?
@@ -41,6 +42,9 @@ import { YangStaticsInfoCompo             }  from "../section2Component/gameInfo
 /* 홍길동 */
 import HongGilDongWordInfoCompo              from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongWordInfoCompo";              // 홍길동
 import HongGilDongRecommandCompo             from "../section2Component/gameInfoComponent/gamInfoInnerComponent/honGilDong/HongGilDongRecommandCompo";             // 전투향상술 추천
+
+/* 무기 추천 */
+import WeaponRecommandInfoCompo             from "../section2Component/gameInfoComponent/gamInfoInnerComponent/weapon/WeaponRecommandInfoCompo";      
 
 /* 공통 컴포넌트 location */
 import LocationCompo            from "../commComponent/LocationCompo";
@@ -92,6 +96,9 @@ const Section2 = () => {
                                         <Route path="hongGilDongInfo"    element={<GameInfoHongGilDong/>}>
                                                 <Route path="hongGilDongWordInfo"       element={<HongGilDongWordInfoCompo/>}/>
                                                 <Route path="hongGilDongRecommand"      element={<HongGilDongRecommandCompo/>}/>
+                                        </Route>
+                                        <Route path="weaponRecommand" element={<GameInfoWeaponRecommand/>}>
+                                                <Route path="weaponRecommandInfo" element={<WeaponRecommandInfoCompo/>}></Route>
                                         </Route>
                                         <Route path="questInfo"         element={<GameInfoQuestCompo/>}/>
                                 </Routes>

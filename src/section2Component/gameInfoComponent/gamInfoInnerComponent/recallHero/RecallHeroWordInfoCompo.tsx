@@ -106,7 +106,7 @@ const RecallHeroWordInfoCompo = () => {
                         <p className="pretend">"간혹 복귀 유저들이 고영강이 필수인지 묻는 분들이 계시는데  <SpanTagStyle1 color={'--main600'} weight={700}>고영강은 필수가 아닙니다.</SpanTagStyle1> 개인적으로<br></br>
                         "영혼 강화에 투자할 자본을 방어구나 무기에 투자하는 게 더 좋다고 생각합니다."<br></br>
                       "하지만 소환영웅은 영웅 따라 영강 따라 가격이 천차만별이기 때문에 자세한 건 마을 분들에게 문의하시고 구입하시길 권장해 드립니다."<br></br>
-                      <SpanTagStyle1 color={'--red600'} weight={700}>"사용만료일은 간혹 초보자분들이 만료일이 지난 영웅을 구입하여 돈을 날리는 경우가 있습니다."<br></br></SpanTagStyle1>
+                      <SpanTagStyle1 color={'--red600'} weight={700}>"간혹 초보자분들이 만료일이 지난 영웅을 구입하여 돈을 날리는 경우가 있습니다."<br></br></SpanTagStyle1>
                                             "반드시 구입 전에 왼쪽 상단의 군주력과 영웅 만료일을 확인 후 구입하시길 바랍니다."<br></br>
                       </p>
             </div>

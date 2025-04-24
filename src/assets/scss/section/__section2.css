@@ -138,6 +138,14 @@
                 color     : blue
             }
 
+            .sp1 {
+                color : var(--purple600) ;
+                font-weight: 700;
+            }
+            .pOne {
+                margin-top : 50px !important;
+                margin-bottom: 50px !important;
+            }
             .alert_pTag {
                 margin-bottom : 30px;
                 line-height   :  13px;
@@ -155,6 +163,7 @@
                 line-height     : 25px;
                 letter-spacing  : 0.2px;
                 color           : var(--main600);
+                font-weight: 700;
             }
             .redSpan { color : red  }
 
@@ -168,7 +177,7 @@
                 letter-spacing : -0.9px;
             }
 
-            button {
+            .btn1 {
                 border-radius      : 3px;
                 height             : 43px;
                 width              : 169px;
@@ -215,7 +224,7 @@
             }
 
             .alert_magugan2 {
-                height         : 630px;
+                height         : auto;
 
                 .magutgan_alert_span {
                     background: url(../../image/txtbg.jpg) bottom repeat-x;
@@ -785,9 +794,9 @@
                             }
 
                             .h22 { margin-left: -44px;}
-                            .h33 { margin-left: 265px;}
-                            .h44 { margin-left: 189px;}
-                            .h55 { margin-left: 245px;}
+                            .h33 { margin-left: 252px;}
+                            .h44 { margin-left: 169px;}
+                            .h55 { margin-left: 227px;}
                         }
                     }
                 }
@@ -1570,6 +1579,13 @@
     }
 }
 
+.title1 {
+    background-color : #fff !important;
+}
+.conten1 {
+    box-shadow : none !important;
+    border: 0px !important;
+}
 .content_warp {
     position: relative;
     background: var(--white);
@@ -1577,7 +1593,6 @@
     border : 1px solid #e5ebf2;
     border-radius: 16px;
     box-shadow: 0 1px 3px 0 rgba(66, 78, 108, 0.05), 3px 3px 10px 0 rgba(0, 0, 0, 0.05);
-
 
     .weapon_Serize {
         display : flex;

@@ -12,10 +12,10 @@ interface reviewType {
     objectType : string        // 리뷰 타입
 }
 
-const ReViewCp = ( props : reviewType ) => {
+const ReViewCp = ( props : Partial<reviewType> ) => {
     const token = Token();
     const buttonElement = UseEnterBtnClick();
-    const [textValue,    setTxtValue] = useState();
+    const [textValue,    setTxtValue] = useState<string>();
     const [ reviewList, setRevieList] = useState([]);
 
     useEffect(() => {
@@ -39,12 +39,12 @@ const ReViewCp = ( props : reviewType ) => {
     // 현재 선택한 별점 개수
     let clickedStarNum = clicked.filter(element => true === element).length; 
 
-    const textAreaChangeHandle = (e : any) => {
+    const textAreaChangeHandle = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
         const {value} = e.target;
         setTxtValue(value);
     }
 
-    const saveHandler = ( e : any ) => {
+    const saveHandler = ( e : React.MouseEvent<HTMLButtonElement> ) => {
         
         if ( props.userId=== null ) {
             alert("로그인이 필요합니다.");

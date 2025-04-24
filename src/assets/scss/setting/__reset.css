@@ -735,3 +735,8 @@ margin-top: 5px;
 .off{
     background: url('../../image/menu_close.png') center no-repeat;
  }
+
+ .weaponImg1{
+    position: absolute;
+    top: 50px;
+ }

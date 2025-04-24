@@ -46,7 +46,7 @@ const HongGilDongWordInfoCompo = () => {
                 </p>
 
                 <div className="horseHouseAlert">
-                    { hongGilDongHeader[1] &&  <Link to={hongGilDongHeader[1]?.mainUrl} state={{ url : hongGilDongHeader[1]?.url, menuName : hongGilDongHeader[1]?.title, mainMenuName : hongGilDongHeader[1].mainMenu}} ><button title="무기별 전투 향상술 추천 바로가기" >{hongGilDongHeader[1]?.title}</button></Link> }
+                    { hongGilDongHeader[1] &&  <Link to={hongGilDongHeader[1]?.mainUrl} state={{ url : hongGilDongHeader[1]?.url, menuName : hongGilDongHeader[1]?.title, mainMenuName : hongGilDongHeader[1].mainMenu}} ><button className="btn1" title="무기별 전투 향상술 추천 바로가기" >{hongGilDongHeader[1]?.title}</button></Link> }
                  </div>
             </div>
         </>

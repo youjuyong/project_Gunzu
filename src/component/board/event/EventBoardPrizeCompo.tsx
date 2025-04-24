@@ -1,26 +1,27 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react"
 import React from "react"
 import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
-import { API_IP_INFO             } from "../../../utils/apiUrl";
-import { rootState               } from "../../../utils/reducer/index";
-import { useSelector             } from "react-redux";
+import { API_IP_INFO               } from "../../../utils/apiUrl";
+import { rootState                 } from "../../../utils/reducer/index";
+import { useSelector               } from "react-redux";
+import { prizeListType, resultType } from "../../../utils/common/types";
 
 const EventBoardPrizeCp = (props : any) => {
     const { text_id, prize_yn } = props.state;
     const { userId } = useSelector((state: rootState)=>state.userReducer);
-    const ref = useRef<any>(null);
+    const ref = useRef<HTMLTableSectionElement>(null);
     const token = Token();
 
      useLayoutEffect(() => {
             const param = {
                 text_id : text_id
             }
-            AxiosCall("get", API_IP_INFO + "/board/event-board-prize-list", param, (data) => {
+            AxiosCall("get", API_IP_INFO + "/board/event-board-prize-list", param, function <T extends resultType>(data : T)  {
                 
                  if ( data.length === 0 ) return;
 
                  let html = '';
-                 data.map(( v : { PRIZE_NUM : number, TEXT_ID : string, PRIZE_NAME : string, USER_ID : string, USER_NAME : string } ) => {
+                 data.map(( v : prizeListType ) => {
                     const className= ( v?.USER_ID === userId  && prize_yn === 'Y' )? 'winning' : '';
                     html += `<tr class=${className}>`;
                     html +=     `<td>${v.PRIZE_NUM}</td>`;
@@ -29,7 +30,11 @@ const EventBoardPrizeCp = (props : any) => {
                     html += '</tr>';
                  });
                
-                 ref.current.innerHTML = html;
+                 if ( ref?.current !== null ) 
+                 {
+                    ref.current.innerHTML = html;
+                 }
+                   
             }, (e) => {
                     errorHandler(e.response);
             }, token);

@@ -20,3 +20,16 @@ export type HelmetType = {
     ogUrl ?: string,
     twitterImgsrc ?: string
 }
+
+export type prizeListType = {
+  PRIZE_NUM : number, 
+  TEXT_ID   : string, 
+  PRIZE_NAME : string, 
+  USER_ID : string, 
+  USER_NAME : string 
+}
+
+export interface resultType  {
+  length : number;
+  map : (callback : (value : prizeListType) => void ) => void ;
+}

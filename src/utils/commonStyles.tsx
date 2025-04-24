@@ -1,8 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 import st2 from '../assets/image/st2.png';
 import st6 from '../assets/image/st6.png';
-import st7 from '../assets/image/st7.png';
-
+import st7           from '../assets/image/st7.png';
+import textBg        from "../assets/image/txtbg.jpg";
+import subTitleArrow from "../assets/image/right_arrow_1.png";
+import leftAlr  from "../assets/image/left_alter.png";
+import rightAlr from "../assets/image/right_alter.png";
 interface divBackGroundType {
     width  : any,
     height : any
@@ -558,3 +561,111 @@ export const SkeleTonStyle = () => {
 </>
     )
 }
+
+interface pTageStyle {
+    marginTop :string,
+    marginBottom :string
+}
+export const InnerTagStyle = styled.p<pTageStyle>`
+    margin-top : ${props => props.marginTop } !important;
+    margin-bottom : ${props => props.marginBottom } !important;
+    line-height:23px;
+  font-weight : 400;
+  letter-spacing : -0.9px;
+`;
+
+
+/* 특정 타입 스타일 소개 */ 
+export const IntroduceType1Div = styled.div`
+    width : 100%;
+    margin-top : 80px;
+    clear : both;
+    overflow : hidden;
+`
+
+export const IntroduceType1Dl = styled.dl`
+    width : 1330px;
+    border-radius : 10px;
+    border : 1px solid rgb(48, 47, 47);
+    text-align : center;
+    position : relative;
+    height : auto;
+    padding-top : 65px;
+    margin-left : 65px;
+`
+
+export const IntroduceType1Dt = styled.dt`
+    font-size : 23px;
+    font-weight : 700;
+    height : 36px;
+    line-height : 36px;
+    margin-top : 340px;
+    display : inline-block;
+`
+export const IntroduceType1Dd = styled.dd`
+    font-size:14px;
+    line-height : 20px;
+    margin-top : 50px;
+`;
+
+export const IntroduceType1Span = styled.span`
+       background : url(${textBg})bottom repeat-x;
+    text-decoration : none !important;
+    font-size: 21px !important;
+    font-family : 'Pretendard-Regular';
+`;
+
+export const IntroduceContentTypeSpan = styled.h3`
+    text-decoration : none !important;
+    font-family : 'Pretendard-Regular';
+    line-height : 30px;
+    font-size : 19px;
+    &::before {
+                     content    : "" ;
+                     background   : url(${subTitleArrow})50% 50% no-repeat;
+                     width : 14px;
+                     height : 14px;
+                     margin-right : 4px;
+                     display : inline-block;
+      }
+`;
+
+interface introContentPType {
+    color : string;
+}
+export const IntroduceContentTypeP2 = styled.p<introContentPType>`
+       margin-top : 80px !important;
+    margin-bottom : 80px !important;
+        font-size : 32px !important; 
+            color : ${(props) => props.color};
+      font-family : 'Pretendard-Regular';
+
+    &::before {
+       content    : "" ;
+     background   : url(${leftAlr})top no-repeat;
+        display   : inline-block;
+          width   : 14px;
+          height  : 14px;
+    margin-bottom : 10px;
+    margin-right : 5px;
+    }
+    
+     &::after {
+        content    : "" ;
+      background   : url(${rightAlr})50% 50% no-repeat;
+           display : inline-block;
+             width : 14px;
+     margin-bottom : 10px;
+        margin-left : 5px;
+        height : 14px;
+    }
+`
+interface introComentType {
+    color : string
+}
+export const IntroComentPtag = styled.p<introComentType>`
+        margin-top : 80px !important;
+    margin-bottom : 80px !important;
+        font-size : 19px !important; 
+    color : ${(props) => props.color};
+`

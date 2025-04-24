@@ -1,5 +1,5 @@
 import { LazyImageHook    } from "../../../../../src/utils/common/common";
-import { Section2Titleh3  } from "../../../../utils/commonStyles";
+import { Section2Titleh3, InnerTagStyle  } from "../../../../utils/commonStyles";
 
 /* 마구간 유의 사항 */
 const HorseHouseWideMehodCompo = () => {
@@ -25,13 +25,12 @@ const HorseHouseWideMehodCompo = () => {
                         이처럼, 시전마다 버프타입을 바꿔서 넣어야 됩니다.
                     </p>
                 </div>
-                <p className="alert_pTag pretend">
-                    <span className="magutgan_alert_title_span">2. 마구간의 버프 타입을 통일하자.</span><br/><br/><br/>
-                    다음 예시를 보면
-                </p>
+                <InnerTagStyle marginTop={'0px'} marginBottom={'50px'}>  <span className="magutgan_alert_title_span">2. 마구간의 버프 타입을 통일하자.</span><br/><br/><br/>
+                         다음 예시를 보면
+                </InnerTagStyle>
                 <div className="alert_magugan2 pretend">
                     <LazyImageHook src={require("../../../../assets/image/magutgan_alert4.png")} alt={'마구간4'} className={''} height={345}/> 
-                    <p> 
+                    <InnerTagStyle marginTop={'50px'} marginBottom={'50px'}> 
                         마법 공격력 <span className="magutgan_alert_span">( 1% + 8% = 9%)</span>
                         , 물리 공격력 <span className="magutgan_alert_span">1% </span>  , 방어력 <span className="magutgan_alert_span">1% </span> 가 있다면 <br/>
                         가장 %가 높은 마법 공격력만 적용되고 물리 공격력과, 방어력이 적용되지 않습니다.<br/>
@@ -43,7 +42,7 @@ const HorseHouseWideMehodCompo = () => {
                         2. 마구간의 타입을 통일 시키자.<br/><br/>
                         3. 분명 마구간 버프는 비용이 많이 들어가는 컨텐츠 입니다. 하지만 본인의 자본을 염두하여 버프량을 조절 해야됩니다. <br/>
                         꼭 15마리 말을 채울 필요도 없고 12%의 말을 넣을 필요 없습니다. 자본이 없다면 8% 말을 넣고 행수 오라를 받는것도 방법입니다.
-                    </p>
+                    </InnerTagStyle>
                 </div>
             </div>
         </>

@@ -41,7 +41,7 @@ const HorsHouseExplainCompo = () => {
             </p>
 
             <div className="horseHouseAlert">
-                <Link to={horseHousePageheader[1].mainUrl} state={{ url : horseHousePageheader[1].url, menuName : horseHousePageheader[1].title, mainMenuName : horseHousePageheader[1].mainMenu}} ><button title="마구간 유의 사항 바로가기" >{horseHousePageheader[1].title}</button></Link>
+                <Link to={horseHousePageheader[1].mainUrl} state={{ url : horseHousePageheader[1].url, menuName : horseHousePageheader[1].title, mainMenuName : horseHousePageheader[1].mainMenu}} ><button className="btn1" title="마구간 유의 사항 바로가기" >{horseHousePageheader[1].title}</button></Link>
             </div>
         </div>
         </>
