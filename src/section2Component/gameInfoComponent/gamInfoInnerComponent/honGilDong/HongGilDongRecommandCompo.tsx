@@ -377,8 +377,6 @@ const HongGilDongRecommandCompo = () => {
                                 </tbody>
                             </table>
                             <p className="pretend">"활도 무난하게 4번째 '만류귀종' 5번째 '흡성증가술'을 찍어줍니다."<br></br>
-                            "활같은 경우 안타까운게 3번째 '사거리증가술'은 어차피 정지사냥이 추세인 현시점에서 공성전을 빼면 거의"<br></br>
-                            "없는 스킬이기 때문에 여러모로 추천드리지 않는 무기중 하나입니다."
                             </p>
                         </div>
                     </div>
@@ -537,7 +535,7 @@ const HongGilDongRecommandCompo = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <p className="pretend">"도끼는 흡성스킬이 있기때문에 5번 스킬은 '무기 공격력 증폭술' 추천드립니다."<br></br>
+                            <p className="pretend">"도끼는 흡성스킬이 있기 때문에 5번 스킬은 '무기 공격력 증폭술' 추천드립니다. 더 안정감 있는 사냥을 원하시면 흡성을 추천해 드립니다.  "<br></br>
                             </p>
                         </div>
                     </div>

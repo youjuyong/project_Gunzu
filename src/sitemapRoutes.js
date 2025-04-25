@@ -19,5 +19,6 @@ export default (
         <Route path="/gameInfo/systemOfKing/systemOfKingMacoThinking" />
 
         <Route path="/gameInfo/staticsInfo/villageStaticsInfo" />
+        <Route path="/gameInfo/weaponRecommand/weaponRecommandInfo" />
     </Route>
 );

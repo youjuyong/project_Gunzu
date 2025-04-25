@@ -737,6 +737,23 @@ margin-top: 5px;
  }
 
  .weaponImg1{
+    position: relative;
+    margin-top: -25px;
+ }
+
+ .weaponImg2 {
+    width : 170px;
+ }
+
+ .weaponImg3 {
+    margin-bottom: 100px;
+ }
+ .circle {
+    width : 309px;
+    height : 309px;
+    border: 1px solid #000;
     position: absolute;
-    top: 50px;
+    top: 30px;
+    overflow: hidden;
+    border-radius: 50%;
  }
