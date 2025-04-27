@@ -18,7 +18,7 @@ const IntroduceCp = () => {
     return (
         <div id="event_wrap">
                     <article className="articlewrap">
-                    <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo> 
+                    <LocationCompo submenu={state?.menuName} mainMenuName={state?.mainMenuName}></LocationCompo> 
                         <div className="contentstitle snans"><h3>홈페이지 소개</h3></div>
                         <div className="contenbox">
                             <div className="hpIntroduce snans">

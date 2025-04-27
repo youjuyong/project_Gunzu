@@ -9,6 +9,7 @@ import { useNavigate             } from "react-router-dom";
 import { LoginMemberShipModal    } from "../component/modal/loginModal/LoginMemberShipModal"
 import { API_IP_INFO             } from "../../src/utils/apiUrl";
 import { AxiosCall, errorHandler, Token } from "../../src/utils/common/common"; 
+import { PassWordSelModal      } from "./modal/loginModal/PassWordSelModal";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -19,15 +20,22 @@ const Login = () => {
     const idInput = useRef<HTMLInputElement>(null);
     // 회원 가입 모달 open 여부
     const [addMdOpenValue, setAddmdOpen] = useState(false);
+    // 비밀 번호 찾기 모달 open 여부
+    const [passWordSelOpen, setPassWordSelOpen] = useState(false);
        
 
-    const setBitaddOpenValue = useCallback(( data : boolean ) => {
+    const setMemberaddOpenValue = useCallback(( data : boolean ) => {
         setAddmdOpen(data);
     }, [addMdOpenValue]);
 
     // 회원가입 버튼 클릭시
     function memberShipEventHandle() {
         setAddmdOpen(true);
+    }
+
+    // 비밀번호 찾기 버튼 클릭시
+    function passWordSelEventHandle() {
+        setPassWordSelOpen(true);
     }
     
     const LoginformSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,7 +81,11 @@ const Login = () => {
                 <div className="login_box">
                 <LoginMemberShipModal
                         modalBoolean={addMdOpenValue}
-                        setModalIsOpen={setBitaddOpenValue}
+                        setModalIsOpen={setMemberaddOpenValue}
+                    />
+                    <PassWordSelModal
+                        modalBoolean={passWordSelOpen}
+                        setModalIsOpen={setPassWordSelOpen}
                     />
                      <form onSubmit={LoginformSubmit}>
                         <div className="login_text">
@@ -87,6 +99,7 @@ const Login = () => {
                                     onChange={changeValueIdPw} placeholder="비밀번호를 입력해 주세요"/>
                                 </li>
                             </ul>
+                            <button className="btn_password_sel" type="button" title="회원가입" onClick={passWordSelEventHandle}>비밀번호찾기</button>
                             <button className="btn_pass" type="button" title="회원가입" onClick={memberShipEventHandle}>회원가입</button>
                             <button title="로그인" className="btn_login">로그인</button>
                         </div>

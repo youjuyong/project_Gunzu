@@ -45,6 +45,16 @@
                 border     : none;
                 background : none;
                 position   : absolute;
+                left      : 45px;
+                top        : 298px;
+                font-size  : 15px;
+                color      : #626262;
+            }
+
+            .btn_password_sel {
+                border     : none;
+                background : none;
+                position   : absolute;
                 right      : 45px;
                 top        : 298px;
                 font-size  : 15px;
@@ -65,4 +75,11 @@
         }
       
     }
+}
+
+.mobil_login {
+    margin-right: 80px;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
 }

@@ -1,12 +1,13 @@
 import { loginMemberShipModifyModalCss } from "../../../utils/common/modalCss";
-import Modal from "react-modal";
+import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
+import Modal                  from "react-modal";
 import React, { useEffect, useState} from "react";
 import { useNavigate        } from "react-router-dom";
 import { InputTagIdValidate } from "../../../utils/common/dataValidateCheck";
 import { AxiosCall, errorHandler, Token } from "../../../utils/common/common";
 import { API_IP_INFO        } from "../../../utils/apiUrl";
-import UseEnterBtnClick       from "../../../utils/common/useEnterBtnClick";
-
+import { useDispatch        } from "react-redux";
+import { user_clear         } from "../../../utils/reducer/userInfo";
 interface memberShipType {
     modalBoolean   : boolean,
     setModalIsOpen : (data:any) => void,
@@ -22,6 +23,7 @@ interface basicObjectType {
 }
 
 const LoginPassWordModifyMd = ( props : memberShipType ) => {
+    const dispatch = useDispatch();
     const movePage      = useNavigate();
     const token = Token();
     const buttonElement = UseEnterBtnClick();
@@ -57,7 +59,7 @@ const LoginPassWordModifyMd = ( props : memberShipType ) => {
                     if ( data === 1 ) {
                         alert("수정 완료 되었습니다. 다시 로그인 해주세요.");
                         movePage("/");
-                        sessionStorage.clear();
+                        dispatch(user_clear());
                         window.location.reload();
                     }
             }, (e) => {

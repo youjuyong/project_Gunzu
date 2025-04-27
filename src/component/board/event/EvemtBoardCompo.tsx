@@ -11,7 +11,7 @@ const EvemtBoardCp = () => {
     return (
         <div id="event_wrap">
                     <article className="articlewrap">
-                    <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
+                    <LocationCompo submenu={state?.menuName} mainMenuName={state?.mainMenuName}></LocationCompo>
                         <div className="contentstitle board"><h3>이벤트 공지</h3></div>
                         <div className="contenbox">
                             { state.url === 'eventInfo'      ? <EventListTableCompo></EventListTableCompo> 

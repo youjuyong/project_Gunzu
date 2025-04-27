@@ -50,8 +50,7 @@ const Header = () => {
                 mainMenu && mainMenu.removeEventListener('mouseover',addClass);
                 mainMenu && mainMenu.removeEventListener('mouseleave', removeClass);
             }
-        });
-        
+        })
 
         return () => {
              mainMenu && mainMenu.removeEventListener('mouseover',addClass);
@@ -74,7 +73,6 @@ const Header = () => {
         }
     }
 
-    console.log(navOnoff);
     const menuClick = ( e : React.MouseEvent<HTMLButtonElement>  ) => {
         setNavOnOff(!navOnoff);
     }
@@ -89,6 +87,11 @@ const Header = () => {
                             <a href="/">GURIDAEK.COM<em>구리댁닷컴</em></a>
                         </h1>
                     </div>
+                    {
+                        ( state?.loginSuccss || userId !== null ) ? <li key={'header42'} id="loginInfoAtag" className='mobil_login' onClick={peronInfoClickHandler}><a>{loginHeaderNav[1].title}</a></li> 
+                        :<li key={'header32'} className='mobil_login'><Link to={ loginHeaderNav[0].subUrl } state={{ url : loginHeaderNav[0].url, menuName : loginHeaderNav[0].menuName, mainMenuName : loginHeaderNav[0].subTitle} } className="tab snans">{ loginHeaderNav[0].title }</Link></li>
+                       
+                    }
                     <button className ={ "menubtn " +  (navOnoff === true ? 'off' : '')}  onClick={menuClick} title="메뉴">메뉴</button>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
                         <ul className="header__nav_menu">

@@ -196,7 +196,8 @@
             }
 
             .cancleIcon:hover {
-                background : url(../../image/pop_close_hover4.png) 
+                background : url(../../image/pop_close_hover4.png);
+                cursor: pointer;
             }
         }
     }

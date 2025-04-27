@@ -32,7 +32,7 @@ const MainBoardTextCompo = ( props : any ) => {
        <>
             <MainBoardContentMainCompo state={state}></MainBoardContentMainCompo>
             <MainBoardReviewCompo state={state}></MainBoardReviewCompo>
-            <Link to="/mainBoardInfo" title="목록으로 이동" className ="listBtn" state= {{url : 'mainBoardInfo', menuName:main.menuName, mainMenuName:main.subTitle}}>목록</Link>
+            <Link to="/mainBoardInfo" title="목록으로 이동" className ="listBtn" state= {{url : 'mainBoardInfo', menuName:main?.menuName, mainMenuName:main?.subTitle}}>목록</Link>
         </>
     )
 }

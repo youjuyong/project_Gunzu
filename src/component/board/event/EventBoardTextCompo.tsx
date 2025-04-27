@@ -39,7 +39,7 @@ const EventBoardTextCompo = ( props : any ) => {
         }
 
             <EventBoardReviewCompo state={state}></EventBoardReviewCompo>
-            <Link to="/eventInfo" title="목록으로 이동" className ="listBtn" state= {{url : 'eventInfo', menuName:event.menuName, mainMenuName:event.subTitle}}>목록</Link>
+            <Link to="/eventInfo" title="목록으로 이동" className ="listBtn" state= {{url : 'eventInfo', menuName:event?.menuName, mainMenuName:event?.subTitle}}>목록</Link>
        
             </>
     )

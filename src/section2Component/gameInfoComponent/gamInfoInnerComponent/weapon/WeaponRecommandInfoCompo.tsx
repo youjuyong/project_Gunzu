@@ -76,6 +76,7 @@ const WeaponRecommandInfoCompo = () => {
                                 "배우기 이전에 성장 차이를 벌릴 수 있습니다."<br></br>
                                 "또한 매물이 많고 사고팔기 편하다는 장점이 있습니다."<br></br>
                                 "하지만 고레벨로 갈수록 높아지는 몬스터의 방어력에 비해 평범한 공격력과, 공격 속도는 단점이 될 수 있습니다."<br></br>
+                                "게임을 시작한지 얼마 안되시는 분들에게 추천해 드립니다."<br></br>
                             </IntroComentPtag>
                         </IntroduceType1Dl>
                     :  viewPage === 'sword' ?
@@ -235,7 +236,7 @@ const WeaponRecommandInfoCompo = () => {
                                 <div className='circle'>
                                 <LazyImageHook src={require("../../../../assets/image/magin-hwayum.gif")} alt={'지팡이'} className={'weaponImg1'} height={309}/> 
                                 </div>
-                                <IntroduceType1Span>"사냥1티어, 공성 다재다능 활약하는 무기"</IntroduceType1Span>
+                                <IntroduceType1Span>"사냥1티어, 공성 등 다재다능 무기"</IntroduceType1Span>
                             </IntroduceType1Dt>
                             <IntroduceType1Dd>
                                     <IntroduceContentTypeP2 color="var(--orange500)">장점</IntroduceContentTypeP2>

@@ -15,7 +15,6 @@ export const WeaponRecomHeaderCompo = () => {
 
     const location  = useLocation();
     const { state } = location;
-    console.log(state);
     useEffect(() => {
     },[location]);
 
@@ -29,7 +28,6 @@ export const WeaponRecomHeaderCompo = () => {
                              { 
                                 weaponRecommandHeader && weaponRecommandHeader.map(( headerInfo : type, index : number ) => {
                                     const { url, imgUrl, title, className, imgAlt, mainMenu } = headerInfo;
-                                    console.log(url);
                                     return (
                                          <div key={ 'horseDiv' + index } >  
                                                 <Link key={ 'horseLink' + index } to={ url } className= "gameInfoButton nanum" state={{ url : url, menuName : title, mainMenuName : mainMenu  }} onClick={ gameInfoHeaderHandle }> 

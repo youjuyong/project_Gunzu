@@ -98,7 +98,7 @@ const EquipmentLentCp = () => {
         <div id="event_wrap">  
         <ExquipmentFlowModal modalBoolean={flowModal.openValue} reload={reload} param={param} equipId={flowModal.equipId} setModalIsOpen={setFlowModal} lentStatus={flowModal.lentStatus}></ExquipmentFlowModal>
                     <article className="articlewrap">
-                        <LocationCompo submenu={state.menuName} mainMenuName={state.mainMenuName}></LocationCompo>
+                        <LocationCompo submenu={state?.menuName} mainMenuName={state?.mainMenuName}></LocationCompo>
                         <div className='equipContentstitle equipment'>
                             <div className='select_value'>
                                 <SelectTagTypeStyle width={'150px'} borderleft={'0px'} marginleft={'26px'} name="typeList" onChange={onChangeSelect}>
