@@ -78,8 +78,17 @@
 }
 
 .mobil_login {
-    margin-right: 80px;
+    margin-right: 90px;
     list-style: none;
     position: relative;
     cursor: pointer;
+
+    .tab {
+        position: fixed;
+        top: 30px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

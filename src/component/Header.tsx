@@ -7,6 +7,7 @@ import { rootState                 } from "../utils/reducer/index";
 
 const Header = () => {
     const { state  } = useLocation();
+    const [ mobiLoogin, setMobiLogin ] = useState(false);
     const { userId } = useSelector((state: rootState)=>state.userReducer);
     const [ navOnoff, setNavOnOff ] = useState(false);
 
@@ -37,6 +38,7 @@ const Header = () => {
             if ( window.innerWidth > 1430 ) 
             {
                 setNavOnOff(false);
+                setMobiLogin(false);
                 // 헤더 hover 시
                 mainMenu && mainMenu.addEventListener('mouseover', addClass);
     
@@ -46,11 +48,18 @@ const Header = () => {
             } 
             else 
             {
+                setMobiLogin(true);
                 setNavOnOff(false);
                 mainMenu && mainMenu.removeEventListener('mouseover',addClass);
                 mainMenu && mainMenu.removeEventListener('mouseleave', removeClass);
             }
         })
+
+        if ( window.innerWidth > 1430 ) {
+            setMobiLogin(false);
+        } else {
+            setMobiLogin(true);
+        }
 
         return () => {
              mainMenu && mainMenu.removeEventListener('mouseover',addClass);
@@ -76,7 +85,7 @@ const Header = () => {
     const menuClick = ( e : React.MouseEvent<HTMLButtonElement>  ) => {
         setNavOnOff(!navOnoff);
     }
-
+    
     return (
          <>
             <header id="header" role="banner" className='headerMain'>
@@ -88,9 +97,9 @@ const Header = () => {
                         </h1>
                     </div>
                     {
-                        ( state?.loginSuccss || userId !== null ) ? <li key={'header42'} id="loginInfoAtag" className='mobil_login' onClick={peronInfoClickHandler}><a>{loginHeaderNav[1].title}</a></li> 
-                        :<li key={'header32'} className='mobil_login'><Link to={ loginHeaderNav[0].subUrl } state={{ url : loginHeaderNav[0].url, menuName : loginHeaderNav[0].menuName, mainMenuName : loginHeaderNav[0].subTitle} } className="tab snans">{ loginHeaderNav[0].title }</Link></li>
-                       
+                        ( mobiLoogin && ( state?.loginSuccss || userId !== null )) ? <li key={'header42'} id="loginInfoAtag" className='mobil_login' onClick={peronInfoClickHandler}><a>{loginHeaderNav[1].title}</a></li> 
+                        : ( mobiLoogin && ( userId === null || userId === undefined)) ? <li key={'header32'} className='mobil_login'><Link to={ loginHeaderNav[0].subUrl } state={{ url : loginHeaderNav[0].url, menuName : loginHeaderNav[0].menuName, mainMenuName : loginHeaderNav[0].subTitle} } className="tab snans">{ loginHeaderNav[0].title }</Link></li>
+                        : ''
                     }
                     <button className ={ "menubtn " +  (navOnoff === true ? 'off' : '')}  onClick={menuClick} title="메뉴">메뉴</button>
                     <nav className="header__nav" role="navigation" aria-label="메인 메뉴">
