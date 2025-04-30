@@ -262,7 +262,7 @@ export const LazyDivHook = ( cls_name : string, remove_class ?: string | null, r
                 
 
                 if ( removeDiv.length > 0) {
-                    removeDiv[0].classList.remove(removeDiv[0].classList[0]);
+                    removeDiv[0]?.classList.remove(removeDiv[0]?.classList[0]);
                 }
 
                
@@ -273,7 +273,7 @@ export const LazyDivHook = ( cls_name : string, remove_class ?: string | null, r
                 const removeDiv2  = document.querySelectorAll(remove_class2);
 
                 if ( removeDiv2.length > 0 ) {
-                    removeDiv2[0].classList.remove(removeDiv2[0].classList[0]);
+                    removeDiv2[0]?.classList.remove(removeDiv2[0]?.classList[0]);
                 }
             }
         
@@ -310,8 +310,8 @@ export const LazyDivHookMulti = ( class_name : string, remove_class ?: any ) => 
                     container.style.backgroundImage = imgUrl;
                 }
 
-                if ( imgDiv.classList.length > 0 ) {
-                    imgDiv.classList.remove(imgDiv.classList[0]);
+                if ( imgDiv?.classList.length > 0 ) {
+                    imgDiv?.classList.remove(imgDiv?.classList[0]);
                 }
         
            

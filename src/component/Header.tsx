@@ -19,12 +19,12 @@ const Header = () => {
 
 
         function addClass () {
-            subMenu && subMenu.classList.add('sub-menu-hover');
+            subMenu && subMenu?.classList.add('sub-menu-hover');
         }
 
         function removeClass () {
             setTimeout(() => {
-                subMenu && subMenu.classList.remove('sub-menu-hover');
+                subMenu && subMenu?.classList.remove('sub-menu-hover');
             })
         }
 
