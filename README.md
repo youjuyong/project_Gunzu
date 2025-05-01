@@ -32,3 +32,6 @@ BackEnd : SpringBoot, JPA, MyBatis
 FrontEnd : AWS S3
 
 BackEnd : AWS EC2
+
+# 백엔드 API Swagger
+https://api.guriguri.shop/api/swagger-ui/index.html
