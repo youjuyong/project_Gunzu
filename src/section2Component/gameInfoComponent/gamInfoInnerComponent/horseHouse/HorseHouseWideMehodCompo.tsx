@@ -1,10 +1,12 @@
 import { LazyImageHook    } from "../../../../../src/utils/common/common";
 import { Section2Titleh3, InnerTagStyle  } from "../../../../utils/commonStyles";
+import MetaTag from "../../../../utils/common/SEOMetaTag";
 
 /* 마구간 유의 사항 */
 const HorseHouseWideMehodCompo = () => {
     return (
         <> 
+         <MetaTag title="마구간 유의사항" description="마구간 유의사항 에대한 정보를 알려주는 페이지입니다." keywords="군주온라인, 마구간 유의사항"></MetaTag>
             <div className='intro_title'>
                 <Section2Titleh3 className='pretend' url={'st2'}>마구간 유의 사항</Section2Titleh3>
                 <p className="alert_pTag pretend">"다음은 마구간 유의 사항입니다." <br/><br/><br/><br/><br/>

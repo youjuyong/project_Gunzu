@@ -221,164 +221,73 @@ export const horsePassive1 =  [
     },
     {
         heroId : "REC10",
-        Burf    : function() {
-            return (
-                <>
-                    <p>무기술 5 증가</p>
-                    <p>흑룡세트 착용시 공격력/방어력 +5%</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC11",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리공격력 100증가</p>
-                    <p>무기술 3증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC12",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리공격력 2800증가</p>
-                    <p>무기술 15증가</p>
-                    <p>탑승 시 명마이펙트</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC13",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리공격력 1000증가</p>
-                    <p>무기술 9증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC14",
-        Burf    : function() {
-            return (
-                <>
-                    <p>마법공격력 15%증가</p>
-                    <p>모든 기술 5증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC15",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리공격력 3500증가</p>
-                    <p>무기술 20증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC16",
-        Burf    : function() {
-            return (
-                <>
-                    <p>마법공격력 250증가</p>
-                    <p>마법공격력 20%증가</p>
-                    <p>모든기술 8증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC17",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리공격력 4000증가</p>
-                    <p>무기술 30증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC18",
-        Burf    : function() {
-            return (
-                <>
-                    <p>마법공격력 500증가</p>
-                    <p>마법공격력 30%증가</p>
-                    <p>모든기술 10증가</p>
-                    <p>근력/순발력/생명력 + 50</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC19",
         Burf    : function() {
             return (
                 <>
-                    <p>물리공격력 4500증가</p>
-                    <p>근력/순발력/생명력 + 50</p>
-                    <p>무기술 30증가</p>
+                    <p>영웅 대기 상태로 소환시 적용 </p>
+                    <p>ㄴ제조 시간 50% 감수</p>
+                    <p>ㄴ레벨 5마다 행운 1증가</p>
+                    <p>ㄴ레벨 5마다 무기/제조술 레벨 1증가</p>
+                    <p>ㄴ레벨 5마다 손재주 2증가</p>
+                    <p>ㄴ레벨 5마다 월장효과 1%증가(월장석 중첩가능)</p>
                 </>
           )}
     },
     {
         heroId : "REC020",
-        Burf    : function() {
-            return (
-                <>
-                    <p>마법공격력 1000증가</p>
-                    <p>마법공격력 30%증가</p>
-                    <p>모든기술 15증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC21",
-        Burf    : function() {
-            return (
-                <>
-                    <p>방어력 3000증가</p>
-                    <p>피해저항 7%증가</p>
-                    <p>순발력 50, 생명력 100증가</p>
-                    <p>치명타 피해저항 7%</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC22",
-        Burf    : function() {
-            return (
-                <>
-                    <p>물리 공격력 5000증가</p>
-                    <p>무기술 30증가</p>
-                    <p>순발력, 생명력 100증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC23",
-        Burf    : function() {
-            return (
-                <>
-                    <p>마법 공격력 30% 증가</p>
-                    <p>모든 기술 20증가</p>
-                    <p>순발력, 도력 120증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC24",
-        Burf    : function() {
-            return (
-                <>
-                    <p>방어력 4000 증가</p>
-                    <p>피해저항 7% 중거</p>
-                    <p>순발력 100 , 순발력 150증가</p>
-                </>
-          )}
+        Burf    : null
     },
     {
         heroId : "REC25",
@@ -390,11 +299,31 @@ export const horsePassive1 =  [
     },
     {
         heroId : "REC27",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>지휘버프(관직/행수 정용 ) + 오오라석 버프 </p>
+                    <p>ㄴ공격력 / 방어력 1% 부여</p>
+                    <p>* 지휘권한 보유 캐릭터 한정 적용</p>
+                    <p>ㄴ 대행수/행수 : 마을유저 한정 적용</p>
+                    <p>ㄴ 군주/판서 : 모든 유저 적용</p>
+                </>
+          )}
     },
     {
         heroId : "REC28",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p> 영웅 대기상태로 소환 시 적용 </p>
+                    <p>ㄴ 제조 시간 50% 감소</p>
+                    <p>ㄴ 레벨 30마다 생산,제조,채집 기술 레벨 1증가</p>
+                    <p>ㄴ 레벨 45마다 생산기술/품질 1%증가</p>
+                    <p>ㄴ 레벨 5마다 손재주 1증가</p>
+                    <p>ㄴ 레벨 4마다 행운 1증가</p>
+                    <p>ㄴ 농경, 어획, 채광술 레벨 10증가/ 시간20%감소</p>
+                </>
+          )}
     },
     {
         heroId : "REC29",
@@ -402,15 +331,45 @@ export const horsePassive1 =  [
     },
     {
         heroId : "REC30",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>  대기/공격 상태에 따라 적용 </p>
+                    <p>▷대기 : 소유자 원거리공격에 깊은상처1회</p>
+                    <p>▷공격 : 영웅의 원거리 공격에 깊은상처1회</p>
+                    <p>  *깊은상처란? </p>
+                    <p> ㄴ활 마법의 기본 패시브 스킬</p>
+                    <p> ㄴ타격 대상 이동속도 스킬 누적횟수*1만큼 하락</p>
+                    <p> ㄴ타격 마다(공격자레벨/10*깊은상처누적횟수)만큼 고정데미지 적용</p>
+                    <p> ㄴ스택당 방어력 0.3%증가 ( 최대 30% )</p>
+                </>
+          )}
     },
     {
         heroId : "REC31",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>갑옷 증폭</p>
+                    <p>▷크리티컬 피격 시 스택 1 누적</p>
+                    <p>ㄴ스택 3초간 지속</p>
+                    <p>ㄴ스택당 방어력 0.3%증가 ( 최대 30% )</p>
+                </>
+          )}
     },
     {
         heroId : "REC32",
-        Burf    : null
+        Burf    : function() {
+            return (
+                <>
+                    <p>영웅 대기 상태로 소환시 적용</p>
+                    <p>ㄴ제조 시간 50% 감소</p>
+                    <p>ㄴ레벨 5마다 손재주 1증가</p>
+                    <p>ㄴ레벨 4마다 행운 1증가</p>
+                    <p>ㄴ레벨 4마다 행운 1증가</p>
+                    <p>ㄴ1+레벨/25마다 생산/제작 기술 레벨 증가</p>
+                </>
+          )}
     },
     {
         heroId : "REC33",
@@ -949,10 +908,11 @@ export const heroSkill =  [
         Skill   : function() {
             return (
                    <>
-                        <p className="magic">모두 조아려라 ( SHIFT + 타겟 우클릭 )</p>
+                        <p className="magic">청의기운 ( SHIFT + 타겟 우클릭 )</p>
                         <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
-                        <p>모든 적 (PvP포함) 60% 확률 5초기절 ( 최대 5개체 )</p>
-                        <p>재사용시간 : 60 초 / 마법력 400 소모</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
                    </>
         )}
     },
@@ -984,24 +944,55 @@ export const heroSkill =  [
     },
     {
         heroId : "REC41",
-        Skill    : null
+        Skill    : function() {
+            return (
+                   <>
+                        <p className="magic">청의 기운 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC42",
-        Skill    : null
+        Skill    : function() {
+            return (
+                   <>
+                        <p className="magic">녹의 기운 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC43",
-        Skill    : null
+        Skill    : function() {
+            return (
+                   <>
+                        <p className="magic">백의 기운 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
+                   </>
+        )}
     },
     {
         heroId : "REC44",
         Skill   : function() {
             return (
                    <>
-                    
+                        <p className="magic">오색 및 요술 ( SHIFT + 타겟 우클릭 )</p>
+                        <p>▷지정 대상 (몬스터/캐릭터) 중심반경 3타일범위 내</p>
+                        <p>모든 적 (PvP포함) 물리데미지</p>
+                        <p>ㄴ 영웅레벨 X 10 만큼 물리데미지 적용</p>
+                        <p>재사용시간 : 180 초 / 마법력 영웅 레벨 만큼 소모</p>
                    </>
-      )}
+        )}
     }
 ]
 

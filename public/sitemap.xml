@@ -3,6 +3,7 @@
 <url> <loc>https://guridaek.com/</loc> </url>
 <url> <loc>https://guridaek.com/</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/horseHouseInfo/horseListInfo</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/horseHouseInfo/horseHouseWideMehodInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/horseHouseInfo/horseHouseWordInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/hongGilDongInfo/hongGilDongWordInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/recallHeroInfo/recallHeroWordInfo</loc> </url>
@@ -14,4 +15,5 @@
 <url> <loc>https://guridaek.com/gameInfo/systemOfKing/systemOfKingMacoThinking</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/staticsInfo/villageStaticsInfo</loc> </url>
 <url> <loc>https://guridaek.com/gameInfo/weaponRecommand/weaponRecommandInfo</loc> </url>
+<url> <loc>https://guridaek.com/gameInfo/staticsInfo/equipmentLent</loc> </url>
 </urlset>

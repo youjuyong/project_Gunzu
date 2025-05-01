@@ -9,9 +9,9 @@ import { ButtonTagTypeStyle  }    from '../../../src/utils/commonStyles';
 
 import { SkeleTonStyle             } from '../../../src/utils/commonStyles';
 import { AxiosCall, useQuerySingle, errorHandler, Token } from "../../utils/common/common";
-import EquipmentList from "./EqupmentList";
+import EquipmentList      from "./EqupmentList";
 import { API_IP_INFO    } from "../../utils/apiUrl";
-
+import MetaTag from "../../utils/common/SEOMetaTag";
 import "reactflow/dist/style.css";
 
 type Equip = {
@@ -95,6 +95,8 @@ const EquipmentLentCp = () => {
     }
 
     return (
+        <>
+        <MetaTag title="장비대여" description="장비대여 신청 페이지입니다." keywords="군주온라인, 장비대여"></MetaTag>
         <div id="event_wrap">  
         <ExquipmentFlowModal modalBoolean={flowModal.openValue} reload={reload} param={param} equipId={flowModal.equipId} setModalIsOpen={setFlowModal} lentStatus={flowModal.lentStatus}></ExquipmentFlowModal>
                     <article className="articlewrap">
@@ -154,6 +156,7 @@ const EquipmentLentCp = () => {
                         </div>
                     </article>
         </div>
+        </>
     )
 }
 

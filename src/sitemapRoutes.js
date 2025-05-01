@@ -5,6 +5,7 @@ export default (
     <Route>
         <Route path="/"  />
         <Route path="/gameInfo/horseHouseInfo/horseListInfo" />
+        <Route path="/gameInfo/horseHouseInfo/horseHouseWideMehodInfo" />
         <Route path="/gameInfo/horseHouseInfo/horseHouseWordInfo" />
 
         <Route path="/gameInfo/hongGilDongInfo/hongGilDongWordInfo" />
@@ -20,5 +21,7 @@ export default (
 
         <Route path="/gameInfo/staticsInfo/villageStaticsInfo" />
         <Route path="/gameInfo/weaponRecommand/weaponRecommandInfo" />
+
+        <Route path="/gameInfo/staticsInfo/equipmentLent" />
     </Route>
 );
